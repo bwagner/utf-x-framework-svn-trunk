@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-module
+  type="WEB"
+  name="utfx"
+  id="myeclipse.1140842783031"
+  context-root="/utfx"
+  j2ee-spec="1.4"
+  archive="utfx.war">
+  <attributes>
+    <attribute name="webrootdir" value="/web_apps/front_end" />
+  </attributes>
+</project-module>
+

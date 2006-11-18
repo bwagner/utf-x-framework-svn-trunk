@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document>
+	<para target="web">
+		This paragraph should only be delivered to the Web.
+	</para>
+	<para target="print">
+		This paragraph should only be delivered to the Print.
+	</para>
+	<para>
+		This paragraph should be delivered to both Web and Print.
+	</para>
+</document>

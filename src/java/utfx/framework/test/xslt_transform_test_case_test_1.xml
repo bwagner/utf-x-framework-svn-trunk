@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- this test definition file is used for testing XSLTTransformTestCase class to make sure it 
+    loads test definition files correctly.   UTFX tests defined in this file are not actually 
+    every executed -->
+<!DOCTYPE utfx:tests PUBLIC "-//UTF-X//DTD utfx-tests 1.0//EN" "utfx_tests.dtd">
+
+<utfx:tests xmlns:utfx="http://utfx.org/test-definition">
+	<utfx:stylesheet src="test/xslt_transform_test_case_test_1.xsl" />
+
+<utfx:source-validation>
+    <utfx:dtd system="xslt_transform_test_case_source_1.dtd"/>
+</utfx:source-validation>
+
+<utfx:expected-validation>
+    <utfx:dtd system="xslt_transform_test_case_expected_1.dtd"/>
+</utfx:expected-validation>
+
+<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+<!-- test case 1-->
+<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+<utfx:test>
+	<utfx:name>test case 1</utfx:name>
+	<utfx:assert-equal>
+		<utfx:source validate="no" use-source-parser="no">
+            <source-child>some content</source-child>
+		</utfx:source>
+		<utfx:expected validate="no">
+            <expected-child>some content</expected-child>
+		</utfx:expected>
+		<utfx:message>this is the failure message</utfx:message>
+	</utfx:assert-equal>
+</utfx:test>
+
+<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+<!-- test case 2 -->
+<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+<utfx:test>
+	<utfx:name>test case 2</utfx:name>
+	<utfx:assert-equal>
+		<utfx:source validate="yes" use-source-parser="yes">
+            <source-root>
+                <source-child>child</source-child>
+            </source-root>
+		</utfx:source>
+		<utfx:expected validate="yes">
+            <expected-root>
+                <expected-child>child</expected-child>
+            </expected-root>
+		</utfx:expected>
+		<utfx:message>some failure message</utfx:message>
+	</utfx:assert-equal>
+</utfx:test>
+
+
+</utfx:tests>

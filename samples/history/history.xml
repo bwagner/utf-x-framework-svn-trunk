@@ -1,0 +1,394 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="history_xhtml.xsl"?>
+<!--
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    $Id: history.xml,v 1.1.2.13 2006/10/30 04:27:27 jacekrad Exp $
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    
+    Purpose: UTF-X project change history.
+    
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    
+    Copyright(C) 2006 UTF-X Development Team.
+    
+    This program is free software; you can redistribute it and/or modify
+    it under the terms of the GNU General Public License v2 as published
+    by the Free Software Foundation (http://www.gnu.org/licenses/gpl.txt)
+    
+    This program is distributed in the hope that it will be useful, but
+    WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+    General Public License for more details.
+    
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-->
+<!DOCTYPE history:history [
+<!ENTITY issuezilla-extract SYSTEM "issues.xml">
+<!ENTITY cvs-log-sourceforge SYSTEM "cvs_log_sourceforge.xml">
+<!ENTITY cvs-log-java-net SYSTEM "cvs_log_java_net.xml">
+]>
+<history:history
+    xmlns:history="http://utf-x.sourceforge.net/xsd/history_1_0/history.xsd"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://utf-x.sourceforge.net/xsd/history_1_0/history.xsd history.xsd">
+    <history:release>
+        <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+        <history:name>0.0.9 alpha</history:name>
+        <history:date>not yet released</history:date>
+        <history:tag>release_0_0_9_alpha</history:tag>
+        <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+
+        <history:change type="bug-fix">
+            <history:date>????</history:date>
+            <history:issue>57</history:issue>
+            <history:comment>?????</history:comment>
+        </history:change>
+
+        <history:change type="enhancement">
+            <history:date>2006-09-29</history:date>
+            <history:issue>64</history:issue>
+            <history:comment>Full regression test has been broken up into three
+                regression tests: Java, Samples and Tests. Each of the sub
+                regression tests can now be ran individually.</history:comment>
+        </history:change>
+
+        <history:change type="enhancement">
+            <history:date>2006-10-29</history:date>
+            <history:issue>65</history:issue>
+            <history:comment>Tests have been grouped into three categories:
+                good, failing and error. This allows for easier automated
+                testing and result checking.</history:comment>
+        </history:change>
+
+        <history:change type="bug-fix">
+            <history:date>2006-09-05</history:date>
+            <history:issue>61</history:issue>
+            <history:comment>Corrected TestGenerator usage
+            message.</history:comment>
+        </history:change>
+
+        <history:change type="bug-fix">
+            <history:date>2006-09-09</history:date>
+            <history:issue>62</history:issue>
+            <history:comment>Added support for normalisation of whitespace
+                inside elements. This feature is useful when large content
+                chunks are used in utfx:source and/or utfx:expected
+            elements.</history:comment>
+        </history:change>
+
+        <history:change type="bug-fix">
+            <history:date>2006-09-05</history:date>
+            <history:issue>63</history:issue>
+            <history:comment>Fixed typos in build.xml. Patch sent by Tony
+            Graham</history:comment>
+        </history:change>
+
+        <history:change type="bug-fix">
+            <history:date>2006-09-02</history:date>
+            <history:issue>47</history:issue>
+            <history:comment>Fixed the test files by making them as binary in
+                CVS. This stops CVS from changing End Of Line characters upon
+                checkout. Corrected CanonicalForm implementation to correctly
+                convert all EOL characters to '\n';</history:comment>
+        </history:change>
+
+        <history:change type="bug-fix">
+            <history:date>2006-09-02</history:date>
+            <history:issue>49</history:issue>
+            <history:comment>Fixed the test file by making setting as binary in
+                CVS. CVS now correctly checks out the UTF-16 encoded file under
+                Windows without converting EOL characters and therefore breaking
+                the file.</history:comment>
+        </history:change>
+
+    </history:release>
+
+    <history:release>
+        <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+        <history:name>0.0.8 alpha</history:name>
+        <history:date>26 August 2006</history:date>
+        <history:tag>release_0_0_8_alpha</history:tag>
+        <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+
+        <history:change type="enhancement">
+            <history:date>Not completed</history:date>
+            <history:issue>44</history:issue>
+            <history:comment>TODO JACEK</history:comment>
+        </history:change>
+
+        <history:change type="bug-fix">
+            <history:date>2006-08-23</history:date>
+            <history:issue>47</history:issue>
+            <history:comment>Fix for CR/LF problem on Windows in CanonicalForm
+                class which transforms an XML document into its canonical
+            form.</history:comment>
+        </history:change>
+
+        <history:change type="bug-fix">
+            <history:date>2006-08-23</history:date>
+            <history:issue>35</history:issue>
+            <history:comment>Major improvements to rendering XSL:FO Test
+                Definition Files.</history:comment>
+        </history:change>
+
+        <history:change type="feature">
+            <history:date>2006-08-23</history:date>
+            <history:issue>51</history:issue>
+            <history:comment>New (default) option to render the test results
+                into a HTML report and automatically open the file in browser
+                after the test run.</history:comment>
+        </history:change>
+
+        <history:change type="enhancement">
+            <history:date>2006-08-23</history:date>
+            <history:issue>54</history:issue>
+            <history:comment>utfx.jar now includes all required libraries in
+                Class-Path property found in the manifest. Now you only need
+                utfx.jar in your CLASSPATH to run the software from a command
+                line</history:comment>
+        </history:change>
+
+        <history:change type="bug-fix">
+            <history:date>2006-08-23</history:date>
+            <history:issue>45</history:issue>
+            <history:comment>Major improvements to rendering of XHTML Test
+                Definition Files.</history:comment>
+        </history:change>
+
+        <history:change type="bug-fix">
+            <history:date>2006-08-22</history:date>
+            <history:issue>52</history:issue>
+            <history:comment>Fixed a bug whereby XMLResultPrinter did not output
+                test name when printing error summary.</history:comment>
+        </history:change>
+
+        <history:change type="feature">
+            <history:date>2006-08-22</history:date>
+            <history:issue>50</history:issue>
+            <history:comment>Generation of test skeleton for named templates
+                with parameters.</history:comment>
+        </history:change>
+
+        <history:change type="feature">
+            <history:date>2006-08-18</history:date>
+            <history:issue>22</history:issue>
+            <history:comment>If you use a CSS stylesheet to style your generated
+                (via XSLT) HTML, you can now use this CSS stylesheet when
+                rendering your test definition file. This feature gives the
+                expected fragment rendition a true look and feel when rendering
+                HTML TDFs.</history:comment>
+        </history:change>
+
+        <history:change type="bug-fix">
+            <history:date>2006-08-11</history:date>
+            <history:issue>49</history:issue>
+            <history:comment>TestRunner now reports errors correctly in the test
+                execution summary when executed with a single file
+                (utfx.test.file).</history:comment>
+        </history:change>
+
+        <history:change type="bug-fix">
+            <history:date>2006-08-09</history:date>
+            <history:issue>42</history:issue>
+            <history:comment>Added support for absolute XPath expressions in the
+                stylesheet under test. Additionally the context node can be set
+                with the context-node attribute in the utfx:source
+            element.</history:comment>
+        </history:change>
+
+        <history:change type="bug-fix">
+            <history:date>2006-08-08</history:date>
+            <history:issue>46</history:issue>
+            <history:comment>UTF-8 is now used in all String->byte[] and vice
+                versa conversions</history:comment>
+        </history:change>
+
+        <history:change type="feature">
+            <history:date>2006-08-03</history:date>
+            <history:issue>24</history:issue>
+            <history:comment>Added support for named template and stylesheet
+                parameters.</history:comment>
+        </history:change>
+
+        <history:change type="enhancement">
+            <history:date>2006-04-01</history:date>
+            <history:issue>34</history:issue>
+            <history:comment>Cleaned up the address book
+            sample</history:comment>
+        </history:change>
+
+        <history:change type="bug-fix">
+            <history:date>2006-08-02</history:date>
+            <history:issue>40</history:issue>
+            <history:comment>The imported stylesheet filename is now correctly
+                converted to a relative URI to match the XSLT specification and
+                Saxon8 implementation.</history:comment>
+        </history:change>
+
+        <history:change type="enhancement">
+            <history:date>2006-04-01</history:date>
+            <history:issue>33</history:issue>
+            <history:comment>You can now pass a sample XML document to the
+                TestGenerator. By doing so the TestGenerator will generate a
+                more meaningful Test Definition File.</history:comment>
+        </history:change>
+
+        <history:change type="enhancement">
+            <history:date>2006-04-01</history:date>
+            <history:issue>37</history:issue>
+            <history:comment>Added a basic XSLT 2.0 stylesheet and a
+                corresponding Test Definition File.</history:comment>
+        </history:change>
+        <!--
+        I left this one out because resolution was WORKSFORME 
+	<history:change>
+            <history:date>2006-04-01</history:date>
+            <history:issue>41</history:issue>
+            <history:comment></history:comment>
+        </history:change>
+        -->
+    </history:release>
+
+
+    <history:release>
+        <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+        <history:name>0.0.7 alpha</history:name>
+        <history:date>2006-03-26</history:date>
+        <history:tag>release_0_0_7_alpha</history:tag>
+        <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+        <history:change type="bug-fix">
+            <history:date>2006-03-19</history:date>
+            <history:issue>21</history:issue>
+            <history:comment>Attributes are now printed except for xmlspace.
+                xmlns: etc</history:comment>
+        </history:change>
+        <history:change type="enhancement">
+            <history:date>2006-03-19</history:date>
+            <history:issue>25</history:issue>
+            <history:comment>Full regression test now runs all the samples once
+                per each supported XSLT engine</history:comment>
+        </history:change>
+        <history:change type="bug-fix">
+            <history:date>2006-03-19</history:date>
+            <history:issue>28</history:issue>
+            <history:comment>Broken TDF or XSLT stylesheet now produces an error
+                in the report</history:comment>
+        </history:change>
+        <history:change type="bug-fix">
+            <history:date>2006-03-19</history:date>
+            <history:issue>29</history:issue>
+            <history:comment>Fixed</history:comment>
+        </history:change>
+        <!--
+        This wasn't a real bug 
+        <history:change>
+            <history:date>2006-03-19</history:date>
+            <history:issue>31</history:issue>
+            <history:comment/>
+        </history:change>
+        -->
+        <history:change type="enhancement">
+            <history:date>2006-03-19</history:date>
+            <history:issue>32</history:issue>
+            <history:comment>Regression test results can now be rendered to
+            HTML</history:comment>
+        </history:change>
+    </history:release>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <history:release>
+        <history:name>0.0.6 alpha</history:name>
+        <history:date>21 August 2005</history:date>
+        <history:tag>release_0_0_6_alpha</history:tag>
+        <history:change type="bug-fix">
+            <history:date>2005-08-07</history:date>
+            <history:issue>3</history:issue>
+            <history:comment/>
+        </history:change>
+        <history:change type="bug-fix">
+            <history:date>2005-03-31</history:date>
+            <history:issue>7</history:issue>
+            <history:comment/>
+        </history:change>
+        <history:change type="bug-fix">
+            <history:date>2005-04-05</history:date>
+            <history:issue>8</history:issue>
+            <history:comment/>
+        </history:change>
+        <history:change type="bug-fix">
+            <history:date>2005-04-01</history:date>
+            <history:issue>9</history:issue>
+            <history:comment/>
+        </history:change>
+        <history:change type="bug-fix">
+            <history:date>2005-07-11</history:date>
+            <history:issue>13</history:issue>
+            <history:comment/>
+        </history:change>
+        <history:change type="bug-fix">
+            <history:date>2005-05-25</history:date>
+            <history:issue>14</history:issue>
+            <history:comment/>
+        </history:change>
+        <history:change type="bug-fix">
+            <history:date>2005-05-26</history:date>
+            <history:issue>15</history:issue>
+            <history:comment/>
+        </history:change>
+        <history:change type="feature">
+            <history:date>2005-08-23</history:date>
+            <history:issue>17</history:issue>
+            <history:comment/>
+        </history:change>
+        <history:change type="bug-fix">
+            <history:date>2005-08-07</history:date>
+            <history:issue>19</history:issue>
+            <history:comment/>
+        </history:change>
+    </history:release>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <history:release>
+        <history:name>0.0.5 alpha</history:name>
+        <history:date>26 March 2005</history:date>
+        <history:tag>release_0_0_5_alpha</history:tag>
+    </history:release>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <history:release>
+        <history:name>0.0.4 alpha</history:name>
+        <history:date>14 March 2005</history:date>
+        <history:tag>release_0_0_4_alpha</history:tag>
+        <history:change type="bug-fix">
+            <history:date>2005-03-15</history:date>
+            <history:issue>2</history:issue>
+            <history:comment/>
+        </history:change>
+        <history:change type="enhancement">
+            <history:date>2005-03-15</history:date>
+            <history:issue>1</history:issue>
+            <history:comment/>
+        </history:change>
+    </history:release>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <history:release>
+        <history:name>0.0.3 alpha</history:name>
+        <history:date>20 February 2005</history:date>
+        <history:tag>release_0_0_3_alpha</history:tag>
+    </history:release>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <history:release>
+        <history:name>0.0.2 alpha</history:name>
+        <history:date>7 February 2005</history:date>
+        <history:tag>release_0_0_2_alpha</history:tag>
+    </history:release>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <history:release>
+        <history:name>0.0.1 alpha</history:name>
+        <history:date>31 January 2005</history:date>
+        <history:tag>release_0_0_1_alpha</history:tag>
+    </history:release>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <!-- include external files -->
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <history:issuezilla-extract>&issuezilla-extract;</history:issuezilla-extract>
+    <history:cvs-log-sourceforge>&cvs-log-sourceforge;</history:cvs-log-sourceforge>
+    <history:cvs-log-java-net>&cvs-log-java-net;</history:cvs-log-java-net>
+</history:history>

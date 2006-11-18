@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	$Id: address_book.xml,v 1.9 2006/07/29 19:31:11 jacekrad Exp $
+	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	
+	address book sample XML content file
+	
+	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	
+	Copyright(C) 2004-2006 UTF-X development team.
+	
+	You may redistribute and/or modify under the terms of the GNU 
+	General Public License v2.
+	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-->
+<!DOCTYPE address-book PUBLIC "-//UTF-X//DTD address_book 1.0//EN" "address_book.dtd" >
+<address-book>
+
+	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+	<!-- entry 1 -->
+	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+	<address-entry>
+		<person>
+			<first-name>Jacek</first-name>
+			<middle-name>Wojciech</middle-name>
+			<last-name>Radajewski</last-name>
+		</person>
+		<street-address>
+			<street>Any St.</street>
+			<city>Toowoomba</city>
+			<state>QLD</state>
+			<post-code>4350</post-code>
+		</street-address>
+		<home-telephone>
+			<number>46589757</number>
+		</home-telephone>
+	</address-entry>
+
+	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+	<!-- entry 2 -->
+	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+	<address-entry>
+		<person>
+			<first-name>John</first-name>
+			<middle-name>Michael</middle-name>
+			<last-name>Smith</last-name>
+		</person>
+		<street-address>
+			<street>P.O. Box 9999</street>
+			<city>Brisbane</city>
+			<state>QLD</state>
+			<post-code>4000</post-code>
+		</street-address>
+		<home-telephone>
+			<area-code>07</area-code>
+			<number>38774526</number>
+		</home-telephone>
+		<work-telephone>
+			<area-code>07</area-code>
+			<number>38769986</number>
+		</work-telephone>
+	</address-entry>
+
+	<address-entry>
+		<person>
+			<first-name>Fred</first-name>
+			<middle-name>Barney</middle-name>
+			<last-name>Hill</last-name>
+		</person>
+		<street-address>
+			<street>Long Street</street>
+			<city>Epping</city>
+			<state>NSW</state>
+			<post-code>2121</post-code>
+		</street-address>
+		<home-telephone>
+			<area-code>02</area-code>
+			<number>12345678</number>
+		</home-telephone>
+		<work-telephone>
+			<area-code>02</area-code>
+			<number>87654321</number>
+		</work-telephone>
+	</address-entry>
+
+	<address-entry>
+		<person>
+			<first-name>Richard</first-name>
+			<last-name>Stallman</last-name>
+		</person>
+		<street-address>
+			<street>GNU Street</street>
+			<city>LA</city>
+			<state>CA</state>
+			<post-code>67213</post-code>
+		</street-address>
+	</address-entry>
+
+	<address-entry>
+		<person>
+			<first-name>James</first-name>
+			<last-name>Gosling</last-name>
+		</person>
+		<street-address>
+			<street>Java Ave</street>
+			<city>San Francisco</city>
+			<state>CA</state>
+			<post-code>65872</post-code>
+		</street-address>
+	</address-entry>
+
+	<address-entry>
+		<person>
+			<first-name>John</first-name>
+			<middle-name>Maddog</middle-name>
+			<last-name>Hall</last-name>
+		</person>
+		<street-address>
+			<street>dfsg</street>
+			<city>Washington</city>
+			<state>NY</state>
+			<post-code>458343</post-code>
+		</street-address>
+	</address-entry>
+
+	<address-entry>
+		<person>
+			<first-name>Linus</first-name>
+			<last-name>Torvalds</last-name>
+		</person>
+		<street-address>
+			<street>Kernel Lane</street>
+			<city>Linuxton</city>
+			<state>NA</state>
+			<post-code>437986</post-code>
+		</street-address>
+		<mobile-telephone>
+			<area-code>455</area-code>
+			<number>243662317</number>
+		</mobile-telephone>
+	</address-entry>
+
+	<address-entry>
+		<person>
+			<first-name>Donald</first-name>
+			<last-name>Becker</last-name>
+		</person>
+		<street-address>
+			<street>Beowulf St</street>
+			<city>NY</city>
+			<state>NY</state>
+			<post-code>875462</post-code>
+		</street-address>
+		<home-telephone>
+			<area-code>230</area-code>
+			<number>43289764</number>
+		</home-telephone>
+	</address-entry>
+
+	<address-entry>
+		<person>
+			<first-name>John</first-name>
+			<last-name>Bosak</last-name>
+		</person>
+		<street-address>
+			<street>Sunny Street</street>
+			<city>Santa Barbara</city>
+			<state>CA</state>
+			<post-code>6732143</post-code>
+			<country>USA</country>
+		</street-address>
+		<work-telephone>
+			<area-code>235</area-code>
+			<number>432123132</number>
+		</work-telephone>
+	</address-entry>
+
+	<address-entry>
+		<person>
+			<first-name>Tomas</first-name>
+			<last-name>Sterling</last-name>
+		</person>
+		<street-address>
+			<street>Beowulf Street</street>
+			<city>Beowulf City</city>
+			<state>WA</state>
+			<post-code>72354672</post-code>
+			<country>USA</country>
+		</street-address>
+		<work-telephone>
+			<number>52374964</number>
+		</work-telephone>
+		<mobile-telephone>
+			<number>92875475</number>
+		</mobile-telephone>
+	</address-entry>
+</address-book>

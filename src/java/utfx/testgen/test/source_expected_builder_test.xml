@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<doc>
+    <element>
+        <another-element>
+            <text>some text in here</text>
+        </another-element>
+    </element>
+    <something-else>
+        <something-else-still>
+            <text>more text</text>
+        </something-else-still>
+    </something-else>
+</doc>

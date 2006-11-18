@@ -1,0 +1,2560 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<changes>
+<day-changes date="2006-08-01">
+<zone></zone>
+<author>Jacek Radajewski</author>
+<email>jacekrad@dev.java.net</email>
+<change>
+<files>
+<file revision="1.2">/cvs/utf-x/framework/src/java/utfx/samples/UTFXDocPreProcessor.java</file>
+</files>
+<log><![CDATA[javadoc only
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.12">/cvs/utf-x/framework/doc/manual/manual.xml</file>
+</files>
+<log><![CDATA[added xml:space="preserve" attribute to keep XML nicely formatted
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.10">/cvs/utf-x/framework/doc/devguide/devguide.xml</file>
+<file revision="1.2">/cvs/utf-x/framework/doc/devguide/images/eclipse/cvs_checkout_3.png</file>
+<file revision="1.2">/cvs/utf-x/framework/doc/devguide/images/eclipse/cvs_checkout_4.png</file>
+<file revision="1.2">/cvs/utf-x/framework/doc/devguide/images/eclipse/cvs_checkout_6.png</file>
+<file revision="1.2">/cvs/utf-x/framework/doc/devguide/images/eclipse/cvs_checkout_1.png</file>
+<file revision="1.2">/cvs/utf-x/framework/doc/devguide/images/eclipse/cvs_checkout_5.png</file>
+<file revision="1.2">/cvs/utf-x/framework/doc/devguide/images/eclipse/cvs_checkout_2.png</file>
+<file revision="1.2">/cvs/utf-x/framework/doc/devguide/images/eclipse/cvs_checkout_7.png</file>
+</files>
+<log><![CDATA[updated for eclipse 3.2
+]]></log>
+</change>
+</day-changes><day-changes date="2006-07-30">
+<zone></zone>
+<author>Jacek Radajewski</author>
+<email>jacekrad@dev.java.net</email>
+<change>
+<files>
+<file revision="1.9">/cvs/utf-x/framework/samples/utfxdoc/utfxdoc_xhtml.xsl</file>
+</files>
+<log><![CDATA[corrected code-block alignment
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.8">/cvs/utf-x/framework/samples/utfxdoc/utfxdoc_xhtml.xsl</file>
+</files>
+<log><![CDATA[small typo in one of the css styles
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.10">/cvs/utf-x/framework/samples/utfxdoc/utfxdoc_fo.xsl</file>
+</files>
+<log><![CDATA[now use the new xmlverbatim to syntax hihlight XML; XML infigures are now rendered
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.2">/cvs/utf-x/framework/samples/utfxdoc/xmlverbatim_fo.xsl</file>
+</files>
+<log><![CDATA[completed
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.1">/cvs/utf-x/framework/samples/utfxdoc/xmlverbatim_fo.xsl</file>
+</files>
+<log><![CDATA[copied from the xhtml version
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.6">/cvs/utf-x/framework/.classpath</file>
+</files>
+<log><![CDATA[updated; now longer use web root for storing classes
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.7">/cvs/utf-x/framework/samples/utfxdoc/utfxdoc.dtd</file>
+</files>
+<log><![CDATA[obsolete; replaced by w3c schema
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.7">/cvs/utf-x/framework/samples/utfxdoc/utfxdoc_xhtml.xsl</file>
+</files>
+<log><![CDATA[corrected name of imported stylesheet
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.4">/cvs/utf-x/framework/.settings/org.eclipse.jdt.core.prefs</file>
+</files>
+<log><![CDATA[corrected handling of comments
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.7">/cvs/utf-x/framework/src/java/utfx/framework/ConfigurationManager.java</file>
+</files>
+<log><![CDATA[cleanup only
+]]></log>
+</change>
+</day-changes><day-changes date="2006-07-29">
+<zone></zone>
+<author>Jacek Radajewski</author>
+<email>jacekrad@dev.java.net</email>
+<change>
+<files>
+<file revision="1.1">/cvs/utf-x/framework/samples/utfxdoc/xmlverbatim_xhtml.xsl</file>
+<file revision="1.2">/cvs/utf-x/framework/samples/utfxdoc/xmlverbatim.xsl</file>
+</files>
+<log><![CDATA[renamed because we are also going to have equivalent FO stylesheet
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.1">/cvs/utf-x/framework/src/xsd/.cvsignore</file>
+<file revision="1.1">/cvs/utf-x/framework/doc/.cvsignore</file>
+</files>
+<log><![CDATA[*** empty log message ***
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.11">/cvs/utf-x/framework/doc/manual/manual.xml</file>
+<file revision="1.9">/cvs/utf-x/framework/doc/devguide/devguide.xml</file>
+</files>
+<log><![CDATA[updated to match the updated schema and stylesheets
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.1">/cvs/utf-x/framework/build/.cvsignore</file>
+</files>
+<log><![CDATA[*** empty log message ***
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.1">/cvs/utf-x/framework/src/java/utfx/tdf/TestDefinitionFileAssembler.java</file>
+<file revision="1.1">/cvs/utf-x/framework/src/java/utfx/tdf/XMLDocumentFragment.java</file>
+<file revision="1.1">/cvs/utf-x/framework/src/java/utfx/tdf/TestDefinitionFile.java</file>
+</files>
+<log><![CDATA[code for the new TDF
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.1">/cvs/utf-x/framework/.settings/org.eclipse.jdt.ui.prefs</file>
+<file revision="1.3">/cvs/utf-x/framework/.settings/org.eclipse.jdt.core.prefs</file>
+</files>
+<log><![CDATA[updated project proferences
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.5">/cvs/utf-x/framework/src/xsl/wrapper.xsl</file>
+</files>
+<log><![CDATA[reverted to old namespace
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.3">/cvs/utf-x/framework/samples/utfxdoc/utfxdoc.xsd</file>
+</files>
+<log><![CDATA[figure can now also contain XML
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.6">/cvs/utf-x/framework/samples/utfxdoc/utfxdoc_xhtml.xsl</file>
+</files>
+<log><![CDATA[styled code block (XML)
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.1">/cvs/utf-x/framework/samples/address_book/.cvsignore</file>
+</files>
+<log><![CDATA[*** empty log message ***
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.9">/cvs/utf-x/framework/samples/address_book/address_book.xml</file>
+</files>
+<log><![CDATA[copyright
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.9">/cvs/utf-x/framework/samples/utfxdoc/utfxdoc_fo.xsl</file>
+<file revision="1.5">/cvs/utf-x/framework/samples/utfxdoc/utfxdoc_xhtml.xsl</file>
+<file revision="1.2">/cvs/utf-x/framework/samples/utfxdoc/utfxdoc.xsd</file>
+<file revision="1.1">/cvs/utf-x/framework/samples/utfxdoc/xmlverbatim.xsl</file>
+<file revision="1.1">/cvs/utf-x/framework/src/java/utfx/samples/UTFXDocPreProcessor.java</file>
+<file revision="1.1">/cvs/utf-x/framework/samples/utfxdoc/xml.xsd</file>
+</files>
+<log><![CDATA[updated utf-x doc; implemented numbering
+]]></log>
+</change>
+</day-changes><day-changes date="2006-07-25">
+<zone></zone>
+<author>sridhanya</author>
+<email>sridhanya@dev.java.net</email>
+<change>
+<files>
+<file revision="1.11">/cvs/utf-x/framework/src/java/utfx/framework/TestFileSuiteAssembler.java</file>
+</files>
+<log><![CDATA[Issue number:  #40
+Obtained from: 
+Submitted by:  Sridhanya
+Reviewed by:   Jacek
+Modified the xsltFile variable.Hence it is  a URI instead of a file name
+]]></log>
+</change>
+</day-changes><day-changes date="2006-07-22">
+<zone></zone>
+<author>Jacek Radajewski</author>
+<email>jacekrad@dev.java.net</email>
+<change>
+<files>
+<file revision="1.2">/cvs/utf-x/framework/Makefile</file>
+</files>
+<log><![CDATA[gone
+]]></log>
+</change>
+</day-changes><day-changes date="2006-07-19">
+<zone></zone>
+<author>Jacek Radajewski</author>
+<email>jacekrad@dev.java.net</email>
+<change>
+<files>
+<file revision="1.1">/cvs/utf-x/framework/samples/utfxdoc/utfxdoc.xsd</file>
+</files>
+<log><![CDATA[first version of utfxdoc schema
+]]></log>
+</change>
+</day-changes><day-changes date="2006-07-14">
+<zone></zone>
+<author>Jacek Radajewski</author>
+<email>jacekrad@dev.java.net</email>
+<change>
+<files>
+<file revision="1.5">/cvs/utf-x/framework/src/java/utfx/framework/UTFXNamespaceContext.java</file>
+</files>
+<log><![CDATA[Issue number: 38
+added back the old namespace so we can maintain backwards compatibility
+old namespace uses utfx and new namespace tdf prefixes
+samples need to be updated to reflect this change
+]]></log>
+</change>
+</day-changes><day-changes date="2006-07-08">
+<zone></zone>
+<author>Jacek Radajewski</author>
+<email>jacekrad@dev.java.net</email>
+<change>
+<files>
+<file revision="1.3">/cvs/utf-x/framework/src/xsd/tdf.xsd</file>
+</files>
+<log><![CDATA[Issue number:  38
+work in progress; tests have NOT yet been updated to match changes made here
+]]></log>
+</change>
+</day-changes><day-changes date="2006-06-30">
+<zone></zone>
+<author>Jacek Radajewski</author>
+<email>jacekrad@dev.java.net</email>
+<change>
+<files>
+<file revision="1.4">/cvs/utf-x/framework/src/xsl/wrapper.xsl</file>
+</files>
+<log><![CDATA[corrected namespace URI
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.4">/cvs/utf-x/framework/src/java/utfx/framework/test/source_builder_loader_test_1.xml</file>
+<file revision="1.5">/cvs/utf-x/framework/src/java/utfx/framework/test/source_builder_loader_test_3.xml</file>
+<file revision="1.3">/cvs/utf-x/framework/src/java/utfx/framework/test/xslt_transform_test_case_test_1.xml</file>
+<file revision="1.5">/cvs/utf-x/framework/src/java/utfx/framework/test/source_builder_loader_test_2.xml</file>
+</files>
+<log><![CDATA[Issue number:  38
+corrected namespace
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.4">/cvs/utf-x/framework/src/xsl/test_definition_fo.xsl</file>
+<file revision="1.9">/cvs/utf-x/framework/src/xsl/test_definition_xhtml.xsl</file>
+</files>
+<log><![CDATA[corrected namespace URI
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.2">/cvs/utf-x/framework/src/xsd/tdf.xsd</file>
+</files>
+<log><![CDATA[refactoring and new feature implementation in progress
+]]></log>
+</change>
+</day-changes><day-changes date="2006-06-29">
+<zone></zone>
+<author>Jacek Radajewski</author>
+<email>jacekrad@dev.java.net</email>
+<change>
+<files>
+<file revision="1.7">/cvs/utf-x/framework/src/java/utfx/testgen/TestGenerator.java</file>
+</files>
+<log><![CDATA[Issue number:  38
+test generator now references the schema rather than the DTD
+uses correct namespace
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.5">/cvs/utf-x/framework/samples/address_book/address_book_fo.xsl</file>
+<file revision="1.7">/cvs/utf-x/framework/samples/address_book/address_book_xhtml.xsl</file>
+</files>
+<log><![CDATA[Issue number: 34
+both stylesheet now work the same way template for template
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.4">/cvs/utf-x/framework/samples/address_book/address_book_fo.xsl</file>
+<file revision="1.8">/cvs/utf-x/framework/samples/address_book/address_book.xml</file>
+</files>
+<log><![CDATA[Issue number:  34
+FO stylesheet is now in synch with the HTML stylesheet
+still need to review both and make them behave the same way so this will be the simplest and most clear sample.  Tests have not yet been updated
+]]></log>
+</change>
+</day-changes><day-changes date="2006-06-28">
+<zone></zone>
+<author>Jacek Radajewski</author>
+<email>jacekrad@dev.java.net</email>
+<change>
+<files>
+<file revision="1.5">/cvs/utf-x/framework/samples/address_book/address_book.dtd</file>
+<file revision="1.6">/cvs/utf-x/framework/samples/address_book/address_book_xhtml.xsl</file>
+<file revision="1.7">/cvs/utf-x/framework/samples/address_book/address_book.xml</file>
+</files>
+<log><![CDATA[working implementation
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.3">/cvs/utf-x/framework/samples/address_book/address_book_fo.xsl</file>
+<file revision="1.5">/cvs/utf-x/framework/samples/address_book/address_book_xhtml.xsl</file>
+<file revision="1.4">/cvs/utf-x/framework/samples/address_book/test/address_book_fo_test.xml</file>
+<file revision="1.6">/cvs/utf-x/framework/samples/address_book/test/address_book_xhtml_test.xml</file>
+<file revision="1.4">/cvs/utf-x/framework/samples/address_book/address_book.dtd</file>
+<file revision="1.6">/cvs/utf-x/framework/samples/address_book/address_book.xml</file>
+</files>
+<log><![CDATA[Issue number:  34
+reverted to revisions released in 0.0.0 alpha
+]]></log>
+</change>
+</day-changes><day-changes date="2006-06-05">
+<zone></zone>
+<author>Jacek Radajewski</author>
+<email>jacekrad@dev.java.net</email>
+<change>
+<files>
+<file revision="1.2">/cvs/utf-x/framework/samples/address_book/address_book_fo.xsl</file>
+</files>
+<log><![CDATA[Issue number:  34
+I think I'm checking in a file that Sridhanya sent me
+I don't rememmber making these changes :)
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.33">/cvs/utf-x/framework/build.xml</file>
+</files>
+<log><![CDATA[Issue number:  23
+some work done on this issue
+]]></log>
+</change>
+</day-changes><day-changes date="2006-06-04">
+<zone></zone>
+<author>Jacek Radajewski</author>
+<email>jacekrad@dev.java.net</email>
+<change>
+<files>
+<file revision="1.4">/cvs/utf-x/framework/src/java/utfx/framework/UTFXNamespaceContext.java</file>
+</files>
+<log><![CDATA[Issue number:  38
+updated test definition file namespace uri
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.2">/cvs/utf-x/framework/tests/test/broken_stylesheet_test.xml</file>
+<file revision="1.7">/cvs/utf-x/framework/tests/test/core_tests_test.xml</file>
+<file revision="1.2">/cvs/utf-x/framework/tests/test/namespace_tests_test.xml</file>
+<file revision="1.2">/cvs/utf-x/framework/tests/test/xslt_2_0_tests_test.xml</file>
+<file revision="1.2">/cvs/utf-x/framework/tests/test/not_well_formed_tdf_test.xml</file>
+<file revision="1.5">/cvs/utf-x/framework/samples/utfxdoc/test/utfxdoc_xhtml_test.xml</file>
+<file revision="1.4">/cvs/utf-x/framework/samples/utfxdoc/test/utfxdoc_fo_test.xml</file>
+<file revision="1.3">/cvs/utf-x/framework/samples/address_book/test/address_book_fo_test.xml</file>
+<file revision="1.5">/cvs/utf-x/framework/samples/address_book/test/address_book_xhtml_test.xml</file>
+<file revision="1.4">/cvs/utf-x/framework/tests/test/bad_tests_test.xml</file>
+</files>
+<log><![CDATA[Issue number:  38
+updated to work with the new name space and schema
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.1">/cvs/utf-x/framework/src/xsd/tdf.xsd</file>
+</files>
+<log><![CDATA[Issue number:  38
+XML Schema for the UTF-X test definition files
+equivalent to the current DTD
+]]></log>
+</change>
+</day-changes><day-changes date="2006-04-03">
+<zone></zone>
+<author>sridhanya</author>
+<email>sridhanya@dev.java.net</email>
+<change>
+<files>
+<file revision="1.4">/cvs/utf-x/framework/samples/address_book/address_book_xhtml.xsl</file>
+</files>
+<log><![CDATA[Issue number:  34
+Obtained from: 
+Submitted by:  sridhanya
+Reviewed by:   
+CVS: --------------------------------------------------------------------
+CVS: Issue number: 34
+]]></log>
+</change>
+</day-changes><day-changes date="2006-04-01">
+<zone></zone>
+<author>Jacek Radajewski</author>
+<email>jacekrad@dev.java.net</email>
+<change>
+<files>
+<file revision="1.2">/cvs/utf-x/framework/src/java/utfx/testgen/SourceExpectedBuilder.java</file>
+</files>
+<log><![CDATA[Issue number:  33
+document node now ignored; ie empty element is used instead
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.1">/cvs/utf-x/framework/src/java/utfx/testgen/SourceExpectedBuilder.java</file>
+<file revision="1.6">/cvs/utf-x/framework/src/java/utfx/testgen/TestGenerator.java</file>
+<file revision="1.2">/cvs/utf-x/framework/src/java/utfx/testgen/test/PackageTestSuite.java</file>
+<file revision="1.1">/cvs/utf-x/framework/src/java/utfx/testgen/test/SourceExpectedBuilderTest.java</file>
+<file revision="1.1">/cvs/utf-x/framework/src/java/utfx/testgen/test/source_expected_builder_test.xml</file>
+<file revision="1.1">/cvs/utf-x/framework/src/java/utfx/testgen/test/source_expected_builder_test.xsl</file>
+</files>
+<log><![CDATA[Issue number:  33
+TestGenerator now can read a sample XML file and for the test skeleton based on the XML file (utfx:source) and transformed fragment for utfx:expected
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.8">/cvs/utf-x/framework/samples/utfxdoc/utfxdoc_fo.xsl</file>
+</files>
+<log><![CDATA[Issue number: 36
+added special xml mode templates (workaround)
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.8">/cvs/utf-x/framework/doc/devguide/devguide.xml</file>
+</files>
+<log><![CDATA[corrected date
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.1">/cvs/utf-x/framework/doc/devguide/images/eclipse/cvs_checkout_3.png</file>
+<file revision="1.1">/cvs/utf-x/framework/doc/devguide/images/eclipse/cvs_checkout_4.png</file>
+<file revision="1.1">/cvs/utf-x/framework/doc/devguide/images/eclipse/cvs_checkout_6.png</file>
+<file revision="1.7">/cvs/utf-x/framework/doc/devguide/devguide.xml</file>
+<file revision="1.1">/cvs/utf-x/framework/doc/devguide/images/eclipse/cvs_checkout_1.png</file>
+<file revision="1.1">/cvs/utf-x/framework/doc/devguide/images/eclipse/cvs_checkout_2.png</file>
+<file revision="1.1">/cvs/utf-x/framework/doc/devguide/images/eclipse/cvs_checkout_5.png</file>
+<file revision="1.1">/cvs/utf-x/framework/doc/devguide/images/eclipse/cvs_checkout_7.png</file>
+</files>
+<log><![CDATA[added screenshots for CVS checkout
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.10">/cvs/utf-x/framework/doc/manual/manual.xml</file>
+</files>
+<log><![CDATA[updated to match the new DTD
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.5">/cvs/utf-x/framework/samples/address_book/address_book.xml</file>
+</files>
+<log><![CDATA[Issue number:  34
+moved elements around so the file is nnow valid as per the DTD
+]]></log>
+</change>
+</day-changes><day-changes date="2006-04-01">
+<zone></zone>
+<author>sridhanya</author>
+<email>sridhanya@dev.java.net</email>
+<change>
+<files>
+<file revision="1.3">/cvs/utf-x/framework/samples/address_book/address_book.dtd</file>
+<file revision="1.3">/cvs/utf-x/framework/samples/address_book/address_book_xhtml.xsl</file>
+<file revision="1.4">/cvs/utf-x/framework/samples/address_book/address_book.xml</file>
+</files>
+<log><![CDATA[Issue number:  34
+Obtained from: 
+Submitted by:  sridhanya
+Reviewed by:   jacek
+CVS: --------------------------------------------------------------------
+CVS: Issue number: 34
+CVS: Submitted by:sridhanya
+CVS: Reviewed by:Jacek
+Description:
+   Added few more Test cases to the existing one.
+Dependancies:
+  address_book.dtd[Structure is been modified]
+]]></log>
+</change>
+</day-changes><day-changes date="2006-03-31">
+<zone></zone>
+<author>Jacek Radajewski</author>
+<email>jacekrad@dev.java.net</email>
+<change>
+<files>
+<file revision="1.32">/cvs/utf-x/framework/build.xml</file>
+<file revision="1.1">/cvs/utf-x/framework/tests/test/xslt_2_0_tests_test.xml</file>
+<file revision="1.1">/cvs/utf-x/framework/tests/xslt_2_0_tests.xsl</file>
+</files>
+<log><![CDATA[Issue number:  37
+added a stylesheet and a test; made saxon the default processor in build.xml
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.7">/cvs/utf-x/framework/samples/utfxdoc/utfxdoc_fo.xsl</file>
+</files>
+<log><![CDATA[implemented numbers in ordered_lists
+]]></log>
+</change>
+</day-changes><day-changes date="2006-03-28">
+<zone></zone>
+<author>Jacek Radajewski</author>
+<email>jacekrad@dev.java.net</email>
+<change>
+<files>
+<file revision="1.9">/cvs/utf-x/framework/doc/manual/manual.xml</file>
+</files>
+<log><![CDATA[spell check :)
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.6">/cvs/utf-x/framework/doc/devguide/devguide.xml</file>
+</files>
+<log><![CDATA[first public draft
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.5">/cvs/utf-x/framework/doc/devguide/devguide.xml</file>
+</files>
+<log><![CDATA[minor updates
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.6">/cvs/utf-x/framework/samples/utfxdoc/utfxdoc_fo.xsl</file>
+</files>
+<log><![CDATA[minor layout changes
+]]></log>
+</change>
+</day-changes><day-changes date="2006-03-27">
+<zone></zone>
+<author>Jacek Radajewski</author>
+<email>jacekrad@dev.java.net</email>
+<change>
+<files>
+<file revision="1.4">/cvs/utf-x/framework/doc/devguide/devguide.xml</file>
+</files>
+<log><![CDATA[updated
+]]></log>
+</change>
+</day-changes><day-changes date="2006-03-26">
+<zone></zone>
+<author>Jacek Radajewski</author>
+<email>jacekrad@dev.java.net</email>
+<change>
+<files>
+<file revision="1.31">/cvs/utf-x/framework/build.xml</file>
+</files>
+<log><![CDATA[optimised classpath
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.1">/cvs/utf-x/framework/doc/devguide/images/eclipse/java_code_formatter.jpg</file>
+<file revision="1.1">/cvs/utf-x/framework/doc/devguide/images/eclipse/myeclipse_xml_catalog_adding_entry.jpg</file>
+<file revision="1.1">/cvs/utf-x/framework/doc/devguide/images/eclipse/myeclipse_xml_catalog_entries.jpg</file>
+<file revision="1.1">/cvs/utf-x/framework/doc/devguide/images/eclipse/oxygen_xml_catalog.jpg</file>
+</files>
+<log><![CDATA[added screen shots for the devguide
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.5">/cvs/utf-x/framework/samples/utfxdoc/utfxdoc_fo.xsl</file>
+</files>
+<log><![CDATA[added attribute-set on block elements
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.3">/cvs/utf-x/framework/doc/devguide/devguide.xml</file>
+</files>
+<log><![CDATA[further work on draft 1
+]]></log>
+</change>
+</day-changes><day-changes date="2006-03-25">
+<zone></zone>
+<author>Jacek Radajewski</author>
+<email>jacekrad@dev.java.net</email>
+<change>
+<files>
+<file revision="1.1">/cvs/utf-x/framework/lib/JimiProClasses.zip</file>
+</files>
+<log><![CDATA[JIMI libriary required by FOP to process images
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.6">/cvs/utf-x/framework/samples/utfxdoc/utfxdoc.dtd</file>
+<file revision="1.4">/cvs/utf-x/framework/samples/utfxdoc/utfxdoc_fo.xsl</file>
+</files>
+<log><![CDATA[added support for images and figures
+significant changes to the content model; now have seperate entities for
+inline and block; contents of para now includes only inline elements
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.30">/cvs/utf-x/framework/build.xml</file>
+</files>
+<log><![CDATA[renamed manual target to 'doc' whicch now also renders the developers guide
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.2">/cvs/utf-x/framework/doc/devguide/devguide.xml</file>
+</files>
+<log><![CDATA[work in progress
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.1">/cvs/utf-x/framework/doc/devguide/devguide.xml</file>
+</files>
+<log><![CDATA[started on the developer guide
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.7">/cvs/utf-x/framework/utfx.properties</file>
+</files>
+<log><![CDATA[commented out result printer property
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.3">/cvs/utf-x/framework/src/xsl/test_definition_fo.xsl</file>
+</files>
+<log><![CDATA[Issue number:  35
+updated templates to match elements with correct prefix; a lot more work to be done
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.8">/cvs/utf-x/framework/src/xsl/test_definition_xhtml.xsl</file>
+</files>
+<log><![CDATA[fixed duplicate output (utfx:expected)
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.5">/cvs/utf-x/framework/.classpath</file>
+</files>
+<log><![CDATA[removed unused jars
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.3">/cvs/utf-x/framework/samples/utfxdoc/test/utfxdoc_fo_test.xml</file>
+</files>
+<log><![CDATA[currently not working
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.5">/cvs/utf-x/framework/samples/utfxdoc/utfxdoc.dtd</file>
+<file revision="1.3">/cvs/utf-x/framework/samples/utfxdoc/utfxdoc_fo.xsl</file>
+</files>
+<log><![CDATA[updated for new manual
+]]></log>
+</change>
+</day-changes><day-changes date="2006-03-24">
+<zone></zone>
+<author>Jacek Radajewski</author>
+<email>jacekrad@dev.java.net</email>
+<change>
+<files>
+<file revision="1.8">/cvs/utf-x/framework/doc/manual/manual.xml</file>
+</files>
+<log><![CDATA[0.0.7 draft 2
+]]></log>
+</change>
+</day-changes><day-changes date="2006-03-20">
+<zone></zone>
+<author>Jacek Radajewski</author>
+<email>jacekrad@dev.java.net</email>
+<change>
+<files>
+<file revision="1.7">/cvs/utf-x/framework/doc/manual/manual.xml</file>
+</files>
+<log><![CDATA[further updates
+]]></log>
+</change>
+</day-changes><day-changes date="2006-03-19">
+<zone></zone>
+<author>Jacek Radajewski</author>
+<email>jacekrad@dev.java.net</email>
+<change>
+<files>
+<file revision="1.2">/cvs/utf-x/framework/samples/utfxdoc/utfxdoc_fo.xsl</file>
+<file revision="1.4">/cvs/utf-x/framework/samples/utfxdoc/utfxdoc.dtd</file>
+</files>
+<log><![CDATA[added new elements
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.6">/cvs/utf-x/framework/doc/manual/manual.xml</file>
+</files>
+<log><![CDATA[update for release 0.0.7
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.5">/cvs/utf-x/framework/doc/manual/manual.xml</file>
+</files>
+<log><![CDATA[updateing for release 0.0.7;; added section on TDF structure
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.29">/cvs/utf-x/framework/build.xml</file>
+</files>
+<log><![CDATA[minor
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.5">/cvs/utf-x/framework/src/java/utfx/testgen/TestGenerator.java</file>
+<file revision="1.4">/cvs/utf-x/framework/src/java/utfx/testgen/test/TestGeneratorTest.java</file>
+</files>
+<log><![CDATA[Issue number:  32
+work in progress
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.2">/cvs/utf-x/framework/src/java/utfx/framework/test/TestSourceParser1.java</file>
+<file revision="1.2">/cvs/utf-x/framework/src/java/utfx/framework/test/TestSourceParser2.java</file>
+</files>
+<log><![CDATA[fixed headers
+]]></log>
+</change>
+</day-changes><day-changes date="2006-03-18">
+<zone></zone>
+<author>Jacek Radajewski</author>
+<email>jacekrad@dev.java.net</email>
+<change>
+<files>
+<file revision="1.4">/cvs/utf-x/framework/.classpath</file>
+</files>
+<log><![CDATA[updated
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.2">/cvs/utf-x/framework/samples/address_book/test/address_book_xhtml_test.html</file>
+</files>
+<log><![CDATA[generated file
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.2">/cvs/utf-x/framework/src/xsl/test_results_xhtml.xsl</file>
+</files>
+<log><![CDATA[Issue number:  32
+output now somewhat resebles that of the AnsiColourResultPrinter
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.1">/cvs/utf-x/framework/oxygen-transformation-scenarios.properties</file>
+</files>
+<log><![CDATA[exported oxygen transformation scenarios so they can be used by other developers
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.28">/cvs/utf-x/framework/build.xml</file>
+</files>
+<log><![CDATA[small addition to the war target
+]]></log>
+</change>
+</day-changes><day-changes date="2006-03-17">
+<zone></zone>
+<author>Jacek Radajewski</author>
+<email>jacekrad@dev.java.net</email>
+<change>
+<files>
+<file revision="1.1">/cvs/utf-x/framework/src/xsl/test_results_xhtml.xsl</file>
+</files>
+<log><![CDATA[Issue number:  32
+innitial implementation
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.6">/cvs/utf-x/framework/src/java/utfx/framework/ConfigurationManager.java</file>
+<file revision="1.4">/cvs/utf-x/framework/src/java/utfx/printers/FormattedResultPrinter.java</file>
+<file revision="1.2">/cvs/utf-x/framework/src/java/utfx/printers/ResultPrinterFactory.java</file>
+<file revision="1.3">/cvs/utf-x/framework/src/java/utfx/printers/XMLResultPrinter.java</file>
+<file revision="1.6">/cvs/utf-x/framework/utfx.properties</file>
+<file revision="1.5">/cvs/utf-x/framework/src/java/utfx/printers/AnsiColourResultPrinter.java</file>
+<file revision="1.2">/cvs/utf-x/framework/src/java/utfx/printers/JunitResultPrinter.java</file>
+<file revision="1.2">/cvs/utf-x/framework/src/java/utfx/printers/ResultPrinter.java</file>
+</files>
+<log><![CDATA[added support for sending result printer output to a file specifed by a property
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.27">/cvs/utf-x/framework/build.xml</file>
+</files>
+<log><![CDATA[fixed another problem
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.2">/cvs/utf-x/framework/src/java/utfx/printers/XMLResultPrinter.java</file>
+</files>
+<log><![CDATA[Issue number:  32
+corrected XML output which wasn't well formed; added additional elements
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.26">/cvs/utf-x/framework/build.xml</file>
+</files>
+<log><![CDATA[file was not well formed
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.2">/cvs/utf-x/framework/src/java/utfx/runner/TestRunner.java</file>
+</files>
+<log><![CDATA[fixed a bug whereby result printer was not closed
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.4">/cvs/utf-x/framework/src/java/utfx/printers/AnsiColourResultPrinter.java</file>
+</files>
+<log><![CDATA[minor refactoring
+]]></log>
+</change>
+</day-changes><day-changes date="2006-03-13">
+<zone></zone>
+<author>eraonel</author>
+<email>eraonel@dev.java.net</email>
+<change>
+<files>
+<file revision="1.1">/cvs/utf-x/framework/RELEASE_INSTRUCTIONS.txt</file>
+</files>
+<log><![CDATA[Issue number: 23
+Obtained from: jackrad
+Submitted by:  jackrad
+Reviewed by:
+CVS: Added more instructions.
+CVS: Issue number:23
+CVS:   If this change addresses one or more issues,
+CVS:   then enter the issue number(s) here.
+CVS: Obtained from:
+CVS:   If this change has been taken from another system,
+CVS:   then name the system in this line, otherwise delete it.
+CVS: Submitted by:
+CVS:   If this code has been contributed to the project by someone else; i.e.,
+CVS:   they sent us a patch or a set of diffs, then include their name/email
+CVS:   address here. If this is your work then delete this line.
+CVS: Reviewed by:
+CVS:   If we are doing pre-commit code reviews and someone else has
+CVS:   reviewed your changes, include their name(s) here.
+CVS:   If you have not had it reviewed then delete this line.
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.25">/cvs/utf-x/framework/build.xml</file>
+</files>
+<log><![CDATA[Issue number: 23
+Obtained from: jacekrad
+Submitted by:  jacekrad
+Reviewed by:
+CVS: Changed name on distribtion names
+CVS: Issue number:23
+CVS:   If this change addresses one or more issues,
+CVS:   then enter the issue number(s) here.
+CVS: Obtained from:
+CVS:   If this change has been taken from another system,
+CVS:   then name the system in this line, otherwise delete it.
+CVS: Submitted by:
+CVS:   If this code has been contributed to the project by someone else; i.e.,
+CVS:   they sent us a patch or a set of diffs, then include their name/email
+CVS:   address here. If this is your work then delete this line.
+CVS: Reviewed by:
+CVS:   If we are doing pre-commit code reviews and someone else has
+CVS:   reviewed your changes, include their name(s) here.
+CVS:   If you have not had it reviewed then delete this line.
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.5">/cvs/utf-x/framework/utfx.properties</file>
+</files>
+<log><![CDATA[Issue number: 23
+Obtained from: jacekrad
+Submitted by:  jacekrad
+Reviewed by:
+CVS: Updated name on distributions.
+CVS: Issue number:23
+CVS:   If this change addresses one or more issues,
+CVS:   then enter the issue number(s) here.
+CVS: Obtained from:
+CVS:   If this change has been taken from another system,
+CVS:   then name the system in this line, otherwise delete it.
+CVS: Submitted by:
+CVS:   If this code has been contributed to the project by someone else; i.e.,
+CVS:   they sent us a patch or a set of diffs, then include their name/email
+CVS:   address here. If this is your work then delete this line.
+CVS: Reviewed by:
+CVS:   If we are doing pre-commit code reviews and someone else has
+CVS:   reviewed your changes, include their name(s) here.
+CVS:   If you have not had it reviewed then delete this line.
+]]></log>
+</change>
+</day-changes><day-changes date="2006-03-10">
+<zone></zone>
+<author>Jacek Radajewski</author>
+<email>jacekrad@dev.java.net</email>
+<change>
+<files>
+<file revision="1.1">/cvs/utf-x/framework/tests/broken_stylesheet.xsl</file>
+<file revision="1.1">/cvs/utf-x/framework/src/java/utfx/framework/MalformedStylesheetException.java</file>
+<file revision="1.2">/cvs/utf-x/framework/src/java/utfx/framework/XSLTTestDirectorySuite.java</file>
+<file revision="1.1">/cvs/utf-x/framework/tests/test/broken_stylesheet_test.xml</file>
+<file revision="1.1">/cvs/utf-x/framework/tests/test/not_well_formed_tdf_test.xml</file>
+<file revision="1.1">/cvs/utf-x/framework/src/java/utfx/framework/BadTDFTestCase.java</file>
+<file revision="1.1">/cvs/utf-x/framework/src/java/utfx/framework/BadXSLTTestCase.java</file>
+<file revision="1.10">/cvs/utf-x/framework/src/java/utfx/framework/TestFileSuiteAssembler.java</file>
+</files>
+<log><![CDATA[Issue number:  29
+we now create a special type of test cases if a TDF or XSLT is bad
+I don't really like this so it will most likely change
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.3">/cvs/utf-x/framework/src/java/utfx/printers/AnsiColourResultPrinter.java</file>
+<file revision="1.3">/cvs/utf-x/framework/src/java/utfx/printers/FormattedResultPrinter.java</file>
+</files>
+<log><![CDATA[Issue number:  29
+suite names are now stored on a stack; resolved
+]]></log>
+</change>
+</day-changes><day-changes date="2006-03-03">
+<zone></zone>
+<author>Jacek Radajewski</author>
+<email>jacekrad@dev.java.net</email>
+<change>
+<files>
+<file revision="1.1">/cvs/utf-x/framework/.mymetadata</file>
+</files>
+<log><![CDATA[my eclipse metada
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.24">/cvs/utf-x/framework/build.xml</file>
+</files>
+<log><![CDATA[added get to buil the web app war file
+]]></log>
+</change>
+</day-changes><day-changes date="2006-02-28">
+<zone></zone>
+<author>eraonel</author>
+<email>eraonel@dev.java.net</email>
+<change>
+<files>
+<file revision="1.1">/cvs/utf-x/framework/bin/samples.sh</file>
+</files>
+<log><![CDATA[*** empty log message ***
+]]></log>
+</change>
+</day-changes><day-changes date="2006-02-27">
+<zone></zone>
+<author>eraonel</author>
+<email>eraonel@dev.java.net</email>
+<change>
+<files>
+<file revision="1.23">/cvs/utf-x/framework/build.xml</file>
+</files>
+<log><![CDATA[Issue number: 23
+Obtained from: jackrad
+Submitted by:  jackrad
+Reviewed by:
+CVS:Removed some garbage in previous version.
+CVS: Issue number:23
+CVS:   If this change addresses one or more issues,
+CVS:   then enter the issue number(s) here.
+CVS: Obtained from:
+CVS:   If this change has been taken from another system,
+CVS:   then name the system in this line, otherwise delete it.
+CVS: Submitted by:
+CVS:   If this code has been contributed to the project by someone else; i.e.,
+CVS:   they sent us a patch or a set of diffs, then include their name/email
+CVS:   address here. If this is your work then delete this line.
+CVS: Reviewed by:
+CVS:   If we are doing pre-commit code reviews and someone else has
+CVS:   reviewed your changes, include their name(s) here.
+CVS:   If you have not had it reviewed then delete this line.
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.22">/cvs/utf-x/framework/build.xml</file>
+</files>
+<log><![CDATA[Issue number:  23
+Obtained from: jacekrad
+Submitted by:  jacekrad
+Reviewed by:
+CVS: Adding a new release target. No ready yet!
+CVS: Issue number:
+CVS:   If this change addresses one or more issues,
+CVS:   then enter the issue number(s) here.
+CVS: Obtained from:
+CVS:   If this change has been taken from another system,
+CVS:   then name the system in this line, otherwise delete it.
+CVS: Submitted by: Mikael Petterson
+CVS:   If this code has been contributed to the project by someone else; i.e.,
+CVS:   they sent us a patch or a set of diffs, then include their name/email
+CVS:   address here. If this is your work then delete this line.
+CVS: Reviewed by:
+CVS:   If we are doing pre-commit code reviews and someone else has
+CVS:   reviewed your changes, include their name(s) here.
+CVS:   If you have not had it reviewed then delete this line.
+]]></log>
+</change>
+</day-changes><day-changes date="2006-02-26">
+<zone></zone>
+<author>Jacek Radajewski</author>
+<email>jacekrad@dev.java.net</email>
+<change>
+<files>
+<file revision="1.21">/cvs/utf-x/framework/build.xml</file>
+<file revision="1.3">/cvs/utf-x/framework/src/java/utfx/test/FullRegressionTest.java</file>
+<file revision="1.3">/cvs/utf-x/framework/src/java/utfx/framework/XSLTRegressionTest.java</file>
+</files>
+<log><![CDATA[Issue number:  25
+rt target now runs all samples three times, once for each xslt transformer supported;  at the moment this had been hard coded in the FulllRegressionTest class
+]]></log>
+</change>
+</day-changes><day-changes date="2006-02-25">
+<zone></zone>
+<author>Jacek Radajewski</author>
+<email>jacekrad@dev.java.net</email>
+<change>
+<files>
+<file revision="1.20">/cvs/utf-x/framework/build.xml</file>
+</files>
+<log><![CDATA[added saxon libraries to the classpath
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.1">/cvs/utf-x/framework/lib/saxon8-dom.jar</file>
+<file revision="1.1">/cvs/utf-x/framework/lib/saxon8.jar</file>
+</files>
+<log><![CDATA[added saxon 8 libraries after testing utf-x with saxon.  all is good.
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.7">/cvs/utf-x/framework/src/xsl/test_definition_xhtml.xsl</file>
+</files>
+<log><![CDATA[removed conflict introduced earlier
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.19">/cvs/utf-x/framework/build.xml</file>
+</files>
+<log><![CDATA[typo
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.6">/cvs/utf-x/framework/src/xsl/test_definition_xhtml.xsl</file>
+</files>
+<log><![CDATA[commented out broken bit of xsl; work in progress
+]]></log>
+</change>
+</day-changes><day-changes date="2006-02-17">
+<zone></zone>
+<author>Jacek Radajewski</author>
+<email>jacekrad@dev.java.net</email>
+<change>
+<files>
+<file revision="1.4">/cvs/utf-x/framework/samples/utfxdoc/test/utfxdoc_xhtml_test.xml</file>
+<file revision="1.4">/cvs/utf-x/framework/samples/utfxdoc/utfxdoc_xhtml.xsl</file>
+</files>
+<log><![CDATA[commented out unfinished implementation of CSS support
+]]></log>
+</change>
+</day-changes><day-changes date="2005-11-14">
+<zone></zone>
+<author>Jacek Radajewski</author>
+<email>jacekrad@dev.java.net</email>
+<change>
+<files>
+<file revision="1.1">/cvs/utf-x/framework/src/java/utfx/runner/TDFRenderer.java</file>
+</files>
+<log><![CDATA[Issue number:  22
+Obtained from:
+Submitted by:
+Reviewed by:
+CVS: ----------------------------------------------------------------------
+CVS: Issue number:
+CVS:   If this change addresses one or more issues,
+CVS:   then enter the issue number(s) here.
+CVS: Obtained from:
+CVS:   If this change has been taken from another system,
+CVS:   then name the system in this line, otherwise delete it.
+CVS: Submitted by:
+CVS:   If this code has been contributed to the project by someone else; i.e.,
+CVS:   they sent us a patch or a set of diffs, then include their name/email
+CVS:   address here. If this is your work then delete this line.
+CVS: Reviewed by:
+CVS:   If we are doing pre-commit code reviews and someone else has
+CVS:   reviewed your changes, include their name(s) here.
+CVS:   If you have not had it reviewed then delete this line.
+]]></log>
+</change>
+</day-changes><day-changes date="2005-11-11">
+<zone></zone>
+<author>Jacek Radajewski</author>
+<email>jacekrad@dev.java.net</email>
+<change>
+<files>
+<file revision="1.3">/cvs/utf-x/framework/src/xsl/wrapper.xsl</file>
+</files>
+<log><![CDATA[removed gpp namespace
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.5">/cvs/utf-x/framework/src/xsl/test_definition_xhtml.xsl</file>
+</files>
+<log><![CDATA[further work on adding support for css
+]]></log>
+</change>
+</day-changes><day-changes date="2005-11-04">
+<zone></zone>
+<author>Jacek Radajewski</author>
+<email>jacekrad@dev.java.net</email>
+<change>
+<files>
+<file revision="1.4">/cvs/utf-x/framework/doc/manual/manual.xml</file>
+</files>
+<log><![CDATA[further work
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.3">/cvs/utf-x/framework/samples/utfxdoc/test/utfxdoc_xhtml_test.xml</file>
+</files>
+<log><![CDATA[added utfx:css
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.8">/cvs/utf-x/framework/src/dtd/utfx_tests.dtd</file>
+</files>
+<log><![CDATA[added utfx:css element
+Issue number:  22
+Obtained from:
+Submitted by:
+Reviewed by:
+CVS: ----------------------------------------------------------------------
+CVS: Issue number:
+CVS:   If this change addresses one or more issues,
+CVS:   then enter the issue number(s) here.
+CVS: Obtained from:
+CVS:   If this change has been taken from another system,
+CVS:   then name the system in this line, otherwise delete it.
+CVS: Submitted by:
+CVS:   If this code has been contributed to the project by someone else; i.e.,
+CVS:   they sent us a patch or a set of diffs, then include their name/email
+CVS:   address here. If this is your work then delete this line.
+CVS: Reviewed by:
+CVS:   If we are doing pre-commit code reviews and someone else has
+CVS:   reviewed your changes, include their name(s) here.
+CVS:   If you have not had it reviewed then delete this line.
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.4">/cvs/utf-x/framework/src/xsl/test_definition_xhtml.xsl</file>
+</files>
+<log><![CDATA[work in progress
+Issue number:  22
+Obtained from:
+Submitted by:
+Reviewed by:
+CVS: ----------------------------------------------------------------------
+CVS: Issue number:
+CVS:   If this change addresses one or more issues,
+CVS:   then enter the issue number(s) here.
+CVS: Obtained from:
+CVS:   If this change has been taken from another system,
+CVS:   then name the system in this line, otherwise delete it.
+CVS: Submitted by:
+CVS:   If this code has been contributed to the project by someone else; i.e.,
+CVS:   they sent us a patch or a set of diffs, then include their name/email
+CVS:   address here. If this is your work then delete this line.
+CVS: Reviewed by:
+CVS:   If we are doing pre-commit code reviews and someone else has
+CVS:   reviewed your changes, include their name(s) here.
+CVS:   If you have not had it reviewed then delete this line.
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.3">/cvs/utf-x/framework/src/xsl/test_definition_xhtml.xsl</file>
+</files>
+<log><![CDATA[Issue number:  21
+Obtained from:
+Submitted by:
+Reviewed by:
+CVS: ----------------------------------------------------------------------
+CVS: Issue number:
+CVS:   If this change addresses one or more issues,
+CVS:   then enter the issue number(s) here.
+CVS: Obtained from:
+CVS:   If this change has been taken from another system,
+CVS:   then name the system in this line, otherwise delete it.
+CVS: Submitted by:
+CVS:   If this code has been contributed to the project by someone else; i.e.,
+CVS:   they sent us a patch or a set of diffs, then include their name/email
+CVS:   address here. If this is your work then delete this line.
+CVS: Reviewed by:
+CVS:   If we are doing pre-commit code reviews and someone else has
+CVS:   reviewed your changes, include their name(s) here.
+CVS:   If you have not had it reviewed then delete this line.
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.3">/cvs/utf-x/framework/samples/utfxdoc/utfxdoc.dtd</file>
+</files>
+<log><![CDATA[Issue number:  20
+Obtained from:
+Submitted by:
+Reviewed by:
+CVS: ----------------------------------------------------------------------
+CVS: Issue number:
+CVS:   If this change addresses one or more issues,
+CVS:   then enter the issue number(s) here.
+CVS: Obtained from:
+CVS:   If this change has been taken from another system,
+CVS:   then name the system in this line, otherwise delete it.
+CVS: Submitted by:
+CVS:   If this code has been contributed to the project by someone else; i.e.,
+CVS:   they sent us a patch or a set of diffs, then include their name/email
+CVS:   address here. If this is your work then delete this line.
+CVS: Reviewed by:
+CVS:   If we are doing pre-commit code reviews and someone else has
+CVS:   reviewed your changes, include their name(s) here.
+CVS:   If you have not had it reviewed then delete this line.
+]]></log>
+</change>
+</day-changes><day-changes date="2005-08-17">
+<zone></zone>
+<author>Jacek Radajewski</author>
+<email>jacekrad@dev.java.net</email>
+<change>
+<files>
+<file revision="1.3">/cvs/utf-x/framework/doc/manual/manual.xml</file>
+</files>
+<log><![CDATA[more work done .... plenty more to do
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.3">/cvs/utf-x/framework/.cvsignore</file>
+</files>
+<log><![CDATA[added dist dir
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.18">/cvs/utf-x/framework/build.xml</file>
+</files>
+<log><![CDATA[added TDF rendition into samples target
+]]></log>
+</change>
+</day-changes><day-changes date="2005-08-12">
+<zone></zone>
+<author>Jacek Radajewski</author>
+<email>jacekrad@dev.java.net</email>
+<change>
+<files>
+<file revision="1.2">/cvs/utf-x/framework/samples/utfxdoc/test/utfxdoc_xhtml_test.html</file>
+</files>
+<log><![CDATA[generated file
+]]></log>
+</change>
+</day-changes><day-changes date="2005-08-11">
+<zone></zone>
+<author>Jacek Radajewski</author>
+<email>jacekrad@dev.java.net</email>
+<change>
+<files>
+<file revision="1.4">/cvs/utf-x/framework/src/java/utfx/testgen/TestGenerator.java</file>
+<file revision="1.3">/cvs/utf-x/framework/src/java/utfx/testgen/test/TestGeneratorTest.java</file>
+</files>
+<log><![CDATA[generated test file are now created in test directory under the dir where the stylesheet was found.  if the directory does not exist then it is created.
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.2">/cvs/utf-x/framework/samples/utfxdoc/test/utfxdoc_fo_test.xml</file>
+</files>
+<log><![CDATA[minor cleanup
+]]></log>
+</change>
+</day-changes><day-changes date="2005-08-10">
+<zone></zone>
+<author>Jacek Radajewski</author>
+<email>jacekrad@dev.java.net</email>
+<change>
+<files>
+<file revision="1.17">/cvs/utf-x/framework/build.xml</file>
+</files>
+<log><![CDATA[various changes; added dist directory where distribution files are copied to e.g. manual
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.1">/cvs/utf-x/framework/samples/utfxdoc/test/utfxdoc_fo_test.xml</file>
+<file revision="1.1">/cvs/utf-x/framework/samples/utfxdoc/utfxdoc_fo.xsl</file>
+<file revision="1.3">/cvs/utf-x/framework/samples/utfxdoc/utfxdoc_xhtml.xsl</file>
+</files>
+<log><![CDATA[first working version of the UTF-X DOC FO stylesheet + test
+also updates to the XHTML stylesheet
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.2">/cvs/utf-x/framework/lib/xercesSamples.jar</file>
+</files>
+<log><![CDATA[updated for the new version of xerces (should have been checked in with the
+other libraries)
+]]></log>
+</change>
+</day-changes><day-changes date="2005-08-07">
+<zone></zone>
+<author>Jacek Radajewski</author>
+<email>jacekrad@dev.java.net</email>
+<change>
+<files>
+<file revision="1.4">/cvs/utf-x/framework/lib/dom3-xercesImpl.jar</file>
+<file revision="1.4">/cvs/utf-x/framework/lib/dom3-xml-apis.jar</file>
+<file revision="1.3">/cvs/utf-x/framework/lib/xml-apis.jar</file>
+<file revision="1.16">/cvs/utf-x/framework/build.xml</file>
+<file revision="1.3">/cvs/utf-x/framework/lib/xercesImpl.jar</file>
+</files>
+<log><![CDATA[updated to xerxes 2.7.1 - complete dom level 3 implamentation
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.15">/cvs/utf-x/framework/build.xml</file>
+</files>
+<log><![CDATA[Issue number:  2
+now pass TransformerFactoryImpl property to all JVM's forked; fixes an error on
+windows platforms where this FactoryImpl wasn't set
+
+added target for generating the manual
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.4">/cvs/utf-x/framework/utfx.properties</file>
+<file revision="1.5">/cvs/utf-x/framework/src/java/utfx/framework/ConfigurationManager.java</file>
+</files>
+<log><![CDATA[Issue number:  19
+configuration manager now returns result printer based on the platform on which utf-x is running; commented out all result printers from utfx.properties
+]]></log>
+</change>
+</day-changes><day-changes date="2005-07-20">
+<zone></zone>
+<author>Jacek Radajewski</author>
+<email>jacekrad@dev.java.net</email>
+<change>
+<files>
+<file revision="1.1">/cvs/utf-x/framework/lib/avalon.jar</file>
+<file revision="1.1">/cvs/utf-x/framework/lib/batik.jar</file>
+<file revision="1.1">/cvs/utf-x/framework/lib/fop.jar</file>
+</files>
+<log><![CDATA[jar files required by FOP ant task
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.2">/cvs/utf-x/framework/samples/address_book/test/address_book_fo_test.xml</file>
+</files>
+<log><![CDATA[fixed a bug in empty root element test
+]]></log>
+</change>
+</day-changes><day-changes date="2005-07-11">
+<zone></zone>
+<author>Jacek Radajewski</author>
+<email>jacekrad@dev.java.net</email>
+<change>
+<files>
+<file revision="1.1">/cvs/utf-x/framework/utfx.fb</file>
+</files>
+<log><![CDATA[not sure whaat this file is :(
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.1">/cvs/utf-x/framework/bin/testgen.sh</file>
+</files>
+<log><![CDATA[test generator wrapper script
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.3">/cvs/utf-x/framework/log4j.properties</file>
+</files>
+<log><![CDATA[added validation and test generator loggers
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.3">/cvs/utf-x/framework/catalog.xml</file>
+<file revision="1.4">/cvs/utf-x/framework/src/xcat/catalog.xml</file>
+</files>
+<log><![CDATA[added utfxdoc to the catalogue
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.3">/cvs/utf-x/framework/src/java/utfx/testgen/TestGenerator.java</file>
+</files>
+<log><![CDATA[a lot more work done; still not stable
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.3">/cvs/utf-x/framework/src/java/utfx/framework/test/XSLTTransformTestCaseTest.java</file>
+</files>
+<log><![CDATA[changeed method names so they are more readable
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.2">/cvs/utf-x/framework/doc/manual/manual.xml</file>
+</files>
+<log><![CDATA[minor updates after discussion with Peter
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.14">/cvs/utf-x/framework/build.xml</file>
+</files>
+<log><![CDATA[minor
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.2">/cvs/utf-x/framework/src/xsl/test_definition_xhtml.xsl</file>
+</files>
+<log><![CDATA[Issue number:  13
+updated stylesheet to match DTD changes
+]]></log>
+</change>
+</day-changes><day-changes date="2005-06-20">
+<zone></zone>
+<author>Jacek Radajewski</author>
+<email>jacekrad@dev.java.net</email>
+<change>
+<files>
+<file revision="1.2">/cvs/utf-x/framework/src/java/utfx/test/FullRegressionTest.java</file>
+</files>
+<log><![CDATA[added utfx.testgen.test package
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.2">/cvs/utf-x/framework/src/java/utfx/testgen/TestGenerator.java</file>
+</files>
+<log><![CDATA[Issue number:  17
+corrected handling of non-element templates eg 'text()' or '/'
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.2">/cvs/utf-x/framework/src/java/utfx/testgen/test/TestGeneratorTest.java</file>
+</files>
+<log><![CDATA[Issue number:  17
+cleanup of imports
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.1">/cvs/utf-x/framework/src/java/utfx/testgen/test/PackageTestSuite.java</file>
+<file revision="1.1">/cvs/utf-x/framework/src/java/utfx/testgen/test/TestGeneratorTest.java</file>
+</files>
+<log><![CDATA[Issue number:  17
+added test class for TestGenerator
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.1">/cvs/utf-x/framework/src/java/utfx/testgen/TestGenerator.java</file>
+</files>
+<log><![CDATA[Issue number:  17
+
+first cut; source generation still problematic for non-element templates eg 'text()'
+]]></log>
+</change>
+</day-changes><day-changes date="2005-06-07">
+<zone></zone>
+<author>Jacek Radajewski</author>
+<email>jacekrad@dev.java.net</email>
+<change>
+<files>
+<file revision="1.1">/cvs/utf-x/framework/doc/manual/manual.css</file>
+<file revision="1.1">/cvs/utf-x/framework/doc/manual/manual.xml</file>
+<file revision="1.2">/cvs/utf-x/framework/samples/utfxdoc/test/utfxdoc_xhtml_test.xml</file>
+<file revision="1.2">/cvs/utf-x/framework/samples/utfxdoc/utfxdoc.dtd</file>
+<file revision="1.2">/cvs/utf-x/framework/samples/utfxdoc/utfxdoc_xhtml.xsl</file>
+</files>
+<log><![CDATA[more work on the utfxdoc samples and a start on the manual
+]]></log>
+</change>
+</day-changes><day-changes date="2005-05-27">
+<zone></zone>
+<author>Jacek Radajewski</author>
+<email>jacekrad@dev.java.net</email>
+<change>
+<files>
+<file revision="1.1">/cvs/utf-x/framework/samples/utfxdoc/test/utfxdoc_xhtml_test.html</file>
+<file revision="1.1">/cvs/utf-x/framework/samples/utfxdoc/test/utfxdoc_xhtml_test.xml</file>
+<file revision="1.1">/cvs/utf-x/framework/samples/utfxdoc/utfxdoc.dtd</file>
+<file revision="1.1">/cvs/utf-x/framework/samples/utfxdoc/utfxdoc_xhtml.xsl</file>
+</files>
+<log><![CDATA[made a start on the doco
+]]></log>
+</change>
+</day-changes><day-changes date="2005-05-26">
+<zone></zone>
+<author>Jacek Radajewski</author>
+<email>jacekrad@dev.java.net</email>
+<change>
+<files>
+<file revision="1.7">/cvs/utf-x/framework/src/java/utfx/framework/XSLTTransformTestCase.java</file>
+<file revision="1.1">/cvs/utf-x/framework/src/java/utfx/framework/test/xslt_transform_test_case_expected_1.dtd</file>
+<file revision="1.1">/cvs/utf-x/framework/src/java/utfx/framework/test/xslt_transform_test_case_source_1.dtd</file>
+<file revision="1.2">/cvs/utf-x/framework/src/java/utfx/framework/test/xslt_transform_test_case_test_1.xml</file>
+<file revision="1.2">/cvs/utf-x/framework/src/java/utfx/framework/test/XSLTTransformTestCaseTest.java</file>
+</files>
+<log><![CDATA[new tests
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.3">/cvs/utf-x/framework/src/java/utfx/framework/test/PackageTestSuite.java</file>
+<file revision="1.1">/cvs/utf-x/framework/src/java/utfx/framework/test/xslt_transform_test_case_test_1.xml</file>
+<file revision="1.1">/cvs/utf-x/framework/src/java/utfx/framework/test/xslt_transform_test_case_test_1.xsl</file>
+<file revision="1.1">/cvs/utf-x/framework/src/java/utfx/framework/test/XSLTTransformTestCaseTest.java</file>
+</files>
+<log><![CDATA[Issue number:  15
+ added new unit tests for XSLTTTransformTestCase including a test for issue 15
+]]></log>
+</change>
+</day-changes><day-changes date="2005-05-25">
+<zone></zone>
+<author>Jacek Radajewski</author>
+<email>jacekrad@dev.java.net</email>
+<change>
+<files>
+<file revision="1.6">/cvs/utf-x/framework/src/java/utfx/framework/XSLTTransformTestCase.java</file>
+</files>
+<log><![CDATA[fixed issue 15 by reverting to the original and correct XPath expression for selecting <utfx:message>; bug was introduced in revision 1.4!
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.4">/cvs/utf-x/framework/src/java/utfx/framework/XSLTTestFileSuite.java</file>
+<file revision="1.5">/cvs/utf-x/framework/src/java/utfx/framework/XSLTTransformTestCase.java</file>
+</files>
+<log><![CDATA[Issue number:  14
+Obtained from:
+Submitted by:
+Reviewed by:
+fixed issue 14; also fixed a bug introduced by Lulu where default document parser
+was not used when it should have
+CVS: ----------------------------------------------------------------------
+CVS: Issue number:
+CVS:   If this change addresses one or more issues,
+CVS:   then enter the issue number(s) here.
+CVS: Obtained from:
+CVS:   If this change has been taken from another system,
+CVS:   then name the system in this line, otherwise delete it.
+CVS: Submitted by:
+CVS:   If this code has been contributed to the project by someone else; i.e.,
+CVS:   they sent us a patch or a set of diffs, then include their name/email
+CVS:   address here. If this is your work then delete this line.
+CVS: Reviewed by:
+CVS:   If we are doing pre-commit code reviews and someone else has
+CVS:   reviewed your changes, include their name(s) here.
+CVS:   If you have not had it reviewed then delete this line.
+]]></log>
+</change>
+</day-changes><day-changes date="2005-05-24">
+<zone></zone>
+<author>Jacek Radajewski</author>
+<email>jacekrad@dev.java.net</email>
+<change>
+<files>
+<file revision="1.13">/cvs/utf-x/framework/build.xml</file>
+<file revision="1.2">/cvs/utf-x/framework/tests/bad_tests.xsl</file>
+<file revision="1.4">/cvs/utf-x/framework/tests/core_tests.xsl</file>
+<file revision="1.3">/cvs/utf-x/framework/tests/test/bad_tests_test.xml</file>
+<file revision="1.6">/cvs/utf-x/framework/tests/test/core_tests_test.xml</file>
+</files>
+<log><![CDATA[Issue number:  10
+Obtained from:
+Submitted by:
+Reviewed by:
+added tests in order to try to reproduce problem described in issue 10 but failed
+CVS: ----------------------------------------------------------------------
+CVS: Issue number:
+CVS:   If this change addresses one or more issues,
+CVS:   then enter the issue number(s) here.
+CVS: Obtained from:
+CVS:   If this change has been taken from another system,
+CVS:   then name the system in this line, otherwise delete it.
+CVS: Submitted by:
+CVS:   If this code has been contributed to the project by someone else; i.e.,
+CVS:   they sent us a patch or a set of diffs, then include their name/email
+CVS:   address here. If this is your work then delete this line.
+CVS: Reviewed by:
+CVS:   If we are doing pre-commit code reviews and someone else has
+CVS:   reviewed your changes, include their name(s) here.
+CVS:   If you have not had it reviewed then delete this line.
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.2">/cvs/utf-x/framework/src/java/utfx/framework/XSLTRegressionTest.java</file>
+</files>
+<log><![CDATA[Issue number:  11
+Obtained from:
+Submitted by:
+Reviewed by:
+added support for running a single utf-x test file suite
+CVS: ----------------------------------------------------------------------
+CVS: Issue number:
+CVS:   If this change addresses one or more issues,
+CVS:   then enter the issue number(s) here.
+CVS: Obtained from:
+CVS:   If this change has been taken from another system,
+CVS:   then name the system in this line, otherwise delete it.
+CVS: Submitted by:
+CVS:   If this code has been contributed to the project by someone else; i.e.,
+CVS:   they sent us a patch or a set of diffs, then include their name/email
+CVS:   address here. If this is your work then delete this line.
+CVS: Reviewed by:
+CVS:   If we are doing pre-commit code reviews and someone else has
+CVS:   reviewed your changes, include their name(s) here.
+CVS:   If you have not had it reviewed then delete this line.
+]]></log>
+</change>
+</day-changes><day-changes date="2005-05-23">
+<zone></zone>
+<author>Jacek Radajewski</author>
+<email>jacekrad@dev.java.net</email>
+<change>
+<files>
+<file revision="1.2">/cvs/utf-x/framework/src/xsl/test_definition_fo.xsl</file>
+</files>
+<log><![CDATA[header update only
+]]></log>
+</change>
+</day-changes><day-changes date="2005-04-05">
+<zone></zone>
+<author>lucido</author>
+<email>lucido@dev.java.net</email>
+<change>
+<files>
+<file revision="1.4">/cvs/utf-x/framework/src/java/utfx/framework/XSLTTransformTestCase.java</file>
+<file revision="1.9">/cvs/utf-x/framework/src/java/utfx/framework/TestFileSuiteAssembler.java</file>
+</files>
+<log><![CDATA[major refactor of how the source and expected are created.
+fixed named templates running in the proper context.
+dtds are now used in all cases to solve problems with entities.
+only one validation case is created for the source/expected fragments - done by adding the utfx-wrapper element with a content model of ANY to the doctype.
+]]></log>
+</change>
+</day-changes><day-changes date="2005-04-01">
+<zone></zone>
+<author>lucido</author>
+<email>lucido@dev.java.net</email>
+<change>
+<files>
+<file revision="1.12">/cvs/utf-x/framework/build.xml</file>
+<file revision="1.5">/cvs/utf-x/framework/tests/test/core_tests_test.xml</file>
+<file revision="1.3">/cvs/utf-x/framework/src/java/utfx/framework/UTFXNamespaceContext.java</file>
+<file revision="1.3">/cvs/utf-x/framework/src/java/utfx/framework/XSLTTransformTestCase.java</file>
+<file revision="1.3">/cvs/utf-x/framework/tests/core_tests.xsl</file>
+</files>
+<log><![CDATA[Issue number:  4
+Seems to be a bug with the DOM3 serializer.
+Using DOMWriter to serialize non-element nodes as a workaround.
+]]></log>
+</change>
+</day-changes><day-changes date="2005-03-31">
+<zone></zone>
+<author>lucido</author>
+<email>lucido@dev.java.net</email>
+<change>
+<files>
+<file revision="1.2">/cvs/utf-x/framework/tests/core_tests.xsl</file>
+<file revision="1.4">/cvs/utf-x/framework/tests/test/core_tests_test.xml</file>
+<file revision="1.8">/cvs/utf-x/framework/src/java/utfx/framework/TestFileSuiteAssembler.java</file>
+</files>
+<log><![CDATA[Issue number:  8
+the wrapper stylesheet generated for named templates now calls the templates from a template that matches "utfx-wrapper/*" instead of "/".
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.2">/cvs/utf-x/framework/src/java/utfx/framework/XSLTTransformTestCase.java</file>
+</files>
+<log><![CDATA[Issue number:  7
+problem was that the source was always passed through sourceBuilder.getSource() regardless of the use-source-parser attribute. now just use a StreamSource if use-source-parser is "no"
+]]></log>
+</change>
+</day-changes><day-changes date="2005-03-26">
+<zone></zone>
+<author>Jacek Radajewski</author>
+<email>jacekrad@dev.java.net</email>
+<change>
+<files>
+<file revision="1.11">/cvs/utf-x/framework/build.xml</file>
+</files>
+<log><![CDATA[moved third party DTD's under lib
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.1">/cvs/utf-x/framework/samples/address_book/test/address_book_fo_test.xml</file>
+<file revision="1.1">/cvs/utf-x/framework/samples/address_book/address_book_fo.xsl</file>
+<file revision="1.3">/cvs/utf-x/framework/samples/address_book/address_book.xml</file>
+</files>
+<log><![CDATA[added XSL:FO stylesheet & test for the address book sample
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.3">/cvs/utf-x/framework/src/xcat/catalog.xml</file>
+<file revision="1.1">/cvs/utf-x/framework/lib/dtd/fo/renderx_fo.dtd</file>
+<file revision="1.1">/cvs/utf-x/framework/lib/dtd/xhtml1.0/xhtml1-strict.dtd</file>
+<file revision="1.1">/cvs/utf-x/framework/lib/dtd/xhtml1.0/xhtml.soc</file>
+<file revision="1.1">/cvs/utf-x/framework/lib/dtd/xhtml1.0/xhtml-symbol.ent</file>
+<file revision="1.1">/cvs/utf-x/framework/lib/dtd/xhtml1.0/xhtml1.dcl</file>
+<file revision="1.1">/cvs/utf-x/framework/lib/dtd/xhtml1.0/xhtml1-frameset.dtd</file>
+<file revision="1.1">/cvs/utf-x/framework/lib/dtd/xhtml1.0/xhtml1-transitional.dtd</file>
+<file revision="1.1">/cvs/utf-x/framework/lib/dtd/xhtml1.0/xhtml-lat1.ent</file>
+<file revision="1.1">/cvs/utf-x/framework/lib/dtd/xhtml1.0/xhtml-special.ent</file>
+<file revision="1.2">/cvs/utf-x/framework/catalog.xml</file>
+<file revision="1.1">/cvs/utf-x/framework/lib/dtd/catalog/catalog.dtd</file>
+</files>
+<log><![CDATA[moved third party DTD's under lib; added DTD for XSL:FO
+]]></log>
+</change>
+</day-changes><day-changes date="2005-03-24">
+<zone></zone>
+<author>lucido</author>
+<email>lucido@dev.java.net</email>
+<change>
+<files>
+<file revision="1.7">/cvs/utf-x/framework/src/java/utfx/framework/TestFileSuiteAssembler.java</file>
+</files>
+<log><![CDATA[Issue number:  5
+The TestSuite had not been created before trying to set the SourceBuilder.
+]]></log>
+</change>
+</day-changes><day-changes date="2005-03-23">
+<zone></zone>
+<author>Jacek Radajewski</author>
+<email>jacekrad@dev.java.net</email>
+<change>
+<files>
+<file revision="1.3">/cvs/utf-x/framework/utfx.properties</file>
+</files>
+<log><![CDATA[changed source-builder to source-parser property; new default ResultPrinter
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.2">/cvs/utf-x/framework/.cvsignore</file>
+</files>
+<log><![CDATA[added utfx_log.xml
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.2">/cvs/utf-x/framework/.settings/org.eclipse.jdt.core.prefs</file>
+</files>
+<log><![CDATA[changes to the eclipse env; mainly added default values (eclipse generated)
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.1">/cvs/utf-x/framework/catalog.xml</file>
+</files>
+<log><![CDATA[mew entries
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.3">/cvs/utf-x/framework/.classpath</file>
+</files>
+<log><![CDATA[added dom3-xerces
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.6">/cvs/utf-x/framework/src/java/utfx/framework/TestFileSuiteAssembler.java</file>
+<file revision="1.3">/cvs/utf-x/framework/src/java/utfx/framework/XSLTTestFileSuite.java</file>
+</files>
+<log><![CDATA[added support for validation; refactoring; work in progress
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.2">/cvs/utf-x/framework/src/xcat/catalog.xml</file>
+</files>
+<log><![CDATA[new entries
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.3">/cvs/utf-x/framework/tests/test/core_tests_test.xml</file>
+<file revision="1.2">/cvs/utf-x/framework/tests/test/bad_tests_test.xml</file>
+</files>
+<log><![CDATA[tests updated to reflect changes to the framework
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.2">/cvs/utf-x/framework/src/java/utfx/samples/SAXSourceBuilderExample.java</file>
+<file revision="1.2">/cvs/utf-x/framework/src/java/utfx/samples/ContentFilterExample.java</file>
+</files>
+<log><![CDATA[renamed SourceBuilder to SourceParser and SourceBuilderLoader to SourceParserFactory
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.7">/cvs/utf-x/framework/src/dtd/utfx_tests.dtd</file>
+</files>
+<log><![CDATA[added use-source-parser attribute to the utfx:source element
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.1">/cvs/utf-x/framework/src/java/utfx/framework/XMLValidationError.java</file>
+<file revision="1.1">/cvs/utf-x/framework/src/java/utfx/framework/XMLValidationTestCase.java</file>
+<file revision="1.5">/cvs/utf-x/framework/src/java/utfx/framework/XSLTTestCase.java</file>
+<file revision="1.1">/cvs/utf-x/framework/src/java/utfx/framework/XSLTTransformTestCase.java</file>
+</files>
+<log><![CDATA[added a new XML validation test case and renamed the XSLTTestCase to TransformTestCase
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.2">/cvs/utf-x/framework/samples/address_book/address_book.dtd</file>
+<file revision="1.2">/cvs/utf-x/framework/samples/address_book/address_book.xml</file>
+<file revision="1.4">/cvs/utf-x/framework/samples/address_book/test/address_book_xhtml_test.xml</file>
+</files>
+<log><![CDATA[updated address_book samples to use the updated framework
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.3">/cvs/utf-x/framework/lib/xalan.jar</file>
+</files>
+<log><![CDATA[again ship xalan with the distribution
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.2">/cvs/utf-x/framework/src/java/utfx/framework/test/PackageTestSuite.java</file>
+<file revision="1.3">/cvs/utf-x/framework/src/java/utfx/framework/test/source_builder_loader_test_1.xml</file>
+<file revision="1.4">/cvs/utf-x/framework/src/java/utfx/framework/test/source_builder_loader_test_2.xml</file>
+<file revision="1.5">/cvs/utf-x/framework/src/java/utfx/framework/test/SourceBuilderLoaderTest.java</file>
+<file revision="1.1">/cvs/utf-x/framework/src/java/utfx/framework/test/SourceParserFactoryTest.java</file>
+<file revision="1.4">/cvs/utf-x/framework/src/java/utfx/framework/test/source_builder_loader_test_3.xml</file>
+<file revision="1.4">/cvs/utf-x/framework/src/java/utfx/framework/ConfigurationManager.java</file>
+<file revision="1.3">/cvs/utf-x/framework/src/java/utfx/framework/DefaultSourceBuilder.java</file>
+<file revision="1.1">/cvs/utf-x/framework/src/java/utfx/framework/DefaultSourceParser.java</file>
+<file revision="1.6">/cvs/utf-x/framework/src/java/utfx/framework/SourceBuilderLoader.java</file>
+<file revision="1.5">/cvs/utf-x/framework/src/java/utfx/framework/SourceBuilderWrapper.java</file>
+<file revision="1.1">/cvs/utf-x/framework/src/java/utfx/framework/SourceParserWrapper.java</file>
+<file revision="1.3">/cvs/utf-x/framework/src/java/utfx/framework/SourceBuilder.java</file>
+<file revision="1.1">/cvs/utf-x/framework/src/java/utfx/framework/SourceParserFactory.java</file>
+<file revision="1.1">/cvs/utf-x/framework/src/java/utfx/framework/SourceParser.java</file>
+</files>
+<log><![CDATA[renamed SourceBuilder to SourceParser and SourceBuilderLoader to SourceParserFactory
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.10">/cvs/utf-x/framework/build.xml</file>
+</files>
+<log><![CDATA[added transformer factory property; now include samples in the jar
+]]></log>
+</change>
+</day-changes><day-changes date="2005-03-22">
+<zone></zone>
+<author>Jacek Radajewski</author>
+<email>jacekrad@dev.java.net</email>
+<change>
+<files>
+<file revision="1.1">/cvs/utf-x/framework/src/dtd/xhtml1.0/xhtml1.dcl</file>
+<file revision="1.1">/cvs/utf-x/framework/src/dtd/xhtml1.0/xhtml1-frameset.dtd</file>
+<file revision="1.1">/cvs/utf-x/framework/src/dtd/xhtml1.0/xhtml1-strict.dtd</file>
+<file revision="1.1">/cvs/utf-x/framework/src/dtd/xhtml1.0/xhtml1-transitional.dtd</file>
+<file revision="1.1">/cvs/utf-x/framework/src/dtd/xhtml1.0/xhtml-special.ent</file>
+<file revision="1.1">/cvs/utf-x/framework/src/dtd/xhtml1.0/xhtml-lat1.ent</file>
+<file revision="1.1">/cvs/utf-x/framework/src/dtd/xhtml1.0/xhtml.soc</file>
+<file revision="1.1">/cvs/utf-x/framework/src/dtd/xhtml1.0/xhtml-symbol.ent</file>
+</files>
+<log><![CDATA[XHTML 1.0 DTDs required for expected fragment validation
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.1">/cvs/utf-x/framework/src/dtd/catalog/catalog.dtd</file>
+</files>
+<log><![CDATA[oasis catalog DTD so we can edit catalog files
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.3">/cvs/utf-x/framework/src/java/utfx/printers/XmlResultPrinter.java</file>
+<file revision="1.1">/cvs/utf-x/framework/src/java/utfx/printers/XMLResultPrinter.java</file>
+<file revision="1.2">/cvs/utf-x/framework/src/java/utfx/framework/test/TestSourceBuilder1.java</file>
+<file revision="1.2">/cvs/utf-x/framework/src/java/utfx/framework/test/TestSourceBuilder2.java</file>
+<file revision="1.1">/cvs/utf-x/framework/src/java/utfx/framework/test/TestSourceParser1.java</file>
+<file revision="1.1">/cvs/utf-x/framework/src/java/utfx/framework/test/TestSourceParser2.java</file>
+</files>
+<log><![CDATA[renamed
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.2">/cvs/utf-x/framework/src/java/utfx/util/XMLValidator.java</file>
+<file revision="1.2">/cvs/utf-x/framework/src/java/utfx/util/XsltTestValidator.java</file>
+</files>
+<log><![CDATA[gone
+]]></log>
+</change>
+</day-changes><day-changes date="2005-03-18">
+<zone></zone>
+<author>Jacek Radajewski</author>
+<email>jacekrad@dev.java.net</email>
+<change>
+<files>
+<file revision="1.9">/cvs/utf-x/framework/build.xml</file>
+</files>
+<log><![CDATA[added dom3 xerces to the cp
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.3">/cvs/utf-x/framework/lib/dom3-xml-apis.jar</file>
+<file revision="1.3">/cvs/utf-x/framework/lib/dom3-xercesImpl.jar</file>
+</files>
+<log><![CDATA[back
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.4">/cvs/utf-x/framework/src/java/utfx/framework/test/SourceBuilderLoaderTest.java</file>
+</files>
+<log><![CDATA[import statements cleaned up
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.2">/cvs/utf-x/framework/src/java/utfx/util/CanonicalForm.java</file>
+</files>
+<log><![CDATA[fixed @version tag
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.1">/cvs/utf-x/framework/tests/test/bad_tests_test.xml</file>
+<file revision="1.2">/cvs/utf-x/framework/tests/test/core_tests_test.xml</file>
+<file revision="1.1">/cvs/utf-x/framework/tests/test/namespace_tests_test.xml</file>
+<file revision="1.1">/cvs/utf-x/framework/tests/bad_tests.xsl</file>
+<file revision="1.1">/cvs/utf-x/framework/tests/namespace_tests.xsl</file>
+</files>
+<log><![CDATA[split core tests into three separate files
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.3">/cvs/utf-x/framework/src/java/utfx/framework/UTFXTestCase.java</file>
+</files>
+<log><![CDATA[for each assert*(expected, actual) method also added assert*(message, expected, actual); + cleanup
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.4">/cvs/utf-x/framework/src/java/utfx/framework/XSLTTestCase.java</file>
+</files>
+<log><![CDATA[fixed @version tag
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.1">/cvs/utf-x/framework/.settings/org.eclipse.jdt.core.prefs</file>
+</files>
+<log><![CDATA[eclipse settings
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.5">/cvs/utf-x/framework/src/java/utfx/framework/SourceBuilderLoader.java</file>
+<file revision="1.4">/cvs/utf-x/framework/src/java/utfx/framework/SourceBuilderWrapper.java</file>
+<file revision="1.5">/cvs/utf-x/framework/src/java/utfx/framework/TestFileSuiteAssembler.java</file>
+</files>
+<log><![CDATA[cleanup/formatting only
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.3">/cvs/utf-x/framework/src/java/utfx/framework/ConfigurationManager.java</file>
+</files>
+<log><![CDATA[explicitly set TransformerFactory and DOMImplementationRegistry
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.2">/cvs/utf-x/framework/lib/dom3-xml-apis.jar</file>
+<file revision="1.2">/cvs/utf-x/framework/lib/xalan.jar</file>
+<file revision="1.2">/cvs/utf-x/framework/lib/xercesImpl.jar</file>
+<file revision="1.2">/cvs/utf-x/framework/lib/dom3-xercesImpl.jar</file>
+<file revision="1.2">/cvs/utf-x/framework/lib/xml-apis.jar</file>
+</files>
+<log><![CDATA[these libraries are no longer required as the required APIs are provided by J2SE 5.0
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.6">/cvs/utf-x/framework/src/dtd/utfx_tests.dtd</file>
+</files>
+<log><![CDATA[utfx:dtd is now wrapper in utfx:validate-source and utfx:validate-expected
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.3">/cvs/utf-x/framework/samples/address_book/test/address_book_xhtml_test.xml</file>
+</files>
+<log><![CDATA[updated to the new test structure; removed CDATA wrapping from source and expected fragments
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.2">/cvs/utf-x/framework/samples/address_book/address_book_xhtml.xsl</file>
+</files>
+<log><![CDATA[source formatting only
+CVS: ----------------------------------------------------------------------
+CVS: Issue number:
+CVS:   If this change addresses one or more issues,
+CVS:   then enter the issue number(s) here.
+CVS: Obtained from:
+CVS:   If this change has been taken from another system,
+CVS:   then name the system in this line, otherwise delete it.
+CVS: Submitted by:
+CVS:   If this code has been contributed to the project by someone else; i.e.,
+CVS:   they sent us a patch or a set of diffs, then include their name/email
+CVS:   address here. If this is your work then delete this line.
+CVS: Reviewed by:
+CVS:   If we are doing pre-commit code reviews and someone else has
+CVS:   reviewed your changes, include their name(s) here.
+CVS:   If you have not had it reviewed then delete this line.
+]]></log>
+</change>
+</day-changes><day-changes date="2005-03-16">
+<zone></zone>
+<author>Jacek Radajewski</author>
+<email>jacekrad@dev.java.net</email>
+<change>
+<files>
+<file revision="1.2">/cvs/utf-x/framework/.classpath</file>
+</files>
+<log><![CDATA[changed to relative classpath only
+]]></log>
+</change>
+</day-changes><day-changes date="2005-03-16">
+<zone></zone>
+<author>lucido</author>
+<email>lucido@dev.java.net</email>
+<change>
+<files>
+<file revision="1.2">/cvs/utf-x/framework/src/java/utfx/framework/test/source_builder_loader_test_1.xml</file>
+<file revision="1.3">/cvs/utf-x/framework/src/java/utfx/framework/test/source_builder_loader_test_2.xml</file>
+<file revision="1.3">/cvs/utf-x/framework/src/java/utfx/framework/test/source_builder_loader_test_3.xml</file>
+<file revision="1.4">/cvs/utf-x/framework/src/java/utfx/framework/SourceBuilderLoader.java</file>
+<file revision="1.3">/cvs/utf-x/framework/src/java/utfx/framework/SourceBuilderWrapper.java</file>
+<file revision="1.3">/cvs/utf-x/framework/src/java/utfx/framework/test/SourceBuilderLoaderTest.java</file>
+<file revision="1.2">/cvs/utf-x/framework/src/java/utfx/framework/test/UTFXTestCaseTest.java</file>
+<file revision="1.2">/cvs/utf-x/framework/src/java/utfx/framework/UTFXTestCase.java</file>
+<file revision="1.3">/cvs/utf-x/framework/src/java/utfx/framework/XSLTTestCase.java</file>
+</files>
+<log><![CDATA[updated the SourceBuilderLoader to use the utfx namespace.
+fixed bug with the SourceBuilderWrapper not finding the getSource method.
+exceptions in assertEquivXML are now thrown directly instead of caught and rethrown as a StringComparisonFailure.
+]]></log>
+</change>
+</day-changes><day-changes date="2005-03-14">
+<zone></zone>
+<author>Jacek Radajewski</author>
+<email>jacekrad@dev.java.net</email>
+<change>
+<files>
+<file revision="1.8">/cvs/utf-x/framework/build.xml</file>
+</files>
+<log><![CDATA[fixed list of packages in javadoc
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.4">/cvs/utf-x/framework/src/java/utfx/framework/TestFileSuiteAssembler.java</file>
+</files>
+<log><![CDATA[removed nasty debugging stuff
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.2">/cvs/utf-x/framework/src/java/utfx/framework/UTFXNamespaceContext.java</file>
+</files>
+<log><![CDATA[added XSL_NS_URI
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.3">/cvs/utf-x/framework/src/java/utfx/framework/TestFileSuiteAssembler.java</file>
+</files>
+<log><![CDATA[cleanup; now reuse xpath object
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.3">/cvs/utf-x/framework/src/java/utfx/framework/SourceBuilderLoader.java</file>
+</files>
+<log><![CDATA[removed system.err
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.7">/cvs/utf-x/framework/build.xml</file>
+</files>
+<log><![CDATA[removed xslt target as it caused problems; will fix it l8r
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.6">/cvs/utf-x/framework/build.xml</file>
+</files>
+<log><![CDATA[back to old xerces
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.5">/cvs/utf-x/framework/build.xml</file>
+</files>
+<log><![CDATA[now add all test files to the jar
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.4">/cvs/utf-x/framework/build.xml</file>
+</files>
+<log><![CDATA[re added samples target
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.2">/cvs/utf-x/framework/samples/address_book/test/address_book_xhtml_test.xml</file>
+</files>
+<log><![CDATA[updated for the utfx namespace; remove RCS log tag from the header
+removed failing test example; this is now in tests only
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.2">/cvs/utf-x/framework/src/java/utfx/util/test/CanonicalFormTest.java</file>
+</files>
+<log><![CDATA[cleaned up imports
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.2">/cvs/utf-x/framework/src/java/utfx/printers/XmlResultPrinter.java</file>
+</files>
+<log><![CDATA[doco only
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.2">/cvs/utf-x/framework/src/java/utfx/printers/FormattedResultPrinter.java</file>
+</files>
+<log><![CDATA[fixed printing of test run time
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.2">/cvs/utf-x/framework/src/java/utfx/printers/AnsiColourResultPrinter.java</file>
+</files>
+<log><![CDATA[test run time is now printed correctly; test names print in different colour
+to failure and error messages
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.2">/cvs/utf-x/framework/src/java/utfx/framework/test/SourceBuilderLoaderTest.java</file>
+</files>
+<log><![CDATA[doco only
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.2">/cvs/utf-x/framework/src/java/utfx/framework/test/source_builder_loader_test_3.xml</file>
+<file revision="1.2">/cvs/utf-x/framework/src/java/utfx/framework/test/source_builder_loader_test_2.xml</file>
+</files>
+<log><![CDATA[fixed constructor parameter types
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.3">/cvs/utf-x/framework/build.xml</file>
+</files>
+<log><![CDATA[renamed samples target to tests; the tests target now runs the tests which
+are different to samples; need to reintroduce samples target
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.5">/cvs/utf-x/framework/src/dtd/utfx_tests.dtd</file>
+</files>
+<log><![CDATA[all elements are now in utfx namespace; removed <data>
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.2">/cvs/utf-x/framework/src/java/utfx/framework/TestFileSuiteAssembler.java</file>
+</files>
+<log><![CDATA[major refactoring; added support for named templates
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.2">/cvs/utf-x/framework/src/java/utfx/framework/XSLTTestCase.java</file>
+</files>
+<log><![CDATA[added validation of the test
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.2">/cvs/utf-x/framework/src/java/utfx/framework/TestFileFilter.java</file>
+<file revision="1.2">/cvs/utf-x/framework/src/java/utfx/framework/StringComparisonFailure.java</file>
+</files>
+<log><![CDATA[doco only
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.1">/cvs/utf-x/framework/src/java/utfx/framework/UTFXNamespaceContext.java</file>
+<file revision="1.2">/cvs/utf-x/framework/src/java/utfx/framework/NSContext.java</file>
+</files>
+<log><![CDATA[renamed NSContext to UTXNamespaceContext
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.1">/cvs/utf-x/framework/src/java/utfx/framework/MalformedTestException.java</file>
+</files>
+<log><![CDATA[new Exception
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.2">/cvs/utf-x/framework/src/xsl/wrapper.xsl</file>
+</files>
+<log><![CDATA[renamed test-result element to utfx-wrapper
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.1">/cvs/utf-x/framework/tests/core_tests.xsl</file>
+<file revision="1.1">/cvs/utf-x/framework/tests/test/core_tests_test.xml</file>
+</files>
+<log><![CDATA[moved from samples
+]]></log>
+</change>
+</day-changes><day-changes date="2005-03-13">
+<zone></zone>
+<author>Jacek Radajewski</author>
+<email>jacekrad@dev.java.net</email>
+<change>
+<files>
+<file revision="1.2">/cvs/utf-x/framework/src/java/utfx/framework/SourceBuilderWrapper.java</file>
+<file revision="1.2">/cvs/utf-x/framework/src/java/utfx/framework/DefaultSourceBuilder.java</file>
+<file revision="1.2">/cvs/utf-x/framework/src/java/utfx/framework/ConfigurationManager.java</file>
+</files>
+<log><![CDATA[doco only
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.2">/cvs/utf-x/framework/src/java/utfx/framework/SourceBuilder.java</file>
+</files>
+<log><![CDATA[doco + cleanup
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.1">/cvs/utf-x/framework/src/java/utfx/framework/NSContext.java</file>
+</files>
+<log><![CDATA[namespace context implementation
+]]></log>
+</change>
+</day-changes><day-changes date="2005-03-11">
+<zone></zone>
+<author>Jacek Radajewski</author>
+<email>jacekrad@dev.java.net</email>
+<change>
+<files>
+<file revision="1.2">/cvs/utf-x/framework/src/java/utfx/framework/XSLTTestFileSuite.java</file>
+</files>
+<log><![CDATA[doco only
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.2">/cvs/utf-x/framework/src/java/utfx/framework/SourceBuilderLoader.java</file>
+</files>
+<log><![CDATA[fixed SourceBuilder parameter types (added java.lang)
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.4">/cvs/utf-x/framework/src/dtd/utfx_tests.dtd</file>
+</files>
+<log><![CDATA[added support for calling named templates
+]]></log>
+</change>
+</day-changes><day-changes date="2005-03-09">
+<zone></zone>
+<author>Jacek Radajewski</author>
+<email>jacekrad@dev.java.net</email>
+<change>
+<files>
+<file revision="1.3">/cvs/utf-x/framework/src/dtd/utfx_tests.dtd</file>
+</files>
+<log><![CDATA[changed assrt-equals to assert-equal; changed dtd attributes
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.2">/cvs/utf-x/framework/src/xcat/CatalogManager.properties</file>
+<file revision="1.1">/cvs/utf-x/framework/src/java/utfx/runner/TestRunner.java</file>
+<file revision="1.1">/cvs/utf-x/framework/src/java/utfx/samples/test/ContentFilterExampleTest.java</file>
+<file revision="1.1">/cvs/utf-x/framework/src/java/utfx/samples/test/dom_source_builder_example_expected_1.xml</file>
+<file revision="1.1">/cvs/utf-x/framework/src/java/utfx/samples/test/dom_source_builder_example_test_1.xml</file>
+<file revision="1.1">/cvs/utf-x/framework/src/java/utfx/samples/test/PackageTestSuite.java</file>
+<file revision="1.1">/cvs/utf-x/framework/src/java/utfx/util/CanonicalForm.java</file>
+<file revision="1.1">/cvs/utf-x/framework/src/java/utfx/util/DOMWriter.java</file>
+<file revision="1.1">/cvs/utf-x/framework/src/java/utfx/util/XMLValidator.java</file>
+<file revision="1.1">/cvs/utf-x/framework/src/java/utfx/util/XsltTestValidator.java</file>
+<file revision="1.2">/cvs/utf-x/framework/log4j.properties</file>
+<file revision="1.1">/cvs/utf-x/framework/src/java/utfx/samples/ContentFilterExample.java</file>
+<file revision="1.1">/cvs/utf-x/framework/src/java/utfx/samples/SAXSourceBuilderExample.java</file>
+<file revision="1.2">/cvs/utf-x/framework/build.xml</file>
+<file revision="1.1">/cvs/utf-x/framework/src/java/utfx/printers/JunitResultPrinter.java</file>
+<file revision="1.1">/cvs/utf-x/framework/src/java/utfx/printers/ResultPrinterFactory.java</file>
+<file revision="1.1">/cvs/utf-x/framework/src/java/utfx/printers/XmlResultPrinter.java</file>
+<file revision="1.2">/cvs/utf-x/framework/utfx.properties</file>
+<file revision="1.1">/cvs/utf-x/framework/src/java/utfx/printers/AnsiColourResultPrinter.java</file>
+<file revision="1.1">/cvs/utf-x/framework/src/java/utfx/printers/AnsiString.java</file>
+<file revision="1.1">/cvs/utf-x/framework/src/java/utfx/printers/ResultLogger.java</file>
+<file revision="1.1">/cvs/utf-x/framework/src/java/utfx/printers/ResultPrinter.java</file>
+<file revision="1.1">/cvs/utf-x/framework/src/java/utfx/printers/FormattedResultPrinter.java</file>
+<file revision="1.1">/cvs/utf-x/framework/src/xsl/wrapper.xsl</file>
+<file revision="1.1">/cvs/utf-x/framework/src/java/utfx/test/FullRegressionTest.java</file>
+<file revision="1.1">/cvs/utf-x/framework/src/java/utfx/framework/test/source_builder_loader_test_1.xml</file>
+<file revision="1.1">/cvs/utf-x/framework/src/java/utfx/framework/test/PackageTestSuite.java</file>
+<file revision="1.1">/cvs/utf-x/framework/src/java/utfx/framework/test/source_builder_loader_test_3.xml</file>
+<file revision="1.1">/cvs/utf-x/framework/src/java/utfx/framework/test/TestSourceBuilder1.java</file>
+<file revision="1.1">/cvs/utf-x/framework/src/java/utfx/framework/test/TestSourceBuilder2.java</file>
+<file revision="1.1">/cvs/utf-x/framework/src/java/utfx/framework/test/UTFXTestCaseTest.java</file>
+<file revision="1.1">/cvs/utf-x/framework/src/java/utfx/framework/test/ConfigurationManagerTest.java</file>
+<file revision="1.1">/cvs/utf-x/framework/src/java/utfx/framework/test/source_builder_loader_test_2.xml</file>
+<file revision="1.1">/cvs/utf-x/framework/src/java/utfx/framework/test/SourceBuilderLoaderTest.java</file>
+<file revision="1.1">/cvs/utf-x/framework/src/java/utfx/framework/test/StringComparisonFailureTest.java</file>
+<file revision="1.1">/cvs/utf-x/framework/src/java/utfx/framework/SourceBuilderLoader.java</file>
+<file revision="1.1">/cvs/utf-x/framework/src/java/utfx/framework/TestFileFilter.java</file>
+<file revision="1.1">/cvs/utf-x/framework/src/java/utfx/framework/StringComparisonFailure.java</file>
+<file revision="1.1">/cvs/utf-x/framework/src/java/utfx/framework/ConfigurationManager.java</file>
+<file revision="1.1">/cvs/utf-x/framework/src/java/utfx/framework/DefaultSourceBuilder.java</file>
+<file revision="1.1">/cvs/utf-x/framework/src/java/utfx/framework/SourceBuilder.java</file>
+<file revision="1.1">/cvs/utf-x/framework/src/java/utfx/framework/UTFXTestCase.java</file>
+<file revision="1.1">/cvs/utf-x/framework/src/java/utfx/framework/XSLTTestCase.java</file>
+<file revision="1.1">/cvs/utf-x/framework/src/java/utfx/framework/SourceBuilderWrapper.java</file>
+<file revision="1.1">/cvs/utf-x/framework/src/java/utfx/framework/TestFileSuiteAssembler.java</file>
+<file revision="1.1">/cvs/utf-x/framework/src/java/utfx/framework/XSLTRegressionTest.java</file>
+<file revision="1.1">/cvs/utf-x/framework/src/java/utfx/framework/XSLTTestDirectorySuite.java</file>
+<file revision="1.1">/cvs/utf-x/framework/src/java/utfx/framework/XSLTTestFileSuite.java</file>
+<file revision="1.1">/cvs/utf-x/framework/src/java/utfx/util/test/canonical_form_expected_1.xml</file>
+<file revision="1.1">/cvs/utf-x/framework/src/java/utfx/util/test/canonical_form_expected_8.xml</file>
+<file revision="1.1">/cvs/utf-x/framework/src/java/utfx/util/test/canonical_form_test_2.xml</file>
+<file revision="1.1">/cvs/utf-x/framework/src/java/utfx/util/test/CanonicalFormTest.java</file>
+<file revision="1.1">/cvs/utf-x/framework/src/java/utfx/util/test/dom_writer_test_2_utf16.xml</file>
+<file revision="1.1">/cvs/utf-x/framework/src/java/utfx/util/test/canonical_form_expected_2.xml</file>
+<file revision="1.1">/cvs/utf-x/framework/src/java/utfx/util/test/canonical_form_test_7.xml</file>
+<file revision="1.1">/cvs/utf-x/framework/src/java/utfx/util/test/DOMWriterTest.java</file>
+<file revision="1.1">/cvs/utf-x/framework/src/java/utfx/util/test/PackageTestSuite.java</file>
+<file revision="1.1">/cvs/utf-x/framework/src/java/utfx/util/test/canonical_form_expected_7.xml</file>
+<file revision="1.1">/cvs/utf-x/framework/src/java/utfx/util/test/canonical_form_test_6.xml</file>
+<file revision="1.1">/cvs/utf-x/framework/src/java/utfx/util/test/canonical_form_test_8.xml</file>
+<file revision="1.1">/cvs/utf-x/framework/src/java/utfx/util/test/dom_writer_expected_2_utf16.xml</file>
+<file revision="1.1">/cvs/utf-x/framework/src/java/utfx/util/test/canonical_form_expected_4.xml</file>
+<file revision="1.1">/cvs/utf-x/framework/src/java/utfx/util/test/canonical_form_expected_5.xml</file>
+<file revision="1.1">/cvs/utf-x/framework/src/java/utfx/util/test/canonical_form_test_1.xml</file>
+<file revision="1.1">/cvs/utf-x/framework/src/java/utfx/util/test/canonical_form_test_4.xml</file>
+<file revision="1.1">/cvs/utf-x/framework/src/java/utfx/util/test/dom_writer_expected_1_utf8.xml</file>
+<file revision="1.1">/cvs/utf-x/framework/src/java/utfx/util/test/canonical_form_expected_3.xml</file>
+<file revision="1.1">/cvs/utf-x/framework/src/java/utfx/util/test/canonical_form_expected_6.xml</file>
+<file revision="1.1">/cvs/utf-x/framework/src/java/utfx/util/test/canonical_form_test_3.xml</file>
+<file revision="1.1">/cvs/utf-x/framework/src/java/utfx/util/test/canonical_form_test_5.xml</file>
+<file revision="1.1">/cvs/utf-x/framework/src/java/utfx/util/test/dom_writer_test_1_utf8.xml</file>
+</files>
+<log><![CDATA[major restructuring of the packages and core framework classes; test definition files are now parsed using a DOM parser; added support for custom SourceBuilders
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.2">/cvs/utf-x/framework/src/dtd/utfx_tests.dtd</file>
+</files>
+<log><![CDATA[added elements to support SourceBuilder(s)
+]]></log>
+</change>
+</day-changes><day-changes date="2005-02-28">
+<zone></zone>
+<author>Jacek Radajewski</author>
+<email>jacekrad@dev.java.net</email>
+<change>
+<files>
+<file revision="1.1">/cvs/utf-x/framework/doc/javadoc_package_list/junit-package-list</file>
+<file revision="1.1">/cvs/utf-x/framework/.settings/com.genuitec.jboss.ide.eclipse.xdoclet.run.prefs</file>
+<file revision="1.1">/cvs/utf-x/framework/src/xsl/test_definition_fo.xsl</file>
+<file revision="1.1">/cvs/utf-x/framework/src/xsl/test_definition_xhtml.xsl</file>
+<file revision="1.1">/cvs/utf-x/framework/src/xcat/catalog.xml</file>
+<file revision="1.1">/cvs/utf-x/framework/samples/address_book/test/address_book_xhtml_test.html</file>
+<file revision="1.1">/cvs/utf-x/framework/samples/address_book/test/address_book_xhtml_test.xml</file>
+<file revision="1.1">/cvs/utf-x/framework/src/xcat/CatalogManager.properties</file>
+<file revision="1.1">/cvs/utf-x/framework/doc/website/images/.xvpics/utf-x_logo.gif</file>
+<file revision="1.1">/cvs/utf-x/framework/doc/website/images/.xvpics/utf-x_logo_small.gif</file>
+<file revision="1.1">/cvs/utf-x/framework/doc/website/images/.xvpics/utf-x_logo_vsmall.gif</file>
+<file revision="1.1">/cvs/utf-x/framework/src/dtd/utfx_tests.dtd</file>
+<file revision="1.1">/cvs/utf-x/framework/doc/website/images/ansi_colour_screenshot.jpg</file>
+<file revision="1.1">/cvs/utf-x/framework/doc/website/images/chainsaw.jpg</file>
+<file revision="1.1">/cvs/utf-x/framework/doc/website/images/project_rt.jpg</file>
+<file revision="1.1">/cvs/utf-x/framework/doc/website/images/utf-x_logo.gif</file>
+<file revision="1.1">/cvs/utf-x/framework/doc/website/images/utf-x_logo_vsmall.gif</file>
+<file revision="1.1">/cvs/utf-x/framework/doc/website/images/utf-x_logo_small.gif</file>
+<file revision="1.1">/cvs/utf-x/framework/lib/dom3-xercesImpl.jar</file>
+<file revision="1.1">/cvs/utf-x/framework/lib/xercesImpl.jar</file>
+<file revision="1.1">/cvs/utf-x/framework/lib/log4j-1.2.8.jar</file>
+<file revision="1.1">/cvs/utf-x/framework/lib/resolver.jar</file>
+<file revision="1.1">/cvs/utf-x/framework/lib/xalan.jar</file>
+<file revision="1.1">/cvs/utf-x/framework/lib/xml-apis.jar</file>
+<file revision="1.1">/cvs/utf-x/framework/lib/dom3-xml-apis.jar</file>
+<file revision="1.1">/cvs/utf-x/framework/lib/junit.jar</file>
+<file revision="1.1">/cvs/utf-x/framework/lib/xercesSamples.jar</file>
+<file revision="1.1">/cvs/utf-x/framework/doc/website/index.html</file>
+<file revision="1.1">/cvs/utf-x/framework/doc/website/website.css</file>
+<file revision="1.1">/cvs/utf-x/framework/src/css/stylesheet.css</file>
+<file revision="1.1">/cvs/utf-x/framework/.cvsignore</file>
+<file revision="1.1">/cvs/utf-x/framework/log4j.properties</file>
+<file revision="1.1">/cvs/utf-x/framework/Makefile</file>
+<file revision="1.1">/cvs/utf-x/framework/.project</file>
+<file revision="1.1">/cvs/utf-x/framework/utfx.bat</file>
+<file revision="1.1">/cvs/utf-x/framework/utfx.sh</file>
+<file revision="1.1">/cvs/utf-x/framework/build.xml</file>
+<file revision="1.1">/cvs/utf-x/framework/.classpath</file>
+<file revision="1.1">/cvs/utf-x/framework/utfx.properties</file>
+<file revision="1.1">/cvs/utf-x/framework/samples/address_book/address_book.dtd</file>
+<file revision="1.1">/cvs/utf-x/framework/samples/address_book/address_book_xhtml.xsl</file>
+<file revision="1.1">/cvs/utf-x/framework/samples/address_book/address_book.xml</file>
+</files>
+<log><![CDATA[source imported into java.net from sourceforge on 1/3/05 0.0.3 alpha +
+]]></log>
+</change></day-changes>
+</changes>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<u:document xmlns:u="http://utf-x.sourceforge.net/xsd/utfxdoc_1_0/utfxdoc.xsd"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://utf-x.sourceforge.net/xsd/utfxdoc_1_0/utfxdoc.xsd file:/D:/home/jacek/eclipse_workspace/utf-x/samples/utfxdoc/utfxdoc.xsd">
+    <u:title>UTF-X Design Document</u:title>
+    <u:sect1 id="into">
+        <u:title>Introduction</u:title>
+        <u:para>Feel free to contribute</u:para>
+    </u:sect1>
+</u:document>

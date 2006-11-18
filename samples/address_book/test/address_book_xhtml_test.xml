@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../../../src/xsl/test_definition_xhtml.xsl"?>
+<!--
+	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	$Id: address_book_xhtml_test.xml,v 1.6.2.3 2006/08/21 11:39:44 lachdrache Exp $
+	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	
+	UTF-X test definition file for address_book_xhtml.xsl stylesheet
+	
+	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	
+	Copyright(C) 2004-2006 UTF-X Developers.
+	
+	You may redistribute and/or modify under the terms of the GNU 
+	General Public License v2.
+	
+	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-->
+
+<!DOCTYPE utfx:tests PUBLIC "-//UTF-X//DTD utfx-tests 1.0//EN" "utfx_tests.dtd"[
+
+<!ENTITY % address_book_dtd PUBLIC "-//UTF-X//DTD address_book 1.0//EN" "address_book.dtd">
+	%address_book_dtd;
+
+<!ENTITY % xhtml1_dtd PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "xhtml1-transitional.dtd">
+	<!--	 %xhtml1_dtd; -->
+]>
+
+
+<utfx:tests xmlns:utfx="http://utfx.org/test-definition">
+  <utfx:stylesheet src="address_book_xhtml.xsl"/>
+
+  <utfx:source-validation>
+    <utfx:dtd system="address_book.dtd"
+      public="-//UTF-X//DTD address_book 1.0//EN"/>
+  </utfx:source-validation>
+
+  <utfx:expected-validation>
+    <utfx:dtd system="xhtml1-transitional.dtd"
+      public="-//W3C//DTD XHTML 1.0 Transitional//EN"/>
+  </utfx:expected-validation>
+
+
+  <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+  <!-- test an empty root element -->
+  <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+  <utfx:test>
+    <utfx:name>empty root element</utfx:name>
+    <utfx:assert-equal>
+      <utfx:source validate="no">
+        <address-book/>
+      </utfx:source>
+      <utfx:expected validate="yes">
+        <html>
+          <head>
+            <title>Address Book</title>
+            <style type="text/css"><![CDATA[
+.last-name {font-weight: bold;}
+.middle-name {}
+.first-name {font-style: italic;}
+]]></style>
+          </head>
+          <body style="font-family: Arial;">
+            <center>
+              <h1>Address Book</h1>
+              <table border="1" width="70%">
+                <colgroup>
+                  <col width="33%"/>
+                  <col width="33%"/>
+                  <col width="33%"/>
+                </colgroup>
+                <tbody>
+                  <tr>
+                    <th>Name</th>
+                    <th>Address</th>
+                    <th>Telephone Numbers</th>
+                  </tr>
+                </tbody>
+              </table>
+            </center>
+          </body>
+        </html>
+      </utfx:expected>
+    </utfx:assert-equal>
+  </utfx:test>
+
+  <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+  <!-- test an empty root element with color red-->
+  <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+  <utfx:test>
+    <utfx:name>empty root element with color red</utfx:name>
+    <utfx:stylesheet-params>
+      <utfx:with-param name="color">red</utfx:with-param>
+    </utfx:stylesheet-params>
+    <utfx:assert-equal>
+      <utfx:source validate="no">
+        <address-book/>
+      </utfx:source>
+      <utfx:expected validate="yes">
+        <html>
+          <head>
+            <title>Address Book</title>
+            <style type="text/css"><![CDATA[
+.last-name {font-weight: bold;}
+.middle-name {}
+.first-name {font-style: italic;}
+]]></style>
+          </head>
+          <body style="font-family: Arial; color: red;">
+            <center>
+              <h1>Address Book</h1>
+              <table border="1" width="70%">
+                <colgroup>
+                  <col width="33%"/>
+                  <col width="33%"/>
+                  <col width="33%"/>
+                </colgroup>
+                <tbody>
+                  <tr>
+                    <th>Name</th>
+                    <th>Address</th>
+                    <th>Telephone Numbers</th>
+                  </tr>
+                </tbody>
+              </table>
+            </center>
+          </body>
+        </html>
+      </utfx:expected>
+    </utfx:assert-equal>
+  </utfx:test>
+  
+  <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+  <!-- test empty address-entry element -->
+  <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+  <utfx:test>
+    <utfx:name>empty address-entry element</utfx:name>
+    <utfx:assert-equal>
+      <utfx:source validate="no">
+        <address-entry/>
+      </utfx:source>
+      <utfx:expected validate="yes">
+        <tr>
+          <td valign="top"><span class="last-name"/>,<span class="first-name"
+              /><span class="middle-name"/></td>
+          <td/>
+          <td>
+            <table>
+              <tbody>
+                <tr>
+                  <td>Home:</td>
+                  <td> </td>
+                </tr>
+                <tr>
+                  <td>Mobile:</td>
+                  <td> </td>
+                </tr>
+                <tr>
+                  <td>Work:</td>
+                  <td> </td>
+                </tr>
+              </tbody>
+            </table>
+          </td>
+        </tr>
+      </utfx:expected>
+    </utfx:assert-equal>
+  </utfx:test>
+
+  <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+  <!-- test complete address-entry -->
+  <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+  <utfx:test>
+    <utfx:name>complete address-entry</utfx:name>
+    <utfx:assert-equal>
+      <utfx:source use-source-parser="yes">
+        <address-entry>
+          <person>
+            <first-name>Jacek</first-name>
+            <middle-name>Wojciech</middle-name>
+            <last-name>Radajewski</last-name>
+          </person>
+          <street-address>
+            <street>Any street</street>
+            <city>Toowoomba</city>
+            <state>Queensland</state>
+            <post-code>4350</post-code>
+            <country>Australia</country>
+          </street-address>
+          <home-telephone>
+            <number>1234567</number>
+          </home-telephone>
+        </address-entry>
+      </utfx:source>
+      <utfx:expected validate="yes">
+        <tr>
+          <td valign="top"><span class="last-name">Radajewski</span>,<span
+              class="first-name">Jacek</span><span class="middle-name"
+            >Wojciech</span></td>
+          <td>
+            <table>
+              <tbody>
+                <tr>
+                  <td>Any street</td>
+                </tr>
+                <tr>
+                  <td>Toowoomba</td>
+                </tr>
+                <tr>
+                  <td>Queensland, 4350</td>
+                </tr>
+                <tr>
+                  <td>Australia</td>
+                </tr>
+              </tbody>
+            </table>
+          </td>
+          <td>
+            <table>
+              <tbody>
+                <tr>
+                  <td>Home:</td>
+                  <td> 1234567</td>
+                </tr>
+                <tr>
+                  <td>Mobile:</td>
+                  <td> </td>
+                </tr>
+                <tr>
+                  <td>Work:</td>
+                  <td> </td>
+                </tr>
+              </tbody>
+            </table>
+          </td>
+        </tr>
+      </utfx:expected>
+    </utfx:assert-equal>
+  </utfx:test>
+
+  <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+  <!-- test named template telephone-number -->
+  <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+  <utfx:test>
+    <utfx:name>named template telephone-number</utfx:name>
+    <utfx:call-template name="telephone-number">
+      <utfx:with-param name="telephone-number">
+          <area-code>02</area-code>
+          <number>87654321</number>
+      </utfx:with-param>      
+    </utfx:call-template>
+    <utfx:assert-equal>
+      <utfx:source></utfx:source>
+      <utfx:expected>(02)&#160;87654321</utfx:expected>
+    </utfx:assert-equal>
+  </utfx:test>
+  
+</utfx:tests>

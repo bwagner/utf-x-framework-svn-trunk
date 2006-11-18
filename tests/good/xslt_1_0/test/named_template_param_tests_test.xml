@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../../../src/xsl/test_definition_xhtml.xsl"?>
+<!--
+	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	$Id: named_template_param_tests_test.xml,v 1.1.2.1 2006/09/09 21:11:45 jacekrad Exp $
+	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	Purpose: UTF-X test definition file for named_template_param_tests.xsl
+	         stylesheet
+	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	Copyright(C) 2006 UTF-X Developers.
+	This program is free software; you can redistribute it and/or modify
+	it under the terms of the GNU General Public License v2 as published
+	by the Free Software Foundation (http://www.gnu.org/licenses/gpl.txt)
+	This program is distributed in the hope that it will be useful, but
+	WITHOUT ANY WARRANTY; without even the implied warranty of
+	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+	General Public License for more details.
+	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-->
+<!DOCTYPE utfx:tests PUBLIC "-//UTF-X//DTD utfx-tests 1.0//EN" "utfx_tests.dtd">
+<utfx:tests xmlns:utfx="http://utfx.org/test-definition">
+	<utfx:stylesheet src="named_template_param_tests.xsl"/>
+
+	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+	<!-- named template with parameter 1 -->
+	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+	<utfx:test>
+		<utfx:name>named template with parameter 1</utfx:name>
+		<utfx:call-template name="named-template-with-param">
+			<utfx:with-param name="a" select="1"/>
+		</utfx:call-template>
+		<utfx:assert-equal>
+			<utfx:source>
+				<empty/>
+			</utfx:source>
+			<utfx:expected>
+				<a>1</a>
+			</utfx:expected>
+		</utfx:assert-equal>
+	</utfx:test>
+
+	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+	<!-- named template with parameter 2
+		side effects occured when using the same parameter name for the same template-->
+	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+	<utfx:test>
+		<utfx:name>named template with parameter 2</utfx:name>
+		<utfx:call-template name="named-template-with-param">
+			<utfx:with-param name="a" select="2"/>
+		</utfx:call-template>
+		<utfx:assert-equal>
+			<utfx:source>
+				<empty/>
+			</utfx:source>
+			<utfx:expected>
+				<a>2</a>
+			</utfx:expected>
+		</utfx:assert-equal>
+	</utfx:test>
+
+	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+	<!-- named template with string parameter -->
+	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+	<utfx:test>
+		<utfx:name>named template with string parameter</utfx:name>
+		<utfx:call-template name="named-template-with-param">
+			<utfx:with-param name="a" select="'UTF-X'"/>
+		</utfx:call-template>
+		<utfx:assert-equal>
+			<utfx:source>
+				<empty/>
+			</utfx:source>
+			<utfx:expected>
+				<a>UTF-X</a>
+			</utfx:expected>
+		</utfx:assert-equal>
+	</utfx:test>
+
+	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+	<!-- named template with parameter as child to with-param -->
+	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+	<utfx:test>
+		<utfx:name>named template with parameter as child to with-param</utfx:name>
+		<utfx:call-template name="named-template-with-param">
+			<utfx:with-param name="a">
+				<root>UTF-X</root>
+			</utfx:with-param>
+		</utfx:call-template>
+		<utfx:assert-equal>
+			<utfx:source>
+				<empty/>
+			</utfx:source>
+			<utfx:expected>
+				<a>
+					<root>UTF-X</root>
+				</a>
+			</utfx:expected>
+		</utfx:assert-equal>
+	</utfx:test>
+
+	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+	<!-- named template with parameters -->
+	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+	<utfx:test>
+		<utfx:name>named template with parameters</utfx:name>
+		<utfx:call-template name="named-template-with-params">
+			<utfx:with-param name="a" select="1"/>
+			<utfx:with-param name="b" select="2"/>
+			<utfx:with-param name="c" select="3"/>
+		</utfx:call-template>
+		<utfx:assert-equal>
+			<utfx:source>
+				<empty/>
+			</utfx:source>
+			<utfx:expected>
+				<a>1</a>
+				<b>2</b>
+				<c>3</c>
+			</utfx:expected>
+		</utfx:assert-equal>
+	</utfx:test>
+
+	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+	<!-- named template with parameter and XML input fragment 1 -->
+	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+	<utfx:test>
+		<utfx:name>named template with parameter and XML input fragment 1</utfx:name>
+		<utfx:call-template name="getElement">
+			<utfx:with-param name="n" select="1"/>
+		</utfx:call-template>
+		<utfx:assert-equal>
+			<utfx:source>
+				<els>
+					<el>U</el>
+					<el>T</el>
+					<el>F</el>
+					<el>-</el>
+					<el>X</el>
+				</els>
+			</utfx:source>
+			<utfx:expected>
+				<el>U</el>
+			</utfx:expected>
+		</utfx:assert-equal>
+	</utfx:test>
+
+	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+	<!-- named template with parameter and XML input fragment 4 -->
+	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+	<utfx:test>
+		<utfx:name>named template with parameter and XML input fragment 4</utfx:name>
+		<utfx:call-template name="getElement">
+			<utfx:with-param name="n" select="4"/>
+		</utfx:call-template>
+		<utfx:assert-equal>
+			<utfx:source>
+				<els>
+					<el>U</el>
+					<el>T</el>
+					<el>F</el>
+					<el>-</el>
+					<el>X</el>
+				</els>
+			</utfx:source>
+			<utfx:expected>
+				<el>-</el>
+			</utfx:expected>
+		</utfx:assert-equal>
+	</utfx:test>
+
+	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+	<!-- named template with empty source                                        -->
+	<!--                                                                         -->
+	<!-- testing following code fragment in XSLTTransformTestCase.java           -->
+	<!--     if (isUsingCallTemplate() && (sourceNodes.getLength() == 0)) {      -->
+	<!--	     // if the source is empty, then create                          -->
+	<!--	     sourceWrapper.appendChild(doc.createElement("utfx-wrapper"));   -->
+	<!--	 }		                                                             -->
+	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+	<utfx:test>
+		<utfx:name>named template with empty source</utfx:name>
+		<utfx:call-template name="named-template-with-param">
+			<utfx:with-param name="a" select="1"/>
+		</utfx:call-template>
+		<utfx:assert-equal>
+			<utfx:source/>
+			<utfx:expected>
+				<a>1</a>
+			</utfx:expected>
+		</utfx:assert-equal>
+	</utfx:test>
+	
+</utfx:tests>

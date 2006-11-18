@@ -1,0 +1,1330 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<changes>
+<day-changes date="2005-02-28">
+<zone></zone>
+<author>Jacek Radajewski</author>
+<email>jacekrad@user.sourceforge.net</email>
+<change>
+<files>
+<file revision="1.1">/cvsroot/utf-x/utf-x/src/java/au/edu/usq/utfx/samples/test/PackageTestSuite.java</file>
+</files>
+<log><![CDATA[new package test suite with one entry
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.1">/cvsroot/utf-x/utf-x/src/java/au/edu/usq/utfx/framework/DefaultSourceBuilder.java</file>
+</files>
+<log><![CDATA[default SourceBuilder implementation
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.1">/cvsroot/utf-x/utf-x/src/java/au/edu/usq/utfx/framework/SourceBuilder.java</file>
+</files>
+<log><![CDATA[SourceBuilder interface
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.7">/cvsroot/utf-x/utf-x/doc/website/index.html</file>
+<file revision="1.2">/cvsroot/utf-x/utf-x/src/xcat/catalog.xml</file>
+<file revision="1.2">/cvsroot/utf-x/utf-x/.classpath</file>
+<file revision="1.2">/cvsroot/utf-x/utf-x/doc/website/images/ansi_colour_screenshot.jpg</file>
+<file revision="1.3">/cvsroot/utf-x/utf-x/samples/simple/test/sample1_test.xml</file>
+<file revision="1.7">/cvsroot/utf-x/utf-x/src/java/au/edu/usq/utfx/framework/ConfigurationManager.java</file>
+<file revision="1.6">/cvsroot/utf-x/utf-x/src/java/au/edu/usq/utfx/framework/TestFileSuiteAssembler.java</file>
+<file revision="1.14">/cvsroot/utf-x/utf-x/src/java/au/edu/usq/utfx/framework/XsltTestCase.java</file>
+<file revision="1.9">/cvsroot/utf-x/utf-x/src/java/au/edu/usq/utfx/framework/XsltTestDirectorySuite.java</file>
+<file revision="1.11">/cvsroot/utf-x/utf-x/src/java/au/edu/usq/utfx/printers/AnsiColourResultPrinter.java</file>
+<file revision="1.8">/cvsroot/utf-x/utf-x/src/java/au/edu/usq/utfx/printers/AnsiString.java</file>
+<file revision="1.2">/cvsroot/utf-x/utf-x/src/java/au/edu/usq/utfx/printers/FormattedResultPrinter.java</file>
+</files>
+<log><![CDATA[*** empty log message ***
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.5">/cvsroot/utf-x/utf-x/log4j.properties</file>
+</files>
+<log><![CDATA[cleanup
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.5">/cvsroot/utf-x/utf-x/utfx.properties</file>
+</files>
+<log><![CDATA[added property for sourceBuilder
+]]></log>
+</change>
+</day-changes><day-changes date="2005-02-23">
+<zone></zone>
+<author>Jacek Radajewski</author>
+<email>jacekrad@user.sourceforge.net</email>
+<change>
+<files>
+<file revision="1.4">/cvsroot/utf-x/utf-x/log4j.properties</file>
+</files>
+<log><![CDATA[changed framework logger from INFO to DEBUG severity
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.5">/cvsroot/utf-x/utf-x/samples/address_book/test/address_book_xhtml_test.xml</file>
+</files>
+<log><![CDATA[added an example of a failing test
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.6">/cvsroot/utf-x/utf-x/src/java/au/edu/usq/utfx/util/XsltTestValidator.java</file>
+</files>
+<log><![CDATA[added logging + formatting by eclipse
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.8">/cvsroot/utf-x/utf-x/src/java/au/edu/usq/utfx/runner/TestRunner.java</file>
+</files>
+<log><![CDATA[replaced system.out.println calls with log calls.  we now call the start() method on the ResultPrinter to start the timer ... perhaps should call close() as well :)
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.7">/cvsroot/utf-x/utf-x/src/java/au/edu/usq/utfx/printers/ResultPrinterFactory.java</file>
+</files>
+<log><![CDATA[removed ResultPrinterType enumeration and related methods and the factory now creates ResultPrinters from class name property
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.8">/cvsroot/utf-x/utf-x/src/java/au/edu/usq/utfx/printers/ResultPrinter.java</file>
+</files>
+<log><![CDATA[added debugging logs
+]]></log>
+</change>
+</day-changes><day-changes date="2005-02-22">
+<zone></zone>
+<author>Jacek Radajewski</author>
+<email>jacekrad@user.sourceforge.net</email>
+<change>
+<files>
+<file revision="1.4">/cvsroot/utf-x/utf-x/utfx.properties</file>
+</files>
+<log><![CDATA[minor
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.1">/cvsroot/utf-x/utf-x/src/java/au/edu/usq/utfx/printers/FormattedResultPrinter.java</file>
+</files>
+<log><![CDATA[This result printer is very similar to the AnsiColourResultrinter in the way it format output with the difference being that the FormattedResultPrinter does not use any ANSI escape sequences and therefore can be used on any plain ASCII terminal
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.10">/cvsroot/utf-x/utf-x/src/java/au/edu/usq/utfx/printers/AnsiColourResultPrinter.java</file>
+</files>
+<log><![CDATA[printDefactHeader now prints the diff for XmlComparisonFailure
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.13">/cvsroot/utf-x/utf-x/src/java/au/edu/usq/utfx/framework/XsltTestCase.java</file>
+</files>
+<log><![CDATA[removed all references to AnsiString from xsltTestCase.  Failed tests now throw XmlComparisonFailure which accepts expected and actual to its constructor.  Result printers know how to display the diff in appropriate format.
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.3">/cvsroot/utf-x/utf-x/src/java/au/edu/usq/utfx/framework/test/PackageTestSuite.java</file>
+</files>
+<log><![CDATA[added XmlComparisonFailureTest
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.1">/cvsroot/utf-x/utf-x/src/java/au/edu/usq/utfx/framework/test/XmlComparisonFailureTest.java</file>
+<file revision="1.1">/cvsroot/utf-x/utf-x/src/java/au/edu/usq/utfx/framework/XmlComparisonFailure.java</file>
+</files>
+<log><![CDATA[XmlComparisonFailure + test
+]]></log>
+</change>
+</day-changes><day-changes date="2005-02-21">
+<zone></zone>
+<author>Jacek Radajewski</author>
+<email>jacekrad@user.sourceforge.net</email>
+<change>
+<files>
+<file revision="1.5">/cvsroot/utf-x/utf-x/src/java/au/edu/usq/utfx/util/CanonicalForm.java</file>
+<file revision="1.5">/cvsroot/utf-x/utf-x/src/java/au/edu/usq/utfx/util/XsltTestValidator.java</file>
+</files>
+<log><![CDATA[minor doco changes to stop eclipse warnings (empty block)
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.1">/cvsroot/utf-x/utf-x/doc/website/website.css</file>
+</files>
+<log><![CDATA[CSS stylesheet for the website
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.6">/cvsroot/utf-x/utf-x/doc/website/index.html</file>
+</files>
+<log><![CDATA[little bit more doco + moved CSS stuff to a .css file
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.3">/cvsroot/utf-x/utf-x/samples/address_book/address_book_xhtml.xsl</file>
+<file revision="1.4">/cvsroot/utf-x/utf-x/samples/address_book/test/address_book_xhtml_test.xml</file>
+</files>
+<log><![CDATA[minor
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.1">/cvsroot/utf-x/utf-x/lib/log4j-1.2.8.jar</file>
+</files>
+<log><![CDATA[added log4j library
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.3">/cvsroot/utf-x/utf-x/utfx.properties</file>
+</files>
+<log><![CDATA[renamed testfile-filter property
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.3">/cvsroot/utf-x/utf-x/log4j.properties</file>
+</files>
+<log><![CDATA[minor debugging changes
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.8">/cvsroot/utf-x/utf-x/src/java/au/edu/usq/utfx/framework/XsltTestDirectorySuite.java</file>
+</files>
+<log><![CDATA[now use the configuration Manager to get TestFileFilter + cleanup
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.1">/cvsroot/utf-x/utf-x/src/css/stylesheet.css</file>
+</files>
+<log><![CDATA[added JavaDoc stylesheet
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.14">/cvsroot/utf-x/utf-x/build.xml</file>
+</files>
+<log><![CDATA[added log4j to the build path
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.7">/cvsroot/utf-x/utf-x/src/java/au/edu/usq/utfx/printers/AnsiString.java</file>
+</files>
+<log><![CDATA[fixed an error whereby code didn't compile with jrockit or sun's JDK because
+of brackets in case statements
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.6">/cvsroot/utf-x/utf-x/src/java/au/edu/usq/utfx/framework/ConfigurationManager.java</file>
+</files>
+<log><![CDATA[added getFileFilter() method and improved exception handling and logging
+]]></log>
+</change>
+</day-changes><day-changes date="2005-02-20">
+<zone></zone>
+<author>Jacek Radajewski</author>
+<email>jacekrad@user.sourceforge.net</email>
+<change>
+<files>
+<file revision="1.2">/cvsroot/utf-x/utf-x/utfx.properties</file>
+</files>
+<log><![CDATA[added utfx.filename-filter.class
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.6">/cvsroot/utf-x/utf-x/src/java/au/edu/usq/utfx/framework/XsltTestFileSuite.java</file>
+</files>
+<log><![CDATA[corrected naming of the file suites
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.7">/cvsroot/utf-x/utf-x/src/java/au/edu/usq/utfx/framework/XsltTestDirectorySuite.java</file>
+</files>
+<log><![CDATA[significant changes; recursive algorithm now works correctly; no longer use TestDirectoryFilter, FilterFilterOnly; corrected namming of test suites
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.6">/cvsroot/utf-x/utf-x/src/java/au/edu/usq/utfx/framework/TestFileHandler.java</file>
+</files>
+<log><![CDATA[changed some of the log severitites
+]]></log>
+</change>
+</day-changes><day-changes date="2005-02-16">
+<zone></zone>
+<author>Jacek Radajewski</author>
+<email>jacekrad@user.sourceforge.net</email>
+<change>
+<files>
+<file revision="1.2">/cvsroot/utf-x/utf-x/src/java/au/edu/usq/utfx/printers/ResultLogger.java</file>
+</files>
+<log><![CDATA[renamed test_results logger
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.6">/cvsroot/utf-x/utf-x/src/java/au/edu/usq/utfx/framework/XsltTestDirectorySuite.java</file>
+<file revision="1.5">/cvsroot/utf-x/utf-x/src/java/au/edu/usq/utfx/framework/TestFileHandler.java</file>
+</files>
+<log><![CDATA[now using log4j for all logging/debuging ... no more System.err.println()
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.5">/cvsroot/utf-x/utf-x/src/java/au/edu/usq/utfx/framework/ConfigurationManager.java</file>
+</files>
+<log><![CDATA[renamed the logger
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.2">/cvsroot/utf-x/utf-x/log4j.properties</file>
+</files>
+<log><![CDATA[restructured loggers.  we now have utfx root logger with two sub-loggers framework and test_results.  framework logger logs mesages generated by the UTF-X framework dusring a test run.  test_results logger logs test results only
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.5">/cvsroot/utf-x/utf-x/src/java/au/edu/usq/utfx/util/XMLValidator.java</file>
+</files>
+<log><![CDATA[removed unsed code
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.7">/cvsroot/utf-x/utf-x/src/java/au/edu/usq/utfx/runner/TestRunner.java</file>
+</files>
+<log><![CDATA[TestRunner now creates and registers a ResultLogger (TestListener) with the
+ResultObject.
+]]></log>
+</change>
+</day-changes><day-changes date="2005-02-15">
+<zone></zone>
+<author>Jacek Radajewski</author>
+<email>jacekrad@user.sourceforge.net</email>
+<change>
+<files>
+<file revision="1.1">/cvsroot/utf-x/utf-x/log4j.properties</file>
+</files>
+<log><![CDATA[default log4j.properties file
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.4">/cvsroot/utf-x/utf-x/src/java/au/edu/usq/utfx/framework/ConfigurationManager.java</file>
+</files>
+<log><![CDATA[now uses log4j logger
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.1">/cvsroot/utf-x/utf-x/src/java/au/edu/usq/utfx/printers/ResultLogger.java</file>
+</files>
+<log><![CDATA[added ResultLogger, a TestListener impl
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.2">/cvsroot/utf-x/utf-x/src/java/au/edu/usq/utfx/test/FullRegressionTest.java</file>
+</files>
+<log><![CDATA[added RCS Date tag to @version
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.6">/cvsroot/utf-x/utf-x/src/java/au/edu/usq/utfx/runner/TestRunner.java</file>
+</files>
+<log><![CDATA[major cleanup; no longer pass in command line parameters, not handled by
+properties
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.1">/cvsroot/utf-x/utf-x/utfx.properties</file>
+</files>
+<log><![CDATA[first cut of the samples properties file
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.5">/cvsroot/utf-x/utf-x/src/java/au/edu/usq/utfx/printers/XmlResultPrinter.java</file>
+</files>
+<log><![CDATA[added default constructor
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.6">/cvsroot/utf-x/utf-x/src/java/au/edu/usq/utfx/printers/ResultPrinterFactory.java</file>
+</files>
+<log><![CDATA[major changes; now use ConfigurationManager
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.7">/cvsroot/utf-x/utf-x/src/java/au/edu/usq/utfx/printers/ResultPrinter.java</file>
+</files>
+<log><![CDATA[removed unused code
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.5">/cvsroot/utf-x/utf-x/src/java/au/edu/usq/utfx/printers/JunitResultPrinter.java</file>
+</files>
+<log><![CDATA[added default constructor
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.12">/cvsroot/utf-x/utf-x/src/java/au/edu/usq/utfx/framework/XsltTestCase.java</file>
+<file revision="1.4">/cvsroot/utf-x/utf-x/src/java/au/edu/usq/utfx/util/test/CanonicalFormTest.java</file>
+<file revision="1.9">/cvsroot/utf-x/utf-x/src/java/au/edu/usq/utfx/printers/AnsiColourResultPrinter.java</file>
+<file revision="1.6">/cvsroot/utf-x/utf-x/src/java/au/edu/usq/utfx/printers/AnsiString.java</file>
+</files>
+<log><![CDATA[AnsiColour now uses an enumerated type (enum) for colours.
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.5">/cvsroot/utf-x/utf-x/src/java/au/edu/usq/utfx/printers/AnsiString.java</file>
+</files>
+<log><![CDATA[minor changes to suppress eclipse warnings
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.8">/cvsroot/utf-x/utf-x/src/java/au/edu/usq/utfx/printers/AnsiColourResultPrinter.java</file>
+<file revision="1.5">/cvsroot/utf-x/utf-x/src/java/au/edu/usq/utfx/framework/XsltTestFileSuite.java</file>
+<file revision="1.5">/cvsroot/utf-x/utf-x/src/java/au/edu/usq/utfx/framework/XsltTestDirectorySuite.java</file>
+</files>
+<log><![CDATA[removed unused code
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.7">/cvsroot/utf-x/utf-x/src/java/au/edu/usq/utfx/framework/XsltRegressionTest.java</file>
+</files>
+<log><![CDATA[added RCS Date tag to @version
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.5">/cvsroot/utf-x/utf-x/src/java/au/edu/usq/utfx/framework/TestFileSuiteAssembler.java</file>
+<file revision="1.4">/cvsroot/utf-x/utf-x/src/java/au/edu/usq/utfx/framework/TestFileHandler.java</file>
+</files>
+<log><![CDATA[removed unused code
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.5">/cvsroot/utf-x/utf-x/src/java/au/edu/usq/utfx/framework/TestFileFilter.java</file>
+</files>
+<log><![CDATA[minor change to if/else block to stop eclipse from complaining
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.3">/cvsroot/utf-x/utf-x/src/java/au/edu/usq/utfx/framework/ConfigurationManager.java</file>
+</files>
+<log><![CDATA[now handles result-printer.class property and creates appropriate class
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.2">/cvsroot/utf-x/utf-x/src/java/au/edu/usq/utfx/framework/test/PackageTestSuite.java</file>
+</files>
+<log><![CDATA[added RCS Date tag to @version
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.2">/cvsroot/utf-x/utf-x/src/java/au/edu/usq/utfx/framework/test/ConfigurationManagerTest.java</file>
+</files>
+<log><![CDATA[removed unused code
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.11">/cvsroot/utf-x/utf-x/src/java/au/edu/usq/utfx/framework/XsltTestCase.java</file>
+</files>
+<log><![CDATA[added RCS Date tag to @version
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.10">/cvsroot/utf-x/utf-x/src/java/au/edu/usq/utfx/framework/XsltTestCase.java</file>
+</files>
+<log><![CDATA[removed unused code
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.13">/cvsroot/utf-x/utf-x/build.xml</file>
+</files>
+<log><![CDATA[rt and samples tasks now run with assertions enables; rt now calls the
+FullRegressionTest suite class.
+]]></log>
+</change>
+</day-changes><day-changes date="2005-02-14">
+<zone></zone>
+<author>Jacek Radajewski</author>
+<email>jacekrad@user.sourceforge.net</email>
+<change>
+<files>
+<file revision="1.1">/cvsroot/utf-x/utf-x/src/java/au/edu/usq/utfx/framework/test/ConfigurationManagerTest.java</file>
+<file revision="1.1">/cvsroot/utf-x/utf-x/src/java/au/edu/usq/utfx/framework/test/PackageTestSuite.java</file>
+</files>
+<log><![CDATA[added framework PackacgeTestSuite and ConfigurationManagerTest
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.1">/cvsroot/utf-x/utf-x/src/java/au/edu/usq/utfx/test/FullRegressionTest.java</file>
+</files>
+<log><![CDATA[added FullRegressionTest class; this is the root test suite
+for the utf-x software
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.2">/cvsroot/utf-x/utf-x/src/java/au/edu/usq/utfx/framework/ConfigurationManager.java</file>
+</files>
+<log><![CDATA[added singleton functionality
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.1">/cvsroot/utf-x/utf-x/src/java/au/edu/usq/utfx/framework/ConfigurationManager.java</file>
+</files>
+<log><![CDATA[UTF-X configuration manager
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.6">/cvsroot/utf-x/utf-x/src/java/au/edu/usq/utfx/printers/ResultPrinter.java</file>
+</files>
+<log><![CDATA[added a default constructor (no arguments)
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.7">/cvsroot/utf-x/utf-x/src/java/au/edu/usq/utfx/printers/AnsiColourResultPrinter.java</file>
+</files>
+<log><![CDATA[added a default no argument constructor
+]]></log>
+</change>
+</day-changes><day-changes date="2005-02-11">
+<zone></zone>
+<author>Jacek Radajewski</author>
+<email>jacekrad@user.sourceforge.net</email>
+<change>
+<files>
+<file revision="1.12">/cvsroot/utf-x/utf-x/build.xml</file>
+</files>
+<log><![CDATA[pass utfx.result.printer.class property to the JVM running
+the samples
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.5">/cvsroot/utf-x/utf-x/src/java/au/edu/usq/utfx/runner/TestRunner.java</file>
+</files>
+<log><![CDATA[removed unused methods, variables and other code
+]]></log>
+</change>
+</day-changes><day-changes date="2005-02-10">
+<zone></zone>
+<author>Jacek Radajewski</author>
+<email>jacekrad@user.sourceforge.net</email>
+<change>
+<files>
+<file revision="1.6">/cvsroot/utf-x/utf-x/src/java/au/edu/usq/utfx/printers/AnsiColourResultPrinter.java</file>
+<file revision="1.4">/cvsroot/utf-x/utf-x/src/java/au/edu/usq/utfx/printers/JunitResultPrinter.java</file>
+<file revision="1.5">/cvsroot/utf-x/utf-x/src/java/au/edu/usq/utfx/printers/ResultPrinterFactory.java</file>
+<file revision="1.5">/cvsroot/utf-x/utf-x/src/java/au/edu/usq/utfx/printers/ResultPrinter.java</file>
+<file revision="1.4">/cvsroot/utf-x/utf-x/src/java/au/edu/usq/utfx/printers/XmlResultPrinter.java</file>
+<file revision="1.3">/cvsroot/utf-x/utf-x/src/java/au/edu/usq/utfx/util/test/CanonicalFormTest.java</file>
+<file revision="1.3">/cvsroot/utf-x/utf-x/src/java/au/edu/usq/utfx/util/test/PackageTestSuite.java</file>
+<file revision="1.4">/cvsroot/utf-x/utf-x/src/java/au/edu/usq/utfx/printers/AnsiString.java</file>
+<file revision="1.4">/cvsroot/utf-x/utf-x/src/java/au/edu/usq/utfx/runner/TestRunner.java</file>
+<file revision="1.4">/cvsroot/utf-x/utf-x/src/java/au/edu/usq/utfx/util/CanonicalForm.java</file>
+<file revision="1.4">/cvsroot/utf-x/utf-x/src/java/au/edu/usq/utfx/util/XMLValidator.java</file>
+<file revision="1.4">/cvsroot/utf-x/utf-x/src/java/au/edu/usq/utfx/util/XsltTestValidator.java</file>
+</files>
+<log><![CDATA[RCS tags/header cleanup
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.4">/cvsroot/utf-x/utf-x/src/java/au/edu/usq/utfx/framework/TestFileFilter.java</file>
+<file revision="1.3">/cvsroot/utf-x/utf-x/src/java/au/edu/usq/utfx/framework/TestFileHandler.java</file>
+<file revision="1.4">/cvsroot/utf-x/utf-x/src/java/au/edu/usq/utfx/framework/TestFileSuiteAssembler.java</file>
+<file revision="1.6">/cvsroot/utf-x/utf-x/src/java/au/edu/usq/utfx/framework/XsltRegressionTest.java</file>
+<file revision="1.9">/cvsroot/utf-x/utf-x/src/java/au/edu/usq/utfx/framework/XsltTestCase.java</file>
+<file revision="1.4">/cvsroot/utf-x/utf-x/src/java/au/edu/usq/utfx/framework/XsltTestDirectorySuite.java</file>
+<file revision="1.4">/cvsroot/utf-x/utf-x/src/java/au/edu/usq/utfx/framework/XsltTestFileSuite.java</file>
+</files>
+<log><![CDATA[removed RCS Log tag comments
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.3">/cvsroot/utf-x/utf-x/src/java/au/edu/usq/utfx/framework/TestFileFilter.java</file>
+<file revision="1.2">/cvsroot/utf-x/utf-x/src/java/au/edu/usq/utfx/framework/TestFileHandler.java</file>
+<file revision="1.3">/cvsroot/utf-x/utf-x/src/java/au/edu/usq/utfx/framework/TestFileSuiteAssembler.java</file>
+<file revision="1.8">/cvsroot/utf-x/utf-x/src/java/au/edu/usq/utfx/framework/XsltTestCase.java</file>
+<file revision="1.5">/cvsroot/utf-x/utf-x/src/java/au/edu/usq/utfx/framework/XsltRegressionTest.java</file>
+<file revision="1.3">/cvsroot/utf-x/utf-x/src/java/au/edu/usq/utfx/framework/XsltTestDirectorySuite.java</file>
+</files>
+<log><![CDATA[cleanup
+]]></log>
+</change>
+</day-changes><day-changes date="2005-02-09">
+<zone></zone>
+<author>Jacek Radajewski</author>
+<email>jacekrad@user.sourceforge.net</email>
+<change>
+<files>
+<file revision="1.3">/cvsroot/utf-x/utf-x/src/java/au/edu/usq/utfx/framework/XsltTestFileSuite.java</file>
+</files>
+<log><![CDATA[minor cleanup
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.5">/cvsroot/utf-x/utf-x/doc/website/index.html</file>
+</files>
+<log><![CDATA[minor doco updates
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.2">/cvsroot/utf-x/utf-x/Makefile</file>
+</files>
+<log><![CDATA[ignore error in the initial rsync
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.2">/cvsroot/utf-x/utf-x/src/java/au/edu/usq/utfx/framework/XsltTestFileSuite.java</file>
+</files>
+<log><![CDATA[removed obsolete code that is part of the XsltTestDirectorysuite
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.11">/cvsroot/utf-x/utf-x/build.xml</file>
+</files>
+<log><![CDATA[samples target now runs all samples in a single regression
+test utilising the new functionality implemeted today
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.2">/cvsroot/utf-x/utf-x/src/java/au/edu/usq/utfx/framework/XsltTestDirectorySuite.java</file>
+</files>
+<log><![CDATA[removed code that was originally copied from XsltTestSuite
+but is now part of XsltTestFileSuite and not relevant to this
+class
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.4">/cvsroot/utf-x/utf-x/src/java/au/edu/usq/utfx/framework/XsltRegressionTest.java</file>
+</files>
+<log><![CDATA[refactoring outside this class
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.2">/cvsroot/utf-x/utf-x/src/java/au/edu/usq/utfx/framework/TestFileSuiteAssembler.java</file>
+</files>
+<log><![CDATA[now at a working state (after rename/move)
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.7">/cvsroot/utf-x/utf-x/src/java/au/edu/usq/utfx/framework/XsltTestBuilder.java</file>
+</files>
+<log><![CDATA[replaced by TestFileSuiteassembler and TestFileHandler
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.2">/cvsroot/utf-x/utf-x/src/java/au/edu/usq/utfx/framework/XsltTestFilenameFilter.java</file>
+</files>
+<log><![CDATA[replaced by TestFileFilter
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.4">/cvsroot/utf-x/utf-x/src/java/au/edu/usq/utfx/framework/XsltTestSuite.java</file>
+</files>
+<log><![CDATA[this clas has been replaced by XsltTestFileSuite and
+XsltTestDirectorySuite
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.1">/cvsroot/utf-x/utf-x/src/java/au/edu/usq/utfx/framework/TestFileHandler.java</file>
+</files>
+<log><![CDATA[moved the SAX handlers' implementation from XsltTestBuilder
+(now TestFileSuiteAssembler) into this class
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.2">/cvsroot/utf-x/utf-x/src/java/au/edu/usq/utfx/framework/TestFileFilter.java</file>
+</files>
+<log><![CDATA[doco fix only
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.1">/cvsroot/utf-x/utf-x/src/java/au/edu/usq/utfx/framework/TestFileSuiteAssembler.java</file>
+</files>
+<log><![CDATA[was XsltTestBuilder (renamed)
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.1">/cvsroot/utf-x/utf-x/src/java/au/edu/usq/utfx/framework/TestFileFilter.java</file>
+</files>
+<log><![CDATA[renamed XsltTestFilenameFilter
+]]></log>
+</change>
+</day-changes><day-changes date="2005-02-08">
+<zone></zone>
+<author>Jacek Radajewski</author>
+<email>jacekrad@user.sourceforge.net</email>
+<change>
+<files>
+<file revision="1.1">/cvsroot/utf-x/utf-x/src/java/au/edu/usq/utfx/framework/XsltTestFilenameFilter.java</file>
+</files>
+<log><![CDATA[java.io.FilenameFilter has been removed from the XsltTestSuite
+and placed in this class to make the design cleaner and to
+allow for easier replacement of the FilenameFilter implementation
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.1">/cvsroot/utf-x/utf-x/src/java/au/edu/usq/utfx/framework/XsltTestDirectorySuite.java</file>
+<file revision="1.1">/cvsroot/utf-x/utf-x/src/java/au/edu/usq/utfx/framework/XsltTestFileSuite.java</file>
+</files>
+<log><![CDATA[XsltTestSuite has been split into two classes:
+XsltTestDirectorySuite and XsltTestFileSuite as these two
+types of UTF-X test suites are quite different
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.3">/cvsroot/utf-x/utf-x/src/java/au/edu/usq/utfx/framework/XsltTestSuite.java</file>
+</files>
+<log><![CDATA[source formatting only
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.1">/cvsroot/utf-x/utf-x/lib/resolver.jar</file>
+</files>
+<log><![CDATA[this jar file is needed for the CatalogResolver; it is required
+for using XML catalogue files
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.3">/cvsroot/utf-x/utf-x/samples/test/sample1_test.xml</file>
+</files>
+<log><![CDATA[this is now under samples/simple/test
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.2">/cvsroot/utf-x/utf-x/samples/sample1.xsl</file>
+</files>
+<log><![CDATA[this file has been moved to simple
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.4">/cvsroot/utf-x/utf-x/src/dtd/xslt_tests.dtd</file>
+</files>
+<log><![CDATA[this file was renamed to utfx_tests.dtd
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.2">/cvsroot/utf-x/utf-x/utfx.sh</file>
+</files>
+<log><![CDATA[this script now runs the samples
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.4">/cvsroot/utf-x/utf-x/javadoc.xml</file>
+</files>
+<log><![CDATA[no longer needed
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.10">/cvsroot/utf-x/utf-x/build.xml</file>
+</files>
+<log><![CDATA[jar target now includes DTD and XML catalogue files
+minor changes to properties
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.3">/cvsroot/utf-x/utf-x/src/java/au/edu/usq/utfx/runner/TestRunner.java</file>
+</files>
+<log><![CDATA[this TestRunner now calls printSummary() on the result
+printer after completing the tests.
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.7">/cvsroot/utf-x/utf-x/src/java/au/edu/usq/utfx/framework/XsltTestCase.java</file>
+</files>
+<log><![CDATA[now use SAXSource and CatalogResolver for the test
+source elemment as it is passed to the transformer
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.6">/cvsroot/utf-x/utf-x/src/java/au/edu/usq/utfx/framework/XsltTestBuilder.java</file>
+</files>
+<log><![CDATA[formatting and debugging only
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.1">/cvsroot/utf-x/utf-x/src/xcat/CatalogManager.properties</file>
+<file revision="1.1">/cvsroot/utf-x/utf-x/src/xcat/catalog.xml</file>
+</files>
+<log><![CDATA[XML Catalogue specifc files
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.4">/cvsroot/utf-x/utf-x/doc/website/index.html</file>
+</files>
+<log><![CDATA[added link to downloads and news about alpha 0.0.2
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.9">/cvsroot/utf-x/utf-x/build.xml</file>
+</files>
+<log><![CDATA[updated catalog entries
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.3">/cvsroot/utf-x/utf-x/samples/address_book/test/address_book_xhtml_test.xml</file>
+<file revision="1.2">/cvsroot/utf-x/utf-x/samples/simple/test/sample1_test.xml</file>
+</files>
+<log><![CDATA[now using the new (working) doctype
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.2">/cvsroot/utf-x/utf-x/src/dtd/utfx_tests.dtd</file>
+</files>
+<log><![CDATA[changed root element to utfx-tests as xslt-tests was
+too ambiguous
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.1">/cvsroot/utf-x/utf-x/src/dtd/utfx_tests.dtd</file>
+</files>
+<log><![CDATA[name change - was xslt_tests.dtd
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.2">/cvsroot/utf-x/utf-x/samples/address_book/test/address_book_xhtml_test.xml</file>
+</files>
+<log><![CDATA[DOCTYPE now uses public ID
+]]></log>
+</change>
+</day-changes><day-changes date="2005-02-07">
+<zone></zone>
+<author>Jacek Radajewski</author>
+<email>jacekrad@user.sourceforge.net</email>
+<change>
+<files>
+<file revision="1.3">/cvsroot/utf-x/utf-x/doc/website/index.html</file>
+</files>
+<log><![CDATA[esthetic updates
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.1">/cvsroot/utf-x/utf-x/lib/xml-apis.jar</file>
+</files>
+<log><![CDATA[xml-apis library contains XML APIs required by the project
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.2">/cvsroot/utf-x/utf-x/samples/address_book/address_book.xml</file>
+</files>
+<log><![CDATA[doco only
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.8">/cvsroot/utf-x/utf-x/build.xml</file>
+</files>
+<log><![CDATA[added xml-apis.jar to the classpath; added xslt test rendition
+to the samples task
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.5">/cvsroot/utf-x/utf-x/src/java/au/edu/usq/utfx/framework/XsltTestBuilder.java</file>
+</files>
+<log><![CDATA[changed entity resolve to use CatalogResolver
+]]></log>
+</change>
+</day-changes><day-changes date="2005-02-03">
+<zone></zone>
+<author>Jacek Radajewski</author>
+<email>jacekrad@user.sourceforge.net</email>
+<change>
+<files>
+<file revision="1.7">/cvsroot/utf-x/utf-x/build.xml</file>
+</files>
+<log><![CDATA[added address_book samples to the 'samples' task
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.1">/cvsroot/utf-x/utf-x/src/xsl/test_definition_fo.xsl</file>
+</files>
+<log><![CDATA[copied from the GOOD project source tree
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.3">/cvsroot/utf-x/utf-x/src/dtd/xslt_tests.dtd</file>
+</files>
+<log><![CDATA[removed GOOd specific DTD types from the dtd element;
+changed data content model to #PCDATA
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.2">/cvsroot/utf-x/utf-x/src/xsl/test_definition_xhtml.xsl</file>
+</files>
+<log><![CDATA[look and feel changes by Peter Sefton
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.1">/cvsroot/utf-x/utf-x/src/xsl/test_definition_xhtml.xsl</file>
+</files>
+<log><![CDATA[stylesheet for rendering XHTML output from UTF-X test
+definition files - as copied from the GOOD project tree
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.2">/cvsroot/utf-x/utf-x/samples/address_book/address_book_xhtml.xsl</file>
+</files>
+<log><![CDATA[implemented address-book (root) and address-entry templates.
+these templates pass all tests as currently defined in
+address_book_xhtml_test.xml UTF-X test definition file
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.1">/cvsroot/utf-x/utf-x/samples/address_book/test/address_book_xhtml_test.xml</file>
+</files>
+<log><![CDATA[added test definition file for the address_book_xhtml.xsl
+stylesheet
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.1">/cvsroot/utf-x/utf-x/samples/address_book/address_book.xml</file>
+</files>
+<log><![CDATA[address book sample XML content file
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.2">/cvsroot/utf-x/utf-x/samples/address_book/address_book.dtd</file>
+</files>
+<log><![CDATA[fixed missing element declarations
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.1">/cvsroot/utf-x/utf-x/samples/address_book/address_book_xhtml.xsl</file>
+</files>
+<log><![CDATA[address book sample for generating xhtml from address
+book XML documents.
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.1">/cvsroot/utf-x/utf-x/samples/address_book/address_book.dtd</file>
+</files>
+<log><![CDATA[this is a DTD for the address book sample.  the DTD is not
+supposed to represent a real life usable address book
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.1">/cvsroot/utf-x/utf-x/samples/simple/sample1.xsl</file>
+<file revision="1.1">/cvsroot/utf-x/utf-x/samples/simple/test/sample1_test.xml</file>
+</files>
+<log><![CDATA[moved into 'simple' directory
+]]></log>
+</change>
+</day-changes><day-changes date="2005-02-02">
+<zone></zone>
+<author>Jacek Radajewski</author>
+<email>jacekrad@user.sourceforge.net</email>
+<change>
+<files>
+<file revision="1.6">/cvsroot/utf-x/utf-x/src/java/au/edu/usq/utfx/framework/XsltTestCase.java</file>
+</files>
+<log><![CDATA[style fixes only
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.3">/cvsroot/utf-x/utf-x/src/java/au/edu/usq/utfx/framework/XsltRegressionTest.java</file>
+</files>
+<log><![CDATA[doco only
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.6">/cvsroot/utf-x/utf-x/build.xml</file>
+</files>
+<log><![CDATA[added xml-apis.jar to the CLASSPATHs
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.1">/cvsroot/utf-x/utf-x/utfx.bat</file>
+<file revision="1.1">/cvsroot/utf-x/utf-x/utfx.sh</file>
+</files>
+<log><![CDATA[added bourne shell script and doc batch file to execute
+utf-x from command line.  in both cases root test suite
+should be passed as an argument to the script
+]]></log>
+</change>
+</day-changes><day-changes date="2005-02-01">
+<zone></zone>
+<author>Jacek Radajewski</author>
+<email>jacekrad@user.sourceforge.net</email>
+<change>
+<files>
+<file revision="1.5">/cvsroot/utf-x/utf-x/build.xml</file>
+<file revision="1.5">/cvsroot/utf-x/utf-x/src/java/au/edu/usq/utfx/printers/AnsiColourResultPrinter.java</file>
+<file revision="1.2">/cvsroot/utf-x/utf-x/src/java/au/edu/usq/utfx/util/test/canonical_form_expected_3.xml</file>
+<file revision="1.2">/cvsroot/utf-x/utf-x/src/java/au/edu/usq/utfx/util/test/canonical_form_expected_5.xml</file>
+<file revision="1.2">/cvsroot/utf-x/utf-x/src/java/au/edu/usq/utfx/util/test/canonical_form_expected_8.xml</file>
+<file revision="1.2">/cvsroot/utf-x/utf-x/src/java/au/edu/usq/utfx/util/test/canonical_form_test_1.xml</file>
+<file revision="1.2">/cvsroot/utf-x/utf-x/src/java/au/edu/usq/utfx/util/test/canonical_form_test_3.xml</file>
+<file revision="1.2">/cvsroot/utf-x/utf-x/src/java/au/edu/usq/utfx/util/test/canonical_form_test_4.xml</file>
+<file revision="1.2">/cvsroot/utf-x/utf-x/src/java/au/edu/usq/utfx/util/test/canonical_form_test_5.xml</file>
+<file revision="1.2">/cvsroot/utf-x/utf-x/src/java/au/edu/usq/utfx/util/test/canonical_form_test_7.xml</file>
+<file revision="1.2">/cvsroot/utf-x/utf-x/src/java/au/edu/usq/utfx/util/test/canonical_form_test_8.xml</file>
+<file revision="1.2">/cvsroot/utf-x/utf-x/src/java/au/edu/usq/utfx/util/test/CanonicalFormTest.java</file>
+</files>
+<log><![CDATA[added 'rt' task (target) to build.xml and moved various
+unit tests from the GOOD project
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.1">/cvsroot/utf-x/utf-x/src/java/au/edu/usq/utfx/util/test/canonical_form_expected_1.xml</file>
+<file revision="1.1">/cvsroot/utf-x/utf-x/src/java/au/edu/usq/utfx/util/test/canonical_form_expected_4.xml</file>
+<file revision="1.1">/cvsroot/utf-x/utf-x/src/java/au/edu/usq/utfx/util/test/canonical_form_expected_7.xml</file>
+<file revision="1.1">/cvsroot/utf-x/utf-x/src/java/au/edu/usq/utfx/util/test/canonical_form_test_1.xml</file>
+<file revision="1.1">/cvsroot/utf-x/utf-x/src/java/au/edu/usq/utfx/util/test/canonical_form_test_2.xml</file>
+<file revision="1.1">/cvsroot/utf-x/utf-x/src/java/au/edu/usq/utfx/util/test/canonical_form_test_4.xml</file>
+<file revision="1.1">/cvsroot/utf-x/utf-x/src/java/au/edu/usq/utfx/util/test/canonical_form_test_5.xml</file>
+<file revision="1.1">/cvsroot/utf-x/utf-x/src/java/au/edu/usq/utfx/util/test/canonical_form_test_6.xml</file>
+<file revision="1.1">/cvsroot/utf-x/utf-x/src/java/au/edu/usq/utfx/util/test/canonical_form_test_7.xml</file>
+<file revision="1.1">/cvsroot/utf-x/utf-x/src/java/au/edu/usq/utfx/util/test/canonical_form_test_8.xml</file>
+<file revision="1.1">/cvsroot/utf-x/utf-x/src/java/au/edu/usq/utfx/util/test/canonical_form_expected_2.xml</file>
+<file revision="1.1">/cvsroot/utf-x/utf-x/src/java/au/edu/usq/utfx/util/test/canonical_form_expected_3.xml</file>
+<file revision="1.1">/cvsroot/utf-x/utf-x/src/java/au/edu/usq/utfx/util/test/canonical_form_expected_5.xml</file>
+<file revision="1.1">/cvsroot/utf-x/utf-x/src/java/au/edu/usq/utfx/util/test/canonical_form_expected_6.xml</file>
+<file revision="1.1">/cvsroot/utf-x/utf-x/src/java/au/edu/usq/utfx/util/test/canonical_form_expected_8.xml</file>
+<file revision="1.1">/cvsroot/utf-x/utf-x/src/java/au/edu/usq/utfx/util/test/canonical_form_test_3.xml</file>
+</files>
+<log><![CDATA[moved canonical form test files
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.1">/cvsroot/utf-x/utf-x/src/java/au/edu/usq/utfx/util/test/CanonicalFormTest.java</file>
+</files>
+<log><![CDATA[added CanonicalForm test
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.2">/cvsroot/utf-x/utf-x/src/java/au/edu/usq/utfx/util/test/PackageTestSuite.java</file>
+</files>
+<log><![CDATA[added Log header
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.1">/cvsroot/utf-x/utf-x/src/java/au/edu/usq/utfx/util/test/PackageTestSuite.java</file>
+</files>
+<log><![CDATA[added package test suite for the util package
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.5">/cvsroot/utf-x/utf-x/src/java/au/edu/usq/utfx/framework/XsltTestCase.java</file>
+</files>
+<log><![CDATA[fixed Log header
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.2">/cvsroot/utf-x/utf-x/src/dtd/xslt_tests.dtd</file>
+</files>
+<log><![CDATA[removed GOOD specific elements
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.2">/cvsroot/utf-x/utf-x/samples/test/sample1_test.xml</file>
+</files>
+<log><![CDATA[added doctype
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.4">/cvsroot/utf-x/utf-x/build.xml</file>
+</files>
+<log><![CDATA[heaps more work on build.xml; added samples target which
+runs the samples shipped with the distribution
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.1">/cvsroot/utf-x/utf-x/lib/junit.jar</file>
+<file revision="1.1">/cvsroot/utf-x/utf-x/lib/xalan.jar</file>
+<file revision="1.1">/cvsroot/utf-x/utf-x/lib/xercesImpl.jar</file>
+<file revision="1.1">/cvsroot/utf-x/utf-x/lib/xercesSamples.jar</file>
+</files>
+<log><![CDATA[added libraries on which utf-x depends.  these are now in
+the source tree so utf-x can be shipped 'complete'.  Note
+that it is the authors professional opinion that shipping libraries
+with source is a bad idea and defats the purpase of having
+libraries in the first place, but this seems to be a common thing
+to do in the Java world :)
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.1">/cvsroot/utf-x/utf-x/Makefile</file>
+</files>
+<log><![CDATA[added makefile to manage some of the release process
+as it is Linux specific and not part of the actual project
+build process
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.3">/cvsroot/utf-x/utf-x/build.xml</file>
+</files>
+<log><![CDATA[cleanup + added clean target
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.2">/cvsroot/utf-x/utf-x/doc/website/rt_output.log</file>
+</files>
+<log><![CDATA[deleted
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.2">/cvsroot/utf-x/utf-x/doc/website/index.html</file>
+</files>
+<log><![CDATA[added RCS id tag and a link to the project page
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.1">/cvsroot/utf-x/utf-x/doc/javadoc_package_list/junit-package-list</file>
+</files>
+<log><![CDATA[java package list for external packages
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.1">/cvsroot/utf-x/utf-x/doc/website/images/ansi_colour_screenshot.jpg</file>
+<file revision="1.1">/cvsroot/utf-x/utf-x/doc/website/images/utf-x_logo.gif</file>
+<file revision="1.1">/cvsroot/utf-x/utf-x/doc/website/images/utf-x_logo_small.gif</file>
+<file revision="1.1">/cvsroot/utf-x/utf-x/doc/website/images/utf-x_logo_vsmall.gif</file>
+<file revision="1.1">/cvsroot/utf-x/utf-x/doc/website/images/.xvpics/utf-x_logo.gif</file>
+<file revision="1.1">/cvsroot/utf-x/utf-x/doc/website/images/.xvpics/utf-x_logo_small.gif</file>
+<file revision="1.1">/cvsroot/utf-x/utf-x/doc/website/images/.xvpics/utf-x_logo_vsmall.gif</file>
+<file revision="1.1">/cvsroot/utf-x/utf-x/doc/website/index.html</file>
+<file revision="1.1">/cvsroot/utf-x/utf-x/doc/website/rt_output.log</file>
+</files>
+<log><![CDATA[added website to the project CVS tree
+]]></log>
+</change>
+</day-changes><day-changes date="2005-01-31">
+<zone></zone>
+<author>Jacek Radajewski</author>
+<email>jacekrad@user.sourceforge.net</email>
+<change>
+<files>
+<file revision="1.3">/cvsroot/utf-x/utf-x/javadoc.xml</file>
+</files>
+<log><![CDATA[added header
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.4">/cvsroot/utf-x/utf-x/src/java/au/edu/usq/utfx/framework/XsltTestBuilder.java</file>
+<file revision="1.3">/cvsroot/utf-x/utf-x/src/java/au/edu/usq/utfx/util/CanonicalForm.java</file>
+<file revision="1.3">/cvsroot/utf-x/utf-x/src/java/au/edu/usq/utfx/util/XMLValidator.java</file>
+<file revision="1.3">/cvsroot/utf-x/utf-x/src/java/au/edu/usq/utfx/util/XsltTestValidator.java</file>
+<file revision="1.4">/cvsroot/utf-x/utf-x/src/java/au/edu/usq/utfx/framework/XsltTestCase.java</file>
+<file revision="1.4">/cvsroot/utf-x/utf-x/src/java/au/edu/usq/utfx/printers/AnsiColourResultPrinter.java</file>
+<file revision="1.3">/cvsroot/utf-x/utf-x/src/java/au/edu/usq/utfx/printers/AnsiString.java</file>
+<file revision="1.3">/cvsroot/utf-x/utf-x/src/java/au/edu/usq/utfx/printers/JunitResultPrinter.java</file>
+<file revision="1.4">/cvsroot/utf-x/utf-x/src/java/au/edu/usq/utfx/printers/ResultPrinterFactory.java</file>
+<file revision="1.4">/cvsroot/utf-x/utf-x/src/java/au/edu/usq/utfx/printers/ResultPrinter.java</file>
+<file revision="1.3">/cvsroot/utf-x/utf-x/src/java/au/edu/usq/utfx/printers/XmlResultPrinter.java</file>
+<file revision="1.2">/cvsroot/utf-x/utf-x/build.xml</file>
+<file revision="1.2">/cvsroot/utf-x/utf-x/javadoc.xml</file>
+</files>
+<log><![CDATA[fixed most of the JavaDOC warning and did further cleanup
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.1">/cvsroot/utf-x/utf-x/javadoc.xml</file>
+</files>
+<log><![CDATA[generated by Eclipse 3.0 + minor mods
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.2">/cvsroot/utf-x/utf-x/src/java/au/edu/usq/utfx/util/CanonicalForm.java</file>
+<file revision="1.2">/cvsroot/utf-x/utf-x/src/java/au/edu/usq/utfx/util/XMLValidator.java</file>
+<file revision="1.2">/cvsroot/utf-x/utf-x/src/java/au/edu/usq/utfx/util/XsltTestValidator.java</file>
+<file revision="1.2">/cvsroot/utf-x/utf-x/src/java/au/edu/usq/utfx/framework/XsltRegressionTest.java</file>
+<file revision="1.3">/cvsroot/utf-x/utf-x/src/java/au/edu/usq/utfx/framework/XsltTestBuilder.java</file>
+<file revision="1.3">/cvsroot/utf-x/utf-x/src/java/au/edu/usq/utfx/framework/XsltTestCase.java</file>
+<file revision="1.2">/cvsroot/utf-x/utf-x/src/java/au/edu/usq/utfx/framework/XsltTestSuite.java</file>
+<file revision="1.3">/cvsroot/utf-x/utf-x/src/java/au/edu/usq/utfx/printers/AnsiColourResultPrinter.java</file>
+<file revision="1.2">/cvsroot/utf-x/utf-x/src/java/au/edu/usq/utfx/printers/AnsiString.java</file>
+<file revision="1.2">/cvsroot/utf-x/utf-x/src/java/au/edu/usq/utfx/printers/JunitResultPrinter.java</file>
+<file revision="1.3">/cvsroot/utf-x/utf-x/src/java/au/edu/usq/utfx/printers/ResultPrinterFactory.java</file>
+<file revision="1.3">/cvsroot/utf-x/utf-x/src/java/au/edu/usq/utfx/printers/ResultPrinter.java</file>
+<file revision="1.2">/cvsroot/utf-x/utf-x/src/java/au/edu/usq/utfx/printers/XmlResultPrinter.java</file>
+<file revision="1.2">/cvsroot/utf-x/utf-x/src/java/au/edu/usq/utfx/runner/TestRunner.java</file>
+</files>
+<log><![CDATA[updated headers in all Java source files; also cleaned up
+formating of all Java source files
+]]></log>
+</change>
+</day-changes><day-changes date="2005-01-28">
+<zone></zone>
+<author>Jacek Radajewski</author>
+<email>jacekrad@user.sourceforge.net</email>
+<change>
+<files>
+<file revision="1.2">/cvsroot/utf-x/utf-x/src/java/au/edu/usq/utfx/printers/AnsiColourResultPrinter.java</file>
+<file revision="1.2">/cvsroot/utf-x/utf-x/src/java/au/edu/usq/utfx/printers/ResultPrinter.java</file>
+<file revision="1.1">/cvsroot/utf-x/utf-x/samples/test/sample1_test.xml</file>
+<file revision="1.1">/cvsroot/utf-x/utf-x/src/dtd/xslt_tests.dtd</file>
+<file revision="1.1">/cvsroot/utf-x/utf-x/src/java/au/edu/usq/utfx/framework/XsltRegressionTest.java</file>
+<file revision="1.2">/cvsroot/utf-x/utf-x/src/java/au/edu/usq/utfx/framework/XsltTestBuilder.java</file>
+<file revision="1.2">/cvsroot/utf-x/utf-x/src/java/au/edu/usq/utfx/framework/XsltTestCase.java</file>
+<file revision="1.2">/cvsroot/utf-x/utf-x/src/java/au/edu/usq/utfx/printers/ResultPrinterFactory.java</file>
+<file revision="1.1">/cvsroot/utf-x/utf-x/samples/sample1.xsl</file>
+</files>
+<log><![CDATA[first working version of UTF-X
+]]></log>
+</change>
+<change>
+<files>
+<file revision="1.1">/cvsroot/utf-x/utf-x/.classpath</file>
+<file revision="1.1">/cvsroot/utf-x/utf-x/.project</file>
+<file revision="1.1">/cvsroot/utf-x/utf-x/.settings/com.genuitec.jboss.ide.eclipse.xdoclet.run.prefs</file>
+<file revision="1.1">/cvsroot/utf-x/utf-x/src/java/au/edu/usq/utfx/framework/XsltTestBuilder.java</file>
+<file revision="1.1">/cvsroot/utf-x/utf-x/src/java/au/edu/usq/utfx/framework/XsltTestCase.java</file>
+<file revision="1.1">/cvsroot/utf-x/utf-x/src/java/au/edu/usq/utfx/framework/XsltTestSuite.java</file>
+<file revision="1.1">/cvsroot/utf-x/utf-x/src/java/au/edu/usq/utfx/util/CanonicalForm.java</file>
+<file revision="1.1">/cvsroot/utf-x/utf-x/src/java/au/edu/usq/utfx/util/XMLValidator.java</file>
+<file revision="1.1">/cvsroot/utf-x/utf-x/src/java/au/edu/usq/utfx/util/XsltTestValidator.java</file>
+</files>
+<log><![CDATA[copied the remainder of the source file from the GOOD project.
+removed all dependencies on other GOOD classes.  Code compiles
+but might not work.
+]]></log>
+</change>
+</day-changes><day-changes date="2004-05-23">
+<zone></zone>
+<author>Jacek Radajewski</author>
+<email>jacekrad@user.sourceforge.net</email>
+<change>
+<files>
+<file revision="1.1">/cvsroot/utf-x/utf-x/src/java/au/edu/usq/utfx/printers/AnsiColourResultPrinter.java</file>
+<file revision="1.1">/cvsroot/utf-x/utf-x/src/java/au/edu/usq/utfx/printers/AnsiString.java</file>
+<file revision="1.1">/cvsroot/utf-x/utf-x/src/java/au/edu/usq/utfx/printers/JunitResultPrinter.java</file>
+<file revision="1.1">/cvsroot/utf-x/utf-x/src/java/au/edu/usq/utfx/printers/ResultPrinterFactory.java</file>
+<file revision="1.1">/cvsroot/utf-x/utf-x/src/java/au/edu/usq/utfx/printers/ResultPrinter.java</file>
+<file revision="1.1">/cvsroot/utf-x/utf-x/src/java/au/edu/usq/utfx/printers/XmlResultPrinter.java</file>
+<file revision="1.1">/cvsroot/utf-x/utf-x/src/java/au/edu/usq/utfx/runner/TestRunner.java</file>
+</files>
+<log><![CDATA[result printers are now operational and all work with the test runner.
+cleanup of the required.
+]]></log>
+</change>
+</day-changes><day-changes date="2004-05-22">
+<zone></zone>
+<author>Jacek Radajewski</author>
+<email>jacekrad@user.sourceforge.net</email>
+<change>
+<files>
+<file revision="1.1">/cvsroot/utf-x/utf-x/build.xml</file>
+</files>
+<log><![CDATA[added various directories
+]]></log>
+</change></day-changes>
+</changes>

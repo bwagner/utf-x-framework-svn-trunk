@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE catalog PUBLIC "-//OASIS//DTD XML Catalogs V1.0//EN" "catalog.dtd">
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog">
+
+    <public publicId="-//UTF-X//DTD utfx-tests 1.0//EN"
+    uri="src/dtd/utfx_tests.dtd"/>
+
+    <public publicId="-//UTF-X//DTD address_book 1.0//EN" 
+    uri="samples/address_book/address_book.dtd"/>
+
+    <public publicId="-//UTF-X//DTD utfxdoc 1.0//EN" 
+    uri="samples/utfxdoc/utfxdoc.dtd"/>
+
+    <public publicId="-//OASIS//DTD XML Catalogs V1.0//EN" 
+    uri="lib/dtd/catalog/catalog.dtd"/>
+
+    <public publicId="-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    uri="lib/dtd/xhtml1.0/xhtml1-transitional.dtd"/>
+
+    <public publicId="-//RenderX//DTD XSL FO 1.0//EN" 
+    uri="lib/dtd/fo/renderx_fo.dtd"/>
+
+</catalog>

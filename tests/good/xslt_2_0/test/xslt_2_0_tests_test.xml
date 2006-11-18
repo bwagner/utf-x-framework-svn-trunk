@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	$Id: xslt_2_0_tests_test.xml,v 1.1.2.1 2006/09/09 21:11:46 jacekrad Exp $
+	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	
+	UTF-X test definition file for xslt_2_0_tests.xsl stylesheet
+		
+	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	
+	Copyright(C) 2006 UTF-X Developers.
+	
+	This program is free software; you can redistribute it and/or modify
+	it under the terms of the GNU General Public License v2 as published
+	by the Free Software Foundation (http://www.gnu.org/licenses/gpl.txt)
+	
+	This program is distributed in the hope that it will be useful, but
+	WITHOUT ANY WARRANTY; without even the implied warranty of
+	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+	General Public License for more details.
+	
+	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-->	
+<!DOCTYPE utfx:tests PUBLIC "-//UTF-X//DTD utfx-tests 1.0//EN" "utfx_tests.dtd">
+<utfx:tests xmlns:utfx="http://utfx.org/test-definition">
+	<utfx:stylesheet src="xslt_2_0_tests.xsl"/>
+
+	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+	<!-- tests the death of the RTF -->
+	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+	<utfx:test>
+		<utfx:name>2.0 node set was result tree fragment in 1.0</utfx:name>
+		<utfx:call-template name="xpath-on-result-tree-fragment"/>
+		<utfx:assert-equal>
+			<utfx:source>
+				<blah/>
+			</utfx:source>
+			<utfx:expected>
+				<tree-summary>
+					<branch id="3">
+						<leaf-sum>66</leaf-sum>
+					</branch>
+					<branch id="4">
+						<leaf-sum>6</leaf-sum>
+					</branch>
+				</tree-summary>
+			</utfx:expected>
+			<utfx:message>this failed-test-message is optional</utfx:message>
+		</utfx:assert-equal>
+	</utfx:test>
+</utfx:tests>

@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<utfx:source-builder xmlns:utfx="http://utfx.org/test-definition">
+	<utfx:class-name>utfx.framework.DefaultSourceParser</utfx:class-name>
+	<utfx:constructor-params></utfx:constructor-params>
+</utfx:source-builder>

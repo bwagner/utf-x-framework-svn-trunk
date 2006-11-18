@@ -1,0 +1,129 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE utfx:tests PUBLIC "-//UTF-X//DTD utfx-tests 1.0//EN" "utfx_tests.dtd">
+<utfx:tests xmlns:utfx="http://utfx.org/test-definition">
+  <utfx:stylesheet src="templates_mixed.xsl" />
+
+  <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+  <!-- test for template / -->
+  <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+  <utfx:test>
+    <utfx:name>generated test skeleton for match template '/'</utfx:name>
+      <utfx:assert-equal>
+        <utfx:source>
+        </utfx:source>
+        <utfx:expected>
+        </utfx:expected>
+      </utfx:assert-equal>
+  </utfx:test>
+
+  <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+  <!-- test for named template namea -->
+  <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+  <utfx:test>
+    <utfx:name>generated test skeleton for named template 'namea'</utfx:name>
+      <utfx:call-template name="namea"/>
+      <utfx:assert-equal>
+        <utfx:source>
+        </utfx:source>
+        <utfx:expected>
+        </utfx:expected>
+      </utfx:assert-equal>
+  </utfx:test>
+
+  <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+  <!-- test for template b -->
+  <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+  <utfx:test>
+    <utfx:name>generated test skeleton for match template 'b'</utfx:name>
+      <utfx:assert-equal>
+        <utfx:source>
+          <b/>
+        </utfx:source>
+        <utfx:expected>
+          <c/>        </utfx:expected>
+      </utfx:assert-equal>
+  </utfx:test>
+
+  <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+  <!-- test for template c -->
+  <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+  <utfx:test>
+    <utfx:name>generated test skeleton for match template 'c'</utfx:name>
+      <utfx:assert-equal>
+        <utfx:source>
+          <c/>
+        </utfx:source>
+        <utfx:expected>
+          <a/>        </utfx:expected>
+      </utfx:assert-equal>
+  </utfx:test>
+
+  <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+  <!-- test for named template d -->
+  <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+  <utfx:test>
+    <utfx:name>generated test skeleton for named template 'd'</utfx:name>
+      <utfx:call-template name="d"/>
+      <utfx:assert-equal>
+        <utfx:source>
+        </utfx:source>
+        <utfx:expected>
+        </utfx:expected>
+      </utfx:assert-equal>
+  </utfx:test>
+
+  <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+  <!-- test for named template e -->
+  <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+  <utfx:test>
+    <utfx:name>generated test skeleton for named template 'e'</utfx:name>
+      <utfx:call-template name="e"/>
+      <utfx:assert-equal>
+        <utfx:source>
+        </utfx:source>
+        <utfx:expected>
+        </utfx:expected>
+      </utfx:assert-equal>
+  </utfx:test>
+
+  <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+  <!-- test for template f -->
+  <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+  <utfx:test>
+    <utfx:name>generated test skeleton for match template 'f'</utfx:name>
+      <utfx:assert-equal>
+        <utfx:source>
+          <f/>
+        </utfx:source>
+        <utfx:expected>
+          <g/>        </utfx:expected>
+      </utfx:assert-equal>
+  </utfx:test>
+
+  <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+  <!-- test for template g -->
+  <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+  <utfx:test>
+    <utfx:name>generated test skeleton for match template 'g'</utfx:name>
+      <utfx:assert-equal>
+        <utfx:source>
+          <g/>
+        </utfx:source>
+        <utfx:expected>
+                  </utfx:expected>
+      </utfx:assert-equal>
+  </utfx:test>
+
+  <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+  <!-- test for template text() -->
+  <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+  <utfx:test>
+    <utfx:name>generated test skeleton for match template 'text()'</utfx:name>
+      <utfx:assert-equal>
+        <utfx:source>
+        </utfx:source>
+        <utfx:expected>
+        </utfx:expected>
+      </utfx:assert-equal>
+  </utfx:test>
+</utfx:tests>

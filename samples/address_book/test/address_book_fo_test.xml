@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	$Id: address_book_fo_test.xml,v 1.4.2.2 2006/08/10 20:35:39 lachdrache Exp $
+	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	
+	UTF-X test definition file for address_book_xhtml.xsl stylesheet
+	
+	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	
+	Copyright(C) 2004-2005 University of Southern Queensland.
+	
+	You may redistribute and/or modify under the terms of the GNU 
+	General Public License v2.
+	
+	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-->
+
+<!DOCTYPE utfx:tests PUBLIC "-//UTF-X//DTD utfx-tests 1.0//EN" "utfx_tests.dtd"[
+
+<!ENTITY % address_book_dtd PUBLIC "-//UTF-X//DTD address_book 1.0//EN" "address_book.dtd">
+	%address_book_dtd; 
+
+<!ENTITY % renderx_fo_dtd PUBLIC "-//RenderX//DTD XSL FO 1.0//EN" "renderx_fo.dtd">
+	%renderx_fo_dtd;
+]>
+
+
+<utfx:tests xmlns:utfx="http://utfx.org/test-definition"
+  xmlns:fo="http://www.w3.org/1999/XSL/Format">
+  <utfx:stylesheet src="address_book_fo.xsl"/>
+
+  <utfx:source-validation>
+    <utfx:dtd system="address_book.dtd"
+      public="-//UTF-X//DTD address_book 1.0//EN"/>
+  </utfx:source-validation>
+
+  <utfx:expected-validation>
+    <utfx:dtd system="renderx_fo.dtd" public="-//RenderX//DTD XSL FO 1.0//EN"/>
+  </utfx:expected-validation>
+
+
+  <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+  <!-- test an empty root element -->
+  <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+  <utfx:test>
+    <utfx:name>empty root element</utfx:name>
+    <utfx:assert-equal>
+      <utfx:source validate="no">
+        <address-book/>
+      </utfx:source>
+      <!-- can't validate: fo:flow incomplete -->
+      <utfx:expected validate="no">
+        <fo:root>
+          <fo:layout-master-set>
+            <fo:simple-page-master margin-bottom="20mm" margin-left="15mm"
+              margin-right="35mm" margin-top="20mm" master-name="Page"
+              page-height="297mm" page-width="210mm">
+              <fo:region-body margin-bottom="10mm" margin-top="15mm"
+                region-name="xsl-region-body"/>
+              <fo:region-after extent="5mm"/>
+              <fo:region-start extent="150mm" region-name="xsl-region-start"/>
+            </fo:simple-page-master>
+            <fo:page-sequence-master master-name="PageSequence">
+              <fo:repeatable-page-master-reference master-reference="Page"/>
+            </fo:page-sequence-master>
+          </fo:layout-master-set>
+          <fo:page-sequence master-reference="PageSequence">
+            <fo:flow flow-name="xsl-region-body">
+              <fo:block font-size="24pt" text-align="center">Address Book</fo:block>
+              <fo:block>
+                <fo:table>
+                  <fo:table-column column-width="60mm"/>
+                  <fo:table-column column-width="60mm"/>
+                  <fo:table-column column-width="60mm"/>
+                  <fo:table-header>
+                    <fo:table-row>
+                      <fo:table-cell border-color="black" border-style="solid"
+                        border-width="1pt" font-weight="bold"
+                        text-align="center">
+                        <fo:block padding="1mm">Name</fo:block>
+                      </fo:table-cell>
+                      <fo:table-cell border-color="black" border-style="solid"
+                        border-width="1pt" font-weight="bold"
+                        text-align="center">
+                        <fo:block padding="1mm">Address</fo:block>
+                      </fo:table-cell>
+                      <fo:table-cell border-color="black" border-style="solid"
+                        border-width="1pt" font-weight="bold"
+                        text-align="center">
+                        <fo:block padding="1mm">Telephone Numbers</fo:block>
+                      </fo:table-cell>
+                    </fo:table-row>
+                  </fo:table-header>
+                  <fo:table-body/>
+                </fo:table>
+              </fo:block>
+            </fo:flow>
+          </fo:page-sequence>
+        </fo:root>
+      </utfx:expected>
+    </utfx:assert-equal>
+  </utfx:test>
+
+  <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+  <!-- test person template -->
+  <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+  <utfx:test>
+    <utfx:name>person template</utfx:name>
+    <utfx:assert-equal>
+      <utfx:source validate="yes">
+        <person>
+          <first-name>John</first-name>
+          <middle-name>David</middle-name>
+          <last-name>Smith</last-name>
+        </person>
+      </utfx:source>
+      <utfx:expected>
+        <fo:block padding="1mm">
+          <fo:inline font-weight="bold">Smith,</fo:inline>
+          <fo:inline font-style="italic">John</fo:inline>
+          <fo:inline>David</fo:inline>
+        </fo:block>
+      </utfx:expected>
+    </utfx:assert-equal>
+  </utfx:test>
+
+  <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+  <!-- test street address -->
+  <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+  <utfx:test>
+    <utfx:name>complete address-entry</utfx:name>
+    <utfx:assert-equal>
+      <utfx:source validate="yes">
+        <street-address>
+          <street>13 Queen St.</street>
+          <city>Toowoomba</city>
+          <state>Queensland</state>
+          <post-code>4350</post-code>
+          <country>Australia</country>
+        </street-address>
+      </utfx:source>
+      <utfx:expected validate="yes">
+        <fo:block padding="1mm">
+          <fo:table>
+            <fo:table-column column-width="55mm"/>
+            <fo:table-body>
+              <fo:table-row>
+                <fo:table-cell>
+                  <fo:block>13 Queen St.</fo:block>
+                </fo:table-cell>
+              </fo:table-row>
+              <fo:table-row>
+                <fo:table-cell>
+                  <fo:block>Toowoomba</fo:block>
+                </fo:table-cell>
+              </fo:table-row>
+              <fo:table-row>
+                <fo:table-cell>
+                  <fo:block>Queensland, 4350</fo:block>
+                </fo:table-cell>
+              </fo:table-row>
+              <fo:table-row>
+                <fo:table-cell>
+                  <fo:block>Australia</fo:block>
+                </fo:table-cell>
+              </fo:table-row>
+            </fo:table-body>
+          </fo:table>
+        </fo:block>
+      </utfx:expected>
+    </utfx:assert-equal>
+  </utfx:test>
+
+  <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+  <!-- test named template telephone-number -->
+  <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+  <utfx:test>
+    <utfx:name>named template telephone-number</utfx:name>
+    <utfx:call-template name="telephone-number">
+      <utfx:with-param name="telephone-number">
+        <area-code>02</area-code>
+        <number>87654321</number>
+      </utfx:with-param>      
+    </utfx:call-template>
+    <utfx:assert-equal>
+      <utfx:source></utfx:source>
+      <utfx:expected>
+        <fo:block>(02)&#160;87654321</fo:block>
+      </utfx:expected>
+    </utfx:assert-equal>
+  </utfx:test>
+  
+</utfx:tests>

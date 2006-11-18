@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../../src/xsl/test_definition_xhtml.xsl"?>
+<!--
+	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	$Id: combined_param_tests_test.xml,v 1.1.2.1 2006/09/09 21:11:46 jacekrad Exp $
+	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	Purpose: UTF-X test definition file for combined_param_tests.xsl stylesheet
+	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	Copyright(C) 2006 UTF-X Developers.
+	This program is free software; you can redistribute it and/or modify
+	it under the terms of the GNU General Public License v2 as published
+	by the Free Software Foundation (http://www.gnu.org/licenses/gpl.txt)
+	This program is distributed in the hope that it will be useful, but
+	WITHOUT ANY WARRANTY; without even the implied warranty of
+	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+	General Public License for more details.
+	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-->
+<!DOCTYPE utfx:tests PUBLIC "-//UTF-X//DTD utfx-tests 1.0//EN" "utfx_tests.dtd">
+<utfx:tests xmlns:utfx="http://utfx.org/test-definition">
+	<utfx:stylesheet src="combined_param_tests.xsl"/>
+
+	<utfx:test>
+		<utfx:name>named template and stylesheet parameter test 1</utfx:name>
+		<utfx:stylesheet-params>
+			<utfx:with-param name="stylesheet-param1" select="'UTF-X'"/>      
+			<utfx:with-param name="stylesheet-param2">
+				<els>
+					<el>fun</el>
+					<el>is</el>
+				</els>
+			</utfx:with-param>      
+			
+		</utfx:stylesheet-params>  
+		<utfx:call-template name="named-template-and-stylesheet-with-param">
+			<utfx:with-param name="a" select="2"/>
+			<utfx:with-param name="b" select="1"/>
+			<utfx:with-param name="c">
+				<i>isn't</i> it
+			</utfx:with-param>
+		</utfx:call-template>
+		<utfx:assert-equal>
+			<utfx:source>
+				<els>
+					<el>fun</el>
+					<el>is</el>
+				</els>
+			</utfx:source>
+			<utfx:expected>
+				<b>UTF-X</b> <i>is</i> fun <b> 
+					<i>isn't</i> it</b>
+			</utfx:expected>
+		</utfx:assert-equal>
+	</utfx:test>
+	
+</utfx:tests>

@@ -1,0 +1,182 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE utfx:tests PUBLIC "-//UTF-X//DTD utfx-tests 1.0//EN" "utfx_tests.dtd">
+<utfx:tests xmlns:utfx="http://utfx.org/test-definition">
+  <utfx:stylesheet src="test_results_xhtml.xsl"/>
+
+  <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+  <!-- test for template test-suite -->
+  <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+  <utfx:test>
+    <utfx:name>test 'test-suite' template</utfx:name>
+    <utfx:assert-equal normalise-internal-whitespace="yes">
+      <utfx:source>
+        <test-suite/>
+      </utfx:source>
+      <utfx:expected>
+        <table border="0" width="100%" cellspacing="0" cellpadding="0">
+          <tbody>
+            <tr>
+              <td> </td>
+              <td>
+                <span class="tr-suite-name">Suite '' has tests/suites</span>
+              </td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td/>
+            </tr>
+          </tbody>
+        </table>
+      </utfx:expected>
+    </utfx:assert-equal>
+  </utfx:test>
+
+  <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+  <!-- test for template test -->
+  <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+  <utfx:test>
+    <utfx:name>test 'test' template</utfx:name>
+    <utfx:assert-equal>
+      <utfx:source>
+        <test/>
+      </utfx:source>
+      <utfx:expected>
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tbody>
+            <tr>
+              <td> </td>
+              <td>[<span class="test-name"/>]</td>
+              <td>
+                <span class="tr-suite-name">.</span>
+                <span class="tr-test-name"/>
+              </td>
+              <td>
+                <span class="tr-ok">[OK]</span>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </utfx:expected>
+    </utfx:assert-equal>
+  </utfx:test>
+
+  <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+  <!-- test for named template test-summary -->
+  <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+  <utfx:test>
+    <utfx:name>test named template 'test-summary'</utfx:name>
+    <utfx:call-template name="test-summary">
+      <utfx:with-param name="summary">
+        <test-summary>
+          <test-summary-header>
+            <run-time>1352</run-time>
+            <run-count>58</run-count>
+            <error-count>6</error-count>
+            <failure-count>4</failure-count>
+          </test-summary-header>
+        </test-summary>
+      </utfx:with-param>
+    </utfx:call-template>
+    <utfx:assert-equal normalise-internal-whitespace="yes">
+      <utfx:source/>
+      <utfx:expected>
+        <div>
+          <span style="color:cyan;">Time:</span>
+          <span>1352 ms</span>
+        </div>
+        <div><span>Test run: 58</span>,<span class="failure">Failures:
+            4</span>,<span class="error">Errors: 6</span></div>
+        <p/>
+        <div class="failure">There were 4 failures.</div>
+        <p/>
+        <div class="error">There were 6 errors.</div>
+        <p/>
+      </utfx:expected>
+    </utfx:assert-equal>
+  </utfx:test>
+
+  <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+  <!-- test for template test-failure -->
+  <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+  <utfx:test>
+    <utfx:name>test 'test-failure' template</utfx:name>
+    <utfx:assert-equal>
+      <utfx:source>
+        <test-failure/>
+      </utfx:source>
+      <utfx:expected>
+        <div class="test-failure">
+          <table>
+            <tbody>
+              <tr>
+                <td class="failure">[]</td>
+                <td class="test-name"/>
+                <td class="failure">[]</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </utfx:expected>
+    </utfx:assert-equal>
+  </utfx:test>
+
+  <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+  <!-- test for template string-comparison-failure -->
+  <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+  <utfx:test>
+    <utfx:name>test 'string-comparison-failure' template</utfx:name>
+    <utfx:assert-equal>
+      <utfx:source>
+        <string-comparison-failure/>
+      </utfx:source>
+      <utfx:expected>
+        <p>Actual:</p>
+        <span class="same-actual"/>
+        <span class="diff"/>
+        <p>Expected:</p>
+        <span class="same-expected"/>
+        <span class="diff"/>
+      </utfx:expected>
+    </utfx:assert-equal>
+  </utfx:test>
+
+  <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+  <!-- test for template test-error -->
+  <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+  <utfx:test>
+    <utfx:name>test 'test-error' template</utfx:name>
+    <utfx:assert-equal>
+      <utfx:source>
+        <test-error/>
+      </utfx:source>
+      <utfx:expected>
+        <div class="test-error">
+          <table>
+            <tbody>
+              <tr>
+                <td class="error">[]</td>
+                <td class="test-name"/>
+                <td class="error">[]</td>
+              </tr>
+            </tbody>
+          </table>
+          <code>
+            <pre/>
+          </code>
+        </div>
+      </utfx:expected>
+    </utfx:assert-equal>
+  </utfx:test>
+
+  <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+  <!-- test for template text() -->
+  <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+  <utfx:test>
+    <utfx:name>test 'text()' template</utfx:name>
+    <utfx:assert-equal>
+      <utfx:source>Some text</utfx:source>
+      <utfx:expected/>
+      <utfx:message>text template should generate nothing</utfx:message>
+    </utfx:assert-equal>
+  </utfx:test>
+</utfx:tests>

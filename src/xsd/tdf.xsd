@@ -1,0 +1,350 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- $Id: tdf.xsd,v 1.4.2.2 2006/08/06 02:23:55 jacekrad Exp $ -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+  elementFormDefault="qualified"
+  targetNamespace="http://utf-x.sourceforge.net/xsd/tdf_1_0/tdf.xsd"
+  xmlns:utfx="http://utf-x.sourceforge.net/xsd/tdf_1_0/tdf.xsd">
+  <xs:annotation>
+    <xs:documentation>This is the W3C schema for UTF-X Test Definition File
+      (TDFs) which will be used in future releases of UTF-X. This schema is NOT
+      used by this release of the UTF-X software.</xs:documentation>
+    <xs:documentation>Unit Testing Framework - XSLT (UTF-X) Test Definition File
+      (TDF) Schema</xs:documentation>
+    <xs:documentation>Copyright (C) 2006 UTF-X Development Team</xs:documentation>
+    <xs:documentation>Maintained by: Jacek Radajewski</xs:documentation>
+    <xs:documentation>$Revision: 1.4.2.2 $</xs:documentation>
+    <xs:documentation>$Date: 2006/08/06 02:23:55 $</xs:documentation>
+    <xs:documentation>$Name:  $</xs:documentation>
+    <xs:documentation>This program is free software; you can redistribute it
+      and/or modify it under the terms of the GNU General Public License v2 as
+      published by the Free Software Foundation
+      (http://www.gnu.org/licenses/gpl.txt)</xs:documentation>
+    <xs:documentation>This program is distributed in the hope that it will be
+      useful, but WITHOUT ANY WARRANTY; without even the implied warranty of
+      MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General
+      Public License for more details. </xs:documentation>
+  </xs:annotation>
+  <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+  <!-- root element -->
+  <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+  <xs:element name="tdf">
+    <xs:annotation>
+      <xs:documentation>This is the root element of the UTF-X Test Definition
+        File (TDF).</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="utfx:stylesheet"/>
+        <xs:element minOccurs="0" ref="utfx:css"/>
+        <xs:element minOccurs="0" ref="utfx:source-validation"/>
+        <xs:element minOccurs="0" ref="utfx:expected-validation"/>
+        <xs:element minOccurs="0" ref="utfx:source-builder"/>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="utfx:test"/>
+        <xs:element minOccurs="0" maxOccurs="1" ref="utfx:xml-documents"/>
+      </xs:sequence>
+    </xs:complexType>
+    <xs:key name="xml-document-id">
+      <xs:selector xpath=".//xml-document"/>
+      <xs:field xpath="@id"/>
+    </xs:key>
+    <xs:keyref refer="utfx:xml-document-id" name="source-reference">
+      <xs:selector xpath=".//source-reference"/>
+      <xs:field xpath="@source-document"/>
+    </xs:keyref>
+  </xs:element>
+
+  <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+  <!-- XML fragments container element -->
+  <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+  <xs:element name="xml-documents">
+    <xs:annotation>
+      <xs:documentation>This optional element is used to store xml fragments
+        which can then be reference from within UTF-X tests</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="utfx:xml-document" minOccurs="0" maxOccurs="unbounded"
+        />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+  <!-- XML document -->
+  <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+  <xs:element name="xml-document">
+    <xs:annotation>
+      <xs:documentation>xml-document may contain any elements outside the
+        http://utf-x.sourceforge.net/xsd/tdf_1_0/tdf.xsd namespace
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexType mixed="true">
+      <xs:sequence>
+        <xs:any minOccurs="0" maxOccurs="unbounded" namespace="##any"
+          processContents="lax"/>
+      </xs:sequence>
+      <xs:attribute name="id" type="xs:ID" use="required"/>
+      <xs:attribute name="uri" type="xs:anyURI" use="optional">
+        <xs:annotation>
+          <xs:documentation>The uri attribute is used to reference external
+            documents. If this attribute is present then the content of the
+            xml-document is ignored.</xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+    </xs:complexType>
+  </xs:element>
+
+  <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+  <!-- the XSLT stylesheet this tdf tests -->
+  <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+  <xs:element name="stylesheet">
+    <xs:complexType>
+      <xs:attributeGroup ref="utfx:attlist.utfx.stylesheet"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:attributeGroup name="attlist.utfx.stylesheet">
+    <xs:attribute name="src" use="required"/>
+    <xs:attribute name="output">
+      <xs:annotation>
+        <xs:documentation>The output attribute is used by the UTF-X framework to
+          determine how to render the TDF. Currently UTF-X supports rendering of
+          HTML and XSL:FO stylesheets.</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:token">
+          <xs:enumeration value="xhtml"/>
+          <xs:enumeration value="fo"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+  </xs:attributeGroup>
+
+  <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+  <!-- CSS stylesheet -->
+  <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+  <xs:element name="css">
+    <xs:annotation>
+      <xs:documentation>This element is used to specify a CSS stylesheet that
+        styles the generated HTML document. This element has no meaning when
+        testing non-HTML generating XSLT stylesheets.</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:attributeGroup ref="utfx:attlist.utfx.css"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:attributeGroup name="attlist.utfx.css">
+    <xs:attribute name="uri" use="required" type="xs:anyURI"/>
+  </xs:attributeGroup>
+
+  <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+  <!-- validation elements -->
+  <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+  <xs:element name="source-validation" type="utfx:validation"/>
+  <xs:element name="expected-validation" type="utfx:validation"/>
+
+
+  <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+  <!-- validation elements -->
+  <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+  <xs:complexType name="validation">
+    <xs:choice>
+      <xs:element ref="utfx:xml-dtd"/>
+      <xs:element ref="utfx:w3c-schema"/>
+    </xs:choice>
+  </xs:complexType>
+  <xs:element name="xml-dtd">
+    <xs:complexType>
+      <xs:attributeGroup ref="utfx:attlist.utfx.dtd"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:attributeGroup name="attlist.utfx.dtd">
+    <xs:attribute name="public"/>
+    <xs:attribute name="system" use="required"/>
+  </xs:attributeGroup>
+  <xs:element name="w3c-schema">
+    <xs:complexType>
+      <xs:attribute name="schemaLocation" type="xs:anyURI"/>
+    </xs:complexType>
+  </xs:element>
+
+
+  <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+  <!-- source builder -->
+  <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+  <xs:element name="source-builder">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="utfx:class-name"/>
+        <xs:element ref="utfx:constructor-params"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+  <!-- source builder class name -->
+  <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+  <xs:element name="class-name" type="xs:string"/>
+
+  <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+  <!-- source builder constructor parameters -->
+  <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+  <xs:element name="constructor-params">
+    <xs:annotation>
+      <xs:documentation>The constructore paramaters are specified in terms of
+        XSD types and are mapped to appropriate language
+      types.</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="string" type="xs:string"/>
+        <xs:element name="int" type="xs:int"/>
+        <xs:element name="boolean" type="xs:boolean"/>
+        <xs:element name="float" type="xs:float"/>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+
+  <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+  <!-- UTF-X test -->
+  <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+  <xs:element name="test">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="utfx:name"/>
+        <xs:element minOccurs="0" ref="utfx:source-builder"/>
+        <xs:element minOccurs="0" ref="utfx:call-template"/>
+        <xs:element ref="utfx:assert-equal"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+  <!-- call template element -->
+  <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+  <xs:element name="call-template">
+    <xs:complexType>
+      <xs:sequence minOccurs="0" maxOccurs="1">
+        <xs:element name="with-params">
+          <xs:complexType mixed="true">
+            <xs:sequence>
+              <xs:any namespace="##any" minOccurs="0" maxOccurs="unbounded"
+                processContents="lax"/>
+            </xs:sequence>
+            <xs:attribute name="xml-document" type="xs:IDREF">
+              <xs:annotation>
+                <xs:documentation>This attribute can be used to reference a
+                  document.</xs:documentation>
+              </xs:annotation>
+            </xs:attribute>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+      <xs:attribute name="name" use="required"/>
+    </xs:complexType>
+  </xs:element>
+
+  <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+  <!-- name of the test -->
+  <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+  <xs:element name="name" type="xs:string"/>
+
+  <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+  <!-- assertion -->
+  <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+  <xs:element name="assert-equal">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:choice>
+          <xs:element ref="utfx:source"/>
+          <xs:element ref="utfx:source-ref"/>
+        </xs:choice>
+        <xs:element ref="utfx:expected"/>
+        <xs:element minOccurs="0" ref="utfx:failure-message"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+  <!-- source fragment elements and attributes -->
+  <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+  <xs:element name="source">
+    <xs:annotation>
+      <xs:documentation>The source element stores the XML content that is to be
+        transformed and compared with the contents of expected
+      element.</xs:documentation>
+    </xs:annotation>
+    <xs:complexType mixed="true">
+      <xs:sequence>
+        <xs:any namespace="##other" processContents="lax" minOccurs="0"
+          maxOccurs="unbounded"/>
+      </xs:sequence>
+      <xs:attributeGroup ref="utfx:generic-source-attributes"/>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:attributeGroup name="generic-source-attributes">
+    <xs:annotation>
+      <xs:documentation>This attribute group applies to source and
+        source-refrence elements</xs:documentation>
+    </xs:annotation>
+    <xs:attribute name="id" type="xs:ID" use="optional"/>
+    <xs:attribute name="validate" type="xs:boolean" default="true">
+      <xs:annotation>
+        <xs:documentation>If this attribute is set to true then the source
+          fragment will be validated as per the source-validation
+        element</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="use-source-parser" type="xs:boolean" default="false">
+      <xs:annotation>
+        <xs:documentation>If set to true the source fragment will be parsed
+          using the specified source-parser.</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+  </xs:attributeGroup>
+
+  <xs:element name="source-ref">
+    <xs:annotation>
+      <xs:documentation>This element allows for a reference to document defined
+        in xml-documents. If the xpath-selector is used then the document used
+        will be the node sequence returned by applying the xpath to the
+        document.</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:attribute name="source-document" type="xs:IDREF" use="required"/>
+      <xs:attribute name="xpath-selector" type="xs:string" use="optional"/>
+      <xs:attributeGroup ref="utfx:generic-source-attributes"/>
+    </xs:complexType>
+  </xs:element>
+
+  <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+  <!-- expected fragment -->
+  <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+  <xs:element name="expected">
+    <xs:complexType mixed="true">
+      <xs:sequence>
+        <xs:any namespace="##any" processContents="lax" minOccurs="0"
+          maxOccurs="unbounded"/>
+      </xs:sequence>
+      <xs:attribute name="validate" type="xs:boolean" default="true"/>
+    </xs:complexType>
+  </xs:element>
+
+  <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+  <!-- failure message -->
+  <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+  <xs:element name="failure-message" type="xs:string">
+    <xs:annotation>
+      <xs:documentation>This is the message displayed when a test fails. In most
+        cases the default message 'UTF-X test failed' is sufficient, but when
+        testing some particular condition a more descriptive message may be
+        useful.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+
+  <xs:complexType name="non-utf-x-any" mixed="true">
+    <xs:sequence>
+      <xs:any minOccurs="0" maxOccurs="unbounded" processContents="skip"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

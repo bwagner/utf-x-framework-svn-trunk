@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	$Id: namespace_tests_test.xml,v 1.1.2.1 2006/09/09 21:11:44 jacekrad Exp $
+	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	
+	UTF-X test definition file for sample1.xsl stylesheet
+	
+	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	
+	Copyright(C) 2004-2005 USQ and others.
+	
+	You may redistribute and/or modify under the terms of the GNU 
+	General Public License v2.
+	
+	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-->
+<!-- 
+!DOCTYPE utfx:tests PUBLIC "-//UTF-X//DTD utfx-tests 1.0//EN" "utfx_tests.dtd">
+ -->
+<utfx:tests 
+		xmlns:utfx="http://utfx.org/test-definition" 
+		xmlns:ns1="http://www.ns1.com/ns1"
+		xmlns:ns2="http://www.ns2.com/ns2">		
+	<utfx:stylesheet src="namespace_tests.xsl" />
+
+<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+<!-- test 1 -->
+<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+<utfx:test>
+    <utfx:name>namespaces in source and expected</utfx:name>
+    <utfx:assert-equal>
+        <utfx:source>
+            <ns1:element1>
+                <ns1:element2>namespace</ns1:element2>
+            </ns1:element1>
+        </utfx:source>
+        <utfx:expected>
+            <ns2:e1>
+                <ns2:e2>namespace</ns2:e2>
+            </ns2:e1>
+        </utfx:expected>
+    </utfx:assert-equal>
+</utfx:test>
+
+</utfx:tests>

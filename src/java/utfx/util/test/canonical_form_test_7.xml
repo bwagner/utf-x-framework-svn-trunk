@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- The XML declaration and document type declaration (DTD) are removed -->
+<study.material>
+  <metadata>
+    <course.subject>CIS</course.subject>
+    <course.cat.number>8008</course.cat.number>
+    <course.description>Information Systems</course.description>
+    <academic.group.name>Faculty of Business</academic.group.name>
+    <academic.org.name></academic.org.name>
+    <year>2003</year>
+    <semester>1</semester>
+    <!-- CDATA sections are replaced with their character content -->
+    <class.number><![CDATA[12345]]></class.number>
+  </metadata>
+  <defaults>
+    <icons>
+      <activity.case.study.icon filename="activity_case_study.eps"/>
+      <!-- Empty elements are converted to start-end tag pairs -->
+      <activity.checkbox.icon/>
+      <activity.example.icon/>
+      <activity.exercise.icon/>
+      <activity.learning.icon/>
+      <activity.reading.icon/>
+      <activity.reflection.icon/>
+      <aside.icon/>
+      <pre.test.icon/>
+      <post.test.icon/>
+    </icons>
+    <titles>
+      <!-- attribute quotes changed to double quotes -->
+      <activity.case.study.title title='Review-case-study'/>
+      <activity.checkbox.title/>
+      <activity.example.title/>
+      <activity.exercise.title/>
+      <activity.learning.title/>
+      <activity.reading.title/>
+      <activity.reflection.title/>
+      <aside.title/>
+      <pre.test.title/>
+      <post.test.title/>
+    </titles>
+  </defaults>
+</study.material>

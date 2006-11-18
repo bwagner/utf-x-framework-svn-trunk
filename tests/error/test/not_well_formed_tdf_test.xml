@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	$Id: not_well_formed_tdf_test.xml,v 1.1.2.1 2006/09/09 21:11:47 jacekrad Exp $
+	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	
+	TDF that is not well formed
+	
+	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	
+	Copyright(C) 2004-2005 USQ and others.
+	
+	You may redistribute and/or modify under the terms of the GNU 
+	General Public License v2.
+	
+	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-->
+ <utfx:tests xmlns:utfx="http://utfx.org/test-definition">
+	<utfx:stylesheet src="core_tests.xsl" />
+	
+<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+<!-- test 1 -->
+<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+<utfx:test>
+	<utfx:name>&lt;a&gt; -> &lt;b&gt; test</utfx:name>	
+	<utfx:assert-equal>
+		<utfx:source>
+			<a>a to b transform
+		</utfx:source>
+		<utfx:expected>
+			<b>a to b transform</b>
+		</utfx:expected>
+		<utfx:message>this failed-test-message is optional</utfx:message>
+	</utfx:assert-equal>
+</utfx:test>
+</utfx:tests>

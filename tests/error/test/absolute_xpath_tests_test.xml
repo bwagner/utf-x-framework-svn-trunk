@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../../../src/xsl/test_definition_xhtml.xsl"?>
+<!--
+	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	$Id: absolute_xpath_tests_test.xml,v 1.1.2.1 2006/09/09 21:11:47 jacekrad Exp $
+	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	Purpose: UTF-X test definition file for testing absolute XPath expressions
+	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	Copyright(C) 2006 UTF-X Developers.
+	This program is free software; you can redistribute it and/or modify
+	it under the terms of the GNU General Public License v2 as published
+	by the Free Software Foundation (http://www.gnu.org/licenses/gpl.txt)
+	This program is distributed in the hope that it will be useful, but
+	WITHOUT ANY WARRANTY; without even the implied warranty of
+	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+	General Public License for more details.
+	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-->
+<!DOCTYPE utfx:tests PUBLIC "-//UTF-X//DTD utfx-tests 1.0//EN" "utfx_tests.dtd">
+<utfx:tests xmlns:utfx="http://utfx.org/test-definition">
+	<utfx:stylesheet src="absolute_xpath_tests.xsl"/>
+
+	<utfx:test>
+		<utfx:name>absolute xpath expression with template match and root context-node</utfx:name>
+		<utfx:assert-equal>
+			<utfx:source context-node="/">
+				<root>
+					<print-xml/>
+				</root>
+			</utfx:source>
+			<utfx:expected>
+				<xml>
+					<absolute>
+						<root>
+							<print-xml/>
+						</root>
+					</absolute>
+					<relative>
+						<print-xml/>
+					</relative>
+				</xml>
+			</utfx:expected>
+		</utfx:assert-equal>
+	</utfx:test>
+	
+</utfx:tests>

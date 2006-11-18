@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE utfx:tests PUBLIC "-//UTF-X//DTD utfx-tests 1.0//EN" "utfx_tests.dtd">
+<utfx:tests xmlns:utfx="http://utfx.org/test-definition">
+  <utfx:stylesheet src="templates_with_name.xsl"/>
+
+  <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+  <!-- test for named template named-template -->
+  <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+  <utfx:test>
+    <utfx:name>generated test skeleton for named template 'named-template'</utfx:name>
+    <utfx:call-template name="named-template"/>
+    <utfx:assert-equal>
+      <utfx:source> </utfx:source>
+      <utfx:expected> </utfx:expected>
+    </utfx:assert-equal>
+  </utfx:test>
+
+  <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+  <!-- test for named template named-template-with-match -->
+  <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+  <utfx:test>
+    <utfx:name>generated test skeleton for named template 'named-template-with-match'</utfx:name>
+    <utfx:call-template name="named-template-with-match"/>
+    <utfx:assert-equal>
+      <utfx:source> </utfx:source>
+      <utfx:expected> </utfx:expected>
+    </utfx:assert-equal>
+  </utfx:test>
+</utfx:tests>

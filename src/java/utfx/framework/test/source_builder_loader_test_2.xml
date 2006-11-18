@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<utfx:source-builder xmlns:utfx="http://utfx.org/test-definition">
+	<utfx:class-name>utfx.framework.test.TestSourceParser1</utfx:class-name>
+	<utfx:constructor-params>
+		<utfx:param type="String">parameter 1</utfx:param>
+		<utfx:param type="String">parameter 2</utfx:param>
+	</utfx:constructor-params>
+</utfx:source-builder>

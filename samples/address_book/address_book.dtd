@@ -1,0 +1,52 @@
+<!--
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ $Id: address_book.dtd,v 1.5 2006/06/28 11:56:13 jacekrad Exp $
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ $Source: /cvs/utf-x/framework/samples/address_book/address_book.dtd,v $
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+ Copyright (C) 2004-2006 UTF-X development team.
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+ address book sample definition
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-->
+
+<!ENTITY % telephone-number "area-code?, number">
+
+<!ELEMENT address-book (address-entry+)>
+
+<!ELEMENT address-entry (person, street-address?, home-telephone?,
+        				 work-telephone?, mobile-telephone?)>
+        				
+<!ELEMENT person (first-name, middle-name?, last-name)>
+
+<!ELEMENT street-address (street, city, state, post-code, country?)>
+
+<!ELEMENT first-name (#PCDATA)>
+
+<!ELEMENT middle-name (#PCDATA)>
+
+<!ELEMENT last-name (#PCDATA)>
+
+<!ELEMENT street (#PCDATA)>
+
+<!ELEMENT city (#PCDATA)>
+
+<!ELEMENT state (#PCDATA)>
+
+<!ELEMENT post-code (#PCDATA)>
+
+<!ELEMENT country (#PCDATA)>
+
+<!ELEMENT home-telephone (%telephone-number;)>
+
+<!ELEMENT work-telephone (%telephone-number;)>
+
+<!ELEMENT mobile-telephone (%telephone-number;)>
+
+<!ELEMENT area-code (#PCDATA)>
+
+<!ELEMENT number (#PCDATA)>

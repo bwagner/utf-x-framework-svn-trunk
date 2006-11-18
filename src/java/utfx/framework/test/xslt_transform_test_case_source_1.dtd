@@ -1,0 +1,3 @@
+<!ELEMENT source-root (source-child*) >
+
+<!ELEMENT source-child (#PCDATA) >

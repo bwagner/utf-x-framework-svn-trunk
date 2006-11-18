@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  $Id: history.xsd,v 1.1.2.3 2006/09/04 20:34:57 jacekrad Exp $
+  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  
+  Purpose: UTF-X History W3C Schema.
+  
+  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  
+  Copyright(C) 2006 UTF-X Developement team.
+  
+  This program is free software; you can redistribute it and/or modify
+  it under the terms of the GNU General Public License v2 as published
+  by the Free Software Foundation (http://www.gnu.org/licenses/gpl.txt)
+  
+  This program is distributed in the hope that it will be useful, but
+  WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+  General Public License for more details.
+  
+  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+  elementFormDefault="qualified"
+  xmlns:history="http://utf-x.sourceforge.net/xsd/history_1_0/history.xsd"
+  targetNamespace="http://utf-x.sourceforge.net/xsd/history_1_0/history.xsd">
+  
+  <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+  <!-- root element -->
+  <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+  <xs:element name="history">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="history:release"/>
+        <xs:element minOccurs="1" ref="history:issuezilla-extract"/>
+        <xs:element minOccurs="1" ref="history:cvs-log-sourceforge"/>
+        <xs:element minOccurs="1" ref="history:cvs-log-java-net"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  
+  <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+  <!-- release -->
+  <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->  
+  <xs:element name="release">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="history:name"/>
+        <xs:element ref="history:date"/>
+        <xs:element ref="history:tag"/>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="history:change"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="name" type="xs:string"/>
+  <xs:element name="date" type="xs:string"/>
+  <xs:element name="tag" type="xs:string"/>
+  
+  <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+  <!-- change -->
+  <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+  <xs:element name="change">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" ref="history:date"/>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="history:issue"/>
+        <xs:element minOccurs="0" ref="history:comment"/>
+      </xs:sequence>
+      <xs:attributeGroup ref="history:change-attributed"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="issue" type="xs:string"/>
+  <xs:element name="comment" type="xs:string"/>
+  
+  <xs:attributeGroup name="change-attributed">
+    <xs:attribute name="type" use="required">
+      <xs:simpleType>
+        <xs:restriction base="xs:token">
+          <xs:enumeration value="bug-fix"/>
+          <xs:enumeration value="enhancement"/>
+          <xs:enumeration value="feature"/>
+          <xs:enumeration value="general"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+  </xs:attributeGroup>
+
+  <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+  <!-- elements conntaining external data -->
+  <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+  <xs:element name="issuezilla-extract" type="history:any"/>
+  <xs:element name="cvs-log-sourceforge" type="history:any"/>
+  <xs:element name="cvs-log-java-net" type="history:any"/>
+  
+  <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+  <!-- history:any type -->
+  <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->  
+  <xs:complexType name="any" mixed="true">
+    <xs:sequence>
+      <xs:any minOccurs="0" maxOccurs="unbounded" processContents="skip"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

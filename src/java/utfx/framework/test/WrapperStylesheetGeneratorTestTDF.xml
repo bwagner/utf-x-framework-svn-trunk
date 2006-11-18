@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../../../src/xsl/test_definition_xhtml.xsl"?>
+<!--
+  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  $Id: WrapperStylesheetGeneratorTestTDF.xml,v 1.1.2.4 2006/08/22 14:57:04 lachdrache Exp $
+  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  Purpose: UTF-X test definition file for WrapperStylesheetGeneratorTest
+  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  Copyright(C) 2006 UTF-X Developers.
+  This program is free software; you can redistribute it and/or modify
+  it under the terms of the GNU General Public License v2 as published
+  by the Free Software Foundation (http://www.gnu.org/licenses/gpl.txt)
+  This program is distributed in the hope that it will be useful, but
+  WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+  General Public License for more details.
+  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-->
+<!DOCTYPE utfx:tests PUBLIC "-//UTF-X//DTD utfx-tests 1.0//EN" "src/dtd/utfx_tests.dtd">
+<utfx:tests xmlns:utfx="http://utfx.org/test-definition">
+  <utfx:stylesheet src="name of the stylesheet being tested"/>
+
+  <!-- test 0 -->
+  <utfx:test>
+    <utfx:name>simply test</utfx:name>
+    <utfx:assert-equal>
+      <utfx:source/>
+      <utfx:expected/>
+    </utfx:assert-equal>
+  </utfx:test>
+
+  <!-- test 1 -->
+  <utfx:test>
+    <utfx:name>named template test</utfx:name>
+    <utfx:call-template name="named-template"/>
+    <utfx:assert-equal>
+      <utfx:source/>
+      <utfx:expected/>
+    </utfx:assert-equal>
+  </utfx:test>
+
+  <!-- test 2 -->
+  <utfx:test>
+    <utfx:name>named template with one parameter</utfx:name>
+    <utfx:call-template name="named-template-with-param">
+      <utfx:with-param name="a" select="1"/>
+    </utfx:call-template>
+    <utfx:assert-equal>
+      <utfx:source> </utfx:source>
+      <utfx:expected> </utfx:expected>
+    </utfx:assert-equal>
+  </utfx:test>
+
+  <!-- test 3 -->
+  <utfx:test>
+    <utfx:name>named template with string parameter</utfx:name>
+    <utfx:call-template name="named-template-with-param">
+      <utfx:with-param name="a" select="'UTF-X'"/>
+    </utfx:call-template>
+    <utfx:assert-equal>
+      <utfx:source> </utfx:source>
+      <utfx:expected> </utfx:expected>
+    </utfx:assert-equal>
+  </utfx:test>
+
+  <!-- test 4 -->
+  <utfx:test>
+    <utfx:name>named template with parameter as child to with-param</utfx:name>
+    <utfx:call-template name="named-template-with-param">
+      <utfx:with-param name="a">
+        <root>UTF-X</root>
+      </utfx:with-param>
+    </utfx:call-template>
+    <utfx:assert-equal>
+      <utfx:source> </utfx:source>
+      <utfx:expected> </utfx:expected>
+    </utfx:assert-equal>
+  </utfx:test>
+
+  <!-- test 5 -->
+  <utfx:test>
+    <utfx:name>named template with parameters</utfx:name>
+    <utfx:call-template name="named-template-with-params">
+      <utfx:with-param name="a" select="1"/>
+      <utfx:with-param name="b" select="2"/>
+      <utfx:with-param name="c" select="3"/>
+    </utfx:call-template>
+    <utfx:assert-equal>
+      <utfx:source> </utfx:source>
+      <utfx:expected> </utfx:expected>
+    </utfx:assert-equal>
+  </utfx:test>
+
+  <!-- test 6 -->
+  <utfx:test>
+    <utfx:name>stylesheet parameters test 1</utfx:name>
+    <utfx:stylesheet-params>
+      <utfx:with-param name="stylesheet-param1" select="'UTF-X'"/>
+      <utfx:with-param name="stylesheet-param2" select="1"/>
+      <utfx:with-param name="stylesheet-param3"/>
+    </utfx:stylesheet-params>
+    <utfx:assert-equal>
+      <utfx:source> </utfx:source>
+      <utfx:expected> </utfx:expected>
+    </utfx:assert-equal>
+  </utfx:test>
+
+  <!-- test 7 -->
+  <utfx:test>
+    <utfx:name>stylesheet parameter test 2</utfx:name>
+    <utfx:stylesheet-params>
+      <utfx:with-param name="stylesheet-param1"> :-) </utfx:with-param>
+      <utfx:with-param name="stylesheet-param2" select="2"/>
+      <utfx:with-param name="stylesheet-param3"/>
+    </utfx:stylesheet-params>
+    <utfx:assert-equal>
+      <utfx:source> </utfx:source>
+      <utfx:expected> </utfx:expected>
+    </utfx:assert-equal>
+  </utfx:test>
+
+  <!-- test 8 -->
+  <utfx:test>
+    <utfx:name>stylesheet parameter test 3</utfx:name>
+    <utfx:stylesheet-params>
+      <utfx:with-param name="stylesheet-param1">
+        <els>
+          <el>UTF-X</el>
+          <el>is</el>
+          <el>great</el>
+        </els>
+      </utfx:with-param>
+      <utfx:with-param name="stylesheet-param2" select="3"/>
+      <utfx:with-param name="stylesheet-param3"/>
+    </utfx:stylesheet-params>
+    <utfx:assert-equal>
+      <utfx:source> </utfx:source>
+      <utfx:expected> </utfx:expected>
+    </utfx:assert-equal>
+  </utfx:test>
+
+  <!-- test 9 -->
+  <utfx:test>
+    <utfx:name>named template and stylesheet parameter test 1</utfx:name>
+    <utfx:stylesheet-params>
+      <utfx:with-param name="stylesheet-param1" select="'UTF-X'"/>      
+      <utfx:with-param name="stylesheet-param2">
+        <els>
+          <el>fun</el>
+          <el>is</el>
+        </els>
+      </utfx:with-param>            
+    </utfx:stylesheet-params>  
+    <utfx:call-template name="named-template-and-stylesheet-with-param">
+      <utfx:with-param name="a" select="2"/>
+      <utfx:with-param name="b" select="1"/>
+      <utfx:with-param name="c">
+        <i>isn't</i> it
+      </utfx:with-param>
+    </utfx:call-template>
+    <utfx:assert-equal>
+      <utfx:source>
+      </utfx:source>
+      <utfx:expected>
+      </utfx:expected>
+    </utfx:assert-equal>
+  </utfx:test>
+
+  <!-- test 10 -->
+  <utfx:test>
+    <utfx:name>absolute and relative xpath expression with named template using context-node</utfx:name>
+    <utfx:call-template name="absolute-and-relative-copy-of"/>
+    <utfx:assert-equal>
+      <utfx:source context-node="/root/depth-one">
+      </utfx:source>
+      <utfx:expected>
+      </utfx:expected>
+    </utfx:assert-equal>
+  </utfx:test>
+
+  <!-- test 11 -->
+  <utfx:test>
+    <utfx:name>absolute and relative xpath expression with named template using context-node (forgot to add slash)</utfx:name>
+    <utfx:call-template name="absolute-and-relative-copy-of"/>
+    <utfx:assert-equal>
+      <utfx:source context-node="root/depth-one">
+      </utfx:source>
+      <utfx:expected>
+      </utfx:expected>
+    </utfx:assert-equal>
+  </utfx:test>
+  
+  <!-- test 12 -->
+  <utfx:test>
+    <utfx:name>using context-node with template match</utfx:name>
+    <utfx:assert-equal>
+      <utfx:source context-node="/tree/trunk/branch"></utfx:source>
+      <utfx:expected></utfx:expected>
+    </utfx:assert-equal>
+  </utfx:test>
+
+  <!-- test 13 -->
+  <utfx:test>
+    <utfx:name>using context-node with template match (forgot to add slash)</utfx:name>
+    <utfx:assert-equal>
+      <utfx:source context-node="tree/trunk/branch"></utfx:source>
+      <utfx:expected></utfx:expected>
+    </utfx:assert-equal>
+  </utfx:test>
+
+  <!-- test 14 -->
+  <utfx:test>
+    <utfx:name>absolute and relative xpath expression with named template using root context-node</utfx:name>
+    <utfx:call-template name="absolute-and-relative-copy-of"/>
+    <utfx:assert-equal>
+      <utfx:source context-node="/">
+      </utfx:source>
+      <utfx:expected>
+      </utfx:expected>
+    </utfx:assert-equal>
+  </utfx:test>
+
+  <!-- test 15 -->
+  <utfx:test>
+    <utfx:name>absolute and relative xpath expression with named template using empty context-node</utfx:name>
+    <utfx:call-template name="absolute-and-relative-copy-of"/>
+    <utfx:assert-equal>
+      <utfx:source context-node="">
+      </utfx:source>
+      <utfx:expected>
+      </utfx:expected>
+    </utfx:assert-equal>
+  </utfx:test>
+
+  <!-- test 16 -->
+  <utfx:test>
+    <utfx:name>using empty context-node with template match</utfx:name>
+    <utfx:assert-equal>
+      <utfx:source context-node=""></utfx:source>
+      <utfx:expected></utfx:expected>
+    </utfx:assert-equal>
+  </utfx:test>
+
+  <!-- test 17 -->
+  <utfx:test>
+    <utfx:name>using root context-node with template match</utfx:name>
+    <utfx:assert-equal>
+      <utfx:source context-node="/"></utfx:source>
+      <utfx:expected></utfx:expected>
+    </utfx:assert-equal>
+  </utfx:test>
+  
+</utfx:tests>

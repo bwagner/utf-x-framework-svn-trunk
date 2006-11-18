@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../../../src/xsl/test_definition_xhtml.xsl"?>
+<!--
+	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	$Id: absolute_xpath_tests_test.xml,v 1.1.2.1 2006/09/09 21:11:46 jacekrad Exp $
+	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	Purpose: UTF-X test definition file for testing absolute XPath expressions
+	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	Copyright(C) 2006 UTF-X Developers.
+	This program is free software; you can redistribute it and/or modify
+	it under the terms of the GNU General Public License v2 as published
+	by the Free Software Foundation (http://www.gnu.org/licenses/gpl.txt)
+	This program is distributed in the hope that it will be useful, but
+	WITHOUT ANY WARRANTY; without even the implied warranty of
+	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+	General Public License for more details.
+	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-->
+<!DOCTYPE utfx:tests PUBLIC "-//UTF-X//DTD utfx-tests 1.0//EN" "utfx_tests.dtd">
+<utfx:tests xmlns:utfx="http://utfx.org/test-definition">
+	<utfx:stylesheet src="absolute_xpath_tests.xsl"/>
+
+	<utfx:test>
+		<utfx:name>absolute xpath expression with template match</utfx:name>
+		<utfx:assert-equal>
+			<utfx:source>
+				<root>
+					<print-xml/>
+				</root>
+			</utfx:source>
+			<utfx:expected>
+				<xml>
+					<absolute>
+						<root>
+							<print-xml/>
+						</root>
+					</absolute>
+					<relative>
+						<print-xml/>
+					</relative>
+				</xml>
+			</utfx:expected>
+		</utfx:assert-equal>
+	</utfx:test>
+
+	<utfx:test>
+		<utfx:name>absolute xpath expression with named template</utfx:name>
+		<utfx:call-template name="absolute-and-relative-copy-of"/>
+		<utfx:assert-equal>
+			<utfx:source>
+				<root>
+					<depth-one>
+						<depth-two/>
+					</depth-one>
+				</root>
+			</utfx:source>
+			<utfx:expected>
+				<absolute>
+					<root>
+						<depth-one>
+							<depth-two/>
+						</depth-one>
+					</root>
+				</absolute>
+				<relative>
+					<root>
+						<depth-one>
+							<depth-two/>
+						</depth-one>
+					</root>
+				</relative>
+			</utfx:expected>
+		</utfx:assert-equal>
+	</utfx:test>
+
+	<utfx:test>
+		<utfx:name>absolute and relative xpath expression with named template using context-node</utfx:name>
+		<utfx:call-template name="absolute-and-relative-copy-of"/>
+		<utfx:assert-equal>
+			<utfx:source context-node="/root/depth-one">
+				<root>
+					<depth-one>
+						<depth-two/>
+					</depth-one>
+				</root>
+			</utfx:source>
+			<utfx:expected>
+				<absolute>
+					<root>
+						<depth-one>
+							<depth-two/>
+						</depth-one>
+					</root>
+				</absolute>
+				<relative>
+					<depth-one>
+						<depth-two/>
+					</depth-one>
+				</relative>
+			</utfx:expected>
+		</utfx:assert-equal>
+	</utfx:test>
+
+	<!-- print-xml matcher shall not match because context node is set to /root/print-xml/nested -->
+	<utfx:test>
+		<utfx:name>absolute xpath expression with template match using context-node</utfx:name>
+		<utfx:assert-equal>
+			<utfx:source context-node="/root/print-xml/nested">
+				<root>
+					<print-xml>
+						<nested depth="2"/>
+					</print-xml>
+				</root>
+			</utfx:source>
+			<utfx:expected>
+				<nestedxml>
+					<absolute>
+						<root>
+							<print-xml>
+								<nested depth="2"/>
+							</print-xml>
+						</root>
+					</absolute>
+					<relative>
+						<nested depth="2"/>
+					</relative>
+				</nestedxml>
+			</utfx:expected>
+		</utfx:assert-equal>
+	</utfx:test>
+
+	<!-- a test similar to 'current context node for named templates' in core_tests_test.xml
+		 with a root context-node
+	-->
+	<utfx:test>
+		<utfx:name>current context node for named templates with root context-node</utfx:name>
+		<utfx:call-template name="display-attr-of-elem"/>
+		<utfx:assert-equal>
+			<utfx:source context-node="/">
+				<e attr="hello,world"/>
+			</utfx:source>
+			<utfx:expected>
+				<attr>hello,world</attr>
+			</utfx:expected>
+		</utfx:assert-equal>
+	</utfx:test>
+
+	<utfx:test>
+		<utfx:name>current context node for named templates with context-node</utfx:name>
+		<utfx:call-template name="display-attr"/>
+		<utfx:assert-equal>
+			<utfx:source context-node="/e">
+				<e attr="hello,world"/>
+			</utfx:source>
+			<utfx:expected>
+				<attr>hello,world</attr>
+			</utfx:expected>
+		</utfx:assert-equal>
+	</utfx:test>
+
+	<!-- empty context-node will be have like no context-node attribute -->
+	<utfx:test>
+		<utfx:name>current context node for named templates with empty context-node</utfx:name>
+		<utfx:call-template name="display-attr"/>
+		<utfx:assert-equal>
+			<utfx:source context-node="">
+				<e attr="hello,world"/>
+			</utfx:source>
+			<utfx:expected>
+				<attr>hello,world</attr>
+			</utfx:expected>
+		</utfx:assert-equal>
+	</utfx:test>
+	
+</utfx:tests>

@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../../src/xsl/test_definition_xhtml.xsl"?>
+<!--
+	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	$Id: core_tests_test.xml,v 1.1.2.1 2006/09/09 21:11:44 jacekrad Exp $
+	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	
+	UTF-X test definition file for sample1.xsl stylesheet
+	
+	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	
+	Copyright(C) 2004-2006 UTF-X Development team.
+	
+	You may redistribute and/or modify under the terms of the GNU 
+	General Public License v2.
+	
+	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-->
+<utfx:tests xmlns:utfx="http://utfx.org/test-definition">
+	<utfx:stylesheet src="core_tests.xsl"/>
+
+	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+	<!-- test 1 -->
+	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+	<utfx:test>
+		<utfx:name>&lt;a&gt; -> &lt;b&gt; test</utfx:name>
+		<utfx:assert-equal>
+			<utfx:source>
+				<a>a to b transform</a>
+			</utfx:source>
+			<utfx:expected>
+				<b>a to b transform</b>
+			</utfx:expected>
+			<utfx:message>this failed-test-message is optional</utfx:message>
+		</utfx:assert-equal>
+	</utfx:test>
+
+	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+	<!-- test 2 -->
+	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+	<utfx:test>
+		<utfx:name>&lt;b&gt; -> &lt;c&gt; test</utfx:name>
+		<utfx:assert-equal>
+			<utfx:source>
+				<b>b to c transform</b>
+			</utfx:source>
+			<utfx:expected>
+				<c>b to c transform</c>
+			</utfx:expected>
+		</utfx:assert-equal>
+	</utfx:test>
+
+	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+	<!-- test 3 -->
+	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+	<utfx:test>
+		<utfx:name>&lt;c&gt; -> &lt;a&gt; test</utfx:name>
+		<utfx:assert-equal>
+			<utfx:source>
+				<c>c to a transform</c>
+			</utfx:source>
+			<utfx:expected>
+				<a>c to a transform</a>
+			</utfx:expected>
+		</utfx:assert-equal>
+	</utfx:test>
+
+	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+	<!-- test 4 
+     named template test -->
+	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+	<utfx:test>
+		<utfx:name>named template</utfx:name>
+		<utfx:call-template name="d"/>
+		<utfx:assert-equal>
+			<utfx:source>
+				<d/>
+			</utfx:source>
+			<utfx:expected>
+				<d>named template</d>
+			</utfx:expected>
+		</utfx:assert-equal>
+	</utfx:test>
+
+	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+	<!-- test 5 
+	 this is a slightly more complicated test which uses nested elements -->
+	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+	<utfx:test>
+		<utfx:name>multiple elements</utfx:name>
+		<utfx:assert-equal normalise-internal-whitespace="yes">
+			<utfx:source>
+				<a>element a, followed by <b>elelement b, followed by <c>element c.</c>
+					</b>
+				</a>
+			</utfx:source>
+			<utfx:expected>
+				<b>element a, followed by <c>elelement b, followed by <a>element
+					c.</a></c></b>
+			</utfx:expected>
+		</utfx:assert-equal>
+	</utfx:test>
+
+	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+	<!-- test 5
+     This test demonstrates that source and expected fragments need not to have
+     a root element.  The UTF-X framework will automatically wrap both source
+     and expected fragments with a root element to make both fragments well 
+     formed XML. 
+     
+     see also test 10 which tests the same thing with a named template -->
+	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+	<utfx:test>
+		<utfx:name>source and expected fragments have no root element</utfx:name>
+		<utfx:assert-equal normalise-internal-whitespace="yes">
+			<utfx:source>
+				<a>element a, followed by <b>elelement b, followed by <c>element c.</c>
+					</b>
+				</a>
+				<c>another c</c>
+			</utfx:source>
+			<utfx:expected>
+				<b>element a, followed by <c>elelement b, followed by <a>element
+					c.</a></c></b>
+				<a>another c</a>
+			</utfx:expected>
+		</utfx:assert-equal>
+	</utfx:test>
+
+	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+	<!-- test 6
+     This tests a named template that assumes the current context node is
+     what it expects -->
+	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+	<utfx:test>
+		<utfx:name>current context node for named templates</utfx:name>
+		<utfx:call-template name="e"/>
+		<utfx:assert-equal>
+			<utfx:source>
+				<e attr="hello,world"/>
+			</utfx:source>
+			<utfx:expected>
+				<e>hello,world</e>
+			</utfx:expected>
+		</utfx:assert-equal>
+	</utfx:test>
+
+	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+	<!-- test 7
+     This tests the handling of empty elements -->
+	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+	<utfx:test>
+		<utfx:name>source and expected have empty elements</utfx:name>
+		<utfx:assert-equal>
+			<utfx:source>
+				<f/>
+			</utfx:source>
+			<utfx:expected>
+				<g/>
+			</utfx:expected>
+		</utfx:assert-equal>
+	</utfx:test>
+
+	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+	<!-- test 8
+     This tests the handling of just text nodes -->
+	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+	<utfx:test>
+		<utfx:name>source and expected fragments have only text</utfx:name>
+		<utfx:assert-equal>
+			<utfx:source> this is just text </utfx:source>
+			<utfx:expected> this is just text </utfx:expected>
+		</utfx:assert-equal>
+	</utfx:test>
+
+	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+	<!-- test 9 (issue 10) -->
+	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+	<utfx:test>
+		<utfx:name>&lt;g&gt; - tests issue 10</utfx:name>
+		<utfx:assert-equal>
+			<utfx:source>
+				<g>blah blah</g>
+			</utfx:source>
+			<utfx:expected> blah blah </utfx:expected>
+		</utfx:assert-equal>
+	</utfx:test>
+
+	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+	<!-- test 10
+	 same as test 5 for named template
+	 
+	 This test demonstrates how source fragments with no root element behave
+	 when used with a named template call.
+ 	 
+ 	 What happens in this test? UTF-X sets the context node for the named 
+ 	 template to element <a>:
+		<utfx-wrapper>
+			<a>aaa</a> <==========================
+			<b>bbb</b>
+		</utfx-wrapper> 	
+	 I.e. the input element <b> does not get processed by the named template
+	 but by the template matcher for b. -->
+	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+	<utfx:test>
+		<utfx:name>source and expected fragments have no root element with named
+			template</utfx:name>
+		<utfx:call-template name="h"/>
+		<utfx:assert-equal>
+			<utfx:source>
+				<a>aaa</a>
+				<b>bbb</b>
+			</utfx:source>
+			<utfx:expected>
+				<named-template>
+					<a>aaa</a>
+				</named-template>
+				<c>bbb</c>
+			</utfx:expected>
+		</utfx:assert-equal>
+	</utfx:test>
+
+	<utfx:test>
+		<utfx:name>test whitespace normalisation inside element</utfx:name>
+		<utfx:assert-equal normalise-internal-whitespace="yes">
+			<utfx:source>
+				<a>This is an example of a lengthy pragraph. We are testing Canonical
+					Form's new feature which normalises white space characters inside an
+					element. The whitespace is normalised by converting any sequence of
+					whitespace character ('\n', \'r', '\t' and ' ') into a single space
+					character. In here we have a shoort sequence of whitespace
+					characters:&#x9;&#x9;&#x9;&#x9;&#xD;&#xD;&#xA;&#xA;&#xA;&#xA;&#xA;.
+					This feature will enable for easier testing of large content
+				chunks.</a>
+			</utfx:source>
+			<utfx:expected xml:space="preserve"><b>This is an example of a lengthy pragraph. We are testing Canonical Form's new feature which normalises white space characters inside an element. The whitespace is normalised by converting any sequence of whitespace character ('\n', \'r', '\t' and ' ') into a single space character. In here we have a shoort sequence of whitespace characters: . This feature will enable for easier testing of large content chunks.</b></utfx:expected>
+		</utfx:assert-equal>
+	</utfx:test>
+
+</utfx:tests>

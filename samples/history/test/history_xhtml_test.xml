@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  $Id: history_xhtml_test.xml,v 1.1.2.3 2006/08/23 14:20:34 eraonel Exp $
+  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  
+  Purpose: Test Definition File for history_xhtml.xsl
+  
+  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  
+  Copyright(C) 2006 UTF-X Developers.
+  
+  This program is free software; you can redistribute it and/or modify
+  it under the terms of the GNU General Public License v2 as published
+  by the Free Software Foundation (http://www.gnu.org/licenses/gpl.txt)
+  
+  This program is distributed in the hope that it will be useful, but
+  WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+  General Public License for more details.
+  
+  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-->
+<!DOCTYPE utfx:tests PUBLIC "-//UTF-X//DTD utfx-tests 1.0//EN" "utfx_tests.dtd">
+<utfx:tests xmlns:utfx="http://utfx.org/test-definition"
+  xmlns:history="http://utf-x.sourceforge.net/xsd/history_1_0/history.xsd"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://utf-x.sourceforge.net/xsd/history_1_0/history.xsd ../history.xsd">
+  <utfx:stylesheet src="history_xhtml.xsl"/>
+
+  <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+  <!-- release -->
+  <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->  
+  <utfx:test>
+    <utfx:name>test for release template</utfx:name>
+    <utfx:assert-equal>
+      <utfx:source>
+        <history:release>
+          <history:name>1.0.0</history:name>
+          <history:date>2006-12-31</history:date>
+          <history:tag>release_1_0_0</history:tag>
+          <history:change/>
+        </history:release>
+      </utfx:source>
+      <utfx:expected>
+        <div class="release">
+          <table align="center" width="90%">
+            <tbody>
+              <colgroup>
+                <col width="15%"/>
+                <col width="85%"/>
+              </colgroup>
+              <tr>
+                <th align="left">Release date:</th>
+                <td>2006-12-31</td>
+              </tr>
+              <tr>
+                <th align="left">Release name:</th>
+                <td>1.0.0</td>
+              </tr>
+              <tr>
+                <th align="left">CVS tag:</th>
+                <td class="tag">release_1_0_0</td>
+              </tr>
+              <tr>
+                <td colspan="3">
+                  <table width="100%">
+                    <tbody>
+                      <colgroup>
+                        <col width="15%"/>
+                        <col width="35%"/>
+                        <col width="10%"/>
+                        <col width="25%"/>
+                      </colgroup>
+                      <tr>
+                        <th>Date</th>
+                        <th>Issue</th>
+                        <th>Type</th>
+                        <th>Comment</th>
+                      </tr>
+                      <tr>
+                        <td/>
+                        <td/>
+                        <td class="description"/>
+                      </tr>
+                    </tbody>
+                  </table>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </utfx:expected>
+    </utfx:assert-equal>
+  </utfx:test>
+
+  <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+  <!-- change -->
+  <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->  
+  <utfx:test>
+    <utfx:name>test for change template</utfx:name>
+    <utfx:assert-equal>
+      <utfx:source>
+        <history:change type="bug-fix">
+          <history:date>2006-03-19</history:date>
+          <history:issue>21</history:issue>
+          <history:comment>Attributes are now printed except for xmlspace.
+                xmlns: etc</history:comment>
+        </history:change>
+      </utfx:source>
+      <utfx:expected>
+        <tr>
+          <td>2006-03-19</td>
+          <td>
+            <div class="description">
+              <a href="https://utf-x.dev.java.net/issues/show_bug.cgi?id=21">[21] </a>
+            </div>
+          </td>
+          <td>bug-fix</td>
+        
+          <td class="description">Attributes are now printed except for xmlspace.
+                xmlns: etc</td>
+         </tr>
+      </utfx:expected>
+    </utfx:assert-equal>
+  </utfx:test>
+</utfx:tests>
