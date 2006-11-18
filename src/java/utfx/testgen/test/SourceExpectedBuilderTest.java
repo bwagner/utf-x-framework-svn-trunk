@@ -36,7 +36,7 @@ import utfx.testgen.SourceExpectedBuilder;
  * </code>
  * 
  * @author Jacek Radajewski
- * @version $Revision: 1.1 $ $Date: 2006/04/01 20:44:13 $ $Name:  $
+ * @version $Revision$ $Date$ $Name:  $
  */
 public class SourceExpectedBuilderTest extends UTFXTestCase {
 

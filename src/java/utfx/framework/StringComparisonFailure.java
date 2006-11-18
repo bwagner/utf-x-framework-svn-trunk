@@ -30,7 +30,7 @@ import junit.framework.ComparisonFailure;
  * </code>
  * 
  * @author Jacek Radajewski
- * @version $Revision: 1.2 $ $Date: 2005/03/14 05:54:02 $ $Name:  $
+ * @version $Revision$ $Date$ $Name:  $
  */
 public class StringComparisonFailure extends ComparisonFailure {
 

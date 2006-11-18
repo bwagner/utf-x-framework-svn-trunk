@@ -2,7 +2,7 @@
 <?xml-stylesheet type="text/xsl" href="../../../src/xsl/test_definition_xhtml.xsl"?>
 <!--
 	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-	$Id: stylesheet_param_tests_test.xml,v 1.1.2.1 2006/09/09 21:11:44 jacekrad Exp $
+	$Id$
 	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 	Purpose: UTF-X test definition file for stylesheet_param_tests.xsl
 	         stylesheet

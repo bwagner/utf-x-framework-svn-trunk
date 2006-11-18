@@ -48,7 +48,7 @@ import org.w3c.dom.NodeList;
  * @author Oliver Lucido
  * @author Sally MacFarlane
  * @author Alex Daniel
- * @version $Revision: 1.11.2.2 $ $Date: 2006/08/11 14:23:57 $ $Name:  $
+ * @version $Revision$ $Date$ $Name:  $
  */
 public class TestFileSuiteAssembler {
 

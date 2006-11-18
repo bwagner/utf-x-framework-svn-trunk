@@ -60,7 +60,7 @@ import utfx.printers.XMLResultPrinter;
  * @author Kent Beck (original author)
  * @author Erich Gamma (original author)
  * @author Jacek Radajewski
- * @version $Revision: 1.2.2.5 $ $Date: 2006/08/23 08:28:39 $ $Name:  $
+ * @version $Revision$ $Date$ $Name:  $
  */
 public class TestRunner extends BaseTestRunner {
 

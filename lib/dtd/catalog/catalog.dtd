@@ -1,4 +1,4 @@
-<!-- $Id: catalog.dtd,v 1.1 2005/03/26 08:54:20 jacekrad Exp $ -->
+<!-- $Id$ -->
 
 <!ENTITY % pubIdChars "CDATA">
 <!ENTITY % publicIdentifier "%pubIdChars;">

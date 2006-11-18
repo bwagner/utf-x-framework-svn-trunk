@@ -50,7 +50,7 @@ import utfx.util.DOMWriter;
  * @author Oliver Lucido
  * @author Sally MacFarlane
  * @author Alex Daniel
- * @version $Revision: 1.7.2.5 $ $Date: 2006/09/08 00:00:38 $ $Name:  $
+ * @version $Revision$ $Date$ $Name:  $
  */
 public class XSLTTransformTestCase extends UTFXTestCase {
 

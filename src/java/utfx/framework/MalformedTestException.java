@@ -25,7 +25,7 @@ package utfx.framework;
  * </code>
  * 
  * @author Jacek Radajewski
- * @version $Revision: 1.1 $ $Date: 2005/03/14 05:52:58 $ $Name:  $
+ * @version $Revision$ $Date$ $Name:  $
  */
 public class MalformedTestException extends RuntimeException {
 

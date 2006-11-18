@@ -37,7 +37,7 @@ import org.xml.sax.helpers.XMLReaderFactory;
  * </code>
  * 
  * @author Jacek Radajewski
- * @version $Revision: 1.2 $ $Date: 2006/08/01 07:39:30 $ $Name:  $
+ * @version $Revision$ $Date$ $Name:  $
  */
 public class DefaultSourceParser implements SourceParser {
 

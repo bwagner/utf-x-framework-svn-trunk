@@ -31,7 +31,7 @@ import javax.xml.transform.Source;
  * </code>
  * 
  * @author Jacek Radajewski
- * @version $Revision: 1.1 $ $Date: 2005/03/23 02:25:13 $ $Name:  $
+ * @version $Revision$ $Date$ $Name:  $
  */
 public interface SourceParser {
 

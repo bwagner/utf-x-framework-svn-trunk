@@ -40,7 +40,7 @@ import junit.runner.BaseTestRunner;
  * </code>
  * 
  * @author Jacek Radajewski
- * @version $Revision: 1.4 $ $Date: 2006/03/17 23:34:37 $ $Name:  $
+ * @version $Revision$ $Date$ $Name:  $
  */
 public class FormattedResultPrinter extends ResultPrinter {
 

@@ -26,7 +26,7 @@ import javax.xml.transform.Source;
  * </code>
  * 
  * @author Jacek Radajewski
- * @version $Revision: 1.2 $Date: 2006/03/19 01:09:02 $ $ $Name:  $
+ * @version $Revision$Date: 2006/03/19 01:09:02 $ $ $Name:  $
  */
 public class TestSourceParser1 {
 

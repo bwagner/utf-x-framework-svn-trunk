@@ -51,7 +51,7 @@ import sax.helpers.AttributesImpl;
  * 
  * @author Jacek Radajewski
  * @author Oliver Lucido (Lulu)
- * @version $Revision: 1.2.2.6 $ $Date: 2006/09/07 06:29:52 $ $Name:  $
+ * @version $Revision$ $Date$ $Name:  $
  */
 public class CanonicalForm extends DefaultHandler implements LexicalHandler {
 

@@ -36,7 +36,7 @@ import junit.runner.BaseTestRunner;
  * @author Jacek Radajewski
  * @author Kent Beck and Erich Gamma (authors of
  *         <code>junit.textui.ResultPrinter</code>)
- * @version $Revision: 1.2 $ $Date: 2006/03/17 23:34:36 $ $Name:  $
+ * @version $Revision$ $Date$ $Name:  $
  */
 public class JunitResultPrinter extends ResultPrinter {
 

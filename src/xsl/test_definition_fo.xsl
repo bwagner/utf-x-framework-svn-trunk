@@ -2,7 +2,7 @@
 <!--
 	
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
- $Id: test_definition_fo.xsl,v 1.4.2.8 2006/08/23 12:39:02 jacekrad Exp $
+ $Id$
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 	
  Purpose: this stylesheet is used to generate XSL:FO (.fo) output from a UTF-X 

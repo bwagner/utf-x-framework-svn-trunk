@@ -52,7 +52,7 @@ import utfx.framework.UTFXNamespaceContext;
  * </code>
  * 
  * @author Jacek Radajewski
- * @version $Revision: 1.7.2.7 $ $Date: 2006/09/09 21:13:59 $ $Name:  $
+ * @version $Revision$ $Date$ $Name:  $
  */
 public class TestGenerator {
 

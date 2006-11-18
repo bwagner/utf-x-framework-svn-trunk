@@ -48,7 +48,7 @@ import utfx.util.DOMWriter;
  * </code>
  * 
  * @author Alex Daniel
- * @version $Revision: 1.1.2.3 $ $Date: 2006/08/22 14:57:08 $ $Name:  $
+ * @version $Revision$ $Date$ $Name:  $
  */
 
 public class WrapperStylesheetGeneratorTest extends TestCase {

@@ -32,7 +32,7 @@ import java.io.FilenameFilter;
  * </code>
  * 
  * @author Jacek Radajewski
- * @version $Revision: 1.2 $ $Date: 2005/03/14 05:54:53 $ $Name:  $
+ * @version $Revision$ $Date$ $Name:  $
  */
 public class TestFileFilter implements FilenameFilter {
 

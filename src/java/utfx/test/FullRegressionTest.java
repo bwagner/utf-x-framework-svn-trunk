@@ -26,7 +26,7 @@ import junit.framework.TestSuite;
  * </code>
  * 
  * @author Jacek Radajewski
- * @version $Revision: 1.3.2.5 $ $Date: 2006/10/28 23:20:09 $ $Name:  $
+ * @version $Revision$ $Date$ $Name:  $
  */
 public class FullRegressionTest extends TestCase {
 

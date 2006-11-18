@@ -21,7 +21,7 @@ package utfx.framework;
  * </code>
  * 
  * @author Jacek Radajewski
- * @version $Revision: 1.1.2.1 $Date: 2006/08/21 03:10:57 $ $ $Name:  $
+ * @version $Revision$Date: 2006/08/21 03:10:57 $ $ $Name:  $
  */
 public class BadXSLTTestCase extends UTFXTestCase {
 

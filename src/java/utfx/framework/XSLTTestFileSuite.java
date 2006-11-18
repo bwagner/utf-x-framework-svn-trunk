@@ -31,7 +31,7 @@ import junit.framework.TestSuite;
  * @author Jacek Radajewski
  * @author Oliver Lucido
  * @author Sally MacFarlane
- * @version $Revision: 1.4.2.1 $ $Date: 2006/08/11 14:23:57 $ $Name:  $
+ * @version $Revision$ $Date$ $Name:  $
  */
 public class XSLTTestFileSuite extends TestSuite {
 

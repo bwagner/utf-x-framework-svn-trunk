@@ -48,7 +48,7 @@ import utfx.util.DOMWriter;
  * 
  * @author Jacek Radajewski
  * @author Oliver Lucido (Lulu)
- * @version $Revidion:$ $Date: 2005/03/09 03:52:43 $ $Name:  $
+ * @version $Revidion:$ $Date$ $Name:  $
  */
 public class DOMWriterTest extends UTFXTestCase {
 

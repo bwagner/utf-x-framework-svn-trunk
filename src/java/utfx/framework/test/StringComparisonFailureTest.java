@@ -31,7 +31,7 @@ import junit.framework.TestSuite;
  * </code>
  * 
  * @author Jacek Radajewski
- * @version $Revision: 1.1 $ $Date: 2005/03/09 03:53:06 $ $Name:  $
+ * @version $Revision$ $Date$ $Name:  $
  */
 public class StringComparisonFailureTest extends TestCase {
 

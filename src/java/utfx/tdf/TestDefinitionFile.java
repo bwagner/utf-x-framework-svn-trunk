@@ -27,7 +27,7 @@ import org.w3c.dom.DocumentFragment;
  * </code>
  * 
  * @author Jacek Radajewski
- * @version $Revision: 1.1 $ $Date: 2006/07/29 19:46:35 $ $Name:  $
+ * @version $Revision$ $Date$ $Name:  $
  */
 public class TestDefinitionFile {
     

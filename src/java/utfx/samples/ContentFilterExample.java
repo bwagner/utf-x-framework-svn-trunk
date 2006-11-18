@@ -46,7 +46,7 @@ import utfx.framework.SourceParser;
  * </code>
  * 
  * @author Jacek Radajewski
- * @version $Revision: 1.2 $ $Date: 2005/03/23 02:36:04 $ $Name:  $
+ * @version $Revision$ $Date$ $Name:  $
  */
 public class ContentFilterExample implements SourceParser {
 

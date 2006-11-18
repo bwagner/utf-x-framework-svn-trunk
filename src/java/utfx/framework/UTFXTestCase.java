@@ -32,7 +32,7 @@ import utfx.util.CanonicalForm;
  * 
  * @author Jacek Radajewski
  * @author Oliver (Lulu) Lucido
- * @version $Revision: 1.3.2.3 $ $Date: 2006/09/07 06:29:53 $ $Name:  $
+ * @version $Revision$ $Date$ $Name:  $
  */
 public class UTFXTestCase extends TestCase {
 

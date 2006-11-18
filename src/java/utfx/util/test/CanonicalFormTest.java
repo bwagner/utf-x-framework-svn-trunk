@@ -39,7 +39,7 @@ import utfx.util.CanonicalForm;
  * @author Jacek Radajewski
  * @author Oliver Lucido (Lulu)
  * @author Stephano AhFock (Bob)
- * @version $Revision: 1.2.2.1 $ $Name:  $
+ * @version $Revision$ $Name:  $
  */
 public class CanonicalFormTest extends UTFXTestCase {
 

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- $Id: tdf.xsd,v 1.4.2.2 2006/08/06 02:23:55 jacekrad Exp $ -->
+<!-- $Id$ -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
   elementFormDefault="qualified"
   targetNamespace="http://utf-x.sourceforge.net/xsd/tdf_1_0/tdf.xsd"
@@ -12,8 +12,8 @@
       (TDF) Schema</xs:documentation>
     <xs:documentation>Copyright (C) 2006 UTF-X Development Team</xs:documentation>
     <xs:documentation>Maintained by: Jacek Radajewski</xs:documentation>
-    <xs:documentation>$Revision: 1.4.2.2 $</xs:documentation>
-    <xs:documentation>$Date: 2006/08/06 02:23:55 $</xs:documentation>
+    <xs:documentation>$Revision$</xs:documentation>
+    <xs:documentation>$Date$</xs:documentation>
     <xs:documentation>$Name:  $</xs:documentation>
     <xs:documentation>This program is free software; you can redistribute it
       and/or modify it under the terms of the GNU General Public License v2 as

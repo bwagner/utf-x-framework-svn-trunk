@@ -2,7 +2,7 @@
 <?xml-stylesheet type="text/xsl" href="../../../src/xsl/test_definition_xhtml.xsl"?>
 <!--
 	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-	$Id: bad_tests_test.xml,v 1.1.2.1 2006/10/30 01:53:45 jacekrad Exp $
+	$Id$
 	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 	
 	UTF-X test definition file for sample1.xsl stylesheet

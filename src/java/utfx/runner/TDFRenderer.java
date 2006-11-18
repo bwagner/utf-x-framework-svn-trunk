@@ -50,7 +50,7 @@ import utfx.framework.UTFXNamespaceContext;
  *             but the current XSLT implementation of HTML TDF rendition seems
  *             to do the job OK.
  * @author Jacek Radajewski
- * @version $Revision: 1.1.2.1 $ $Date: 2006/09/02 05:40:37 $ $Name:  $
+ * @version $Revision$ $Date$ $Name:  $
  */
 public class TDFRenderer {
 

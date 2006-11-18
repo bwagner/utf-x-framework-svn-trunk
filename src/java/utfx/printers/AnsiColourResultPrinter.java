@@ -38,7 +38,7 @@ import junit.runner.BaseTestRunner;
  * </code>
  * 
  * @author Jacek Radajewski
- * @version $Revision: 1.5 $ $Date: 2006/03/17 23:34:36 $ $Name:  $
+ * @version $Revision$ $Date$ $Name:  $
  */
 public class AnsiColourResultPrinter extends ResultPrinter {
 

@@ -34,7 +34,7 @@ import javax.xml.transform.Source;
  * </code>
  * 
  * @author Jacek Radajewski
- * @version $Revision: 1.2 $ $Date: 2006/08/01 07:39:53 $ $Name:  $
+ * @version $Revision$ $Date$ $Name:  $
  */
 public class SourceParserWrapper implements SourceParser {
 

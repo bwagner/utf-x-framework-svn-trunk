@@ -38,7 +38,7 @@ import org.w3c.dom.NodeList;
  * 
  * @author Jacek Radajewski
  * @author Oliver Lucido (Lulu)
- * @version $Revidion:$ $Date: 2005/03/09 03:53:19 $ $Name:  $
+ * @version $Revidion:$ $Date$ $Name:  $
  */
 public class DOMWriter {
 

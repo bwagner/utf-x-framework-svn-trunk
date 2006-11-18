@@ -36,7 +36,7 @@ import utfx.util.DOMWriter;
  * </code>
  * 
  * @author Jacek Radajewski
- * @version $Revision: 1.2.2.1 $ $Date: 2006/08/21 16:35:54 $ $Name:  $
+ * @version $Revision$ $Date$ $Name:  $
  */
 public class SourceExpectedBuilder {
 

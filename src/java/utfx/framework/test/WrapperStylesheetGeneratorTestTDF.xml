@@ -2,7 +2,7 @@
 <?xml-stylesheet type="text/xsl" href="../../../src/xsl/test_definition_xhtml.xsl"?>
 <!--
   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-  $Id: WrapperStylesheetGeneratorTestTDF.xml,v 1.1.2.4 2006/08/22 14:57:04 lachdrache Exp $
+  $Id$
   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   Purpose: UTF-X test definition file for WrapperStylesheetGeneratorTest
   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

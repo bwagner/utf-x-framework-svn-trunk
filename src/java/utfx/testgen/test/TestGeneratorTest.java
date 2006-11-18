@@ -31,7 +31,7 @@ import utfx.testgen.TestGenerator;
  * 
  * @author Jacek Radajewski
  * @author Alex Daniel
- * @version $Revision: 1.4.2.4 $ $Date: 2006/08/21 16:21:01 $ $Name:  $
+ * @version $Revision$ $Date$ $Name:  $
  */
 public class TestGeneratorTest extends UTFXTestCase {
 

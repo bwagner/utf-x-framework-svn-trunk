@@ -27,7 +27,7 @@ import junit.framework.AssertionFailedError;
  * </code>
  * 
  * @author Jacek Radajewski
- * @version $Revision: 1.1 $ $Date: 2005/03/23 02:29:56 $ $Name:  $
+ * @version $Revision$ $Date$ $Name:  $
  */
 public class XMLValidationError extends AssertionFailedError {
 

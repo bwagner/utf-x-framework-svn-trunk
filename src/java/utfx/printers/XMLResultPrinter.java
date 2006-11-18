@@ -35,7 +35,7 @@ import utfx.framework.StringComparisonFailure;
  * </code>
  * 
  * @author Jacek Radajewski
- * @version $Revision: 1.3.2.4 $ $Date: 2006/09/09 04:38:17 $ $Name:  $
+ * @version $Revision$ $Date$ $Name:  $
  */
 public class XMLResultPrinter extends ResultPrinter {
 

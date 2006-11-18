@@ -34,7 +34,7 @@ import org.w3c.dom.NodeList;
  * </code>
  * 
  * @author Jacek Radajewski
- * @version $Revision: 1.1 $ $Date: 2005/03/23 02:25:13 $ $Name:  $
+ * @version $Revision$ $Date$ $Name:  $
  */
 public class SourceParserFactory {
 

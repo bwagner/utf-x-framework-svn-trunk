@@ -35,7 +35,7 @@ import utfx.framework.SourceParser;
  * </code>
  * 
  * @author Jacek Radajewski
- * @version $Revision: 1.2 $ $Date: 2005/03/23 02:37:01 $ $Name:  $
+ * @version $Revision$ $Date$ $Name:  $
  */
 public class SAXSourceBuilderExample extends DefaultHandler implements
         SourceParser {

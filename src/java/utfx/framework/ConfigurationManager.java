@@ -39,7 +39,7 @@ import utfx.printers.JunitResultPrinter;
  * </code>
  * 
  * @author Jacek Radajewski
- * @version $Revision: 1.7.2.1 $Date: 2006/08/22 04:59:44 $ $ $Name:  $
+ * @version $Revision$Date: 2006/08/22 04:59:44 $ $ $Name:  $
  */
 public class ConfigurationManager {
 

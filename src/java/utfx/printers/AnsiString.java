@@ -38,7 +38,7 @@ import static utfx.printers.AnsiString.Colour.YELLOW;
  * </code>
  * 
  * @author Jacek Radajewski
- * @version $Revision: 1.1 $ $Date: 2005/03/09 03:53:16 $ $Name:  $
+ * @version $Revision$ $Date$ $Name:  $
  */
 public class AnsiString implements java.io.Serializable {
 

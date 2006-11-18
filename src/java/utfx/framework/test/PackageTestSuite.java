@@ -30,7 +30,7 @@ import junit.framework.TestSuite;
  * </code>
  * 
  * @author Jacek Radajewski
- * @version $Revision: 1.3.2.1 $ $Date: 2006/08/02 14:20:15 $ $Name:  $
+ * @version $Revision$ $Date$ $Name:  $
  */
 public class PackageTestSuite extends TestCase {
 

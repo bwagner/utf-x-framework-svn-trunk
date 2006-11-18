@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
 	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-	$Id: wrapper.xsl,v 1.5.2.2 2006/08/09 13:01:42 lachdrache Exp $
+	$Id$
 	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 	Purpose: Used by WrapperStylesheetGenerator for generating wrapper stylesheet
 			 for executing test case

@@ -33,7 +33,7 @@ import javax.xml.namespace.NamespaceContext;
  * </code>
  * 
  * @author Jacek Radajewski
- * @version $Revision: 1.5 $ $Date: 2006/07/14 20:32:28 $ $Name:  $
+ * @version $Revision$ $Date$ $Name:  $
  */
 public class UTFXNamespaceContext implements NamespaceContext {
 

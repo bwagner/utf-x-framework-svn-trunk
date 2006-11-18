@@ -33,7 +33,7 @@ import org.apache.log4j.Logger;
  * @author Jacek Radajewski
  * @author Oliver Lucido
  * @author Sally MacFarlane
- * @version $Revision: 1.2.2.1 $ $Date: 2006/08/11 14:23:57 $ $Name:  $
+ * @version $Revision$ $Date$ $Name:  $
  */
 public class XSLTTestDirectorySuite extends TestSuite {
 

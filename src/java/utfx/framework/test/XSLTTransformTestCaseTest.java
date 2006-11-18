@@ -35,7 +35,7 @@ import utfx.framework.XSLTTransformTestCase;
  * </code>
  * 
  * @author Jacek Radajewski
- * @version $Revision: 1.3.2.1 $ $Date: 2006/08/08 05:05:00 $ $Name:  $
+ * @version $Revision$ $Date$ $Name:  $
  */
 public class XSLTTransformTestCaseTest extends TestCase {
 

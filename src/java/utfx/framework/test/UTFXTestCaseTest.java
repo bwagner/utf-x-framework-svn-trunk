@@ -36,7 +36,7 @@ import junit.framework.TestSuite;
  * </code>
  * 
  * @author Jacek Radajewski
- * @version $Revision: 1.2 $ $Date: 2005/03/16 05:28:13 $ $Name:  $
+ * @version $Revision$ $Date$ $Name:  $
  */
 public class UTFXTestCaseTest extends TestCase {
 

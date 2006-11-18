@@ -33,7 +33,7 @@ import utfx.framework.ConfigurationManager;
  * </code>
  * 
  * @author Jacek Radajewski
- * @version $Revision: 1.2 $Date: 2006/03/17 23:34:37 $ $ $Name:  $
+ * @version $Revision$Date: 2006/03/17 23:34:37 $ $ $Name:  $
  */
 public class ResultPrinterFactory {
 

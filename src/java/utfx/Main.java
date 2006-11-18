@@ -28,7 +28,7 @@ import static java.lang.System.out;
  * </code>
  * 
  * @author jacekrad
- * @version $Revision: 1.1.2.1 $ $Date: 2006/11/10 04:55:24 $ $Name:  $
+ * @version $Revision$ $Date$ $Name:  $
  */
 public class Main {
 

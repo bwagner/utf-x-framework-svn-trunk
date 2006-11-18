@@ -25,7 +25,7 @@ import org.w3c.dom.NodeList;
  * </code>
  * 
  * @author Jacek Radajewski
- * @version $Revision: 1.1 $ $Date: 2006/07/29 19:46:36 $ $Name:  $
+ * @version $Revision$ $Date$ $Name:  $
  */
 public class XMLDocumentFragment {
 

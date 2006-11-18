@@ -44,7 +44,7 @@ import utfx.util.DOMWriter;
  * </code>
  * 
  * @author Jacek Radajewski
- * @version $Revision: 1.1 $ $Date: 2005/03/09 03:53:21 $ $Name:  $
+ * @version $Revision$ $Date$ $Name:  $
  */
 public class ContentFilterExampleTest extends UTFXTestCase {
 

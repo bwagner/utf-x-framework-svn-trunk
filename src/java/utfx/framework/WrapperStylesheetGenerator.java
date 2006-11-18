@@ -43,7 +43,7 @@ import org.w3c.dom.NodeList;
  * </code>
  * 
  * @author Alex Daniel
- * @version $Revision: 1.1.2.4 $ $Date: 2006/08/22 14:57:09 $ $Name:  $
+ * @version $Revision$ $Date$ $Name:  $
  */
 public class WrapperStylesheetGenerator {
     /** XPath factory */

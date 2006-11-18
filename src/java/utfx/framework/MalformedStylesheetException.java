@@ -25,7 +25,7 @@ package utfx.framework;
  * </code>
  * 
  * @author Jacek Radajewski
- * @version $Revision: 1.1 $ $Date: 2006/03/10 09:07:03 $ $Name:  $
+ * @version $Revision$ $Date$ $Name:  $
  */
 public class MalformedStylesheetException extends RuntimeException {
 

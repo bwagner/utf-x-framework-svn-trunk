@@ -185,7 +185,7 @@
 
      SEEALSO "ISO 8879//NOTATION Extensible Markup Language (XML) 1.0//EN"
 >
-<!-- Id: $Id: xhtml1.dcl,v 1.1 2005/03/26 08:54:21 jacekrad Exp $ SMI
+<!-- Id: $Id$ SMI
      Revisions:
 #1999-04-09  changes for XML validation
 #2001-04-08  updated ISO registration number for UCS-4

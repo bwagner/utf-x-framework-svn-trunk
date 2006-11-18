@@ -40,7 +40,7 @@ import org.apache.log4j.Logger;
  * @author Jacek Radajewski
  * @author Oliver Lucido
  * @author Sally MacFarlane
- * @version $Revision: 1.3 $ $Date: 2006/02/26 05:10:29 $ $Name:  $
+ * @version $Revision$ $Date$ $Name:  $
  */
 public class XSLTRegressionTest extends TestSuite {
 

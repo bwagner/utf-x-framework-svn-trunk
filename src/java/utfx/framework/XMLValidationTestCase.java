@@ -43,7 +43,7 @@ import org.xml.sax.SAXParseException;
  * 
  * @author Jacek Radajewski
  * @author Oliver Lucido (Lulu)
- * @version $Revidion:$ $Date: 2006/08/08 05:06:20 $ $Name:  $
+ * @version $Revidion:$ $Date$ $Name:  $
  */
 public class XMLValidationTestCase extends TestCase implements ErrorHandler {
 
