@@ -8,7 +8,7 @@
 	
 	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 	
-	Copyright(C) 2004-2005 UTF-X Developers.
+	Copyright(C) 2004-2006 UTF-X Developers.
 	
 	This program is free software; you can redistribute it and/or modify
 	it under the terms of the GNU General Public License v2 as published
@@ -50,6 +50,9 @@
 	<!-- DTD and XSD files for XML validation -->
 	<property name="dtd" location="${src}/dtd" />
 	<property name="xsd" location="${src}/xsd" />
+	
+	<!-- location of the UTF-X Doc project -->
+	<property name="utfxdoc" location="../utf-x-doc"/>
 	
 	<!-- library - external JAR files -->
 	<property name="lib" location="lib" />
@@ -318,7 +321,7 @@
 	<!-- compile the manual and other documentation -->
 	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 	<target name="doc" depends="jar">
-		
+		<!--
 		<java classname="utfx.samples.UTFXDocPreProcessor" fork="yes">
 			<assertions><enable/></assertions>
 			<arg value="doc/devguide/devguide.xml" />			
@@ -332,23 +335,23 @@
 			<arg value="${dist.dir}/manual/manual_pp.xml" />			
 			<classpath refid="runtime.classpath" />
 		</java>			
-
-		<xslt style="samples/utfxdoc/utfxdoc_xhtml.xsl"
+-->
+		<xslt style="${utfxdoc}/xsl/utfxdoc_xhtml.xsl"
 			in="${dist.dir}/manual/manual_pp.xml"
 			out="${dist.dir}/manual/manual.html">
 		</xslt>
 		
-		<xslt style="samples/utfxdoc/utfxdoc_xhtml.xsl"
+		<xslt style="${utfxdoc}/xsl/utfxdoc_xhtml.xsl"
 			in="${dist.dir}/devguide/devguide_pp.xml"
 			out="${dist.dir}/devguide/devguide.html">
 		</xslt>
 
-		<xslt style="samples/utfxdoc/utfxdoc_fo.xsl"
+		<xslt style="${utfxdoc}/xsl/utfxdoc_fo.xsl"
 			in="${dist.dir}/manual/manual_pp.xml"
 			out="${dist.dir}/manual/manual.fo">
 		</xslt>
 
-		<xslt style="samples/utfxdoc/utfxdoc_fo.xsl"
+		<xslt style="${utfxdoc}/xsl/utfxdoc_fo.xsl"
 			in="${dist.dir}/devguide/devguide_pp.xml"
 			out="${dist.dir}/devguide/devguide.fo">
 			<xmlcatalog refid="catalog"/>			
@@ -357,12 +360,12 @@
 
 		<copy todir="${dist.dir}/devguide">
 			<fileset dir="doc/devguide" includes="images/**/*" />
-			<fileset file="samples/utfxdoc/utfxdoc.css"/>
+			<fileset file="${utfxdoc}/css/utfxdoc.css"/>
 		</copy>
 
 		<copy todir="${dist.dir}/manual">
 			<fileset dir="doc/manual" includes="images/**/*" />
-			<fileset file="samples/utfxdoc/utfxdoc.css"/>			
+			<fileset file="${utfxdoc}/css/utfxdoc.css"/>			
 		</copy>
 		
 		<fop outdir="${dist.dir}/manual" basedir="${dist.dir}/manual">
