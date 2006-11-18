@@ -122,6 +122,7 @@
 		<pathelement location="${lib}/saxon8.jar" />
 		<pathelement location="${lib}/saxon8-dom.jar" />
 		<pathelement location="${lib}/JimiProClasses.zip" />		
+		<pathelement location="${lib}/utfxdoc.jar" />		
 	</path>
 
 	<path id="runtime.classpath">
@@ -321,21 +322,20 @@
 	<!-- compile the manual and other documentation -->
 	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 	<target name="doc" depends="jar">
-		<!--
-		<java classname="utfx.samples.UTFXDocPreProcessor" fork="yes">
+		<java classname="utfxdoc.UTFXDocPreProcessor" fork="yes">
 			<assertions><enable/></assertions>
 			<arg value="doc/devguide/devguide.xml" />			
 			<arg value="${dist.dir}/devguide/devguide_pp.xml" />			
 			<classpath refid="runtime.classpath" />
 		</java>		
 		
-		<java classname="utfx.samples.UTFXDocPreProcessor" fork="yes">
+		<java classname="utfxdoc.UTFXDocPreProcessor" fork="yes">
 			<assertions><enable/></assertions>
 			<arg value="doc/manual/manual.xml" />			
 			<arg value="${dist.dir}/manual/manual_pp.xml" />			
 			<classpath refid="runtime.classpath" />
 		</java>			
--->
+
 		<xslt style="${utfxdoc}/xsl/utfxdoc_xhtml.xsl"
 			in="${dist.dir}/manual/manual_pp.xml"
 			out="${dist.dir}/manual/manual.html">
