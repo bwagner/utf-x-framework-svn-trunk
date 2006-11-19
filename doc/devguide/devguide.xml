@@ -77,14 +77,57 @@
                     if you follow the process described below your project
                     environment will be configured correctly after the initial
                     checkout.</para>
+                <para>When checking the <code>HEAD</code> of the tree (or trunk)
+                    please make sure you checkout the <code>trunk</code>
+                    directory as shown in a screenshot below.</para>
+                <para>Subversion tools:</para>
+                <unordered_list>
+                    <item>On Windows <link
+                            url="http://prdownloads.sourceforge.net/tortoisesvn/TortoiseSVN-1.4.0.7501-win32-svn-1.4.0.msi?download"
+                            >download Tortoise SVN</link>; the project site is
+                            <link url="http://tortoisesvn.tigris.org/"
+                        >here</link>. Linux ships with a command line client
+                            <code>svn</code>.</item>
+                    <item>
+                        <link url="http://subclipse.tigris.org/install.html"
+                            >This is how you install subversion support for
+                            Eclipse.</link>
+                    </item>
+                    <item>Our subversion repository is at <link
+                            url="https://svn.sourceforge.net/svnroot/utf-x"
+                            >https://svn.sourceforge.net/svnroot/utf-x</link></item>
+                    <item>Our website is under a module called
+                            <code>utf-x-website</code></item>
+                    <!--
+                    <item>In order to update the web site using the content from
+                        the subversion repository: oops ... what happened to the
+                        nested lists in utfxdoc? (instructions below)</item>
+                        -->
+                </unordered_list>
+                <!--
+                <para>Updating web site content:</para>
+                <ordered_list>
+                    <item>Login to shell.sourceforge.net using a SSH client and
+                        your sourceforge account.</item>
+                    <item>Change directory to
+                            <code>/home/groups/u/ut/utf-x/htdocs/new</code></item>
+                    <item>
+                        <code>svn update</code>
+                    </item>
+                </ordered_list>
+-->
                 <para>Subversion repository contains the following modules:</para>
                 <ordered_list>
                     <item><code>utf-x-code</code> the framework</item>
-                    <item><code>utf-x-doc</code></item>
-                    <item><code>utf-x-website</code></item>
+                    <item>
+                        <code>utf-x-doc</code> the UTF-X Documentation package </item>
+                    <item>
+                        <code>utf-x-website</code> UTF-X web site at
+                        sourceforge.net </item>
                 </ordered_list>
-                
-                <para>The following is a step-by-step guide:</para>
+
+                <para>The following is a step-by-step guide to checking out
+                    project from within Eclipse:</para>
                 <para>From the File menu select 'New Project'. A windows wil pop
                     up in which you need to expand the SVN item and select
                     'Checkout Projects from SVN'.</para>
@@ -92,7 +135,8 @@
                     <img src="images/eclipse/svn_checkout_1.png" width="525px"/>
                     <caption>'Checkout Projects from SVN'</caption>
                 </figure>
-                <para>Click 'Next' and select 'Create a new repository location'.</para>
+                <para>Click 'Next' and select 'Create a new repository
+                    location'.</para>
                 <figure>
                     <img src="images/eclipse/svn_checkout_2.png" width="530px"/>
                     <caption>Create a repository location</caption>
@@ -102,36 +146,36 @@
                     <img src="images/eclipse/svn_checkout_3.png" width="530px"/>
                     <caption>Create location</caption>
                 </figure>
-                
+
                 <para>???</para>
                 <figure>
                     <img src="images/eclipse/svn_checkout_4.png" width="530px"/>
                     <caption>Select what you want to checkout</caption>
                 </figure>
-                
+
                 <figure>
                     <img src="images/eclipse/svn_checkout_5.png" width="530px"/>
                     <caption/>
                 </figure>
-                
-                
+
+
                 <figure>
                     <img src="images/eclipse/svn_checkout_6.png" width="530px"/>
                     <caption/>
                 </figure>
-                
+
                 <figure>
                     <img src="images/eclipse/svn_checkout_7.png" width="538px"/>
                     <caption/>
                 </figure>
-                
+
                 <figure>
                     <img src="images/eclipse/svn_checkout_8.png" width="538px"/>
                     <caption/>
                 </figure>
-                
-            
-            
+
+
+
             </sect3>
             <sect3>
                 <title>Configuring XML Catalog</title>
@@ -167,39 +211,6 @@
             </sect3>
             <sect3>
                 <title>Subversion@SourceForge</title>
-                <para>This is how you access the subversion repository on
-                    SourceForge.net</para>
-                <unordered_list>
-                    <item>On Windows <link
-                            url="http://prdownloads.sourceforge.net/tortoisesvn/TortoiseSVN-1.4.0.7501-win32-svn-1.4.0.msi?download"
-                            >download Tortoise SVN</link>; the project site is
-                            <link url="http://tortoisesvn.tigris.org/"
-                        >here</link>. Linux ships with a command line client
-                            <code>svn</code>.</item>
-                    <item>
-                        <link url="http://subclipse.tigris.org/install.html"
-                            >This is how you install subversion support for
-                            Eclipse.</link>
-                    </item>
-                    <item>Our subversion repository is at <link
-                            url="https://svn.sourceforge.net/svnroot/utf-x"
-                            >https://svn.sourceforge.net/svnroot/utf-x</link></item>
-                    <item>Our website is under a module called
-                            <code>utf-x-website</code></item>
-                    <item>In order to update the web site using the content from
-                        the subversion repository: oops ... what happened to the
-                        nested lists in utfxdoc? (instructions below)</item>
-                </unordered_list>
-                <para>Updating web site content:</para>
-                <ordered_list>
-                    <item>Login to shell.sourceforge.net using a SSH client and
-                        your sourceforge account.</item>
-                    <item>Change directory to
-                            <code>/home/groups/u/ut/utf-x/htdocs/new</code></item>
-                    <item>
-                        <code>svn update</code>
-                    </item>
-                </ordered_list>
             </sect3>
         </sect2>
     </sect1>
