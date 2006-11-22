@@ -8,9 +8,6 @@
     <public publicId="-//UTF-X//DTD address_book 1.0//EN" 
     uri="/samples/address_book/address_book.dtd"/>
 
-    <public publicId="-//UTF-X//DTD utfxdoc 1.0//EN" 
-    uri="/samples/utfxdoc/utfxdoc.dtd"/>
-
     <public publicId="-//W3C//DTD XHTML 1.0 Transitional//EN" 
     uri="/dtd/xhtml1.0/xhtml1-transitional.dtd"/>
     
