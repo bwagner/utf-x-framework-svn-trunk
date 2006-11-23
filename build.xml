@@ -317,6 +317,7 @@
 	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 	<!-- compile the manual and other documentation -->
 	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+	<!-- TODD nedds to berefactored cos utf-x is now an exteral package -->
 	<target name="doc" depends="jar">
 		<java classname="utfxdoc.UTFXDocPreProcessor" fork="yes">
 			<assertions><enable/></assertions>
