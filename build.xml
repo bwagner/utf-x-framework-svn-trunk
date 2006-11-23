@@ -112,7 +112,6 @@
 	<!-- CLASSPATH -->
 	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 	<path id="compile.classpath">
-		<pathelement location="${lib}/xml-apis.jar" />
 		<pathelement location="${lib}/log4j-1.2.8.jar" />
 		<pathelement location="${lib}/xercesImpl.jar" />
 		<pathelement location="${lib}/xercesSamples.jar" />
