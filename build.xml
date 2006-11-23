@@ -139,10 +139,7 @@
 		
 		<dtd publicid="-//UTF-X//DTD utfx-tests 1.0//EN"
 		     location="./src/dtd/utfx_tests.dtd"/>
-		
-		<dtd publicid="-//UTF-X//DTD utfxdoc 1.0//EN"
-			 location="./samples/utfxdoc/utfxdoc.dtd"/>
-		
+				
 		<dtd publicid="-//RenderX//DTD XSL FO 1.0//EN"
 		     location="./lib/dtd/fo/renderx_fo.dtd"/>
 
