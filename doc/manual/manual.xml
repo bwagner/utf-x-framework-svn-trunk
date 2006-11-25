@@ -21,21 +21,23 @@
             <title>What is 'unit testing'?</title>
             <para><link url="http://en.wikipedia.org/wiki/Unit_testing">Unit
                     testing</link> is a method of testing software modules such
-                as functions and methods in isolation from other modules. One or
-                more unit tests is normally written for each software module.
-                Each unit test only tests one unit of functionality. A
-                collection of unit tests in a software project forms a <link
+                as functions or methods in isolation from other software
+                modules. One or more unit tests is normally written for each
+                software module. Each unit test only tests one unit of
+                functionality. A collection of unit tests in a software project
+                forms a <link
                     url="http://en.wikipedia.org/wiki/Regression_testing"
-                    >regression test</link>. Regression test when executed runs
-                all unit tests and tests the software system for regression in
-                the software. If all unit tests pass then the regression test
-                also passes.</para>
+                    >regression test</link>. Regression test when executed,
+                automatically runs all unit tests and checks for regression in
+                the software system. If all unit tests pass then the regression
+                test also passes.</para>
         </sect2>
         <sect2>
             <title>What is UTF-X?</title>
-            <para> UTF-X is an extension to the JUnit Java unit testing
-                framework and provides functionality for unit testing XSLT
-                stylesheets. UTF-X strongly supports the <link
+            <para> UTF-X is an extension to the <link url="http://junit.org"
+                    >JUnit</link> Java unit testing framework and provides
+                functionality for unit testing XSLT stylesheets. UTF-X strongly
+                supports the <link
                     url="http://xprogramming.com/xpmag/testFirstGuidelines.htm"
                     >test-first-design</link> principle with test rendition and
                 test validation features allowing you to visually design your
@@ -57,9 +59,9 @@
             <title>Installing UTF-X</title>
             <ordered_list>
                 <item>Ensure you have JDK 5.0 or higher installed on your
-                    computer. UTF-X Java language features introduced in Java 5
-                    and will not compile or run on earlier version. You can
-                    download Java 5.0 software development kit either from <link
+                    computer. UTF-X uses Java 5 language features and will not
+                    compile or run on earlier version. You can download Java 5.0
+                    software development kit either from <link
                         url="http://java.sun.com">Sun Microsystems</link> or
                     from <link
                         url="http://commerce.bea.com/products/weblogicjrockit/5.0/jr_50.jsp"
@@ -108,7 +110,9 @@
                 <para>We suggest you look at the samples provided with the
                     distribution. You'll find these in the samples directory.
                     This manual has been created using one of those samples
-                    (utfxdoc).</para>
+                    (utfxdoc). As of UTF-X release 0.0.9 the UTF-X Doc sample is
+                    shipped in its owned package and is available for download
+                    from the same area as the UTF-X framework.</para>
                 <para>See section <xref idref="tdf_structure"/>.</para>
             </sect3>
         </sect2>
@@ -139,8 +143,6 @@
                         <code>utfx.test.dir</code> or
                     <code>utfx.test.file</code> property to the JVM.</item>
             </ordered_list>
-
-            <para>Remember that you WILL need Java 5.0!</para>
         </sect2>
     </sect1>
 
