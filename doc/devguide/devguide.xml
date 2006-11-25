@@ -13,6 +13,7 @@
         <title>Development Environment</title>
         <sect2 id="recommended_tools">
             <title>Recommended Tools</title>
+            
             <para>This section contains a list of recommended development tools.
                 These tools have been chosen because they are free (or very
                 cheap) and the project has been already correctly configured to
