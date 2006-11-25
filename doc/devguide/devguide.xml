@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="http://utf-x.sourceforge.net/xsl/utfxdoc_1_0/utfxdoc_xhtml.xsl" type="text/xsl"?>
 <document xmlns="http://utf-x.sourceforge.net/xsd/utfxdoc_1_0/utfxdoc.xsd"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:utfx="http://utfx.org/test-definition"
-    xsi:schemaLocation="http://utf-x.sourceforge.net/xsd/utfxdoc_1_0/utfxdoc.xsd ../../../utf-x-doc/xsd/utfxdoc.xsd">
+    xsi:schemaLocation="http://utf-x.sourceforge.net/xsd/utfxdoc_1_0/utfxdoc.xsd http://utf-x.sourceforge.net/xsd/utfxdoc_1_0/utfxdoc.xsd">
     <title>UTF-X</title>
     <subtitle>Guide for Developers</subtitle>
     <author>Jacek Radajewski</author>
     <version>$Revision$</version>
-    <date>30 July 2006</date>
+    <date>25 November 2006</date>
     <sect1 id="environment">
         <title>Development Environment</title>
         <sect2 id="recommended_tools">
@@ -35,18 +36,6 @@
                     various tasks including building, documentation generation
                     and testing.</para>
             </sect3>
-            <sect3 id="myeclipse">
-                <title>MyEclipse 4.1.1 GA</title>
-                <para><link url="http://www.myeclipseide.com/">MyEclipse
-                        Enterprise Workbench</link> is a commercial plugin for
-                    the Eclipse platform. It provides a huge range of
-                    functionality from XML authoring through to UML and J2EE
-                    development. Some aspects of the UTF-X project have been
-                    configured for MyEclipse and you will spend your money well
-                    if you decide to buy this plugin. Annual subscription cost
-                    for MyEclipse home license is USD 29.99. MyEclipse is
-                    optional.</para>
-            </sect3>
             <sect3 id="oxygenxml">
                 <title><![CDATA[<oXygen/>]]> XML Editor 7.2 plugin for Eclipse</title>
                 <para>
@@ -55,10 +44,9 @@
                     provides a vast range of functionality for working with XML,
                     XSLT, XSL:FO, XML Schemas and XPath. If you are mainly a
                     Java developer and are not planning on doing a lot of work
-                    with XML and XSLT then functionalities provided by <xref
-                        idref="myeclipse"/> may be sufficient to you. Also, you
-                    may already have a different XML/XSL authoring tool such as
-                    XML Spy.</para>
+                    with XML and XSLT then functionalities provided by may be
+                    sufficient to you. Also, you may already have a different
+                    XML/XSL authoring tool such as XML Spy.</para>
                 <para><![CDATA[<oXygen/>]]> XML Editor home license costs USD
                     48.</para>
             </sect3>
@@ -118,7 +106,7 @@
 -->
                 <para>Subversion repository contains the following modules:</para>
                 <ordered_list>
-                    <item><code>utf-x-code</code> the framework</item>
+                    <item><code>utf-x-framework</code> the framework</item>
                     <item>
                         <code>utf-x-doc</code> the UTF-X Documentation package </item>
                     <item>
