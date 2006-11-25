@@ -8,7 +8,7 @@
     xmlns:utfx="http://utfx.org/test-definition"
     xsi:schemaLocation="http://utf-x.sourceforge.net/xsd/utfxdoc_1_0/utfxdoc.xsd http://utf-x.sourceforge.net/xsd/utfxdoc_1_0/utfxdoc.xsd">
     <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
-    <title>UTF-X Manual</title>
+    <title>Manual</title>
     <subtitle>Unit Testing Framework - XSLT</subtitle>
     <author>Jacek Radajewski</author>
     <author>Alexander Daniel</author>
@@ -19,26 +19,30 @@
         <title>Introduction</title>
         <sect2>
             <title>What is 'unit testing'?</title>
-            <para><link url="http://en.wikipedia.org/wiki/Unit_testing">Unit testing</link> is a
-                method of testing software modules such as functions and methods in isolation from
-                other modules. One or more unit tests is normally written for each software module.
-                Each unit test only tests one unit of functionality. A collection of unit tests for
-                a software project forms a <link
-                    url="http://en.wikipedia.org/wiki/Regression_testing">regression test</link>.
-                Regression test when executed runs all unit tests and tests the software system for
-                regression in the software. If all unit tests pass then the regression test also
-                passes.</para>
+            <para><link url="http://en.wikipedia.org/wiki/Unit_testing">Unit
+                    testing</link> is a method of testing software modules such
+                as functions and methods in isolation from other modules. One or
+                more unit tests is normally written for each software module.
+                Each unit test only tests one unit of functionality. A
+                collection of unit tests in a software project forms a <link
+                    url="http://en.wikipedia.org/wiki/Regression_testing"
+                    >regression test</link>. Regression test when executed runs
+                all unit tests and tests the software system for regression in
+                the software. If all unit tests pass then the regression test
+                also passes.</para>
         </sect2>
         <sect2>
             <title>What is UTF-X?</title>
-            <para> UTF-X is an extension to the JUnit Java unit testing framework and provides
-                functionality for unit testing XSLT stylesheets. UTF-X strongly supports the <link
+            <para> UTF-X is an extension to the JUnit Java unit testing
+                framework and provides functionality for unit testing XSLT
+                stylesheets. UTF-X strongly supports the <link
                     url="http://xprogramming.com/xpmag/testFirstGuidelines.htm"
-                >test-first-design</link> principle with test rendition and test validation features
-                allowing you to visually design your test before you start working on the on
-                stylesheet. UTF-X was originally built to test XSLT stylesheet used in an XML
-                publishing system so it has good support for DTD validation, XHTML and XSL:FO
-                stylesheets. </para>
+                    >test-first-design</link> principle with test rendition and
+                test validation features allowing you to visually design your
+                test before you start working on the on stylesheet. UTF-X was
+                originally built to test XSLT stylesheet used in an XML
+                publishing system so it has good support for DTD validation,
+                XHTML and XSL:FO stylesheets. </para>
         </sect2>
     </sect1>
 
@@ -46,25 +50,31 @@
         <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
         <title>Quick Start</title>
         <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
-        <para>Currently this is the only 'getting up and running' documentation available. Future
-            releases will ship with more detailed documentation.</para>
+        <para>Currently this is the only 'getting up and running' documentation
+            available. Future releases will ship with more detailed
+            documentation.</para>
         <sect2>
             <title>Installing UTF-X</title>
             <ordered_list>
-                <item>Ensure you have JDK 5.0 installed on your computer. UTF-X uses Java's new
-                    language features and will not run or compile on older versions of Java. You can
+                <item>Ensure you have JDK 5.0 or higher installed on your
+                    computer. UTF-X Java language features introduced in Java 5
+                    and will not compile or run on earlier version. You can
                     download Java 5.0 software development kit either from <link
-                        url="http://java.sun.com">Sun Microsystems</link> (preferred) or from <link
-                        url="http://commerce.bea.com/products/weblogicjrockit/5.0/jr_50.jsp">BEA
-                        Systems</link>. </item>
-                <item>If you are planning on compiling UTF-X or using the ant build file
-                    (recommended) you will also need to have ant 1.6.x installed. You can obtain ant
-                    from <link url="http://ant.apache.org">http://ant.apache.org</link>.</item>
+                        url="http://java.sun.com">Sun Microsystems</link> or
+                    from <link
+                        url="http://commerce.bea.com/products/weblogicjrockit/5.0/jr_50.jsp"
+                        >BEA Systems</link>. </item>
+                <item>If you are planning on compiling UTF-X or using the ant
+                    build file (recommended) you will also need to have ant
+                    1.6.x installed. You can obtain ant from <link
+                        url="http://ant.apache.org"
+                    >http://ant.apache.org</link>.</item>
                 <item>Download the latest version of UTF-X from <link
                         url="http://sourceforge.net/project/showfiles.php?group_id=110006"
                         >SourceForge</link>.</item>
                 <item>Unzip the file in a suitable location.</item>
-                <item>Run the samples by typing <code><![CDATA[ant samples]]></code>.</item>
+                <item>Run the samples by typing
+                    <code><![CDATA[ant samples]]></code>.</item>
             </ordered_list>
 
         </sect2>
@@ -74,26 +84,31 @@
             <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
             <sect3>
                 <title>Generating tests</title>
-                <para>UTF-X ships with a test generator which can be used to generate Test
-                    Definition Files (TDFs) from existing XSLT stylesheets.</para>
+                <para>UTF-X ships with a test generator which can be used to
+                    generate Test Definition Files (TDFs) from existing XSLT
+                    stylesheets.</para>
                 <para>
-                    <class>utfx.testgen.TestGenerator</class> accepts a <code>-xslt
-                    xslt_filename</code> argument which specifies the path to the stylesheet from
-                    which we are generating the test. The test file will be generated in a directory
-                    called 'test' under the directory where the stylesheet resides. If this
-                    directory does not exist then it will be created. The TestGenerator will not
-                    overwrite existing test files unless you pass <code>-f</code> as an argument to
-                    the program. For example, to generate a TDF for a stylesheet
-                        <code>c:\xsl\webpage.xsl</code> we would execute:</para>
+                    <class>utfx.testgen.TestGenerator</class> accepts a
+                        <code>-xslt xslt_filename</code> argument which
+                    specifies the path to the stylesheet from which we are
+                    generating the test. The test file will be generated in a
+                    directory called 'test' under the directory where the
+                    stylesheet resides. If this directory does not exist then it
+                    will be created. The TestGenerator will not overwrite
+                    existing test files unless you pass <code>-f</code> as an
+                    argument to the program. For example, to generate a TDF for
+                    a stylesheet <code>c:\xsl\webpage.xsl</code> we would
+                    execute:</para>
                 <pre><![CDATA[java -cp build/jar/utfx.jar utfx.testgen.TestGenerator -xslt c:\xsl\webpage.xsl]]></pre>
-                <para>which would create a directory <code>c:\xsl\test</code> and a TDF
-                        <code>c:\xsl\test\webpage_test.xml</code></para>
+                <para>which would create a directory <code>c:\xsl\test</code>
+                    and a TDF <code>c:\xsl\test\webpage_test.xml</code></para>
             </sect3>
             <sect3>
                 <title>Creating tests from scratch</title>
-                <para>We suggest you look at the samples provided with the distribution. You'll find
-                    these in the samples directory. This manual has been created using one of those
-                    samples (utfxdoc).</para>
+                <para>We suggest you look at the samples provided with the
+                    distribution. You'll find these in the samples directory.
+                    This manual has been created using one of those samples
+                    (utfxdoc).</para>
                 <para>See section <xref idref="tdf_structure"/>.</para>
             </sect3>
         </sect2>
@@ -101,23 +116,28 @@
             <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
             <title>Running Tests</title>
             <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
-            <para>UTF-X currently does not provide any nice wrapper scripts or GUI front end
-                applications which you can use to run the software. You have the following options: </para>
+            <para>UTF-X currently does not provide any nice wrapper scripts or
+                GUI front end applications which you can use to run the
+                software. You have the following options: </para>
             <ordered_list>
-                <item>run <class>utfx.runner.TestRunner</class> from the command line ensuring that
-                        <code>utfx.jar</code> is in your classpath. You will also need to pass in
-                    either <code>utfx.test.dir</code> or <code>utfx.test.file</code> property to the
-                    JVM and tell the TestRunner that the test class is
-                        <code>utfx.framework.XSLTRegressionTest</code>. So in order to run UTF-X
-                    tests under <code>c:\myxslt_tests</code> you would execute <code>java -cp
-                        build/jar/utfx.jar -Dutfx.test.dir=c:\myxslt_tests utfx.runner.TestRunner
+                <item>run <class>utfx.runner.TestRunner</class> from the command
+                    line ensuring that <code>utfx.jar</code> is in your
+                    classpath. You will also need to pass in either
+                        <code>utfx.test.dir</code> or
+                    <code>utfx.test.file</code> property to the JVM and tell the
+                    TestRunner that the test class is
+                        <code>utfx.framework.XSLTRegressionTest</code>. So in
+                    order to run UTF-X tests under <code>c:\myxslt_tests</code>
+                    you would execute <code>java -cp build/jar/utfx.jar
+                        -Dutfx.test.dir=c:\myxslt_tests utfx.runner.TestRunner
                         utfx.framework.XSLTRegressionTest</code></item>
-                <item>Run UTF-X tests from an ant build file. See target 'samples' in
-                        <code>build.xml</code> in the project tree.</item>
-                <item>Run UTF-X tests within your existing JUnit configuration. Use
-                        <class>utfx.framework.XSLTRegressionTest</class> class as the test suite.
-                    You will need to pass in either <code>utfx.test.dir</code> or
-                        <code>utfx.test.file</code> property to the JVM.</item>
+                <item>Run UTF-X tests from an ant build file. See target
+                    'samples' in <code>build.xml</code> in the project tree.</item>
+                <item>Run UTF-X tests within your existing JUnit configuration.
+                    Use <class>utfx.framework.XSLTRegressionTest</class> class
+                    as the test suite. You will need to pass in either
+                        <code>utfx.test.dir</code> or
+                    <code>utfx.test.file</code> property to the JVM.</item>
             </ordered_list>
 
             <para>Remember that you WILL need Java 5.0!</para>
@@ -130,85 +150,100 @@
         <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
         <para> UTF-X &utfx-version; supports the following features:</para>
         <ordered_list>
-            <item>XSLT transformation test case. This is achieved by passing the contents of the
-                    <code><![CDATA[<utfx:source>]]></code> fragment through the XSLT stylesheet that
-                is being tested and asserting that the result is the same as the contents of the
-                    <code><![CDATA[<utfx:expected>]]></code> fragment. Other types of assertions may
-                be added in future releases.</item>
-            <item>DTD that specifies the structure of Test Definition Files (TDFs). This feature
-                allows for TDF validation and easy TDF authoring when using a DTD aware XML editor.</item>
+            <item>XSLT transformation test case. This is achieved by passing the
+                contents of the <code><![CDATA[<utfx:source>]]></code> fragment
+                through the XSLT stylesheet that is being tested and asserting
+                that the result is the same as the contents of the
+                    <code><![CDATA[<utfx:expected>]]></code> fragment. Other
+                types of assertions may be added in future releases.</item>
+            <item>DTD that specifies the structure of Test Definition Files
+                (TDFs). This feature allows for TDF validation and easy TDF
+                authoring when using a DTD aware XML editor.</item>
             <item>
                 <code>&lt;utfx:source&gt;</code> and
-                <code>&lt;utfx:expected&gt;</code> fragment validation using a DTD (no
-                schema support yet). If the <code>validate</code> attribute is set to
-                <code>yes</code> on either of the two fragments then the framework will
-                automatically create a corresponding validation test case and add it to the test
-                file suite.</item>
-            <item>TDF rendition (XHTML and XSL:FO). You can render test definition files to produce
-                XHTML or XSL:FO output and therefore visually inspect your tests. This feature is
-                particularly useful if you like the idea of test-first-design. It allows you to
+                    <code>&lt;utfx:expected&gt;</code> fragment
+                validation using a DTD (no schema support yet). If the
+                    <code>validate</code> attribute is set to <code>yes</code>
+                on either of the two fragments then the framework will
+                automatically create a corresponding validation test case and
+                add it to the test file suite.</item>
+            <item>TDF rendition (XHTML and XSL:FO). You can render test
+                definition files to produce XHTML or XSL:FO output and therefore
+                visually inspect your tests. This feature is particularly useful
+                if you like the idea of test-first-design. It allows you to
                 write all the tests before you start on the stylesheet.</item>
-            <item>Automatic test file generation from existing XSLT stylesheets with
-                    <class>utfx.testgen.TestGenerator</class>
+            <item>Automatic test file generation from existing XSLT stylesheets
+                with <class>utfx.testgen.TestGenerator</class>
             </item>
-            <item>Pluggable test file filters for locating test definition files. See the
-                    <code>utfx.testfile-filter.class</code> property in the
-                <code>utfx.properties</code> file for examples.</item>
-            <item>Pluggable parsers/pre-processors for <code>&lt;utfx:source&gt;</code>
-                fragment parsing (<class>utfx.framework.SourceParser</class>). See the
+            <item>Pluggable test file filters for locating test definition
+                files. See the <code>utfx.testfile-filter.class</code> property
+                in the <code>utfx.properties</code> file for examples.</item>
+            <item>Pluggable parsers/pre-processors for
+                    <code>&lt;utfx:source&gt;</code> fragment parsing
+                    (<class>utfx.framework.SourceParser</class>). See the
                     <code>utfx.source-parser.class</code> property in the
-                <code>utfx.properties</code> file for examples.</item>
-            <item>Pluggable result printers for formatting test results. UTF-X ships with a number
-                of result printers including one for XML and one for ANSI colour terminals (e.g.
-                Linux xterm). See the <code>utfx.result-printer.class</code> and
-                    <code>utfx.result-printer.output-file</code> properties in the
                     <code>utfx.properties</code> file for examples.</item>
-            <item>Absolute XPath expressions (e.g. <code>select="/tree"</code>) work as expected in
-                the stylesheet under test. Additionally one can set the context node for a test with
-                the <code>context-node</code> attribute in the <code>utfx:source</code> element.
-                Note: context-node="/" can be used for named templates but not for match templates
-                because it will recurse infinitly.</item>
-            <item>Pluggable XSLT engines. This is achieved by setting standard JAXP
-                    <code>javax.xml.transform.TransformerFactory</code> property. UTF-X
-                &utfx-version; has been tested with Saxon 8.7 and Apache Xalan 2.6.0
-                Interpretive processor. JDK 5.0 internal Xalan XSLTC and Apache Xalan 2.6.0 XSLTC
-                have been tested as well and everything works fine but absolute XPath expressions
-                because of <link url="http://issues.apache.org/jira/browse/XALANJ-1928">Xalan issue
-                    1928</link>.</item>
-            <item>UTF-X &utfx-version; has been tested on Windows XP, Linux and Mac OS X
-                platforms.</item>
+            <item>Pluggable result printers for formatting test results. UTF-X
+                ships with a number of result printers including one for XML and
+                one for ANSI colour terminals (e.g. Linux xterm). See the
+                    <code>utfx.result-printer.class</code> and
+                    <code>utfx.result-printer.output-file</code> properties in
+                the <code>utfx.properties</code> file for examples.</item>
+            <item>Absolute XPath expressions (e.g. <code>select="/tree"</code>)
+                work as expected in the stylesheet under test. Additionally one
+                can set the context node for a test with the
+                <code>context-node</code> attribute in the
+                <code>utfx:source</code> element. Note: context-node="/" can be
+                used for named templates but not for match templates because it
+                will recurse infinitly.</item>
+            <item>Pluggable XSLT engines. This is achieved by setting standard
+                JAXP <code>javax.xml.transform.TransformerFactory</code>
+                property. UTF-X &utfx-version; has been tested with Saxon
+                8.7 and Apache Xalan 2.6.0 Interpretive processor. JDK 5.0
+                internal Xalan XSLTC and Apache Xalan 2.6.0 XSLTC have been
+                tested as well and everything works fine but absolute XPath
+                expressions because of <link
+                    url="http://issues.apache.org/jira/browse/XALANJ-1928">Xalan
+                    issue 1928</link>.</item>
+            <item>UTF-X &utfx-version; has been tested on Windows XP, Linux
+                and Mac OS X platforms.</item>
         </ordered_list>
     </sect1>
 
     <sect1 id="overview">
         <title>Overview of the Framework</title>
-        <para>If you have read the previous sections then you now know how to get the software
-            installed and what features it has to offer. This section attempts to give a detailed
-            overview of the relationship between XSLT stylesheets and UTF-X Test Definition Files
-            and the process of test driven XSLT development.</para>
+        <para>If you have read the previous sections then you now know how to
+            get the software installed and what features it has to offer. This
+            section attempts to give a detailed overview of the relationship
+            between XSLT stylesheets and UTF-X Test Definition Files and the
+            process of test driven XSLT development.</para>
 
         <sect2>
             <title>Address Book Sample</title>
-            <para>The Address Book is a basic XML application that attempts to illustrate how the
-                UTF-X framework works. You will find the Address Book sample in the
-                    <code>samples/address_book</code> directory under root of the UTF-X
-                distribution.</para>
-            <para>As the name sugggests, the Address Book sample is an XML application for storing
-                contacts and their addresses. It consists of a Document Type Definition for
-                validating and authoring the XML, sample XML document, XSLT stylesheets for
-                generating HTML and XSL:FO, and UTF-X Test Definition Files.</para>
+            <para>The Address Book is a basic XML application that attempts to
+                illustrate how the UTF-X framework works. You will find the
+                Address Book sample in the <code>samples/address_book</code>
+                directory under root of the UTF-X distribution.</para>
+            <para>As the name sugggests, the Address Book sample is an XML
+                application for storing contacts and their addresses. It
+                consists of a Document Type Definition for validating and
+                authoring the XML, sample XML document, XSLT stylesheets for
+                generating HTML and XSL:FO, and UTF-X Test Definition
+            Files.</para>
         </sect2>
         <sect2>
             <title>Typical XSLT Development</title>
-            <para>Now lets have a look at a typical XSLT development process using the Address Book
-                as a concrete example. Starting off, we have the Address Book Document Type
-                Definition file (<code>address_book.dtd</code>). Not all XML applications have a DTD
-                or XML Schema associated with them, but in this example we created one to enable XML
-                content validation and ease of authoring when using DTD aware XML editor. The second
-                file (<code>address_book.xml</code>) is an example of actual Adress Book content.
-                    <code>address_book.xml</code> declares in its <code>DOCTYPE</code> that
-                    <code>address_book.dtd</code> is the DTD that defines the XML document
-                structure.</para>
+            <para>Now lets have a look at a typical XSLT development process
+                using the Address Book as a concrete example. Starting off, we
+                have the Address Book Document Type Definition file
+                    (<code>address_book.dtd</code>). Not all XML applications
+                have a DTD or XML Schema associated with them, but in this
+                example we created one to enable XML content validation and ease
+                of authoring when using DTD aware XML editor. The second file
+                    (<code>address_book.xml</code>) is an example of actual
+                Adress Book content. <code>address_book.xml</code> declares in
+                its <code>DOCTYPE</code> that <code>address_book.dtd</code> is
+                the DTD that defines the XML document structure.</para>
             <figure>
                 <xml xml:space="preserve">
 <address-book>
@@ -243,18 +278,20 @@
         <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
         <title>Test Definition File Structure</title>
         <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
-        <para>This section looks at the structure of a UTF-X test definition file.</para>
+        <para>This section looks at the structure of a UTF-X test definition
+            file.</para>
         <sect2>
             <title>DOCTYPE</title>
-            <para>DOCTYPE declarations are not required by the UTF-X framework, but are useful when
-                a DTD aware editor is used to author the TDFs. DOCTYPE declaration can be either a
-                simple reference to the UTF-X test DTD like this:</para>
+            <para>DOCTYPE declarations are not required by the UTF-X framework,
+                but are useful when a DTD aware editor is used to author the
+                TDFs. DOCTYPE declaration can be either a simple reference to
+                the UTF-X test DTD like this:</para>
             <pre><![CDATA[
 <!DOCTYPE utfx:tests PUBLIC "-//UTF-X//DTD utfx-tests 1.0//EN" "utfx_tests.dtd">
 
                 ]]></pre>
-            <para>or a more complex one that also includes internal declarations with references to
-                DTDs for the XML source and generated target:</para>
+            <para>or a more complex one that also includes internal declarations
+                with references to DTDs for the XML source and generated target:</para>
             <pre><![CDATA[
 <!DOCTYPE utfx:tests PUBLIC "-//UTF-X//DTD utfx-tests 1.0//EN" "utfx_tests.dtd" [
 
@@ -266,21 +303,26 @@
     <!-- %xhtml1_dtd; -->
 ]>
                 ]]></pre>
-            <para> In the second case your XML editor will become aware of not only the structure of
-                TDFs, but also the structure of your <code><![CDATA[<utfx:source>]]></code> and
-                    <code><![CDATA[<utfx:expected>]]></code> fragments. Authoring tests in this mode
-                is much easier as the editor will ensure that both source and expected fragments are
-                valid. Not all XML editors support internal declarations.</para>
+            <para> In the second case your XML editor will become aware of not
+                only the structure of TDFs, but also the structure of your
+                    <code><![CDATA[<utfx:source>]]></code> and
+                    <code><![CDATA[<utfx:expected>]]></code> fragments.
+                Authoring tests in this mode is much easier as the editor will
+                ensure that both source and expected fragments are valid. Not
+                all XML editors support internal declarations.</para>
         </sect2>
         <sect2>
             <title>Stylesheet</title>
             <para>Immediately following the root element is a
-                <code><![CDATA[<utfx:stylesheet>]]></code> element which provides a pointer to the
-                XSLT stylesheet that is being tested. UTF-X currently assumes that the stylesheet is
-                in a directory above the one where the test resides. For example, if your TDF is
-                located in directory <code>c:\myxsl\test\</code> and you specify that the stylesheet
-                under test is <code>my_stylesheet.xsl</code> then UTF-X will assume you are refering
-                to <code>c:\myxsl\my_stylesheet.xsl</code> stylesheet.</para>
+                    <code><![CDATA[<utfx:stylesheet>]]></code> element which
+                provides a pointer to the XSLT stylesheet that is being tested.
+                UTF-X currently assumes that the stylesheet is in a directory
+                above the one where the test resides. For example, if your TDF
+                is located in directory <code>c:\myxsl\test\</code> and you
+                specify that the stylesheet under test is
+                    <code>my_stylesheet.xsl</code> then UTF-X will assume you
+                are refering to <code>c:\myxsl\my_stylesheet.xsl</code>
+                stylesheet.</para>
             <figure>
                 <xml>
                     <utfx:stylesheet src="my_stylesheet.xsl"/>
@@ -290,9 +332,10 @@
         </sect2>
         <sect2>
             <title>Source and expected validation</title>
-            <para>If you want to enable source and expected fragment validation you must specify
-                system and public identifiers. These identifiers are used to form the DOCTYPE
-                declaration during the validation of each source and expected fragment.</para>
+            <para>If you want to enable source and expected fragment validation
+                you must specify system and public identifiers. These
+                identifiers are used to form the DOCTYPE declaration during the
+                validation of each source and expected fragment.</para>
             <xml xml:space="preserve">
 <utfx:source-validation>
   <utfx:dtd system="utfxdoc.dtd" public="-//UTF-X//DTD utfxdoc 1.0//EN"/>
@@ -305,9 +348,11 @@
         </sect2>
         <sect2>
             <title>UTF-X test case</title>
-            <para> Let us now look at the structure of an actual test case. Each test case must have
-                a name followed by <code><![CDATA[<utfx:assert-equals>]]></code>. Assert-equals has
-                two required elements which are the <code><![CDATA[<utfx:source>]]></code> and
+            <para> Let us now look at the structure of an actual test case. Each
+                test case must have a name followed by
+                    <code><![CDATA[<utfx:assert-equals>]]></code>. Assert-equals
+                has two required elements which are the
+                    <code><![CDATA[<utfx:source>]]></code> and
                     <code><![CDATA[<utfx:expected>]]></code> fragments. </para>
             <figure>
                 <xml xml:space="preserve">
@@ -329,14 +374,16 @@
                 <caption>UTF-X Test</caption>
             </figure>
             <para>UTF-X executes a test by passing the contents of
-                <code><![CDATA[<utfx:source>]]></code> through the XSLT stylesheet and comparing the
-                result with the contents of <code><![CDATA[<utfx:expected>]]></code>. If both are
-                equivalent XML fragments then the test passes. Otherwise the test fails.</para>
+                    <code><![CDATA[<utfx:source>]]></code> through the XSLT
+                stylesheet and comparing the result with the contents of
+                    <code><![CDATA[<utfx:expected>]]></code>. If both are
+                equivalent XML fragments then the test passes. Otherwise the
+                test fails.</para>
         </sect2>
         <sect2>
             <title>Passing parameters to named templates</title>
-            <para> Parameters can be passed to named templates like in XSLT with the
-                    <code>utfx:with-param</code> element. </para>
+            <para> Parameters can be passed to named templates like in XSLT with
+                the <code>utfx:with-param</code> element. </para>
             <figure>
                 <xml xml:space="preserve">
 <utfx:test>
@@ -359,11 +406,13 @@
         </sect2>
         <sect2>
             <title>Stylesheet parameters</title>
-            <para> With the <code>utfx:stylesheet-params</code> element, parameters can be passed to
-                the stylesheet under test. It can also be used to define parameters in a stylesheet.
-                This feature can be very useful for stylesheets which are normally imported by other
-                stylesheets and which expect certain parameters or variables. These stylesheets
-                won't compile unless we define the parameters in the TDF. </para>
+            <para> With the <code>utfx:stylesheet-params</code> element,
+                parameters can be passed to the stylesheet under test. It can
+                also be used to define parameters in a stylesheet. This feature
+                can be very useful for stylesheets which are normally imported
+                by other stylesheets and which expect certain parameters or
+                variables. These stylesheets won't compile unless we define the
+                parameters in the TDF. </para>
             <figure>
                 <xml xml:space="preserve">
 <utfx:test>
@@ -391,14 +440,17 @@
         <title>Limitations and Known Issues</title>
         <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
         <unordered_list>
-            <item><code>&lt;xsl:template match="/"&gt;</code> can't be tested because UTF-X
-                uses this matcher for the internal wrapper document when executing the tests.</item>
-            <item>Absolute XPath expressions in the stylesheet under test don't work with JDK 5.0
-                internal Xalan XSLTC and Apache Xalan 2.6.0 XSLTC because of <link
-                    url="http://issues.apache.org/jira/browse/XALANJ-1928">Xalan issue 1928</link>.</item>
+            <item><code>&lt;xsl:template match="/"&gt;</code> can't be
+                tested because UTF-X uses this matcher for the internal wrapper
+                document when executing the tests.</item>
+            <item>Absolute XPath expressions in the stylesheet under test don't
+                work with JDK 5.0 internal Xalan XSLTC and Apache Xalan 2.6.0
+                XSLTC because of <link
+                    url="http://issues.apache.org/jira/browse/XALANJ-1928">Xalan
+                    issue 1928</link>.</item>
             <item>For a full list of unresolved issues please check <link
-                    url="https://utf-x.dev.java.net/servlets/ProjectIssues">UTF-X issue
-                tracker.</link></item>
+                    url="https://utf-x.dev.java.net/servlets/ProjectIssues"
+                    >UTF-X issue tracker.</link></item>
         </unordered_list>
     </sect1>
 
@@ -407,17 +459,19 @@
         <title>Resources</title>
         <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
         <unordered_list>
-            <item><link url="http://junit.org">JUnit</link> is the core unit testing framework used
-                by UTF-X. JUnit provides unit testing functionality for the Java programming
-                language. </item>
-            <item><link url="http://www.xsltunit.org">XSLTunit</link> is one of the first XSLT unit
-                testing tools. Software development group at the USQ began the UTF-X project because
-                they found XSLTunit too cumbersome to use. </item>
-            <item><link url="http://juxy.tigris.org">Juxy</link> is another XSLT unit testing
-                framework written in Java. </item>
-            <item><link url="http://oxygenxml.com"><![CDATA[<oXygen/>]]></link> is an XML editor
-                that supports internal declarations such as those used in UTF-X samples. All UTF-X
-                XML documents and XSLT stylesheets have been authored using <![CDATA[<oXygen>]]> xml
+            <item><link url="http://junit.org">JUnit</link> is the core unit
+                testing framework used by UTF-X. JUnit provides unit testing
+                functionality for the Java programming language. </item>
+            <item><link url="http://www.xsltunit.org">XSLTunit</link> is one of
+                the first XSLT unit testing tools. Software development group at
+                the USQ began the UTF-X project because they found XSLTunit too
+                cumbersome to use. </item>
+            <item><link url="http://juxy.tigris.org">Juxy</link> is another XSLT
+                unit testing framework written in Java. </item>
+            <item><link url="http://oxygenxml.com"><![CDATA[<oXygen/>]]></link>
+                is an XML editor that supports internal declarations such as
+                those used in UTF-X samples. All UTF-X XML documents and XSLT
+                stylesheets have been authored using <![CDATA[<oXygen>]]> xml
                 editor. </item>
         </unordered_list>
     </sect1>
@@ -427,18 +481,19 @@
         <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
         <glossary_entry>
             <term>Unit Test</term>
-            <definition>A test which tests a single piece of functionality in a single software
-                module. There is usually one or more unit tests for each software module (function,
-                method or template).
-                You will find a good explaination <link url="http://www.extremeprogramming.org/rules/unittests.html">here</link>.
-            </definition>
+            <definition>A test which tests a single piece of functionality in a
+                single software module. There is usually one or more unit tests
+                for each software module (function, method or template). You
+                will find a good explaination <link
+                    url="http://www.extremeprogramming.org/rules/unittests.html"
+                    >here</link>. </definition>
         </glossary_entry>
         <glossary_entry>
             <term>Regression Test</term>
-            <definition>An automated test consisting of many unit test. Regression tests are
-                executed after changes to a software system have been bade to ensure that no
-                regression (introduction of bugs or loss of functionality) has been
-            made.</definition>
+            <definition>An automated test consisting of many unit test.
+                Regression tests are executed after changes to a software system
+                have been bade to ensure that no regression (introduction of
+                bugs or loss of functionality) has been made.</definition>
         </glossary_entry>
         <glossary_entry>
             <term>UTF-X</term>
@@ -454,33 +509,37 @@
         </glossary_entry>
         <glossary_entry>
             <term>XSLT</term>
-            <definition><link url="http://en.wikipedia.org/wiki/Xslt">XSL Transformations.
-                XSLT</link> is a <link url="http://en.wikipedia.org/wiki/Functional_programming"
-                    >functional language</link> designed to transform XML documents into other
-                documents (most likely also XML). The most common use of XSLT is in transformation
-                of XML documents into HTML or XHTML. </definition>
+            <definition><link url="http://en.wikipedia.org/wiki/Xslt">XSL
+                    Transformations. XSLT</link> is a <link
+                    url="http://en.wikipedia.org/wiki/Functional_programming"
+                    >functional language</link> designed to transform XML
+                documents into other documents (most likely also XML). The most
+                common use of XSLT is in transformation of XML documents into
+                HTML or XHTML. </definition>
         </glossary_entry>
         <glossary_entry>
             <term>XSL:FO</term>
-            <definition><link url="http://en.wikipedia.org/wiki/XSL-FO">XSL: Formatting
-                Objects</link> is an XML based <link
-                    url="http://www.answers.com/topic/typesetting-language">typesetting
-                language</link> specially designed to be used with XML and XSLT. XSL:FO is usually
-                generated from an XML document by a means of a XSLT stylesheet and then processed
-                through a XSL:FO processor to obtain a rendition, usually in the form of a PDF or
-                PostScript document.</definition>
+            <definition><link url="http://en.wikipedia.org/wiki/XSL-FO">XSL:
+                    Formatting Objects</link> is an XML based <link
+                    url="http://www.answers.com/topic/typesetting-language"
+                    >typesetting language</link> specially designed to be used
+                with XML and XSLT. XSL:FO is usually generated from an XML
+                document by a means of a XSLT stylesheet and then processed
+                through a XSL:FO processor to obtain a rendition, usually in the
+                form of a PDF or PostScript document.</definition>
         </glossary_entry>
         <glossary_entry>
             <term>JAXP</term>
             <definition>
-                <link url="http://en.wikipedia.org/wiki/JAXP">Java API for XML Processing</link>
+                <link url="http://en.wikipedia.org/wiki/JAXP">Java API for XML
+                    Processing</link>
             </definition>
         </glossary_entry>
         <glossary_entry>
             <term>DOM</term>
             <definition>
-                <link url="http://en.wikipedia.org/wiki/Document_Object_Model">Document Object
-                Model</link>
+                <link url="http://en.wikipedia.org/wiki/Document_Object_Model"
+                    >Document Object Model</link>
             </definition>
         </glossary_entry>
         <glossary_entry>
@@ -489,24 +548,27 @@
         </glossary_entry>
         <glossary_entry>
             <term>XSL:FO processor</term>
-            <definition>or XSL:FO engine, is a software for transforming XSL:FO documents into human
-                readable rendition, usually <link
-                    url="http://en.wikipedia.org/wiki/Page_description_language">page description
-                    languages</link> such as PDF or PostScript.</definition>
+            <definition>or XSL:FO engine, is a software for transforming XSL:FO
+                documents into human readable rendition, usually <link
+                    url="http://en.wikipedia.org/wiki/Page_description_language"
+                    >page description languages</link> such as PDF or
+                PostScript.</definition>
         </glossary_entry>
         <glossary_entry>
             <term>Document Fragment</term>
-            <definition>lightweight DOM Document. One of the most important differences between a
-                Document and Document Fragment is that unlike a Document a Document Fragment does
-                NOT have to be well formed in the sense that it does not need to have ONE root node.
-                Good examples of Document Fragments are DOM representations of the contents of
-                    <code><![CDATA[<utfx:source>]]></code> and
-                <code><![CDATA[<utfx:expected>]]></code> elements.</definition>
+            <definition>lightweight DOM Document. One of the most important
+                differences between a Document and Document Fragment is that
+                unlike a Document a Document Fragment does NOT have to be well
+                formed in the sense that it does not need to have ONE root node.
+                Good examples of Document Fragments are DOM representations of
+                the contents of <code><![CDATA[<utfx:source>]]></code> and
+                    <code><![CDATA[<utfx:expected>]]></code>
+            elements.</definition>
         </glossary_entry>
         <glossary_entry>
             <term>TDF</term>
-            <definition>Test Definition File. An XML file that defines a suite of UTF-X tests for a
-                specified XSLT stylesheet.</definition>
+            <definition>Test Definition File. An XML file that defines a suite
+                of UTF-X tests for a specified XSLT stylesheet.</definition>
         </glossary_entry>
     </glossary>
 </document>

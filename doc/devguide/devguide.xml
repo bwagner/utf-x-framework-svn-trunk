@@ -4,8 +4,8 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:utfx="http://utfx.org/test-definition"
     xsi:schemaLocation="http://utf-x.sourceforge.net/xsd/utfxdoc_1_0/utfxdoc.xsd http://utf-x.sourceforge.net/xsd/utfxdoc_1_0/utfxdoc.xsd">
-    <title>UTF-X</title>
-    <subtitle>Guide for Developers</subtitle>
+    <title>Guide for Developers</title>
+    <subtitle>Unit Testing Framework - XSLT</subtitle>
     <author>Jacek Radajewski</author>
     <version>$Revision$</version>
     <date>25 November 2006</date>
