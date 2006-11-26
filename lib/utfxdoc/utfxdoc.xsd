@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"
+  targetNamespace="http://utf-x.sourceforge.net/xsd/utfxdoc_1_0/utfxdoc.xsd"
+  xmlns:u="http://utf-x.sourceforge.net/xsd/utfxdoc_1_0/utfxdoc.xsd" xmlns:xml="http://www.w3.org/XML/1998/namespace">
+  <xs:import namespace="http://www.w3.org/XML/1998/namespace" schemaLocation="xml.xsd"/>
+  <xs:complexType name="inline" mixed="true">
+    <xs:choice minOccurs="0" maxOccurs="unbounded">
+      <xs:element ref="u:class"/>
+      <xs:element ref="u:code"/>
+      <xs:element ref="u:link"/>
+      <xs:element ref="u:img"/>
+      <xs:element ref="u:xref"/>
+      <xs:element ref="u:xml"/>
+    </xs:choice>
+  </xs:complexType>
+  <xs:group name="block">
+    <xs:sequence>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element ref="u:para"/>
+        <xs:element ref="u:note"/>
+        <xs:element ref="u:figure"/>
+        <xs:element ref="u:pre"/>
+        <xs:element ref="u:xml"/>
+        <xs:element ref="u:ordered_list"/>
+        <xs:element ref="u:unordered_list"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:group>
+  <xs:element name="document">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="u:title"/>
+        <xs:element minOccurs="0" ref="u:subtitle"/>
+        <xs:element minOccurs="0" maxOccurs="5" ref="u:author"/>
+        <xs:element minOccurs="0" ref="u:version"/>
+        <xs:element minOccurs="0" ref="u:date"/>
+        <xs:element maxOccurs="unbounded" ref="u:sect1"/>
+        <xs:element minOccurs="0" ref="u:glossary"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="title" type="xs:string"/>
+  <xs:element name="subtitle" type="xs:string"/>
+  <xs:element name="author" type="xs:string"/>
+  <xs:element name="version" type="xs:string"/>
+  <xs:element name="date" type="xs:string"/>
+  <xs:element name="sect1">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="u:title"/>
+        <xs:group ref="u:block"/>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="u:sect2"/>
+      </xs:sequence>
+      <xs:attribute name="id" use="required" type="xs:ID"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="sect2">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="u:title"/>
+        <xs:group ref="u:block"/>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="u:sect3"/>
+      </xs:sequence>
+      <xs:attribute name="id" type="xs:ID"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="sect3">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="u:title"/>
+        <xs:group ref="u:block"/>
+      </xs:sequence>
+      <xs:attribute name="id" type="xs:ID"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="para" type="u:inline"/>
+  <xs:element name="note" type="u:inline"/>
+  <xs:element name="xref">
+    <xs:complexType>
+      <xs:attribute name="idref" use="required" type="xs:IDREF"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="link">
+    <xs:complexType mixed="true">
+      <xs:attribute name="url" use="required"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="img">
+    <xs:complexType>
+      <xs:attribute name="src" use="required"/>
+      <xs:attribute name="width" use="required"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="svg">
+    <xs:complexType>
+      <xs:attribute name="src" use="required"/>
+      <xs:attribute name="width" use="required"/>
+      <xs:attribute name="height" use="required"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ordered_list">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="u:item"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="unordered_list">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="u:item"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="item" type="u:inline"/>
+  <xs:element name="class" type="xs:string"/>
+  <xs:element name="code" type="xs:string"/>
+  <xs:element name="pre" type="xs:string"/>
+  <xs:element name="figure">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:choice>
+          <xs:element ref="u:img"/>
+          <xs:element ref="u:xml"/>          
+          <xs:element ref="u:svg"/>          
+        </xs:choice>
+        <xs:element ref="u:caption"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="caption" type="xs:string"/>
+  <xs:element name="xml">
+    <xs:complexType mixed="true">
+      <xs:sequence>
+        <xs:any namespace="##any" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+      </xs:sequence>
+      <xs:attribute ref="xml:space"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="glossary">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="u:glossary_entry"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="glossary_entry">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="u:term"/>
+        <xs:element ref="u:definition"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="term" type="xs:string"/>
+  <xs:element name="definition" type="u:inline"/>
+  <xs:complexType name="any" mixed="true">
+    <xs:sequence>
+      <xs:any minOccurs="0" maxOccurs="unbounded" processContents="skip" namespace="##any"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

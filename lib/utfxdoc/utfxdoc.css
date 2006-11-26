@@ -1,0 +1,126 @@
+/* UTF-X DOC Cascading stylesheet */
+/* $Id: utfxdoc.css 53 2006-11-17 06:18:37Z jacekrad $ */
+h1 {
+  font-family: Arial, sans-serif;
+  font-size: 20pt;
+  color: #000000;
+  background-color: white;
+}        
+h2 {
+  font-family: Arial, sans-serif;
+  font-size: 18pt;
+  color: #000000;
+  background-color: white;
+}        
+h3 {
+  font-family: Arial, sans-serif;
+  font-size: 16pt;
+  color: #000000;
+  background-color: white;
+}
+p {
+  font-family: Helvetica, sans-serif;
+  font-size:12pt;
+}
+.title {
+  font-family: Helvetica, sans-serif;
+  font-size: 50pt;
+  font-weight: bold;
+  color: #000000;
+  background-color: white;
+  text-align: center;
+}        
+.subtitle {
+  font-family: Helvetica, sans-serif;
+  font-size: 30pt;
+  font-weight: bold;  
+  color: #000000;
+  background-color: white;  
+  text-align: center;  
+}        
+.author {
+  font-family: Helvetica, sans-serif;
+  font-size: 12pt;
+  text-align: center;  
+}        
+.version {
+  font-family: Helvetica;
+  font-size: 12pt;
+  text-align: center;  
+}        
+.date{
+  font-family: Helvetica;
+  font-size: 12pt;
+  text-align: center;  
+}
+.note{
+  padding-top: 2mm;
+  padding-bottom: 2mm;
+  padding-left: 2mm;
+  padding-right: 2mm;
+  background-color: #AAEEDD;
+  font-family:Arial;
+  font-size:10pt;
+}
+.figure {
+  text-align:left;
+  padding-left:10mm;
+  padding-right:10mm;
+}
+
+.code-block {
+    font-family: Courier;
+}
+
+.figure-block {
+    padding: 5mm;
+    text-align: left;
+    background-color: #FFFFCC;
+    font-family: Courier, monospace;
+    border-style: solid;
+    border-color: #009900;
+    border-width: 1px;
+    width: 90%;    
+}
+
+a {
+	color:#000000;
+	text-decoration:none;
+}
+
+a:hover {
+	color:#f5a90b; 
+	text-decoration:none;
+}
+	
+
+.caption {
+  font-family: Arial, sans-serif;
+  text-align:left;
+  padding-left:2mm;
+}
+
+.toc {
+  padding-left:5mm;
+  color:#f5a90b;
+  text-decoration:none;
+}
+
+body {
+  color:#666666;
+  font-family: Arial, sans-serif;
+}
+
+/* xml verbatim styles */
+.xmlverb-default          { color: #334455; background-color:red;
+                            font-family: Courier; }
+.xmlverb-element-name     { color: #990000 }
+.xmlverb-element-nsprefix { color: #666600 }
+.xmlverb-attr-name        { color: #660000 }
+.xmlverb-attr-content     { color: #000099; font-weight: bold }
+.xmlverb-ns-name          { color: #666600 }
+.xmlverb-ns-uri           { color: #330099 }
+.xmlverb-text             { color: #000000; font-weight: bold }
+.xmlverb-comment          { color: #006600; font-style: italic }
+.xmlverb-pi-name          { color: #006600; font-style: italic }
+.xmlverb-pi-content       { color: #006666; font-style: italic }   
