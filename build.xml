@@ -335,22 +335,22 @@
 			<classpath refid="runtime.classpath" />
 		</java>			
 
-		<xslt style="${utfxdoc}/xsl/utfxdoc_xhtml.xsl"
+		<xslt style="http://utf-x.sourceforge.net/xsl/utfxdoc_1_0/utfxdoc_xhtml.xsl"
 			in="${dist.dir}/manual/manual_pp.xml"
 			out="${dist.dir}/manual/manual.html">
 		</xslt>
 		
-		<xslt style="${utfxdoc}/xsl/utfxdoc_xhtml.xsl"
+		<xslt style="http://utf-x.sourceforge.net/xsl/utfxdoc_1_0/utfxdoc_xhtml.xsl"
 			in="${dist.dir}/devguide/devguide_pp.xml"
 			out="${dist.dir}/devguide/devguide.html">
 		</xslt>
 
-		<xslt style="${utfxdoc}/xsl/utfxdoc_fo.xsl"
+		<xslt style="http://utf-x.sourceforge.net/xsl/utfxdoc_1_0/utfxdoc_fo.xsl"
 			in="${dist.dir}/manual/manual_pp.xml"
 			out="${dist.dir}/manual/manual.fo">
 		</xslt>
 
-		<xslt style="${utfxdoc}/xsl/utfxdoc_fo.xsl"
+		<xslt style="http://utf-x.sourceforge.net/xsl/utfxdoc_1_0/utfxdoc_fo.xsl"
 			in="${dist.dir}/devguide/devguide_pp.xml"
 			out="${dist.dir}/devguide/devguide.fo">
 			<xmlcatalog refid="catalog"/>			
