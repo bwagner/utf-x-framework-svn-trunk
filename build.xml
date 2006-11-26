@@ -7,6 +7,8 @@
 	Purpose: UTF-X project Ant build file.
 	
 	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	$HeadURL$
+	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 	
 	Copyright(C) 2004-2006 UTF-X Developers.
 	
@@ -142,7 +144,7 @@
 				
 		<dtd publicid="-//RenderX//DTD XSL FO 1.0//EN"
 		     location="./lib/dtd/fo/renderx_fo.dtd"/>
-
+				
 		<classpath refid="runtime.classpath" />					
 	</xmlcatalog>
 	
