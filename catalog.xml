@@ -31,8 +31,7 @@
 
     <public publicId="-//UTF-X//DTD utfx-tests 1.0//EN" uri="src/dtd/utfx_tests.dtd"/>
 
-    <public publicId="-//UTF-X//DTD address_book 1.0//EN"
-        uri="samples/address_book/address_book.dtd"/>
+    <public publicId="-//UTF-X//DTD address_book 1.0//EN" uri="tmp/utfxdoc.xsd"/>
 
     <public publicId="-//OASIS//DTD XML Catalogs V1.0//EN" uri="lib/dtd/catalog/catalog.dtd"/>
 
@@ -40,10 +39,5 @@
         uri="lib/dtd/xhtml1.0/xhtml1-transitional.dtd"/>
 
     <public publicId="-//RenderX//DTD XSL FO 1.0//EN" uri="lib/dtd/fo/renderx_fo.dtd"/>
-
-    <public publicId="-//UTF-X//XSD UTF-X DOC V1.0//EN" uri="utfxdoc.xsd"/>
-
-    <uri name="http://utf-x.sourceforge.net/xsd/utfxdoc_1_0/utfxdoc.xsd"
-        uri="http://utf-x.sourceforge.net/xsd/utfxdoc_1_0/utfxdoc.xsd"/>
 
 </catalog>
