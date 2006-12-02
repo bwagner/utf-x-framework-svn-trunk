@@ -7,7 +7,7 @@
     <subtitle>Unit Testing Framework - XSLT</subtitle>
     <author>Jacek Radajewski</author>
     <version>$Revision$</version>
-    <date>25 November 2006</date>
+    <date>2 December 2006</date>
     <sect1 id="environment">
         <title>Development Environment</title>
         <sect2 id="recommended_tools">
@@ -69,8 +69,8 @@
                             subversion support for Eclipse.</link>
                     </item>
                     <item>Our subversion repository is at <link
-                            url="https://svn.sourceforge.net/svnroot/utf-x"
-                            >https://svn.sourceforge.net/svnroot/utf-x</link></item>
+                            url="https://utf-x.svn.sourceforge.net/svnroot/utf-x"
+                            >https://utf-x.svn.sourceforge.net/svnroot/utf-x</link></item>
                     <item>Our website is under a module called <code>utf-x-website</code></item>
                     <!--
                     <item>In order to update the web site using the content from
@@ -172,9 +172,6 @@
                     <img src="images/eclipse/myeclipse_xml_catalog_adding_entry.jpg" width="428px"/>
                     <caption>Adding an entry to MyEclipse XML catalog</caption>
                 </figure>
-            </sect3>
-            <sect3>
-                <title>Subversion@SourceForge</title>
             </sect3>
         </sect2>
     </sect1>
