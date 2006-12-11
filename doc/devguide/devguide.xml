@@ -7,7 +7,7 @@
     <ud:subtitle>Unit Testing Framework - XSLT</ud:subtitle>
     <ud:author>Jacek Radajewski</ud:author>
     <ud:version>$Revision$</ud:version>
-    <ud:date>$Date:$</ud:date>
+    <ud:date>$Date$</ud:date>
     <ud:sect1 id="environment">
         <ud:title>Development Environment</ud:title>
         <ud:sect2 id="recommended_tools">
@@ -53,7 +53,7 @@
                         url="http://subversion.tigris.org/project_packages.html"
                         >download subversion</ud:link> source or binaries for
                     most platforms.</ud:para>
-                <ud:note>Most Linux distributions ship with
+                <ud:note>Most Linux distributions already ship with
                 subversion.</ud:note>
             </ud:sect3>
             <ud:sect3 id="ant">
@@ -196,25 +196,6 @@
                         width="668px"/>
                     <ud:caption>Adding UTF-X XML catalog to
                         <![CDATA[<oXygen/>'s catalogs.]]></ud:caption>
-                </ud:figure>
-                <ud:para>MyEclipse does not allow you to add catalog files, just
-                    individual entries.</ud:para>
-                <ud:figure>
-                    <ud:img
-                        src="images/eclipse/myeclipse_xml_catalog_entries.jpg"
-                        width="591px"/>
-                    <ud:caption>MyEclipse XML Catalog entries</ud:caption>
-                </ud:figure>
-                <ud:para>If you want to edit UTF-X XML files with MyEclipse XML
-                    editor then you should copy the entries from UTF-X
-                        <ud:code>catalog.xml</ud:code> file to MyEclipse XML
-                    Catalog.</ud:para>
-                <ud:figure>
-                    <ud:img
-                        src="images/eclipse/myeclipse_xml_catalog_adding_entry.jpg"
-                        width="428px"/>
-                    <ud:caption>Adding an entry to MyEclipse XML
-                    catalog</ud:caption>
                 </ud:figure>
             </ud:sect3>
         </ud:sect2>
