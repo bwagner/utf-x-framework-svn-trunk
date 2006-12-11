@@ -1,83 +1,105 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document xmlns="http://utf-x.sourceforge.net/xsd/utfxdoc_1_0/utfxdoc.xsd"
+<ud:document xmlns:ud="http://utf-x.sourceforge.net/xsd/utfxdoc_1_0/utfxdoc.xsd"
     xsi:schemaLocation="http://utf-x.sourceforge.net/xsd/utfxdoc_1_0/utfxdoc.xsd http://utf-x.sourceforge.net/xsd/utfxdoc_1_0/utfxdoc.xsd"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:utfx="http://utfx.org/test-definition">
-    <title>Guide for Developers</title>
-    <subtitle>Unit Testing Framework - XSLT</subtitle>
-    <author>Jacek Radajewski</author>
-    <version>$Revision$</version>
-    <date>2 December 2006</date>
-    <sect1 id="environment">
-        <title>Development Environment</title>
-        <sect2 id="recommended_tools">
-            <title>Recommended Tools</title>
+    <ud:title>Guide for Developers</ud:title>
+    <ud:subtitle>Unit Testing Framework - XSLT</ud:subtitle>
+    <ud:author>Jacek Radajewski</ud:author>
+    <ud:version>$Revision$</ud:version>
+    <ud:date>$Date:$</ud:date>
+    <ud:sect1 id="environment">
+        <ud:title>Development Environment</ud:title>
+        <ud:sect2 id="recommended_tools">
+            <ud:title>Recommended Tools</ud:title>
 
-            <para>This section contains a list of recommended development tools. These tools have
-                been chosen because they are free (or very cheap) and the project has been already
-                correctly configured to work with these tools.</para>
-            <para>Most tools listed here are optional, but some, such as a Java compiler are
-                obviously required.</para>
-            <sect3 id="jdk">
-                <title>JDK 5.0</title>
-                <para>UTF-X uses Java 5 language features so you'll need Java 5 or later. UTF-X will
-                    not compile or run on earlier versions of Java.</para>
-            </sect3>
-            <sect3 id="eclipse">
-                <title>Eclipse 3.2</title>
-                <para><link url="http://eclipse.org">Eclipse</link> is the preferred IDE.</para>
-            </sect3>
-            <sect3 id="ant">
-                <title>Ant 1.6.*</title>
-                <para><link url="http://ant.apache.org">Ant</link> is used for various tasks
-                    including building, documentation generation and testing.</para>
-            </sect3>
-            <sect3 id="oxygenxml">
-                <title><![CDATA[<oXygen/>]]> XML Editor 7.2 plugin for Eclipse</title>
-                <para>
-                    <link url="http://www.oxygenxml.com/"><![CDATA[<oXygen/>]]> XML Editor
-                    7.2</link> plugin for the Eclipse platform provides a vast range of
-                    functionality for working with XML, XSLT, XSL:FO, XML Schemas and XPath. If you
-                    are mainly a Java developer and are not planning on doing a lot of work with XML
-                    and XSLT then functionalities provided by may be sufficient to you. Also, you
-                    may already have a different XML/XSL authoring tool such as XML Spy.</para>
-                <para><![CDATA[<oXygen/>]]> XML Editor home license costs USD 48.</para>
-            </sect3>
-        </sect2>
-        <sect2>
-            <title>Configuring Your Environment</title>
-            <para>This section explains how to configure your development environment for UTF-X
-                development. This section only covers general configuration and tools listed in the
-                    <xref idref="recommended_tools"/> section.</para>
-            <sect3>
-                <title>Checkout project from subversion</title>
-                <para>This section shows how to checkout a UTF-X module from the subversion
-                    repository using the Eclipse 3.2 IDE. The subversion modules contain Eclipse
-                    configuration files and if you follow the process described below your project
-                    environment will be configured correctly after the initial checkout.</para>
-                <para>When checking the <code>HEAD</code> of the tree (or trunk) please make sure
-                    you checkout the <code>trunk</code> directory as shown in a screenshot below.</para>
-                <para>Subversion tools:</para>
-                <unordered_list>
-                    <item>On Windows <link
-                            url="http://prdownloads.sourceforge.net/tortoisesvn/TortoiseSVN-1.4.0.7501-win32-svn-1.4.0.msi?download"
-                            >download Tortoise SVN</link>; the project site is <link
-                            url="http://tortoisesvn.tigris.org/">here</link>. Linux ships with a
-                        command line client <code>svn</code>.</item>
-                    <item>
-                        <link url="http://subclipse.tigris.org/install.html">This is how you install
-                            subversion support for Eclipse.</link>
-                    </item>
-                    <item>Our subversion repository is at <link
-                            url="https://utf-x.svn.sourceforge.net/svnroot/utf-x"
-                            >https://utf-x.svn.sourceforge.net/svnroot/utf-x</link></item>
-                    <item>Our website is under a module called <code>utf-x-website</code></item>
-                    <!--
-                    <item>In order to update the web site using the content from
-                        the subversion repository: oops ... what happened to the
-                        nested lists in utfxdoc? (instructions below)</item>
-                        -->
-                </unordered_list>
+            <ud:para>This section contains a list of recommended development
+                tools. These tools have been chosen because they are free (or
+                very cheap) and the project has been already correctly
+                configured to work with these tools.</ud:para>
+            <ud:para>Most tools listed here are optional, but some, such as a
+                Java compiler are obviously required.</ud:para>
+            <ud:sect3 id="jdk">
+                <ud:title>JDK 5.0</ud:title>
+                <ud:para>UTF-X uses Java 5 language features so you'll need Java
+                    5 or later. UTF-X will not compile or run on earlier
+                    versions of Java.</ud:para>
+            </ud:sect3>
+            <ud:sect3 id="eclipse">
+                <ud:title>Eclipse 3.2</ud:title>
+                <ud:para><ud:link url="http://eclipse.org">Eclipse</ud:link> is
+                    the preferred IDE. UTF-X has already been configured to work
+                    correctly with Eclipse and the configuration files are
+                    stored in the subversion repository together with the source
+                    code. When you checkout the project from within Eclipse,
+                    Eclipse will read the configuration files and you will be
+                    ready to cut code.</ud:para>
+            </ud:sect3>
+            <ud:sect3>
+                <ud:title>Subversion client</ud:title>
+                <ud:para>In order to checkout UTF-X from within Eclipse you will
+                    need a subversion plugin called <ud:link
+                        url="http://subclipse.tigris.org">Subclipse</ud:link>.
+                    Detailed instruction on how to install subclipse are
+                    available <ud:link
+                        url="http://subclipse.tigris.org/install.html"
+                    >here</ud:link>.</ud:para>
+                <ud:para>In addition to subclipse you may also want to install a
+                    stand alone subverion client. <ud:link
+                        url="http://tortoisesvn.tigris.org/">TortoiseSVN
+                    1.4.1</ud:link> is a Microsoft Windows shell extension which
+                    allows you perform subversion operation directly from
+                    Windows Explorer. You can <ud:link
+                        url="http://subversion.tigris.org/project_packages.html"
+                        >download subversion</ud:link> source or binaries for
+                    most platforms.</ud:para>
+                <ud:note>Most Linux distributions ship with
+                subversion.</ud:note>
+            </ud:sect3>
+            <ud:sect3 id="ant">
+                <ud:title>Ant 1.6.5</ud:title>
+                <ud:para><ud:link url="http://ant.apache.org">Ant</ud:link> is
+                    used for various tasks including building, documentation
+                    generation and testing.</ud:para>
+            </ud:sect3>
+            <ud:sect3 id="oxygenxml">
+                <ud:title><![CDATA[<oXygen/>]]> XML Editor 7.2 plugin for
+                    Eclipse</ud:title>
+                <ud:para>
+                    <ud:link url="http://www.oxygenxml.com/"
+                        ><![CDATA[<oXygen/>]]> XML Editor 7.2</ud:link> plugin
+                    for the Eclipse platform provides a vast range of
+                    functionality for working with XML, XSLT, XSL:FO, XML
+                    Schemas and XPath. If you are mainly a Java developer and
+                    are not planning on doing a lot of work with XML and XSLT
+                    then functionalities provided by may be sufficient to you.
+                    Also, you may already have a different XML/XSL authoring
+                    tool such as XML Spy.</ud:para>
+            </ud:sect3>
+        </ud:sect2>
+        <ud:sect2>
+            <ud:title>Configuring Your Environment</ud:title>
+            <ud:para>This section explains how to configure your development
+                environment for UTF-X development. This section only covers
+                general configuration and tools listed in the <ud:xref
+                    idref="recommended_tools"/> section.</ud:para>
+            <ud:sect3>
+                <ud:title>Checkout project from subversion</ud:title>
+                <ud:para>This section shows how to checkout a UTF-X module from
+                    the subversion repository using the Eclipse 3.2 IDE. The
+                    subversion modules contain Eclipse configuration files and
+                    if you follow the process described below your project
+                    environment will be configured correctly after the initial
+                    checkout.</ud:para>
+                <ud:para>When checking the <ud:code>HEAD</ud:code> of the tree
+                    (or trunk) please make sure you checkout the
+                    <ud:code>trunk</ud:code> directory as shown in a screenshot
+                    below.</ud:para>
+                <ud:para> Our subversion repository is at <ud:link
+                        url="https://utf-x.svn.sourceforge.net/svnroot/utf-x"
+                        >https://utf-x.svn.sourceforge.net/svnroot/utf-x</ud:link>
+                </ud:para>
+
                 <!--
                 <para>Updating web site content:</para>
                 <ordered_list>
@@ -90,207 +112,258 @@
                     </item>
                 </ordered_list>
 -->
-                <para>Subversion repository contains the following modules:</para>
-                <ordered_list>
-                    <item><code>utf-x-framework</code> the framework</item>
-                    <item>
-                        <code>utf-x-doc</code> the UTF-X Documentation package </item>
-                    <item>
-                        <code>utf-x-website</code> UTF-X web site at sourceforge.net </item>
-                </ordered_list>
+                <ud:para>Subversion repository contains the following modules:</ud:para>
+                <ud:ordered_list>
+                    <ud:item><ud:code>utf-x-framework</ud:code> the framework</ud:item>
+                    <ud:item>
+                        <ud:code>utf-x-doc</ud:code> the UTF-X Documentation
+                        package </ud:item>
+                    <ud:item>
+                        <ud:code>utf-x-website</ud:code> UTF-X web site at
+                        sourceforge.net </ud:item>
+                </ud:ordered_list>
 
-                <para>The following is a step-by-step guide to checking out project from within
-                    Eclipse:</para>
-                <para>From the File menu select 'New Project'. A windows wil pop up in which you
-                    need to expand the SVN item and select 'Checkout Projects from SVN'.</para>
-                <figure>
-                    <img src="images/eclipse/svn_checkout_1.png" width="525px"/>
-                    <caption>'Checkout Projects from SVN'</caption>
-                </figure>
-                <para>Click 'Next' and select 'Create a new repository location'.</para>
-                <figure>
-                    <img src="images/eclipse/svn_checkout_2.png" width="530px"/>
-                    <caption>Create a repository location</caption>
-                </figure>
+                <ud:para>The following is a step-by-step guide to checking out
+                    project from within Eclipse:</ud:para>
+                <ud:para>From the File menu select 'New Project'. A windows wil
+                    pop up in which you need to expand the SVN item and select
+                    'Checkout Projects from SVN'.</ud:para>
+                <ud:figure>
+                    <ud:img src="images/eclipse/svn_checkout_1.png"
+                        width="525px"/>
+                    <ud:caption>'Checkout Projects from SVN'</ud:caption>
+                </ud:figure>
+                <ud:para>Click 'Next' and select 'Create a new repository
+                    location'.</ud:para>
+                <ud:figure>
+                    <ud:img src="images/eclipse/svn_checkout_2.png"
+                        width="530px"/>
+                    <ud:caption>Create a repository location</ud:caption>
+                </ud:figure>
 
-                <figure>
-                    <img src="images/eclipse/svn_checkout_3.png" width="530px"/>
-                    <caption>Create location</caption>
-                </figure>
+                <ud:figure>
+                    <ud:img src="images/eclipse/svn_checkout_3.png"
+                        width="530px"/>
+                    <ud:caption>Create location</ud:caption>
+                </ud:figure>
 
-                <para>???</para>
-                <figure>
-                    <img src="images/eclipse/svn_checkout_4.png" width="530px"/>
-                    <caption>Select what you want to checkout</caption>
-                </figure>
+                <ud:para>???</ud:para>
+                <ud:figure>
+                    <ud:img src="images/eclipse/svn_checkout_4.png"
+                        width="530px"/>
+                    <ud:caption>Select what you want to checkout</ud:caption>
+                </ud:figure>
 
-                <figure>
-                    <img src="images/eclipse/svn_checkout_5.png" width="530px"/>
-                    <caption/>
-                </figure>
-
-
-                <figure>
-                    <img src="images/eclipse/svn_checkout_6.png" width="530px"/>
-                    <caption/>
-                </figure>
-
-                <figure>
-                    <img src="images/eclipse/svn_checkout_7.png" width="538px"/>
-                    <caption/>
-                </figure>
-
-                <figure>
-                    <img src="images/eclipse/svn_checkout_8.png" width="538px"/>
-                    <caption/>
-                </figure>
+                <ud:figure>
+                    <ud:img src="images/eclipse/svn_checkout_5.png"
+                        width="530px"/>
+                    <ud:caption/>
+                </ud:figure>
 
 
+                <ud:figure>
+                    <ud:img src="images/eclipse/svn_checkout_6.png"
+                        width="530px"/>
+                    <ud:caption/>
+                </ud:figure>
 
-            </sect3>
-            <sect3>
-                <title>Configuring XML Catalog</title>
-                <para>Project root directory contains an <link
-                        url="http://www.oasis-open.org/committees/entity/spec-2001-08-06.html">XML
-                        Catalog</link> file <code>catalog.xml</code> file which is used by various
-                    UTF-X processes to resolve PUBLIC identifiers. You should tell the
-                    <![CDATA[<oXygen/>]]> XML editor about this catalog file so it knows where to
-                    find relevant DTDs.</para>
-                <figure>
-                    <img src="images/eclipse/oxygen_xml_catalog.jpg" width="668px"/>
-                    <caption>Adding UTF-X XML catalog to <![CDATA[<oXygen/>'s catalogs.]]></caption>
-                </figure>
-                <para>MyEclipse does not allow you to add catalog files, just individual entries.</para>
-                <figure>
-                    <img src="images/eclipse/myeclipse_xml_catalog_entries.jpg" width="591px"/>
-                    <caption>MyEclipse XML Catalog entries</caption>
-                </figure>
-                <para>If you want to edit UTF-X XML files with MyEclipse XML editor then you should
-                    copy the entries from UTF-X <code>catalog.xml</code> file to MyEclipse XML
-                    Catalog.</para>
-                <figure>
-                    <img src="images/eclipse/myeclipse_xml_catalog_adding_entry.jpg" width="428px"/>
-                    <caption>Adding an entry to MyEclipse XML catalog</caption>
-                </figure>
-            </sect3>
-        </sect2>
-    </sect1>
-    <sect1 id="methodology">
-        <title>Methodology</title>
-        <para>In principle the UTF-X project follows the <link
-                url="http://www.extremeprogramming.org/">eXtreme Programming (XP)</link> development
-            methodology. Even though some aspects of XP like pair programming and standup meetings
-            are difficult (not impossible) to achieve when the team is spread across different
-            continents, the aim is to adopt as many of the <link
-                url="http://www.extremeprogramming.org/rules.html">XP rules</link> as possible.</para>
-        <para>Below is a list of currently adopted XP rules:</para>
-        <sect2 id="release_planning">
-            <title>Release Planning</title>
-            <para>Since the project is again gaining momentum and more developers are actively
-                involved, <link url="http://www.extremeprogramming.org/rules/planninggame.html"
-                    >release planning</link> will soon become a more formal approach.</para>
-        </sect2>
-        <sect2>
-            <title>Small Releases</title>
-            <para><link url="http://www.extremeprogramming.org/rules/releaseoften.html">Small,
-                    frequent releases</link> ... define, how often, every 4 or 6 weeks?</para>
-        </sect2>
-        <sect2>
-            <title>Coding Standards</title>
-            <para>
-                <link url="http://www.extremeprogramming.org/rules/standards.html">Coding
-                standards</link> ensure consistent quality results. This guide is all about
-                standards. </para>
-        </sect2>
-        <sect2>
-            <title>Test-First-Design</title>
-            <para>
-                <link url="http://www.extremeprogramming.org/rules/testfirst.html"
-                >Test-first-design</link> particularly important in this project as the product we
-                are developing is a unit testing framework which promotes test-first-design. Basic
-                process for writing a new Java method and tests would be: </para>
-            <ordered_list>
-                <item>Write method signature.</item>
-                <item>Document what the method does including any exceptions thrown, pre and post
-                    conditions, all parameters and return value</item>
-                <item>Write one or more unit tests for the method making sure all functionality is
-                    tested.</item>
-                <item>Run the test(s). Should fail.</item>
-                <item>Implement the method until all tests pass.</item>
-            </ordered_list>
-            <para>Depending on the complexity of the method the above may be an iterative process.
-                If the method is non-trivial you should create a test for one particular bit of
-                functionality and then implement the functionality. Do the same for other bits of
-                functionality until all bits of functionality are implemented and all tests pass.</para>
-            <para>If <link url="http://www.extremeprogramming.org/rules/bugs.html">a bug is
-                found</link> in existing code then a unit test that fails due to this bug should be
-                written first. Once the test is written you should fix the bug until the test
-                passes. If you do this then this bug will never cause problem again.</para>
-        </sect2>
-        <sect2>
-            <title>Collective Ownership</title>
-            <para><link url="http://www.extremeprogramming.org/rules/collective.html">Collective
-                    ownership</link> means that we all own all parts of UTF-X. You may design and
-                develop a module today but tomorrow someone else will be enhancing what you have
-                done and vice versa. There is no "my code" or "your code", its the team's
-            code!</para>
-        </sect2>
-        <sect2>
-            <title>Optimise Last</title>
-            <para>Design well and <link url="http://www.extremeprogramming.org/rules/optimize.html"
-                    >optimise last</link> means that you should not design for performance, but
-                concentrate on good design techniques and utilise well know OO design patterns. If
-                performance is poor and needs to be improved then it can be done later, but in most
-                cases it will be just fine.</para>
-        </sect2>
-        <sect2>
-            <title>Never add Functionality Early</title>
-            <para><link url="http://www.extremeprogramming.org/rules/bugs.html">Never add
-                    functionality early</link>, just in case it may be needed at some point in the
-                future.</para>
-        </sect2>
-        <sect2>
-            <title>KISS</title>
-            <para>The old "Keep It <link url="http://www.extremeprogramming.org/rules/simple.html"
-                    >Simple</link> Stupid" principle is very important. Design for what is needed
-                now in a well, but as simple as possible manner. You will not impress anyone by
-                demonstrating how complex code you can write. Note that shorter code does not always
-                imply simpler code. Martin Fowler has a good <link
-                    url="http://www.refactoring.com/catalog/splitLoop.html">refactoring
-                example</link> where the resulting code is longer and slower, but is much clearer
-                and simpler.</para>
-        </sect2>
-        <sect2 id="refactoring">
-            <title>Refactoring</title>
-            <para><link url="http://www.refactoring.com/catalog/splitLoop.html">Refactoring</link>
-                is a process whereby you improve the quality of the code without making changes to
-                the functionality. See <link url="http://www.refactoring.com/"
-                >refactoring.com</link> for the full refactoring catalog.</para>
-        </sect2>
+                <ud:figure>
+                    <ud:img src="images/eclipse/svn_checkout_7.png"
+                        width="538px"/>
+                    <ud:caption/>
+                </ud:figure>
 
-    </sect1>
-    <sect1 id="code_formatting">
-        <title>Code Documentation, Style and Formatting</title>
-        <sect2>
-            <title>Java</title>
-            <para>All Java source code MUST be written according to the <link
-                    url="http://java.sun.com/docs/codeconv/html/CodeConvTOC.doc.html">Code
-                    Conventions for the Java Programming Language</link> style. The easiest way to
-                ensure that your code complies with these conventions is to use the Eclipse 3.1
-                built-in Java formatter. </para>
-            <figure>
-                <img src="images/eclipse/java_code_formatter.jpg" width="664px"/>
-                <caption>Setting up Java code formatter in Eclipse</caption>
-            </figure>
+                <ud:figure>
+                    <ud:img src="images/eclipse/svn_checkout_8.png"
+                        width="538px"/>
+                    <ud:caption/>
+                </ud:figure>
 
 
-        </sect2>
-    </sect1>
-    <sect1 id="headers">
-        <title>Headers</title>
-        <sect2>
-            <title>Java Class</title>
-            <pre><![CDATA[
+
+            </ud:sect3>
+            <ud:sect3>
+                <ud:title>Configuring XML Catalog</ud:title>
+                <ud:para>Project root directory contains an <ud:link
+                        url="http://www.oasis-open.org/committees/entity/spec-2001-08-06.html"
+                        >XML Catalog</ud:link> file
+                    <ud:code>catalog.xml</ud:code> file which is used by various
+                    UTF-X processes to resolve PUBLIC identifiers. You should
+                    tell the <![CDATA[<oXygen/>]]> XML editor about this catalog
+                    file so it knows where to find relevant DTDs.</ud:para>
+                <ud:figure>
+                    <ud:img src="images/eclipse/oxygen_xml_catalog.jpg"
+                        width="668px"/>
+                    <ud:caption>Adding UTF-X XML catalog to
+                        <![CDATA[<oXygen/>'s catalogs.]]></ud:caption>
+                </ud:figure>
+                <ud:para>MyEclipse does not allow you to add catalog files, just
+                    individual entries.</ud:para>
+                <ud:figure>
+                    <ud:img
+                        src="images/eclipse/myeclipse_xml_catalog_entries.jpg"
+                        width="591px"/>
+                    <ud:caption>MyEclipse XML Catalog entries</ud:caption>
+                </ud:figure>
+                <ud:para>If you want to edit UTF-X XML files with MyEclipse XML
+                    editor then you should copy the entries from UTF-X
+                        <ud:code>catalog.xml</ud:code> file to MyEclipse XML
+                    Catalog.</ud:para>
+                <ud:figure>
+                    <ud:img
+                        src="images/eclipse/myeclipse_xml_catalog_adding_entry.jpg"
+                        width="428px"/>
+                    <ud:caption>Adding an entry to MyEclipse XML
+                    catalog</ud:caption>
+                </ud:figure>
+            </ud:sect3>
+        </ud:sect2>
+    </ud:sect1>
+    <ud:sect1 id="methodology">
+        <ud:title>Methodology</ud:title>
+        <ud:para>In principle the UTF-X project follows the <ud:link
+                url="http://www.extremeprogramming.org/">eXtreme Programming
+                (XP)</ud:link> development methodology. Even though some aspects
+            of XP like pair programming and standup meetings are difficult (not
+            impossible) to achieve when the team is spread across different
+            continents, the aim is to adopt as many of the <ud:link
+                url="http://www.extremeprogramming.org/rules.html">XP
+            rules</ud:link> as possible.</ud:para>
+        <ud:para>Below is a list of currently adopted XP rules:</ud:para>
+        <ud:sect2 id="release_planning">
+            <ud:title>Release Planning</ud:title>
+            <ud:para>Since the project is again gaining momentum and more
+                developers are actively involved, <ud:link
+                    url="http://www.extremeprogramming.org/rules/planninggame.html"
+                    >release planning</ud:link> will soon become a more formal
+                approach.</ud:para>
+        </ud:sect2>
+        <ud:sect2>
+            <ud:title>Small Releases</ud:title>
+            <ud:para><ud:link
+                    url="http://www.extremeprogramming.org/rules/releaseoften.html"
+                    >Small, frequent releases</ud:link> ... define, how often,
+                every 4 or 6 weeks?</ud:para>
+        </ud:sect2>
+        <ud:sect2>
+            <ud:title>Coding Standards</ud:title>
+            <ud:para>
+                <ud:link
+                    url="http://www.extremeprogramming.org/rules/standards.html"
+                    >Coding standards</ud:link> ensure consistent quality
+                results. This guide is all about standards. </ud:para>
+        </ud:sect2>
+        <ud:sect2>
+            <ud:title>Test-First-Design</ud:title>
+            <ud:para>
+                <ud:link
+                    url="http://www.extremeprogramming.org/rules/testfirst.html"
+                    >Test-first-design</ud:link> particularly important in this
+                project as the product we are developing is a unit testing
+                framework which promotes test-first-design. Basic process for
+                writing a new Java method and tests would be: </ud:para>
+            <ud:ordered_list>
+                <ud:item>Write method signature.</ud:item>
+                <ud:item>Document what the method does including any exceptions
+                    thrown, pre and post conditions, all parameters and return
+                    value</ud:item>
+                <ud:item>Write one or more unit tests for the method making sure
+                    all functionality is tested.</ud:item>
+                <ud:item>Run the test(s). Should fail.</ud:item>
+                <ud:item>Implement the method until all tests pass.</ud:item>
+            </ud:ordered_list>
+            <ud:para>Depending on the complexity of the method the above may be
+                an iterative process. If the method is non-trivial you should
+                create a test for one particular bit of functionality and then
+                implement the functionality. Do the same for other bits of
+                functionality until all bits of functionality are implemented
+                and all tests pass.</ud:para>
+            <ud:para>If <ud:link
+                    url="http://www.extremeprogramming.org/rules/bugs.html">a
+                    bug is found</ud:link> in existing code then a unit test
+                that fails due to this bug should be written first. Once the
+                test is written you should fix the bug until the test passes. If
+                you do this then this bug will never cause problem
+            again.</ud:para>
+        </ud:sect2>
+        <ud:sect2>
+            <ud:title>Collective Ownership</ud:title>
+            <ud:para><ud:link
+                    url="http://www.extremeprogramming.org/rules/collective.html"
+                    >Collective ownership</ud:link> means that we all own all
+                parts of UTF-X. You may design and develop a module today but
+                tomorrow someone else will be enhancing what you have done and
+                vice versa. There is no "my code" or "your code", its the team's
+                code!</ud:para>
+        </ud:sect2>
+        <ud:sect2>
+            <ud:title>Optimise Last</ud:title>
+            <ud:para>Design well and <ud:link
+                    url="http://www.extremeprogramming.org/rules/optimize.html"
+                    >optimise last</ud:link> means that you should not design
+                for performance, but concentrate on good design techniques and
+                utilise well know OO design patterns. If performance is poor and
+                needs to be improved then it can be done later, but in most
+                cases it will be just fine.</ud:para>
+        </ud:sect2>
+        <ud:sect2>
+            <ud:title>Never add Functionality Early</ud:title>
+            <ud:para><ud:link
+                    url="http://www.extremeprogramming.org/rules/bugs.html"
+                    >Never add functionality early</ud:link>, just in case it
+                may be needed at some point in the future.</ud:para>
+        </ud:sect2>
+        <ud:sect2>
+            <ud:title>KISS</ud:title>
+            <ud:para>The old "Keep It <ud:link
+                    url="http://www.extremeprogramming.org/rules/simple.html"
+                    >Simple</ud:link> Stupid" principle is very important.
+                Design for what is needed now in a well, but as simple as
+                possible manner. You will not impress anyone by demonstrating
+                how complex code you can write. Note that shorter code does not
+                always imply simpler code. Martin Fowler has a good <ud:link
+                    url="http://www.refactoring.com/catalog/splitLoop.html"
+                    >refactoring example</ud:link> where the resulting code is
+                longer and slower, but is much clearer and simpler.</ud:para>
+        </ud:sect2>
+        <ud:sect2 id="refactoring">
+            <ud:title>Refactoring</ud:title>
+            <ud:para><ud:link
+                    url="http://www.refactoring.com/catalog/splitLoop.html"
+                    >Refactoring</ud:link> is a process whereby you improve the
+                quality of the code without making changes to the functionality.
+                See <ud:link url="http://www.refactoring.com/"
+                >refactoring.com</ud:link> for the full refactoring
+            catalog.</ud:para>
+        </ud:sect2>
+
+    </ud:sect1>
+    <ud:sect1 id="code_formatting">
+        <ud:title>Code Documentation, Style and Formatting</ud:title>
+        <ud:sect2>
+            <ud:title>Java</ud:title>
+            <ud:para>All Java source code MUST be written according to the
+                    <ud:link
+                    url="http://java.sun.com/docs/codeconv/html/CodeConvTOC.doc.html"
+                    >Code Conventions for the Java Programming
+                Language</ud:link> style. The easiest way to ensure that your
+                code complies with these conventions is to use the Eclipse 3.1
+                built-in Java formatter. </ud:para>
+            <ud:figure>
+                <ud:img src="images/eclipse/java_code_formatter.jpg"
+                    width="664px"/>
+                <ud:caption>Setting up Java code formatter in
+                Eclipse</ud:caption>
+            </ud:figure>
+
+
+        </ud:sect2>
+    </ud:sect1>
+    <ud:sect1 id="headers">
+        <ud:title>Headers</ud:title>
+        <ud:sect2>
+            <ud:title>Java Class</ud:title>
+            <ud:pre><![CDATA[
 /**
  * One line description of the class.
  * More detailed (complete) description of the class.
@@ -322,12 +395,12 @@
  * @version $Revision$ $Date$ $Name:  $
  */                
                 ]]>
-                </pre>
-        </sect2>
-        <sect2>
-            <title>Java Method</title>
-            <para>Example of a typical Java method header with signature.</para>
-            <pre><![CDATA[
+            </ud:pre>
+        </ud:sect2>
+        <ud:sect2>
+            <ud:title>Java Method</ud:title>
+            <ud:para>Example of a typical Java method header with signature.</ud:para>
+            <ud:pre><![CDATA[
 /**
  * Parses an XML document file and returns the total number of utfx:test elements.
  * 
@@ -346,16 +419,17 @@
      return elementCount;
 } 
             
-            ]]></pre>
-            <sect3 id="javadoc">
-                <title>JavaDoc</title>
-                <para><link url="http://java.sun.com/j2se/javadoc/writingdoccomments/"
-                    >JavaDoc</link> documentation ....</para>
-            </sect3>
-        </sect2>
-        <sect2>
-            <title>XML and XSLT</title>
-            <pre><![CDATA[
+            ]]></ud:pre>
+            <ud:sect3 id="javadoc">
+                <ud:title>JavaDoc</ud:title>
+                <ud:para><ud:link
+                        url="http://java.sun.com/j2se/javadoc/writingdoccomments/"
+                        >JavaDoc</ud:link> documentation ....</ud:para>
+            </ud:sect3>
+        </ud:sect2>
+        <ud:sect2>
+            <ud:title>XML and XSLT</ud:title>
+            <ud:pre><![CDATA[
 <?xml version="1.0"?>
 <!--
 	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -379,20 +453,20 @@
 	
 	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 -->
-            ]]></pre>
-        </sect2>
-    </sect1>
-    <sect1 id="roadmap">
-        <title>UTF-X Roadmap</title>
-        <figure>
-            <img src="images/roadmap.png" width="481px"/>
-            <caption>Releases and branches</caption>
-        </figure>
-    </sect1>
-    <sect1 id="release">
-        <title>Release Instructions</title>
-        <para>Ac copied from RELEASE_INSTRUCTIONS.txt</para>
-        <pre><![CDATA[
+            ]]></ud:pre>
+        </ud:sect2>
+    </ud:sect1>
+    <ud:sect1 id="roadmap">
+        <ud:title>UTF-X Roadmap</ud:title>
+        <ud:figure>
+            <ud:img src="images/roadmap.png" width="481px"/>
+            <ud:caption>Releases and branches</ud:caption>
+        </ud:figure>
+    </ud:sect1>
+    <ud:sect1 id="release">
+        <ud:title>Release Instructions</ud:title>
+        <ud:para>Ac copied from RELEASE_INSTRUCTIONS.txt</ud:para>
+        <ud:pre><![CDATA[
         How-to release utf-x
 =====================
 
@@ -410,6 +484,6 @@
   
 * Inform on the website and use other channels (www.cafeaulait.org).
   
-        ]]></pre>
-    </sect1>
-</document>
+        ]]></ud:pre>
+    </ud:sect1>
+</ud:document>
