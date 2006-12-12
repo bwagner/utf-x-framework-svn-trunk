@@ -2,6 +2,7 @@ package utfx;
 
 import static java.lang.System.out;
 
+
 /**
  * TODO one line class description.???
  * TODO complete class documentation.
@@ -31,17 +32,72 @@ import static java.lang.System.out;
  * @version $Revision$ $Date$ $Name:  $
  */
 public class Main {
+    
+    //TODO: I am working on this file.
+    
+    private String propertyFile;
+    private static String testFile;
+    private static String testDir;
 
     private static void printUsage() {
         out.println("java -jar utfx.jar -tdf test_definition_file.xml");
+        System.exit(1);
     }
     
     /**
      * @param args
      */
     public static void main(String[] args) {
-        printUsage();
+        String arg;
+        int i =0;
+        char option;
+        while( i<args.length && args[i].startsWith("-") ){
+            
+                arg = args[i++];
+                
+                if (arg.equals("-utfx.test.file")){
+                    if (i < args.length){
+                        testFile = args[i++];
+                    }else{
+                        System.err.println("-utfx.test.file requires a filename");
+                    }
+                }else if(arg.equals("-utfx.test.dir")){
+                    if (i < args.length){
+                        testDir = args[i++];
+                    }else{
+                        System.err.println("-utfx.test.dir requires a directory");
+                    }
+                }
+               
+                // check for execution modes.
+                    for (int j = 1; j < arg.length(); j++) {
+                        option = arg.charAt(j);
+                        switch (option) {
+                        case 't':
+                            
+                            break;
+                        case 'r':
+                            System.out.println("Run tests...");
+                            //utfx.test.file=c:\myfile
+                            //-Dutfx.test.dir=c:\myxslt_tests utfx.runner.TestRunner utfx.framework.XSLTRegressionTest 
+                            
+                            break;
+                            
+                        case 'g':
+                            //checkMandatoryArgs()
+                            //utfx.testgen.TestGenerator -xslt c:\xsl\webpage.xsl
+                            break;
+
+                        default:
+                            System.err.println(": illegal option " + option);
+                            printUsage();
+                            break;
+                        }
+                    }
+                }
+        }
+        
 
     }
 
-}
+
