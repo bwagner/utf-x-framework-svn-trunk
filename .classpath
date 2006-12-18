@@ -5,6 +5,5 @@
 	<classpathentry kind="lib" path="lib/log4j-1.2.8.jar"/>
 	<classpathentry kind="lib" path="lib/junit.jar"/>
 	<classpathentry kind="lib" path="lib/resolver.jar"/>
-	<classpathentry kind="lib" path="lib/xercesSamples.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>

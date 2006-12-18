@@ -19,7 +19,6 @@ import org.xml.sax.ext.LexicalHandler;
 import org.xml.sax.helpers.DefaultHandler;
 import org.xml.sax.helpers.XMLReaderFactory;
 
-import sax.helpers.AttributesImpl;
 
 /**
  * Transforms an XML document into its canonical form according to the W3C <a
