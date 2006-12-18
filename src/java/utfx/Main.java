@@ -1,13 +1,15 @@
 package utfx;
 
 import static java.lang.System.out;
+import junit.framework.Test;
+import junit.framework.TestResult;
 import utfx.framework.XSLTRegressionTest;
+import utfx.printers.ResultPrinterFactory;
 import utfx.runner.TestRunner;
 import utfx.testgen.TestGenerator;
 
 /**
- * TODO one line class description.???
- * TODO complete class documentation.
+ * TODO one line class description.??? TODO complete class documentation.
  * 
  * <p>
  * Copyright &copy; 2006 UTF-X Development Team.
@@ -31,19 +33,25 @@ import utfx.testgen.TestGenerator;
  * </code>
  * 
  * @author jacekrad
- * @version $Revision$ $Date$ $Name:  $
+ * @version $Revision$ $Date$ $Name: $
  */
 public class Main {
 
-    //TODO: I am working on this file.
+    // TODO: I am working on this file.
 
-    private String propertyFile;
+    
 
     private static String testFile;
 
     private static String testDir;
 
     private static String xsltFile;
+
+    public static final int SUCCESS_EXIT = 0;
+
+    public static final int FAILURE_EXIT = 1;
+
+    public static final int EXCEPTION_EXIT = 2;
 
     private static void printUsage() {
         out.println("java -jar utfx.jar -tdf test_definition_file.xml");
@@ -54,6 +62,8 @@ public class Main {
      * @param args
      */
     public static void main(String[] args) {
+        /** result printer factory */
+        ResultPrinterFactory rpf;
         String arg;
         int i = 0;
         char option;
@@ -90,16 +100,32 @@ public class Main {
 
                     break;
                 case 'r':
-                    System.out.println("Run tests..."); 
-                    System.setProperty("utfx.test.file",testFile);
-                    System.setProperty("utfx.test.dir",testDir);
-                    //String [] opts = new String {"utfx.framework.XSLTRegressionTest"};
-                    //TestRunner.main(opts);
+                    System.out.println("Run tests...");
+                    System.setProperty("utfx.test.file", testFile);
+                    System.setProperty("utfx.test.dir", testDir);
+                    rpf = ResultPrinterFactory.newInstance();
+                    TestRunner tr = new TestRunner();
+                    Test suite = tr
+                            .getTest("utfx.framework.XSLTRegressionTest");
+                    try {
+                        TestResult r = tr.doRun(suite, rpf);
+
+                        if (!r.wasSuccessful()) {
+                            System.exit(FAILURE_EXIT);
+                        }
+                        System.exit(SUCCESS_EXIT);
+                    } catch (Exception e) {
+                        System.err.println(e.getMessage());
+                        System.exit(EXCEPTION_EXIT);
+                    }
+                    System.out.println("Done running tests!");
+
                     break;
 
                 case 'g':
+                    System.out.println("Generate tests...");
                     new TestGenerator(xsltFile);
-                    
+
                     break;
 
                 default:
@@ -110,8 +136,5 @@ public class Main {
             }
         }
     }
-    
 
 }
-
-
