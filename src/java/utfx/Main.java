@@ -41,11 +41,9 @@ public class Main {
 
     
 
-    private static String testFile;
+    private static String file;
 
-    private static String testDir;
-
-    private static String xsltFile;
+    private static String dir;
 
     public static final int SUCCESS_EXIT = 0;
 
@@ -54,7 +52,7 @@ public class Main {
     public static final int EXCEPTION_EXIT = 2;
 
     private static void printUsage() {
-        out.println("java -jar utfx.jar -tdf test_definition_file.xml");
+        out.println("Usage: Main [-verbose] [-xn] [-output afile] filename");
         System.exit(1);
     }
 
@@ -66,74 +64,86 @@ public class Main {
         ResultPrinterFactory rpf;
         String arg;
         int i = 0;
-        char option;
+        int j;
+        char flag;
+        boolean verbose = false;
         while (i < args.length && args[i].startsWith("-")) {
 
             arg = args[i++];
+            
+            // use this type of check for "wordy" arguments
+            if (arg.equals("-debug")) {
+                System.out.println("verbose mode on");
+                verbose = true;
+            }
+            
+            
 
-            if (arg.equals("-utfx.test.file")) {
-                if (i < args.length) {
-                    testFile = args[i++];
-                } else {
-                    System.err.println("-utfx.test.file requires a filename");
-                }
-            } else if (arg.equals("-utfx.test.dir")) {
-                if (i < args.length) {
-                    testDir = args[i++];
-                } else {
-                    System.err.println("-utfx.test.dir requires a directory");
-                }
-            } else if (arg.equals("-xslt")) {
-                if (i < args.length) {
-                    xsltFile = args[i++];
-                } else {
-                    System.err.println("-xslt requires a xslt filename");
-
-                }
+            // use this type of check for arguments that require arguments
+            else if(arg.equals("-file")) {
+                if (i < args.length)
+                    file = args[i++];
+                else
+                    System.err.println("-file requires a filename");
+                if (verbose)
+                    System.out.println("file = " + file);
+            }else if(arg.equals("-dir")){
+                if (i < args.length)
+                    dir = args[i++];
+                else
+                    System.err.println("-dir requires a directory name");
+                if (verbose)
+                    System.out.println("directory = " + dir);
             }
 
-            // check for execution modes.
-            for (int j = 1; j < arg.length(); j++) {
-                option = arg.charAt(j);
-                switch (option) {
-                case 't':
+    // use this type of check for a series of flag arguments
+            else {
+                for (j = 1; j < arg.length(); j++) {
+                    flag = arg.charAt(j);
+                    switch (flag) {
+                    case 't':
+                        if (verbose) System.out.println("Option t");
+                        break;
+                    case 'r':
+                        if (verbose) System.out.println("Option r");
+                        //checkFileOrDir
+                        if (file != null)System.setProperty("utfx.test.file", file);
+                        if (dir != null)System.setProperty("utfx.test.dir", dir);
+                        
+                        rpf = ResultPrinterFactory.newInstance();
+                        TestRunner tr = new TestRunner();
+                        Test suite = tr
+                                .getTest("utfx.framework.XSLTRegressionTest");
+                        try {
+                            TestResult r = tr.doRun(suite, rpf);
 
-                    break;
-                case 'r':
-                    System.out.println("Run tests...");
-                    System.setProperty("utfx.test.file", testFile);
-                    System.setProperty("utfx.test.dir", testDir);
-                    rpf = ResultPrinterFactory.newInstance();
-                    TestRunner tr = new TestRunner();
-                    Test suite = tr
-                            .getTest("utfx.framework.XSLTRegressionTest");
-                    try {
-                        TestResult r = tr.doRun(suite, rpf);
-
-                        if (!r.wasSuccessful()) {
-                            System.exit(FAILURE_EXIT);
+                            if (!r.wasSuccessful()) {
+                                System.exit(FAILURE_EXIT);
+                            }
+                            System.exit(SUCCESS_EXIT);
+                        } catch (Exception e) {
+                            System.err.println(e.getMessage());
+                            System.exit(EXCEPTION_EXIT);
                         }
-                        System.exit(SUCCESS_EXIT);
-                    } catch (Exception e) {
-                        System.err.println(e.getMessage());
-                        System.exit(EXCEPTION_EXIT);
+                        System.out.println("Done running tests!");
+
+                        break;
+                    case 'g':
+                        if (verbose) System.out.println("Option g");
+                        System.out.println("Generate tests...");
+                        new TestGenerator(file);
+                        break;    
+                    default:
+                        System.err.println("Main: illegal option " + flag);
+                        break;
                     }
-                    System.out.println("Done running tests!");
-
-                    break;
-
-                case 'g':
-                    System.out.println("Generate tests...");
-                    new TestGenerator(xsltFile);
-
-                    break;
-
-                default:
-                    System.err.println(": illegal option " + option);
-                    printUsage();
-                    break;
                 }
             }
+
+
+          
+
+            
         }
     }
 
