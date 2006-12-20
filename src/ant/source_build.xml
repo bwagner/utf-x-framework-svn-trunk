@@ -1,4 +1,4 @@
-<?xml version="1.0"?>
+<?xml version="1.0" encoding="utf-8"?>
 <!--
 	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 	$Id$
@@ -10,7 +10,7 @@
 	$HeadURL$
 	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 	
-	Copyright(C) 2004-2006 UTF-X Developers.
+	Copyright(C) 2006 UTF-X Developers.
 	
 	This program is free software; you can redistribute it and/or modify
 	it under the terms of the GNU General Public License v2 as published
@@ -66,7 +66,7 @@
 	<property name="release.name.bin" value="${release.name}" />
 	<property name="release.bin.no.xslt" value="${dist.name}_bin_no_xslt" />
 	<!-- location of rendered test definition files -->
-	<property name="rendered.samples.dir" location="rendered_samples" />
+	<property name="rendered.samples.dir" location="${build.dir}/rendered_samples" />
 	<property name="testgen.dir" location="testgen" />
 	<property name="testgen.test.dir" location="${testgen.dir}/test" />
 
@@ -77,7 +77,7 @@
 	<!--
 	<property name="testrunner" value="junit.textui.TestRunner" /> 
 	-->
-
+	
 	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 	<!-- TrasformerFactory provider (select one) -->
 	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
@@ -313,7 +313,7 @@
 				<enable />
 			</assertions>
 			<arg value="doc/devguide/devguide.xml" />
-			<arg value="${dist.dir}/devguide/devguide_pp.xml" />
+			<arg value="${build.dir}/doc/devguide/devguide_pp.xml" />
 			<classpath refid="runtime.classpath" />
 		</java>
 		<java classname="utfxdoc.UTFXDocPreProcessor" fork="yes">
@@ -321,33 +321,33 @@
 				<enable />
 			</assertions>
 			<arg value="doc/manual/manual.xml" />
-			<arg value="${dist.dir}/manual/manual_pp.xml" />
+			<arg value="${build.dir}/doc/manual/manual_pp.xml" />
 			<classpath refid="runtime.classpath" />
 		</java>
 
-		<xslt style="${utfxdoc}/utfxdoc_xhtml.xsl" in="${dist.dir}/manual/manual_pp.xml" out="${dist.dir}/manual/manual.html"/>
-		<xslt style="${utfxdoc}/utfxdoc_xhtml.xsl" in="${dist.dir}/devguide/devguide_pp.xml" out="${dist.dir}/devguide/devguide.html"/>
-		<xslt style="${utfxdoc}/utfxdoc_fo.xsl" in="${dist.dir}/manual/manual_pp.xml" out="${dist.dir}/manual/manual.fo"/>
-		<xslt style="${utfxdoc}/utfxdoc_fo.xsl" in="${dist.dir}/devguide/devguide_pp.xml" out="${dist.dir}/devguide/devguide.fo">
+		<xslt style="${utfxdoc}/utfxdoc_xhtml.xsl" in="${build.dir}/doc/manual/manual_pp.xml" out="${build.dir}/doc/manual/manual.html"/>
+		<xslt style="${utfxdoc}/utfxdoc_xhtml.xsl" in="${build.dir}/doc/devguide/devguide_pp.xml" out="${build.dir}/doc/devguide/devguide.html"/>
+		<xslt style="${utfxdoc}/utfxdoc_fo.xsl" in="${build.dir}/doc/manual/manual_pp.xml" out="${build.dir}/doc/manual/manual.fo"/>
+		<xslt style="${utfxdoc}/utfxdoc_fo.xsl" in="${build.dir}/doc/devguide/devguide_pp.xml" out="${build.dir}/doc/devguide/devguide.fo">
 			<xmlcatalog refid="catalog" />
 		</xslt>
 
 
-		<copy todir="${dist.dir}/devguide">
+		<copy todir="${build.dir}/doc/devguide">
 			<fileset dir="doc/devguide" includes="images/**/*" />
 			<fileset file="${utfxdoc}/utfxdoc.css" />
 		</copy>
 
-		<copy todir="${dist.dir}/manual">
+		<copy todir="${build.dir}/doc/manual">
 			<fileset dir="doc/manual" includes="images/**/*" />
 			<fileset file="${utfxdoc}/utfxdoc.css" />
 		</copy>
 
-		<fop outdir="${dist.dir}/manual" basedir="${dist.dir}/manual">
+		<fop outdir="${build.dir}/doc/manual" basedir="${dist.dir}/manual">
 			<fileset includes="*.fo" dir="${dist.dir}/manual" />
 		</fop>
 
-		<fop outdir="${dist.dir}/devguide" basedir="${dist.dir}/devguide">
+		<fop outdir="${build.dir}/doc/devguide" basedir="${dist.dir}/devguide">
 			<fileset includes="*.fo" dir="${dist.dir}/devguide" />
 		</fop>
 
