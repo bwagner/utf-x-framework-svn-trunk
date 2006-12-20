@@ -62,9 +62,8 @@
 	<property name="jars" location="${build.dir}/jar" />
 	<property name="utfx.jar" location="${jars}/utfx.jar" />
 	<property name="javadoc" location="doc/javadoc" />
-	<property name="release.name.src" value="${dist.name}_src_full" />
-	<property name="release.name.bin" value="${dist.name}_bin_full" />
-	<property name="release.bin.no.xslt" value="${dist.name}_bin_no_xslt" />
+	<property name="release.name.src" value="${release.name}" />
+	<property name="release.name.bin" value="${release.name}" />
 	<!-- location of rendered test definition files -->
 	<property name="rendered.samples.dir" location="rendered_samples" />
 	<property name="testgen.dir" location="testgen" />
@@ -77,23 +76,6 @@
 	<!--
 	<property name="testrunner" value="junit.textui.TestRunner" /> 
 	-->
-
-	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-	<!-- TrasformerFactory provider (select one) -->
-	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-	<!--
-	Java 1.5 bundled Xalan XSLTC processor
-		<property name="transformer_factory_impl" value="com.sun.org.apache.xalan.internal.xsltc.trax.TransformerFactoryImpl" />
-	Xalan XSLTC processor
-		<property name="transformer_factory_impl" value="org.apache.xalan.xsltc.trax.TransformerFactoryImpl" />
-	Xalan Interpretive processor 
-		<property name="transformer_factory_impl" value="org.apache.xalan.processor.TransformerFactoryImpl" />
-	Saxon 8B XSLT 2.0 processor 
-		<property name="transformer_factory_impl" value="net.sf.saxon.TransformerFactoryImpl" />
-	-->
-	<property name="transformer_factory_impl" value="net.sf.saxon.TransformerFactoryImpl" />
-
-
 
 	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 	<!-- Apache FOP task -->
@@ -171,6 +153,7 @@
 			<fileset dir="${javadoc}" includes="**/*" />
 		</delete>
 		<delete dir="${build.dir}" />
+		<delete dir="${build.dir}/doc" />
 		<delete dir="${dist.dir}" />
 		<delete dir="${rendered.samples.dir}" />
 		<delete dir="${testgen.test.dir}" />
@@ -307,13 +290,16 @@
 	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 	<target name="doc" depends="jar">
 		
+		<mkdir dir="${build.dir}/doc"/>
+		<mkdir dir="${build.dir}/doc/manual"/>
+		<mkdir dir="${build.dir}/doc/devguide"/>
 		<!-- first we run the UTF-X doc preprocessor -->
 		<java classname="utfxdoc.UTFXDocPreProcessor" fork="yes">
 			<assertions>
 				<enable />
 			</assertions>
 			<arg value="doc/devguide/devguide.xml" />
-			<arg value="${dist.dir}/devguide/devguide_pp.xml" />
+			<arg value="${build.dir}/doc/devguide/devguide_pp.xml" />
 			<classpath refid="runtime.classpath" />
 		</java>
 		<java classname="utfxdoc.UTFXDocPreProcessor" fork="yes">
@@ -321,33 +307,33 @@
 				<enable />
 			</assertions>
 			<arg value="doc/manual/manual.xml" />
-			<arg value="${dist.dir}/manual/manual_pp.xml" />
+			<arg value="${build.dir}/doc/manual/manual_pp.xml" />
 			<classpath refid="runtime.classpath" />
 		</java>
 
-		<xslt style="${utfxdoc}/utfxdoc_xhtml.xsl" in="${dist.dir}/manual/manual_pp.xml" out="${dist.dir}/manual/manual.html"/>
-		<xslt style="${utfxdoc}/utfxdoc_xhtml.xsl" in="${dist.dir}/devguide/devguide_pp.xml" out="${dist.dir}/devguide/devguide.html"/>
-		<xslt style="${utfxdoc}/utfxdoc_fo.xsl" in="${dist.dir}/manual/manual_pp.xml" out="${dist.dir}/manual/manual.fo"/>
-		<xslt style="${utfxdoc}/utfxdoc_fo.xsl" in="${dist.dir}/devguide/devguide_pp.xml" out="${dist.dir}/devguide/devguide.fo">
+		<xslt style="${utfxdoc}/utfxdoc_xhtml.xsl" in="${build.dir}/doc/manual/manual_pp.xml" out="${build.dir}/doc/manual/manual.html"/>
+		<xslt style="${utfxdoc}/utfxdoc_xhtml.xsl" in="${build.dir}/doc/devguide/devguide_pp.xml" out="${build.dir}/doc/devguide/devguide.html"/>
+		<xslt style="${utfxdoc}/utfxdoc_fo.xsl" in="${build.dir}/doc/manual/manual_pp.xml" out="${build.dir}/doc/manual/manual.fo"/>
+		<xslt style="${utfxdoc}/utfxdoc_fo.xsl" in="${build.dir}/doc/devguide/devguide_pp.xml" out="${build.dir}/doc/devguide/devguide.fo">
 			<xmlcatalog refid="catalog" />
 		</xslt>
 
 
-		<copy todir="${dist.dir}/devguide">
+		<copy todir="${build.dir}/doc/devguide">
 			<fileset dir="doc/devguide" includes="images/**/*" />
 			<fileset file="${utfxdoc}/utfxdoc.css" />
 		</copy>
 
-		<copy todir="${dist.dir}/manual">
+		<copy todir="${build.dir}/doc/manual">
 			<fileset dir="doc/manual" includes="images/**/*" />
 			<fileset file="${utfxdoc}/utfxdoc.css" />
 		</copy>
 
-		<fop outdir="${dist.dir}/manual" basedir="${dist.dir}/manual">
+		<fop outdir="${build.dir}/doc/manual" basedir="${dist.dir}/manual">
 			<fileset includes="*.fo" dir="${dist.dir}/manual" />
 		</fop>
 
-		<fop outdir="${dist.dir}/devguide" basedir="${dist.dir}/devguide">
+		<fop outdir="${build.dir}/doc/devguide" basedir="${dist.dir}/devguide">
 			<fileset includes="*.fo" dir="${dist.dir}/devguide" />
 		</fop>
 
@@ -427,9 +413,6 @@
 		<mkdir dir="${release.dir.src}/tests" />
 		<mkdir dir="${release.dir.src}/testgen" />
 
-		<copy todir="${release.dir.src}/bin">
-			<fileset dir="${bin.dir}" excludes="CVS" />
-		</copy>
 		<!-- Copy libraries -->
 		<copy todir="${release.dir.src}/lib">
 			<fileset dir="${lib}" excludes="CVS" />
