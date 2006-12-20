@@ -1,0 +1,475 @@
+<?xml version="1.0"?>
+<!--
+	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	$Id: build.xml 189 2006-12-10 22:43:56Z jacekrad $
+	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	
+	Purpose: UTF-X project Ant build file.
+	
+	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	$HeadURL: https://utf-x.svn.sourceforge.net/svnroot/utf-x/utf-x-framework/trunk/build.xml $
+	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	
+	Copyright(C) 2004-2006 UTF-X Developers.
+	
+	This program is free software; you can redistribute it and/or modify
+	it under the terms of the GNU General Public License v2 as published
+	by the Free Software Foundation (http://www.gnu.org/licenses/gpl.txt)
+	
+	This program is distributed in the hope that it will be useful, but
+	WITHOUT ANY WARRANTY; without even the implied warranty of
+	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+	General Public License for more details.
+	
+	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-->
+
+<project name="utf-x" default="doc" basedir=".">
+	<description>Unit Testing Framework - XSLT</description>
+
+	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+	<!-- Global properties -->
+	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+	<property file="build.properties" />
+
+	<!-- directories relative to basedir -->
+	<property name="src" location="src" />
+	<property name="bin.dir" location="bin" />
+	<property name="doc.dir" location="doc" />
+	<property name="sample.dir" location="samples" />
+	<property name="test.dir" location="tests" />
+
+
+	<!-- Java source files -->
+	<property name="java_src" location="${src}/java" />
+
+	<!-- XSLT stylesheets -->
+	<property name="xsl" location="${src}/xsl" />
+
+	<!-- XML catalogues and related files -->
+	<property name="xcat" location="${src}/xcat" />
+
+	<!-- DTD and XSD files for XML validation -->
+	<property name="dtd" location="${src}/dtd" />
+	<property name="xsd" location="${src}/xsd" />
+
+
+	<!-- library - external JAR files -->
+	<property name="lib" location="lib" />
+	<property name="dist.dir" location="dist" />
+	<property name="build.dir" location="build" />
+	<property name="classes" location="${build.dir}/classes" />
+	<property name="jars" location="${build.dir}/jar" />
+	<property name="utfx.jar" location="${jars}/utfx.jar" />
+	<property name="javadoc" location="doc/javadoc" />
+	<property name="release.name.src" value="${release.name}" />
+	<property name="release.name.bin" value="${release.name}" />
+	<property name="release.bin.no.xslt" value="${dist.name}_bin_no_xslt" />
+	<!-- location of rendered test definition files -->
+	<property name="rendered.samples.dir" location="rendered_samples" />
+	<property name="testgen.dir" location="testgen" />
+	<property name="testgen.test.dir" location="${testgen.dir}/test" />
+
+	<!-- location of the UTF-X Doc libraries -->
+	<property name="utfxdoc" location="${lib}/utfxdoc" />
+
+	<property name="testrunner" value="utfx.runner.TestRunner" />
+	<!--
+	<property name="testrunner" value="junit.textui.TestRunner" /> 
+	-->
+
+	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+	<!-- TrasformerFactory provider (select one) -->
+	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+	<!--
+	Java 1.5 bundled Xalan XSLTC processor
+		<property name="transformer_factory_impl" value="com.sun.org.apache.xalan.internal.xsltc.trax.TransformerFactoryImpl" />
+	Xalan XSLTC processor
+		<property name="transformer_factory_impl" value="org.apache.xalan.xsltc.trax.TransformerFactoryImpl" />
+	Xalan Interpretive processor 
+		<property name="transformer_factory_impl" value="org.apache.xalan.processor.TransformerFactoryImpl" />
+	Saxon 8B XSLT 2.0 processor 
+		<property name="transformer_factory_impl" value="net.sf.saxon.TransformerFactoryImpl" />
+	-->
+	<property name="transformer_factory_impl" value="net.sf.saxon.TransformerFactoryImpl" />
+
+
+
+	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+	<!-- Apache FOP task -->
+	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+	<property name="fop.dir" value="${lib}" />
+
+	<taskdef name="fop" classname="org.apache.fop.tools.anttasks.Fop">
+		<classpath>
+			<pathelement location="${fop.dir}/fop.jar" />
+			<pathelement location="${fop.dir}/avalon.jar" />
+			<pathelement location="${fop.dir}/batik.jar" />
+			<pathelement location="${fop.dir}/JimiProClasses.zip" />
+		</classpath>
+	</taskdef>
+
+
+	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+	<!-- CLASSPATH -->
+	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+	<path id="compile.classpath">
+		<pathelement location="${lib}/log4j-1.2.8.jar" />
+		<pathelement location="${lib}/xercesImpl.jar" />
+		<pathelement location="${lib}/xercesSamples.jar" />
+		<pathelement location="${lib}/xalan.jar" />
+		<pathelement location="${lib}/resolver.jar" />
+		<pathelement location="${lib}/junit.jar" />
+		<pathelement location="${lib}/saxon8.jar" />
+		<pathelement location="${lib}/saxon8-dom.jar" />
+		<pathelement location="${lib}/JimiProClasses.zip" />
+		<pathelement location="${lib}/utfxdoc.jar" />
+	</path>
+
+	<path id="runtime.classpath">
+		<pathelement location="." />
+		<path refid="compile.classpath" />
+		<pathelement location="${utfx.jar}" />
+	</path>
+
+	<!-- external catalogs do not seem to be working so required entries
+	     are reproduced here -->
+	<xmlcatalog id="catalog">
+
+		<dtd publicid="-//UTF-X//DTD address_book 1.0//EN" location="./samples/address_book/address_book.dtd" />
+
+		<dtd publicid="-//UTF-X//DTD utfx-tests 1.0//EN" location="./src/dtd/utfx_tests.dtd" />
+
+		<dtd publicid="-//RenderX//DTD XSL FO 1.0//EN" location="./lib/dtd/fo/renderx_fo.dtd" />
+
+		<classpath refid="runtime.classpath" />
+	</xmlcatalog>
+
+
+	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+	<!-- Initialisation -->
+	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+	<target name="init">
+		<tstamp />
+		<mkdir dir="${classes}" />
+		<mkdir dir="${jars}" />
+		<mkdir dir="${javadoc}" />
+		<mkdir dir="${dist.dir}" />
+		<mkdir dir="${dist.dir}/manual" />
+		<mkdir dir="${dist.dir}/devguide" />
+		<mkdir dir="${dist.dir}/lib" />
+		<mkdir dir="${rendered.samples.dir}" />
+	</target>
+
+	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+	<!-- clean generated files -->
+	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+	<target name="clean" depends="init">
+		<delete>
+			<fileset dir="${classes}" includes="**/*.class" />
+			<fileset dir="${jars}" includes="**/*.jar" />
+			<fileset dir="${javadoc}" includes="**/*" />
+		</delete>
+		<delete dir="${build.dir}" />
+		<delete dir="${dist.dir}" />
+		<delete dir="${rendered.samples.dir}" />
+		<delete dir="${testgen.test.dir}" />
+	</target>
+
+	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+	<!-- FULL build of the source tree including all JARs and documentation  -->
+	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+	<target name="full" depends="jar,javadoc" />
+
+	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+	<!-- compile all Java classes -->
+	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+	<target name="compile" depends="init">
+		<javac deprecation="yes" srcdir="${java_src}" destdir="${classes}" debug="true">
+			<compilerarg value="-Xlint:unchecked" />
+			<classpath refid="compile.classpath" />
+		</javac>
+	</target>
+
+	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+	<!-- build jar file(s) -->
+	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+	<target name="jar" depends="compile">
+		<jar basedir="${classes}" destfile="${utfx.jar}">
+			<manifest>
+				<attribute name="Class-Path" value="../../ ../../lib/avalon.jar ../../lib/fop.jar ../../lib/junit.jar ../../lib/resolver.jar ../../lib/saxon8.jar ../../lib/xercesImpl.jar ../../lib/xml-apis.jar ../../lib/batik.jar ../../lib/JimiProClasses.zip  ../../lib/log4j-1.2.8.jar ../../lib/saxon8-dom.jar ../../lib/xalan.jar ../../lib/xercesSamples.jar" />
+			</manifest>
+		</jar>
+		<jar basedir="${src}" destfile="${utfx.jar}" update="true" includes="dtd/**/*" />
+		<jar basedir="${src}" destfile="${utfx.jar}" update="true" includes="xsd/**/*" />
+		<jar basedir="${lib}" destfile="${utfx.jar}" update="true" includes="dtd/**/*" />
+		<jar basedir="${xcat}" destfile="${utfx.jar}" update="true" includes="**/*" />
+		<jar basedir="${src}" destfile="${utfx.jar}" update="true" includes="xsl/*.xsl" />
+		<jar basedir="${java_src}" destfile="${utfx.jar}" update="true" includes="**/*.xml" />
+		<jar basedir="${java_src}" destfile="${utfx.jar}" update="true" includes="**/*.xsl" />
+		<jar basedir="." destfile="${utfx.jar}" update="true" includes="samples/**/*" />
+	</target>
+
+	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+	<!-- Complete Regression Test -->
+	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+	<target name="rt" depends="jar">
+		<java fork="true" classname="${testrunner}">
+			<jvmarg value="-Djavax.xml.transform.TransformerFactory=${transformer_factory_impl}" />
+			<jvmarg value="-enableassertions" />
+			<jvmarg value="-Xmx512m" />
+			<classpath refid="runtime.classpath" />
+			<arg value="utfx.test.FullRegressionTest" />
+		</java>
+	</target>
+
+	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+	<!-- Complete Regression Test -->
+	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+	<target name="jrt" depends="jar">
+		<java fork="true" classname="${testrunner}">
+			<jvmarg value="-Djavax.xml.transform.TransformerFactory=${transformer_factory_impl}" />
+			<jvmarg value="-enableassertions" />
+			<jvmarg value="-Xmx128m" />
+			<classpath refid="runtime.classpath" />
+			<arg value="utfx.test.JavaRegressionTest" />
+		</java>
+	</target>
+
+
+	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+	<!-- run UTF-X tests on the src/xsl directory -->
+	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+	<target name="xslrt" depends="jar">
+		<java classname="${testrunner}" fork="yes">
+			<jvmarg value="-Djavax.xml.transform.TransformerFactory=${transformer_factory_impl}" />
+			<jvmarg value="-Dutfx.test.dir=src/xsl" />
+			<jvmarg value="-enableassertions" />
+			<arg value="utfx.framework.XSLTRegressionTest" />
+			<classpath refid="runtime.classpath" />
+		</java>
+	</target>
+
+	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+	<!-- build JavaDoc -->
+	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+	<target name="javadoc">
+		<javadoc destdir="${javadoc}" access="private" use="true" notree="false" nonavbar="false" noindex="false" splitindex="true" author="true" version="true" nodeprecatedlist="false" stylesheetfile="${src}/css/stylesheet.css" nodeprecated="false" packagenames="utfx.util,utfx.runner,utfx.printers,utfx.framework" sourcepath="${java_src}">
+
+			<classpath refid="compile.classpath" />
+			<doctitle>UTF-X, Unit Testing Framework - XSLT</doctitle>
+			<header>UTF-X, Unit Testing Framework - XSLT</header>
+			<link href="http://www.junit.org/junit/javadoc/3.8.1/" offline="yes" packagelistloc="doc/javadoc_package_list/junit-package-list" />
+		</javadoc>
+	</target>
+
+	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+	<!-- run the samples provided with the distribution -->
+	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+	<target name="samples" depends="init,jar">
+
+		<echo>Rendering test definition files ...</echo>
+
+		<!-- xhtml tests -->
+		<xslt style="src/xsl/test_definition_xhtml.xsl" basedir="samples" includes="**/*xhtml_test.xml" destdir="${rendered.samples.dir}" extension=".html">
+			<xmlcatalog refid="catalog" />
+		</xslt>
+
+		<!-- xsl:fo tests -->
+		<xslt style="src/xsl/test_definition_fo.xsl" basedir="samples" includes="**/*fo_test.xml" destdir="${rendered.samples.dir}" extension=".fo">
+			<xmlcatalog refid="catalog" />
+		</xslt>
+		<!-- copy the utfxdoc CSS -->
+		<copy todir="${rendered.samples.dir}/utfxdoc/">
+			<fileset file="samples/utfxdoc/utfxdoc.css" />
+		</copy>
+
+		<fop outdir="${rendered.samples.dir}">
+			<fileset includes="**/*.fo" dir="${rendered.samples.dir}" />
+		</fop>
+
+
+		<java classname="${testrunner}" fork="yes">
+			<jvmarg value="-enableassertions" />
+			<jvmarg value="-Xmx128m" />
+			<arg value="utfx.test.SamplesRegressionTest" />
+			<classpath refid="runtime.classpath" />
+		</java>
+
+	</target>
+
+	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+	<!-- compile the manual and other documentation 
+		documentation is written using the UTF-X Doc sample.  This sample is no 
+		longer a part of the UTF-X framework, but its a project in its own right
+		utf-x-doc schemas are located under lib/utfxdoc, but these file are NOT
+		the source -->
+	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+	<target name="doc" depends="jar">
+		
+		<!-- first we run the UTF-X doc preprocessor -->
+		<java classname="utfxdoc.UTFXDocPreProcessor" fork="yes">
+			<assertions>
+				<enable />
+			</assertions>
+			<arg value="doc/devguide/devguide.xml" />
+			<arg value="${dist.dir}/devguide/devguide_pp.xml" />
+			<classpath refid="runtime.classpath" />
+		</java>
+		<java classname="utfxdoc.UTFXDocPreProcessor" fork="yes">
+			<assertions>
+				<enable />
+			</assertions>
+			<arg value="doc/manual/manual.xml" />
+			<arg value="${dist.dir}/manual/manual_pp.xml" />
+			<classpath refid="runtime.classpath" />
+		</java>
+
+		<xslt style="${utfxdoc}/utfxdoc_xhtml.xsl" in="${dist.dir}/manual/manual_pp.xml" out="${dist.dir}/manual/manual.html"/>
+		<xslt style="${utfxdoc}/utfxdoc_xhtml.xsl" in="${dist.dir}/devguide/devguide_pp.xml" out="${dist.dir}/devguide/devguide.html"/>
+		<xslt style="${utfxdoc}/utfxdoc_fo.xsl" in="${dist.dir}/manual/manual_pp.xml" out="${dist.dir}/manual/manual.fo"/>
+		<xslt style="${utfxdoc}/utfxdoc_fo.xsl" in="${dist.dir}/devguide/devguide_pp.xml" out="${dist.dir}/devguide/devguide.fo">
+			<xmlcatalog refid="catalog" />
+		</xslt>
+
+
+		<copy todir="${dist.dir}/devguide">
+			<fileset dir="doc/devguide" includes="images/**/*" />
+			<fileset file="${utfxdoc}/utfxdoc.css" />
+		</copy>
+
+		<copy todir="${dist.dir}/manual">
+			<fileset dir="doc/manual" includes="images/**/*" />
+			<fileset file="${utfxdoc}/utfxdoc.css" />
+		</copy>
+
+		<fop outdir="${dist.dir}/manual" basedir="${dist.dir}/manual">
+			<fileset includes="*.fo" dir="${dist.dir}/manual" />
+		</fop>
+
+		<fop outdir="${dist.dir}/devguide" basedir="${dist.dir}/devguide">
+			<fileset includes="*.fo" dir="${dist.dir}/devguide" />
+		</fop>
+
+	</target>
+
+	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+	<!-- run the tests provided with the distribution -->
+	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+	<target name="tests" depends="jar">
+
+		<java classname="${testrunner}" fork="yes">
+			<jvmarg value="-enableassertions" />
+			<arg value="utfx.test.TestsRegressionTest" />
+			<classpath refid="runtime.classpath" />
+		</java>
+
+
+		<echo>Error tests:</echo>
+		<java classname="${testrunner}" fork="yes">
+			<jvmarg value="-Djavax.xml.transform.TransformerFactory=${transformer_factory_impl}" />
+			<jvmarg value="-Dutfx.test.dir=tests/error/test" />
+			<jvmarg value="-enableassertions" />
+			<arg value="utfx.framework.XSLTRegressionTest" />
+			<classpath refid="runtime.classpath" />
+		</java>
+		<echo>All of the above tests should have generated an error.</echo>
+		<echo />
+
+		<echo>Failing tests:</echo>
+		<java classname="${testrunner}" fork="yes">
+			<jvmarg value="-Djavax.xml.transform.TransformerFactory=${transformer_factory_impl}" />
+			<jvmarg value="-Dutfx.test.dir=tests/failing/test" />
+			<jvmarg value="-enableassertions" />
+			<arg value="utfx.framework.XSLTRegressionTest" />
+			<classpath refid="runtime.classpath" />
+		</java>
+		<echo>All of the above tests should have failed.</echo>
+
+	</target>
+
+	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+	<!-- execute the tests of a single TDF  -->
+	<!-- in this case the TDF contains an error -->
+	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+	<target name="testfile-has-error" depends="jar">
+
+		<java classname="${testrunner}" fork="yes">
+			<jvmarg value="-Djavax.xml.transform.TransformerFactory=${transformer_factory_impl}" />
+			<jvmarg value="-Dutfx.test.file=tests/test/broken_stylesheet_test.xml" />
+			<jvmarg value="-enableassertions" />
+			<arg value="utfx.framework.XSLTRegressionTest" />
+			<classpath refid="runtime.classpath" />
+		</java>
+
+		<echo>There should be a total of 1 test</echo>
+		<echo>including 0 failures and 1 error</echo>
+
+	</target>
+
+	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+	<!-- release with full source -->
+	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+	<target name="release" depends="jar">
+
+
+		<property name="release.dir.src" value="${build.dir}/${release.name.src}" />
+
+
+		<!-- Create directory structure for release.  -->
+
+		<mkdir dir="${release.dir.src}" />
+		<mkdir dir="${release.dir.src}/bin" />
+		<mkdir dir="${release.dir.src}/lib" />
+		<mkdir dir="${release.dir.src}/src" />
+		<mkdir dir="${release.dir.src}/samples" />
+		<mkdir dir="${release.dir.src}/doc" />
+		<mkdir dir="${release.dir.src}/tests" />
+		<mkdir dir="${release.dir.src}/testgen" />
+
+		<!--
+		<copy todir="${release.dir.src}/bin">
+			<fileset dir="${bin.dir}" excludes="CVS" />
+		</copy>
+		-->
+		<!-- Copy libraries -->
+		<copy todir="${release.dir.src}/lib">
+			<fileset dir="${lib}"/>
+		</copy>
+		<!-- Copy documentation -->
+		<copy todir="${release.dir.src}/doc">
+			<fileset dir="${doc.dir}"/>
+		</copy>
+		<!-- Copy samples ( how-to use utf-x)  -->
+		<copy todir="${release.dir.src}/samples">
+			<fileset dir="${sample.dir}" />
+		</copy>
+		<!-- Copy source files -->
+		<copy todir="${release.dir.src}/src">
+			<fileset dir="${src}" />
+		</copy>
+		<!-- Copy utf-x tests -->
+		<copy todir="${release.dir.src}/tests">
+			<fileset dir="${test.dir}" />
+		</copy>
+		<!-- Copy utf-x testgen -->
+		<copy todir="${release.dir.src}/testgen">
+			<fileset dir="${testgen.dir}" />
+		</copy>
+		<!-- Copy build file -->
+		<copy todir="${release.dir.src}" file="build.xml" />
+		<copy todir="${release.dir.src}" file="log4j.properties" />
+		<copy todir="${release.dir.src}" file="utfx.properties" />
+		<!-- Set correct access rights on files -->
+		<chmod perm="755" type="both">
+			<fileset dir="${release.dir.src}" />
+		</chmod>
+
+		<!-- Full source distribution -->
+		<zip destfile="${dist.dir}/${release.name.src}.zip">
+			<zipfileset dir="${release.dir.src}" filemode="755" />
+		</zip>
+
+	</target>
+</project>
+
