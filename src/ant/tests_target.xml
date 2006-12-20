@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  $Id$
+  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  
+  Purpose: UTF-X project Ant build file.
+  
+  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  $HeadURL$
+  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  
+  Copyright(C) 2004-2006 UTF-X Developers.
+  
+  This program is free software; you can redistribute it and/or modify
+  it under the terms of the GNU General Public License v2 as published
+  by the Free Software Foundation (http://www.gnu.org/licenses/gpl.txt)
+  
+  This program is distributed in the hope that it will be useful, but
+  WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+  General Public License for more details.
+  
+  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-->
+<target name="tests" depends="jar">
+
+  <java classname="${testrunner}" fork="yes">
+    <jvmarg value="-enableassertions"/>
+    <arg value="utfx.test.TestsRegressionTest"/>
+    <classpath refid="runtime.classpath"/>
+  </java>
+
+
+  <echo>Error tests:</echo>
+  <java classname="${testrunner}" fork="yes">
+    <jvmarg value="-Djavax.xml.transform.TransformerFactory=${transformer_factory_impl}"/>
+    <jvmarg value="-Dutfx.test.dir=tests/error/test"/>
+    <jvmarg value="-enableassertions"/>
+    <arg value="utfx.framework.XSLTRegressionTest"/>
+    <classpath refid="runtime.classpath"/>
+  </java>
+  <echo>All of the above tests should have generated an error.</echo>
+  <echo/>
+
+  <echo>Failing tests:</echo>
+  <java classname="${testrunner}" fork="yes">
+    <jvmarg value="-Djavax.xml.transform.TransformerFactory=${transformer_factory_impl}"/>
+    <jvmarg value="-Dutfx.test.dir=tests/failing/test"/>
+    <jvmarg value="-enableassertions"/>
+    <arg value="utfx.framework.XSLTRegressionTest"/>
+    <classpath refid="runtime.classpath"/>
+  </java>
+  <echo>All of the above tests should have failed.</echo>
+
+</target>
