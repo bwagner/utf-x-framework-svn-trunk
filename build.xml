@@ -61,13 +61,13 @@
 	<property name="classes" location="${build.dir}/classes" />
 	<property name="jars" location="${build.dir}/jar" />
 	<property name="utfx.jar" location="${jars}/utfx.jar" />
-	<property name="javadoc" location="doc/javadoc" />
-	<property name="release.name.src" value="${release.name}" />
-	<property name="release.name.bin" value="${release.name}" />
-	<!-- location of rendered test definition files -->
-	<property name="rendered.samples.dir" location="rendered_samples" />
+	<property name="javadoc" location="${build.dir}/javadoc" />
+	<property name="rendered.samples.dir" location="${build.dir}/rendered_samples" />
 	<property name="testgen.dir" location="testgen" />
 	<property name="testgen.test.dir" location="${testgen.dir}/test" />
+	
+	<property name="release.name.src" value="${release.name}_src"/>
+
 
 	<!-- location of the UTF-X Doc libraries -->
 	<property name="utfxdoc" location="${lib}/utfxdoc" />
@@ -136,8 +136,9 @@
 		<mkdir dir="${classes}" />
 		<mkdir dir="${jars}" />
 		<mkdir dir="${javadoc}" />
+		<mkdir dir="${build.dir}" />
 		<mkdir dir="${dist.dir}" />
-		<mkdir dir="${dist.dir}/manual" />
+		<mkdir dir="${build.dir}/manual" />
 		<mkdir dir="${dist.dir}/devguide" />
 		<mkdir dir="${dist.dir}/lib" />
 		<mkdir dir="${rendered.samples.dir}" />
@@ -162,7 +163,7 @@
 	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 	<!-- FULL build of the source tree including all JARs and documentation  -->
 	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-	<target name="full" depends="jar,javadoc" />
+	<target name="full" depends="init,jar,doc,javadoc" />
 
 	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 	<!-- compile all Java classes -->
@@ -329,11 +330,11 @@
 			<fileset file="${utfxdoc}/utfxdoc.css" />
 		</copy>
 
-		<fop outdir="${build.dir}/doc/manual" basedir="${dist.dir}/manual">
+		<fop outdir="${build.dir}/doc/manual" basedir="${build.dir}/manual">
 			<fileset includes="*.fo" dir="${dist.dir}/manual" />
 		</fop>
 
-		<fop outdir="${build.dir}/doc/devguide" basedir="${dist.dir}/devguide">
+		<fop outdir="${build.dir}/doc/devguide" basedir="${build.dir}/devguide">
 			<fileset includes="*.fo" dir="${dist.dir}/devguide" />
 		</fop>
 
@@ -396,7 +397,7 @@
 	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 	<!-- release with full source -->
 	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-	<target name="release" depends="jar,doc">
+	<target name="release" depends="full">
 
 
 		<property name="release.dir.src" value="${build.dir}/${release.name.src}" />
