@@ -396,7 +396,7 @@
 	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 	<!-- release with full source -->
 	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-	<target name="release" depends="jar">
+	<target name="release" depends="jar,doc">
 
 
 		<property name="release.dir.src" value="${build.dir}/${release.name.src}" />
