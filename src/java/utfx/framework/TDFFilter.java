@@ -4,13 +4,13 @@ import java.io.File;
 import java.io.FilenameFilter;
 
 /**
- * TestFileFilter implements java.io.FilenameFilter and provides UTF-X with a
- * default rule on how to find UTF-X test definition files in a given directory.
- * You may use your own UTF-X test definition filename filter by providing a
- * class that implements java.io.FilenameFilter.
+ * Test Definition File implements java.io.FilenameFilter and provides UTF-X
+ * with a default rule on how to find UTF-X test definition files in a given
+ * directory. You may use your own UTF-X test definition filename filter by
+ * providing a class that implements java.io.FilenameFilter.
  * 
  * <p>
- * Copyright &copy; 2004 - UTF-X Development Team.
+ * Copyright &copy; 2006 - UTF-X Development Team.
  * </p>
  * 
  * <p>
@@ -29,12 +29,12 @@ import java.io.FilenameFilter;
  * <code>
  * $Source: /cvs/utf-x/framework/src/java/utfx/framework/TestFileFilter.java,v $
  * </code>
- * @deprecated this class has been replaced with utfx.framework.TDFFilter.
- * @see utfx.framework.TDFFilter
+ * 
  * @author Jacek Radajewski
- * @version $Revision$ $Date$ $Name:  $
+ * @version $Revision: 67 $ $Date: 2006-11-18 10:40:44 +1000 (Sat, 18 Nov 2006) $
+ *          $Name: $
  */
-public class TestFileFilter implements FilenameFilter {
+public class TDFFilter implements FilenameFilter {
 
     /**
      * This method implements the functionality requierd by the FilenameFilter
@@ -43,8 +43,10 @@ public class TestFileFilter implements FilenameFilter {
      * with a '.' or a '#' is passed throught the filter (emacs backup files
      * start with '.' or '#' and we do not want to include them).
      * 
-     * @param dir directory where the file was found.
-     * @param name file name to test
+     * @param dir
+     *            directory where the file was found.
+     * @param name
+     *            file name to test
      * 
      * @return true iff the name of the file matches the filter; false
      *         otherwise.
