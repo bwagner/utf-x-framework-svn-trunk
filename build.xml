@@ -263,10 +263,6 @@
 		<xslt style="src/xsl/test_definition_fo.xsl" basedir="samples" includes="**/*fo_test.xml" destdir="${rendered.samples.dir}" extension=".fo">
 			<xmlcatalog refid="catalog" />
 		</xslt>
-		<!-- copy the utfxdoc CSS -->
-		<copy todir="${rendered.samples.dir}/utfxdoc/">
-			<fileset file="samples/utfxdoc/utfxdoc.css" />
-		</copy>
 
 		<fop outdir="${rendered.samples.dir}">
 			<fileset includes="**/*.fo" dir="${rendered.samples.dir}" />
