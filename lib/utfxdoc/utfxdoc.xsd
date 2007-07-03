@@ -1,24 +1,110 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"
+<!--
+  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  $Id: utfxdoc.xsd 36 2007-02-25 22:11:16Z jacekrad $
+  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  
+  Purpose: UTF-X Doc W3C Schema.
+  
+  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  $HeadURL: https://utfx-doc.svn.sourceforge.net/svnroot/utfx-doc/utfx-doc-core/trunk/xsd/utfxdoc.xsd $
+  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  
+  
+  Copyright(C) 2004-2006 UTF-X Development Team.
+  
+  You may redistribute and/or modify this file under the terms of the
+  GNU General Public License v2.
+  
+  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-->
+<xs:schema elementFormDefault="qualified"
   targetNamespace="http://utf-x.sourceforge.net/xsd/utfxdoc_1_0/utfxdoc.xsd"
-  xmlns:u="http://utf-x.sourceforge.net/xsd/utfxdoc_1_0/utfxdoc.xsd" xmlns:xml="http://www.w3.org/XML/1998/namespace">
+  xmlns:u="http://utf-x.sourceforge.net/xsd/utfxdoc_1_0/utfxdoc.xsd"
+  xmlns:xml="http://www.w3.org/XML/1998/namespace" xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <xs:import namespace="http://www.w3.org/XML/1998/namespace" schemaLocation="xml.xsd"/>
-  <xs:complexType name="inline" mixed="true">
-    <xs:choice minOccurs="0" maxOccurs="unbounded">
+
+  <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+  <!-- inline mixed content -->
+  <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+  <xs:complexType mixed="true" name="inline">
+    <xs:choice maxOccurs="unbounded" minOccurs="0">
       <xs:element ref="u:class"/>
       <xs:element ref="u:code"/>
       <xs:element ref="u:link"/>
       <xs:element ref="u:img"/>
       <xs:element ref="u:xref"/>
-      <xs:element ref="u:xml"/>
+      <xs:element ref="u:element"/>
     </xs:choice>
   </xs:complexType>
+
+  <xs:element name="class" type="xs:string">
+    <xs:annotation>
+      <xs:documentation>Fully qualified Java class.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  
+  <xs:element name="code" type="xs:string">
+    <xs:annotation>
+      <xs:documentation>Java or other source code.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  
+  <xs:element name="element" type="xs:QName">
+    <xs:annotation>
+      <xs:documentation>Qualified XML elemenet</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  
+  <xs:element name="pre" type="xs:string"/>
+  
+  <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+  <!-- namespaces context -->
+  <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+  <xs:element name="namespace-context">
+    <xs:annotation>
+      <xs:documentation>Container for namespace elements which specify prefix to namespace bindings.
+        These binding are used to create a namespace context for all executable
+        assertions.</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="u:namespace" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+  <!-- namespace -->
+  <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+  <xs:element name="namespace">
+    <xs:annotation>
+      <xs:documentation>This element is used to specify prefic -&gt; namespace
+        binding.</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="prefix" type="xs:string" />
+        <xs:element name="uri" type="xs:anyURI" />
+      </xs:sequence>
+      <xs:attribute name="prefix-color" type="xs:string" use="optional">
+        <xs:annotation>
+          <xs:documentation>If this attribute is present its value must be set to a color</xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+    </xs:complexType>
+  </xs:element>
+  
+  <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+  <!-- this group defines block elements -->
+  <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
   <xs:group name="block">
     <xs:sequence>
-      <xs:choice minOccurs="0" maxOccurs="unbounded">
+      <xs:choice maxOccurs="unbounded" minOccurs="0">
         <xs:element ref="u:para"/>
         <xs:element ref="u:note"/>
         <xs:element ref="u:figure"/>
+        <xs:element ref="u:example"/>
         <xs:element ref="u:pre"/>
         <xs:element ref="u:xml"/>
         <xs:element ref="u:ordered_list"/>
@@ -26,14 +112,26 @@
       </xs:choice>
     </xs:sequence>
   </xs:group>
+
+  <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+  <!-- not really sure if we need group both as a block and as a type -->
+  <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+  <xs:complexType name="block">
+    <xs:group ref="u:block"/>
+  </xs:complexType>
+
+  <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+  <!-- UTF-X Document root element -->
+  <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
   <xs:element name="document">
     <xs:complexType>
       <xs:sequence>
         <xs:element ref="u:title"/>
         <xs:element minOccurs="0" ref="u:subtitle"/>
-        <xs:element minOccurs="0" maxOccurs="5" ref="u:author"/>
+        <xs:element maxOccurs="5" minOccurs="0" ref="u:author"/>
         <xs:element minOccurs="0" ref="u:version"/>
         <xs:element minOccurs="0" ref="u:date"/>
+        <xs:element minOccurs="0" ref="u:namespace-context"/>
         <xs:element maxOccurs="unbounded" ref="u:sect1"/>
         <xs:element minOccurs="0" ref="u:glossary"/>
       </xs:sequence>
@@ -44,26 +142,50 @@
   <xs:element name="author" type="xs:string"/>
   <xs:element name="version" type="xs:string"/>
   <xs:element name="date" type="xs:string"/>
-  <xs:element name="sect1">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element ref="u:title"/>
-        <xs:group ref="u:block"/>
-        <xs:element minOccurs="0" maxOccurs="unbounded" ref="u:sect2"/>
-      </xs:sequence>
-      <xs:attribute name="id" use="required" type="xs:ID"/>
+  <xs:element name="copyright">
+    <xs:complexType mixed="true">
+      <xs:attribute name="year" type="xs:string" default="2007"/>
     </xs:complexType>
   </xs:element>
+  <xs:element name="logo">
+    <xs:complexType>
+      <xs:choice>
+        <xs:element ref="u:img"/>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+
+  <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+  <!-- level 1 section -->
+  <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+  <xs:complexType name="sect1">
+    <xs:sequence>
+      <xs:element ref="u:title"/>
+      <xs:group ref="u:block"/>
+      <xs:element maxOccurs="unbounded" minOccurs="0" ref="u:sect2"/>
+    </xs:sequence>
+    <xs:attribute name="id" type="xs:ID" use="required"/>
+  </xs:complexType>
+
+  <xs:element name="sect1" type="u:sect1"/>
+
+  <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+  <!-- level 2 section -->
+  <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
   <xs:element name="sect2">
     <xs:complexType>
       <xs:sequence>
         <xs:element ref="u:title"/>
         <xs:group ref="u:block"/>
-        <xs:element minOccurs="0" maxOccurs="unbounded" ref="u:sect3"/>
+        <xs:element maxOccurs="unbounded" minOccurs="0" ref="u:sect3"/>
       </xs:sequence>
       <xs:attribute name="id" type="xs:ID"/>
     </xs:complexType>
   </xs:element>
+
+  <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+  <!-- level 3 section -->
+  <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
   <xs:element name="sect3">
     <xs:complexType>
       <xs:sequence>
@@ -73,24 +195,48 @@
       <xs:attribute name="id" type="xs:ID"/>
     </xs:complexType>
   </xs:element>
+
+  <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+  <!-- para -->
+  <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
   <xs:element name="para" type="u:inline"/>
+
+  <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+  <!-- note -->
+  <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
   <xs:element name="note" type="u:inline"/>
+
+  <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+  <!-- cross reference -->
+  <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
   <xs:element name="xref">
     <xs:complexType>
-      <xs:attribute name="idref" use="required" type="xs:IDREF"/>
+      <xs:attribute name="idref" type="xs:IDREF" use="required"/>
     </xs:complexType>
   </xs:element>
+
+  <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+  <!-- cross reference -->
+  <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
   <xs:element name="link">
     <xs:complexType mixed="true">
       <xs:attribute name="url" use="required"/>
     </xs:complexType>
   </xs:element>
+
+  <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+  <!-- image -->
+  <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
   <xs:element name="img">
     <xs:complexType>
       <xs:attribute name="src" use="required"/>
       <xs:attribute name="width" use="required"/>
     </xs:complexType>
   </xs:element>
+
+  <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+  <!-- svg -->
+  <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
   <xs:element name="svg">
     <xs:complexType>
       <xs:attribute name="src" use="required"/>
@@ -98,6 +244,10 @@
       <xs:attribute name="height" use="required"/>
     </xs:complexType>
   </xs:element>
+
+  <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+  <!-- ordered list -->
+  <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
   <xs:element name="ordered_list">
     <xs:complexType>
       <xs:sequence>
@@ -105,6 +255,10 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+
+  <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+  <!-- unordered list -->
+  <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
   <xs:element name="unordered_list">
     <xs:complexType>
       <xs:sequence>
@@ -112,29 +266,66 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+
+  <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+  <!-- TODO .... document me -->
+  <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
   <xs:element name="item" type="u:inline"/>
-  <xs:element name="class" type="xs:string"/>
-  <xs:element name="code" type="xs:string"/>
-  <xs:element name="pre" type="xs:string"/>
+
+  <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+  <!-- figure -->
+  <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
   <xs:element name="figure">
     <xs:complexType>
-      <xs:sequence>
-        <xs:choice>
-          <xs:element ref="u:img"/>
-          <xs:element ref="u:xml"/>          
-          <xs:element ref="u:svg"/>          
-        </xs:choice>
-        <xs:element ref="u:caption"/>
-      </xs:sequence>
+      <xs:group ref="u:figure-group"/>
+      <xs:attribute name="id" type="xs:ID" use="optional"/>
     </xs:complexType>
   </xs:element>
+
+  <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+  <!-- example is similar to figures but may also be correct or incorrect -->
+  <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+  <xs:element name="example">
+    <xs:complexType>
+      <xs:group ref="u:figure-group"/>
+      <xs:attribute name="type">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="normal"/>
+            <xs:enumeration value="correct"/>
+            <xs:enumeration value="incorrect"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+      <xs:attribute name="id" type="xs:ID" use="optional"/>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:group name="figure-group">
+    <xs:sequence>
+      <xs:choice>
+        <xs:element ref="u:img"/>
+        <xs:element ref="u:xml"/>
+        <xs:element ref="u:svg"/>
+      </xs:choice>
+      <xs:element ref="u:caption"/>
+    </xs:sequence>
+  </xs:group>
+
+
   <xs:element name="caption" type="xs:string"/>
   <xs:element name="xml">
     <xs:complexType mixed="true">
       <xs:sequence>
-        <xs:any namespace="##any" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+        <xs:any maxOccurs="unbounded" minOccurs="0" namespace="##any" processContents="lax"/>
       </xs:sequence>
       <xs:attribute ref="xml:space"/>
+      <xs:attribute name="highlight-xpath" type="xs:string" use="optional">
+        <xs:annotation>
+          <xs:documentation>Elements returned by this relative xpath will be highlighted. For
+            example highlight-xapth=".//example-element"</xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
     </xs:complexType>
   </xs:element>
   <xs:element name="glossary">
@@ -154,9 +345,9 @@
   </xs:element>
   <xs:element name="term" type="xs:string"/>
   <xs:element name="definition" type="u:inline"/>
-  <xs:complexType name="any" mixed="true">
+  <xs:complexType mixed="true" name="any">
     <xs:sequence>
-      <xs:any minOccurs="0" maxOccurs="unbounded" processContents="skip" namespace="##any"/>
+      <xs:any maxOccurs="unbounded" minOccurs="0" namespace="##any" processContents="skip"/>
     </xs:sequence>
   </xs:complexType>
 </xs:schema>
