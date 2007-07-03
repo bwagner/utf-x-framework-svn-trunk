@@ -3,10 +3,10 @@
 <!DOCTYPE document [
     <!ENTITY utfx-version "0.0.9 alpha">
 ]>
-<document xmlns="http://utf-x.sourceforge.net/xsd/utfxdoc_1_0/utfxdoc.xsd"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xmlns:utfx="http://utfx.org/test-definition"
-    xsi:schemaLocation="http://utf-x.sourceforge.net/xsd/utfxdoc_1_0/utfxdoc.xsd http://utf-x.sourceforge.net/xsd/utfxdoc_1_0/utfxdoc.xsd">
+<document xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="http://utf-x.sourceforge.net/xsd/utfxdoc_1_0/utfxdoc.xsd ../../lib/utfxdoc/utfxdoc.xsd"
+ xmlns="http://utf-x.sourceforge.net/xsd/utfxdoc_1_0/utfxdoc.xsd"
+ xmlns:utfx="http://utfx.org/test-definition">
     <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
     <title>Manual</title>
     <subtitle>Unit Testing Framework - XSLT</subtitle>
