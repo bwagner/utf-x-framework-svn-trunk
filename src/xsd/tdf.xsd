@@ -16,26 +16,30 @@
   
   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 -->
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://utfx.org/test-definition" xmlns:utfx="http://utfx.org/test-definition">
+<xs:schema elementFormDefault="qualified" targetNamespace="http://utfx.org/test-definition"
+  xmlns:utfx="http://utfx.org/test-definition" xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <xs:import namespace="http://www.w3.org/XML/1998/namespace" schemaLocation="xml.xsd"/>
+
+  <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+  <!-- root element -->
+  <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
   <xs:element name="tests">
     <xs:complexType>
       <xs:sequence>
-        <xs:element ref="utfx:stylesheet"/>
+        <xs:element name="stylesheet" type="utfx:stylesheet"/> 
         <xs:element minOccurs="0" ref="utfx:css"/>
         <xs:element minOccurs="0" ref="utfx:source-validation"/>
         <xs:element minOccurs="0" ref="utfx:expected-validation"/>
         <xs:element minOccurs="0" ref="utfx:source-builder"/>
-        <xs:element minOccurs="0" maxOccurs="unbounded" ref="utfx:test"/>
+        <xs:element maxOccurs="unbounded" minOccurs="0" ref="utfx:test"/>
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="stylesheet">
-    <xs:complexType>
-      <xs:attributeGroup ref="utfx:attlist.utfx.stylesheet"/>
-    </xs:complexType>
-  </xs:element>
-  <xs:attributeGroup name="attlist.utfx.stylesheet">
+
+  <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+  <!-- XLST stylesheet type -->
+  <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+  <xs:complexType name="stylesheet">
     <xs:attribute name="src" use="required"/>
     <xs:attribute name="output">
       <xs:simpleType>
@@ -45,7 +49,9 @@
         </xs:restriction>
       </xs:simpleType>
     </xs:attribute>
-  </xs:attributeGroup>
+  </xs:complexType>
+
+
   <xs:element name="css">
     <xs:complexType>
       <xs:attributeGroup ref="utfx:attlist.utfx.css"/>
@@ -82,7 +88,7 @@
   <xs:element name="constructor-params">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" maxOccurs="unbounded" ref="utfx:param"/>
+        <xs:element maxOccurs="unbounded" minOccurs="0" ref="utfx:param"/>
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -92,7 +98,7 @@
     </xs:complexType>
   </xs:element>
   <xs:attributeGroup name="attlist.utfx.param">
-    <xs:attribute name="type" default="String">
+    <xs:attribute default="String" name="type">
       <xs:simpleType>
         <xs:restriction base="xs:token">
           <xs:enumeration value="String"/>
@@ -117,14 +123,14 @@
   <xs:element name="stylesheet-params">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" maxOccurs="unbounded" ref="utfx:with-param"/>
+        <xs:element maxOccurs="unbounded" minOccurs="0" ref="utfx:with-param"/>
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="call-template">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" maxOccurs="unbounded" ref="utfx:with-param"/>
+        <xs:element maxOccurs="unbounded" minOccurs="0" ref="utfx:with-param"/>
       </xs:sequence>
       <xs:attributeGroup ref="utfx:attlist.utfx.call-template"/>
     </xs:complexType>
@@ -157,7 +163,7 @@
     </xs:complexType>
   </xs:element>
   <xs:attributeGroup name="attlist.utfx.assert-equal">
-    <xs:attribute name="normalise-internal-whitespace" default="no">
+    <xs:attribute default="no" name="normalise-internal-whitespace">
       <xs:simpleType>
         <xs:restriction base="xs:token">
           <xs:enumeration value="yes"/>
@@ -176,7 +182,7 @@
     </xs:complexType>
   </xs:element>
   <xs:attributeGroup name="attlist.utfx.source">
-    <xs:attribute name="validate" default="yes">
+    <xs:attribute default="yes" name="validate">
       <xs:simpleType>
         <xs:restriction base="xs:token">
           <xs:enumeration value="yes"/>
@@ -184,7 +190,7 @@
         </xs:restriction>
       </xs:simpleType>
     </xs:attribute>
-    <xs:attribute name="use-source-parser" default="no">
+    <xs:attribute default="no" name="use-source-parser">
       <xs:simpleType>
         <xs:restriction base="xs:token">
           <xs:enumeration value="yes"/>
@@ -192,7 +198,7 @@
         </xs:restriction>
       </xs:simpleType>
     </xs:attribute>
-    <xs:attribute ref="xml:space" default="preserve"/>
+    <xs:attribute default="preserve" ref="xml:space"/>
     <xs:attribute name="context-node"/>
   </xs:attributeGroup>
   <xs:element name="expected">
@@ -205,7 +211,7 @@
     </xs:complexType>
   </xs:element>
   <xs:attributeGroup name="attlist.utfx.expected">
-    <xs:attribute name="validate" default="yes">
+    <xs:attribute default="yes" name="validate">
       <xs:simpleType>
         <xs:restriction base="xs:token">
           <xs:enumeration value="yes"/>
@@ -213,12 +219,12 @@
         </xs:restriction>
       </xs:simpleType>
     </xs:attribute>
-    <xs:attribute ref="xml:space" default="preserve"/>
+    <xs:attribute default="preserve" ref="xml:space"/>
   </xs:attributeGroup>
   <xs:element name="message" type="xs:string"/>
-  <xs:complexType name="any" mixed="true">
+  <xs:complexType mixed="true" name="any">
     <xs:sequence>
-      <xs:any minOccurs="0" maxOccurs="unbounded" processContents="skip"/>
+      <xs:any maxOccurs="unbounded" minOccurs="0" processContents="skip"/>
     </xs:sequence>
   </xs:complexType>
 </xs:schema>
