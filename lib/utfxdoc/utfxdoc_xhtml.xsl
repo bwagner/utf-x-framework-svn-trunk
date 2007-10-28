@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
- $Id: utfxdoc_xhtml.xsl 59 2007-05-08 03:50:19Z jacekrad $
+ $Id: utfxdoc_xhtml.xsl 66 2007-07-18 03:35:11Z jacekrad $
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 	
  Purpose: UTF-X documentation xhtml stylesheet
@@ -36,7 +36,7 @@
 <xsl:stylesheet version="2.0" xmlns:u="http://utf-x.sourceforge.net/xsd/utfxdoc_1_0/utfxdoc.xsd"
   xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 
-  <xsl:output encoding="UTF-8" indent="no" method="xml"/>
+  <xsl:output encoding="UTF-8" indent="yes" method="xhtml"/>
 
   <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
   <!-- root template -->
@@ -233,6 +233,14 @@
     <p>
       <xsl:apply-templates/>
     </p>
+  </xsl:template>
+
+  <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+  <!-- <element> -->
+  <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+  <xsl:template match="u:element">
+    <span style="color: #781068; font-family: Courier; font-weight:bold;">&lt;<xsl:value-of select="."
+    />&gt;</span>
   </xsl:template>
 
   <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
@@ -573,7 +581,7 @@
       </table>
     </div>
   </xsl:template>
-  
+
   <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
   <!-- highlight element -->
   <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
@@ -582,7 +590,7 @@
       <xsl:apply-templates mode="xmlverb"/>
     </span>
   </xsl:template>
-  
+
   <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
   <!-- element nodes -->
   <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
@@ -654,7 +662,7 @@
       <xsl:text>&#xA;</xsl:text>
     </xsl:if>
   </xsl:template>
-  
+
   <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
   <!-- attribute nodes -->
   <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
@@ -672,7 +680,7 @@
     </span>
     <xsl:text>&quot;</xsl:text>
   </xsl:template>
-  
+
   <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
   <!-- namespace nodes -->
   <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
@@ -692,7 +700,7 @@
       <xsl:text>&quot;</xsl:text>
     </xsl:if>
   </xsl:template>
-  
+
   <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
   <!-- text nodes -->
   <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
@@ -707,7 +715,7 @@
       </xsl:call-template>
     </span>
   </xsl:template>
-  
+
   <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
   <!-- comments -->
   <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
@@ -724,7 +732,7 @@
       <xsl:text>&#xA;</xsl:text>
     </xsl:if>
   </xsl:template>
-  
+
   <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
   <!-- processing instructions -->
   <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
@@ -745,7 +753,7 @@
       <xsl:text>&#xA;</xsl:text>
     </xsl:if>
   </xsl:template>
-  
+
   <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
   <!-- print prefix -->
   <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
@@ -767,7 +775,7 @@
       <xsl:value-of select="$prefix-name"/>
     </span>
   </xsl:template>
-  
+
   <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
   <!-- generate entities by replacing &, ", < and > in $text -->
   <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
@@ -813,7 +821,7 @@
       </xsl:otherwise>
     </xsl:choose>
   </xsl:template>
-  
+
   <!-- replace in $value substring $from with $to -->
   <xsl:template name="replace-substring">
     <xsl:param name="value"/>
@@ -834,7 +842,7 @@
       </xsl:otherwise>
     </xsl:choose>
   </xsl:template>
-  
+
   <!-- preformatted output: space as &nbsp;, tab as 8 &nbsp;
     nl as <br> -->
   <xsl:template name="preformatted-output">
@@ -851,7 +859,7 @@
       </xsl:with-param>
     </xsl:call-template>
   </xsl:template>
-  
+
   <!-- output nl as <br> -->
   <xsl:template name="output-nl">
     <xsl:param name="text"/>
@@ -869,5 +877,5 @@
       </xsl:otherwise>
     </xsl:choose>
   </xsl:template>
-  
+
 </xsl:stylesheet>
