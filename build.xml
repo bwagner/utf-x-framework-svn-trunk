@@ -65,8 +65,8 @@
 	<property name="rendered.samples.dir" location="${build.dir}/rendered_samples" />
 	<property name="testgen.dir" location="testgen" />
 	<property name="testgen.test.dir" location="${testgen.dir}/test" />
-	
-	<property name="release.name.src" value="${release.name}_src"/>
+
+	<property name="release.name.src" value="${release.name}_src" />
 
 
 	<!-- location of the UTF-X Doc libraries -->
@@ -286,10 +286,10 @@
 		the source -->
 	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 	<target name="doc" depends="jar">
-		
-		<mkdir dir="${build.dir}/doc"/>
-		<mkdir dir="${build.dir}/doc/manual"/>
-		<mkdir dir="${build.dir}/doc/devguide"/>
+
+		<mkdir dir="${build.dir}/doc" />
+		<mkdir dir="${build.dir}/doc/manual" />
+		<mkdir dir="${build.dir}/doc/devguide" />
 		<!-- first we run the UTF-X doc preprocessor -->
 		<java classname="utfxdoc.UTFXDocPreProcessor" fork="yes">
 			<assertions>
@@ -308,10 +308,19 @@
 			<classpath refid="runtime.classpath" />
 		</java>
 
-		<xslt style="${utfxdoc}/utfxdoc_xhtml.xsl" in="${build.dir}/doc/manual/manual_pp.xml" out="${build.dir}/doc/manual/manual.html"/>
-		<xslt style="${utfxdoc}/utfxdoc_xhtml.xsl" in="${build.dir}/doc/devguide/devguide_pp.xml" out="${build.dir}/doc/devguide/devguide.html"/>
-		<xslt style="${utfxdoc}/utfxdoc_fo.xsl" in="${build.dir}/doc/manual/manual_pp.xml" out="${build.dir}/doc/manual/manual.fo"/>
+		<xslt style="${utfxdoc}/utfxdoc_xhtml.xsl" in="${build.dir}/doc/manual/manual_pp.xml" out="${build.dir}/doc/manual/manual.html">
+			<classpath location="lib/saxon8.jar" />
+		</xslt>
+
+		<xslt style="${utfxdoc}/utfxdoc_xhtml.xsl" in="${build.dir}/doc/devguide/devguide_pp.xml" out="${build.dir}/doc/devguide/devguide.html">
+			<classpath location="lib/saxon8.jar" />
+		</xslt>
+
+		<xslt style="${utfxdoc}/utfxdoc_fo.xsl" in="${build.dir}/doc/manual/manual_pp.xml" out="${build.dir}/doc/manual/manual.fo">
+			<classpath location="lib/saxon8.jar" />
+		</xslt>
 		<xslt style="${utfxdoc}/utfxdoc_fo.xsl" in="${build.dir}/doc/devguide/devguide_pp.xml" out="${build.dir}/doc/devguide/devguide.fo">
+			<classpath location="lib/saxon8.jar" />
 			<xmlcatalog refid="catalog" />
 		</xslt>
 
