@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
- $Id: utfxdoc_xhtml.xsl 66 2007-07-18 03:35:11Z jacekrad $
+ $Id: utfxdoc_xhtml.xsl 86 2007-10-28 16:20:10Z jacekrad $
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 	
  Purpose: UTF-X documentation xhtml stylesheet
@@ -36,7 +36,7 @@
 <xsl:stylesheet version="2.0" xmlns:u="http://utf-x.sourceforge.net/xsd/utfxdoc_1_0/utfxdoc.xsd"
   xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 
-  <xsl:output encoding="UTF-8" indent="yes" method="xhtml"/>
+  <xsl:output encoding="UTF-8" indent="no" method="html"/>
 
   <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
   <!-- root template -->
