@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<!--
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    $Id: xml.xsd 4 2007-02-13 22:50:13Z jacekrad $
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    
+    Purpose: UTF-X Doc W3C Schema.
+    
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    $HeadURL: https://utfx-doc.svn.sourceforge.net/svnroot/utfx-doc/utfx-doc-core/trunk/xsd/xml.xsd $
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    
+    
+    Copyright(C) 2004-2006 UTF-X Development Team.
+    
+    You may redistribute and/or modify this file under the terms of the
+    GNU General Public License v2.
+    
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-->
+<schema targetNamespace="http://www.w3.org/XML/1998/namespace" xmlns:xml="http://www.w3.org/XML/1998/namespace"
+    xmlns="http://www.w3.org/2001/XMLSchema">
+
+    <attribute name="lang" type="language"/>
+
+    <attribute name="space" default="preserve">
+        <simpleType>
+            <restriction base="NCName">
+                <enumeration value="default"/>
+                <enumeration value="preserve"/>
+            </restriction>
+        </simpleType>
+    </attribute>
+
+    <attributeGroup name="specialAttrs">
+        <attribute ref="xml:lang"/>
+        <attribute ref="xml:space"/>
+    </attributeGroup>
+</schema>
