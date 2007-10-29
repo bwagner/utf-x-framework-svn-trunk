@@ -18,6 +18,7 @@
 -->
 <xs:schema elementFormDefault="qualified" targetNamespace="http://utfx.org/test-definition"
   xmlns:utfx="http://utfx.org/test-definition" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
   <xs:import namespace="http://www.w3.org/XML/1998/namespace" schemaLocation="xml.xsd"/>
 
   <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
@@ -26,8 +27,8 @@
   <xs:element name="tests">
     <xs:complexType>
       <xs:sequence>
-        <xs:element name="stylesheet" type="utfx:stylesheet"/> 
-        <xs:element minOccurs="0" ref="utfx:css"/>
+        <xs:element name="stylesheet" type="utfx:stylesheet"/>
+        <xs:element minOccurs="0" name="css" type="utfx:css"/>
         <xs:element minOccurs="0" ref="utfx:source-validation"/>
         <xs:element minOccurs="0" ref="utfx:expected-validation"/>
         <xs:element minOccurs="0" ref="utfx:source-builder"/>
@@ -40,8 +41,13 @@
   <!-- XLST stylesheet type -->
   <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
   <xs:complexType name="stylesheet">
-    <xs:attribute name="src" use="required"/>
-    <xs:attribute name="output">
+    <xs:attribute name="src" use="required">
+      <xs:annotation>
+        <xs:documentation>Relative URI pointing to the XSLT stylesheet that is being
+        tested</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="output" use="optional">
       <xs:simpleType>
         <xs:restriction base="xs:token">
           <xs:enumeration value="xhtml"/>
@@ -51,31 +57,42 @@
     </xs:attribute>
   </xs:complexType>
 
+  <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+  <!-- CSS stylesheet type -->
+  <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+  <xs:complexType name="css">
+    <xs:annotation>
+      <xs:documentation>Can be used when the output produced by the XSLT stylesheet is HTML styled
+        by an external CSS stylesheet. Path to this CSS can be specified here so the HTML rendition
+        of the test definition file uses the same CSS stylesheet.</xs:documentation>
+    </xs:annotation>
+    <xs:attribute name="uri" use="required">
+      <xs:annotation>
+        <xs:documentation>Relative URI pointing to the CSS stylesheet.</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+  </xs:complexType>
 
-  <xs:element name="css">
-    <xs:complexType>
-      <xs:attributeGroup ref="utfx:attlist.utfx.css"/>
-    </xs:complexType>
-  </xs:element>
-  <xs:attributeGroup name="attlist.utfx.css">
-    <xs:attribute name="uri" use="required"/>
-  </xs:attributeGroup>
   <xs:element name="source-validation" type="utfx:utfx.dtd"/>
   <xs:element name="expected-validation" type="utfx:utfx.dtd"/>
+
   <xs:complexType name="utfx.dtd">
     <xs:sequence>
       <xs:element ref="utfx:dtd"/>
     </xs:sequence>
   </xs:complexType>
+
   <xs:element name="dtd">
     <xs:complexType>
       <xs:attributeGroup ref="utfx:attlist.utfx.dtd"/>
     </xs:complexType>
   </xs:element>
+
   <xs:attributeGroup name="attlist.utfx.dtd">
     <xs:attribute name="public"/>
     <xs:attribute name="system" use="required"/>
   </xs:attributeGroup>
+
   <xs:element name="source-builder">
     <xs:complexType>
       <xs:sequence>
@@ -84,7 +101,9 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+
   <xs:element name="class-name" type="xs:string"/>
+
   <xs:element name="constructor-params">
     <xs:complexType>
       <xs:sequence>
@@ -92,11 +111,13 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+
   <xs:element name="param">
     <xs:complexType mixed="true">
       <xs:attributeGroup ref="utfx:attlist.utfx.param"/>
     </xs:complexType>
   </xs:element>
+
   <xs:attributeGroup name="attlist.utfx.param">
     <xs:attribute default="String" name="type">
       <xs:simpleType>
@@ -109,6 +130,7 @@
       </xs:simpleType>
     </xs:attribute>
   </xs:attributeGroup>
+
   <xs:element name="test">
     <xs:complexType>
       <xs:sequence>
@@ -120,6 +142,7 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+
   <xs:element name="stylesheet-params">
     <xs:complexType>
       <xs:sequence>
@@ -127,6 +150,7 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+
   <xs:element name="call-template">
     <xs:complexType>
       <xs:sequence>
@@ -135,9 +159,11 @@
       <xs:attributeGroup ref="utfx:attlist.utfx.call-template"/>
     </xs:complexType>
   </xs:element>
+
   <xs:attributeGroup name="attlist.utfx.call-template">
     <xs:attribute name="name" use="required"/>
   </xs:attributeGroup>
+
   <xs:element name="with-param">
     <xs:complexType>
       <xs:complexContent>
@@ -147,11 +173,14 @@
       </xs:complexContent>
     </xs:complexType>
   </xs:element>
+
   <xs:attributeGroup name="attlist.utfx.with-param">
     <xs:attribute name="name" use="required"/>
     <xs:attribute name="select"/>
   </xs:attributeGroup>
+
   <xs:element name="name" type="xs:string"/>
+
   <xs:element name="assert-equal">
     <xs:complexType>
       <xs:sequence>
@@ -162,6 +191,7 @@
       <xs:attributeGroup ref="utfx:attlist.utfx.assert-equal"/>
     </xs:complexType>
   </xs:element>
+
   <xs:attributeGroup name="attlist.utfx.assert-equal">
     <xs:attribute default="no" name="normalise-internal-whitespace">
       <xs:simpleType>
@@ -172,6 +202,7 @@
       </xs:simpleType>
     </xs:attribute>
   </xs:attributeGroup>
+
   <xs:element name="source">
     <xs:complexType>
       <xs:complexContent>
@@ -181,7 +212,9 @@
       </xs:complexContent>
     </xs:complexType>
   </xs:element>
+
   <xs:attributeGroup name="attlist.utfx.source">
+
     <xs:attribute default="yes" name="validate">
       <xs:simpleType>
         <xs:restriction base="xs:token">
@@ -190,17 +223,23 @@
         </xs:restriction>
       </xs:simpleType>
     </xs:attribute>
-    <xs:attribute default="no" name="use-source-parser">
-      <xs:simpleType>
-        <xs:restriction base="xs:token">
-          <xs:enumeration value="yes"/>
-          <xs:enumeration value="no"/>
-        </xs:restriction>
-      </xs:simpleType>
+
+    <xs:attribute default="false" name="use-source-parser" type="xs:boolean">
+      <xs:annotation>
+        <xs:documentation/>
+      </xs:annotation>
     </xs:attribute>
-    <xs:attribute default="preserve" ref="xml:space"/>
-    <xs:attribute name="context-node"/>
+
+    <xs:attribute default="preserve" ref="xml:space">
+      <xs:annotation>
+        <xs:documentation>This attribute is ignored by the UTF-X framework</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+
+    <xs:attribute name="context-node" use="optional"/>
+    <xs:attribute name="select" type="xs:string" use="optional"/>
   </xs:attributeGroup>
+
   <xs:element name="expected">
     <xs:complexType>
       <xs:complexContent>
@@ -210,6 +249,7 @@
       </xs:complexContent>
     </xs:complexType>
   </xs:element>
+
   <xs:attributeGroup name="attlist.utfx.expected">
     <xs:attribute default="yes" name="validate">
       <xs:simpleType>
@@ -221,7 +261,9 @@
     </xs:attribute>
     <xs:attribute default="preserve" ref="xml:space"/>
   </xs:attributeGroup>
+
   <xs:element name="message" type="xs:string"/>
+
   <xs:complexType mixed="true" name="any">
     <xs:sequence>
       <xs:any maxOccurs="unbounded" minOccurs="0" processContents="skip"/>
