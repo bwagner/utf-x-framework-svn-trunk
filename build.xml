@@ -388,7 +388,7 @@
 
 		<java classname="${testrunner}" fork="yes">
 			<jvmarg value="-Djavax.xml.transform.TransformerFactory=${transformer_factory_impl}" />
-			<jvmarg value="-Dutfx.test.file=tests/test/broken_stylesheet_test.xml" />
+			<jvmarg value="-Dutfx.test.file=tests/error/test/broken_stylesheet_test.xml" />
 			<jvmarg value="-enableassertions" />
 			<arg value="utfx.framework.XSLTRegressionTest" />
 			<classpath refid="runtime.classpath" />
