@@ -8,8 +8,7 @@ import junit.framework.TestSuite;
  * utfx.util Test Suite.
  * 
  * <p>
- * Copyright &copy; 2004 - <a href="http://www.usq.edu.au"> University of
- * Southern Queensland. </a>
+ * Copyright &copy; 2007 UTF-X Development Team.
  * </p>
  * 
  * <p>
@@ -26,11 +25,12 @@ import junit.framework.TestSuite;
  * </p>
  * 
  * <code>
- * $Source: /cvs/utf-x/framework/src/java/utfx/util/test/PackageTestSuite.java,v $
+ * $Source: $
  * </code>
  * 
  * @author Jacek Radajewski
- * @version $Revision$ $Name:  $
+ * @author Alex Daniel
+ * @version $Revision$ $Date$ $Name: $
  */
 public class PackageTestSuite extends TestCase {
 
@@ -48,7 +48,8 @@ public class PackageTestSuite extends TestCase {
         TestSuite suite = new TestSuite("utfx.util");
 
         suite.addTest(CanonicalFormTest.suite());
-        suite.addTest(DOMWriterTest.suite());        
+        suite.addTest(DOMWriterTest.suite());
+        suite.addTest(SourceSerializerTest.suite());
 
         return suite;
     }

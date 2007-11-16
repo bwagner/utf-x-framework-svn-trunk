@@ -350,12 +350,14 @@
 	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 	<target name="tests" depends="jar">
 
+		<echo>Good tests:</echo>
 		<java classname="${testrunner}" fork="yes">
 			<jvmarg value="-enableassertions" />
 			<arg value="utfx.test.TestsRegressionTest" />
 			<classpath refid="runtime.classpath" />
 		</java>
-
+		<echo>All of the above tests should have executed without failures/errors.</echo>
+		<echo>====================================================================</echo>
 
 		<echo>Error tests:</echo>
 		<java classname="${testrunner}" fork="yes">
@@ -366,7 +368,7 @@
 			<classpath refid="runtime.classpath" />
 		</java>
 		<echo>All of the above tests should have generated an error.</echo>
-		<echo />
+		<echo>======================================================</echo>
 
 		<echo>Failing tests:</echo>
 		<java classname="${testrunner}" fork="yes">
@@ -377,6 +379,7 @@
 			<classpath refid="runtime.classpath" />
 		</java>
 		<echo>All of the above tests should have failed.</echo>
+		<echo>==========================================</echo>
 
 	</target>
 

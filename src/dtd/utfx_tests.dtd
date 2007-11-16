@@ -77,7 +77,8 @@
 <!ATTLIST utfx:source validate (yes | no) "yes"
                       use-source-parser (yes | no) "no"
                       xml:space (preserve | default) "preserve"
-                      context-node CDATA #IMPLIED>
+                      context-node CDATA #IMPLIED
+                      href CDATA #IMPLIED>
 
 <!ELEMENT utfx:expected ANY>
 

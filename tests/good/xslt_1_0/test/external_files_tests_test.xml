@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../../../src/xsl/test_definition_xhtml.xsl"?>
+<!--
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    $Id: named_template_param_tests_test.xml 67 2006-11-18 00:40:44Z jacekrad $
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    Purpose: Testing using external files feature of utfx:source and utfx:expected 
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    Copyright(C) 2006 UTF-X Developers.
+    This program is free software; you can redistribute it and/or modify
+    it under the terms of the GNU General Public License v2 as published
+    by the Free Software Foundation (http://www.gnu.org/licenses/gpl.txt)
+    This program is distributed in the hope that it will be useful, but
+    WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+    General Public License for more details.
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-->
+<!DOCTYPE utfx:tests PUBLIC "-//UTF-X//DTD utfx-tests 1.0//EN" "utfx_tests.dtd">
+<utfx:tests xmlns:utfx="http://utfx.org/test-definition">
+    <utfx:stylesheet src="external_files_tests.xsl"/>
+
+    <utfx:source-builder>
+        <utfx:class-name>utfx.framework.DefaultSourceParser</utfx:class-name>
+        <utfx:constructor-params/>
+    </utfx:source-builder>
+    
+    <utfx:test>
+        <utfx:name>utfx:source with external file in same directory</utfx:name>
+        <utfx:assert-equal>
+            <utfx:source href="external_files_tests_file.xml"/>
+            <utfx:expected>
+                <file name="external_files_tests_file.xml">
+                    <content>
+                        <para>Using an external file for utfx:source in a TDF</para>
+                    </content>
+                </file>
+            </utfx:expected>
+        </utfx:assert-equal>
+    </utfx:test>
+
+    <utfx:test>
+        <utfx:name>utfx:source with relative path</utfx:name>
+        <utfx:assert-equal>
+            <utfx:source href="../test/external_files_tests_file.xml"/>
+            <utfx:expected>
+                <file name="external_files_tests_file.xml">
+                    <content>
+                        <para>Using an external file for utfx:source in a TDF</para>
+                    </content>
+                </file>
+            </utfx:expected>
+        </utfx:assert-equal>
+    </utfx:test>
+
+    <!-- Commented out because an test with an absolute path can't be executed on another environment
+    <utfx:test>
+        <utfx:name>utfx:source with absolute path</utfx:name>
+        <utfx:assert-equal>
+            <utfx:source href="/Users/alex/src/workspace/utf-x-framework/tests/good/xslt_1_0/test/external_files_tests_file.xml"/>
+            <utfx:expected>
+                <file name="external_files_tests_file.xml">
+                    <content>
+                        <para>Using an external file for utfx:source in a TDF</para>
+                    </content>
+                </file>
+            </utfx:expected>
+        </utfx:assert-equal>
+    </utfx:test>
+    -->
+
+    <utfx:test>
+        <utfx:name>utfx:source with href in combination with SourceParser</utfx:name>
+        <utfx:assert-equal>
+            <utfx:source href="external_files_tests_file.xml" use-source-parser="yes"/>
+            <utfx:expected>
+                <file name="external_files_tests_file.xml">
+                    <content>
+                        <para>Using an external file for utfx:source in a TDF</para>
+                    </content>
+                </file>
+            </utfx:expected>
+        </utfx:assert-equal>
+    </utfx:test>
+
+ </utfx:tests>

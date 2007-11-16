@@ -31,6 +31,7 @@ import junit.framework.TestSuite;
  * @author Jacek Radajewski
  * @author Oliver Lucido
  * @author Sally MacFarlane
+ * @author Alex Daniel
  * @version $Revision$ $Date$ $Name:  $
  */
 public class XSLTTestFileSuite extends TestSuite {
@@ -191,4 +192,14 @@ public class XSLTTestFileSuite extends TestSuite {
     public SourceParser getDefaultSourceBuilder() {
         return defaultSourceBuilder;
     }
+    
+    /**
+     * Return the test definition file (TDF) uses by this file TestSuite
+     * 
+     * @return TDF
+     */
+    public File getFile() {
+        return file;
+    }
+    
 }

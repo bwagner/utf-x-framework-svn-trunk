@@ -221,6 +221,17 @@
 	</utfx:test>
 
 	<utfx:test>
+		<utfx:name>call-template with empty utfx:source</utfx:name>
+		<utfx:call-template name="d"/>
+		<utfx:assert-equal>
+			<utfx:source/>
+			<utfx:expected>
+				<d>named template</d>
+			</utfx:expected>
+		</utfx:assert-equal>	
+	</utfx:test>
+	
+	<utfx:test>
 		<utfx:name>test whitespace normalisation inside element</utfx:name>
 		<utfx:assert-equal normalise-internal-whitespace="yes">
 			<utfx:source>

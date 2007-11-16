@@ -65,5 +65,42 @@
             <utfx:message>some failure message</utfx:message>
         </utfx:assert-equal>
     </utfx:test>
-      
+
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <!-- test case 3 -->
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <utfx:test>
+        <utfx:name>test case 3 for testing href in utfx:source with relative path</utfx:name>
+        <utfx:assert-equal>
+            <utfx:source validate="no" href="xslt_transform_test_case_test_1_input.xml"/>            
+            <utfx:expected validate="no">
+                <file name="xslt_transform_test_case_test_1_input.xml">
+                    <content>
+                        <para>Using an external file for utfx:source in a TDF</para>
+                    </content>
+                </file>
+            </utfx:expected>
+        </utfx:assert-equal>
+    </utfx:test>
+
+    <!-- Commented out because an test with an absolute path can't be executed on another environment -->
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <!-- test case 4 -->
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <!-- 
+    <utfx:test>
+        <utfx:name>test case 4 for testing href in utfx:source with absolute path</utfx:name>
+        <utfx:assert-equal>
+            <utfx:source validate="no" href="/Users/alex/src/workspace/utf-x-framework/src/java/utfx/framework/test/xslt_transform_test_case_test_1_input.xml"/>            
+            <utfx:expected validate="no">
+                <file name="xslt_transform_test_case_test_1_input.xml">
+                    <content>
+                        <para>Using an external file for utfx:source in a TDF</para>
+                    </content>
+                </file>
+            </utfx:expected>
+        </utfx:assert-equal>
+    </utfx:test>
+    -->
+    
 </utfx:tests>

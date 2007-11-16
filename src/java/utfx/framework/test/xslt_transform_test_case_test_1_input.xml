@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    $Id: named_template_param_tests_test.xml 67 2006-11-18 00:40:44Z jacekrad $
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    Purpose: serves as source for TDF xslt_transform_test_case_test_1.xml 
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    Copyright(C) 2006 UTF-X Developers.
+    This program is free software; you can redistribute it and/or modify
+    it under the terms of the GNU General Public License v2 as published
+    by the Free Software Foundation (http://www.gnu.org/licenses/gpl.txt)
+    This program is distributed in the hope that it will be useful, but
+    WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+    General Public License for more details.
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-->
+<file name="xslt_transform_test_case_test_1_input.xml">
+    <content>
+        <para>Using an external file for utfx:source in a TDF</para>
+    </content>
+</file>
