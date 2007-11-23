@@ -83,4 +83,26 @@
         </utfx:assert-equal>
     </utfx:test>
 
+    <utfx:test>
+        <utfx:name>utfx:expected with external file in same directory</utfx:name>
+        <utfx:assert-equal>
+            <utfx:source>
+                <file name="external_files_tests_file.xml">
+                    <content>
+                        <para>Using an external file for utfx:source in a TDF</para>
+                    </content>
+                </file>                
+            </utfx:source>
+            <utfx:expected href="external_files_tests_file.xml"/>
+        </utfx:assert-equal>
+    </utfx:test>
+
+    <utfx:test>
+        <utfx:name>utfx:source and utfx:expected with external file</utfx:name>
+        <utfx:assert-equal>
+            <utfx:source href="external_files_tests_file.xml"/>
+            <utfx:expected href="external_files_tests_file.xml"/>
+        </utfx:assert-equal>
+    </utfx:test>
+    
  </utfx:tests>
