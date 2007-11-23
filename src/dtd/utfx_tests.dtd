@@ -83,7 +83,8 @@
 <!ELEMENT utfx:expected ANY>
 
 <!ATTLIST utfx:expected validate (yes | no) "yes"
-                        xml:space (preserve | default) "preserve">
+                        xml:space (preserve | default) "preserve"
+                        href CDATA #IMPLIED>
 
 <!ELEMENT utfx:message (#PCDATA)>
 

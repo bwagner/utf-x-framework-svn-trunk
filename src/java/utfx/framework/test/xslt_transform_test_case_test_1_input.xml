@@ -17,6 +17,6 @@
 -->
 <file name="xslt_transform_test_case_test_1_input.xml">
     <content>
-        <para>Using an external file for utfx:source in a TDF</para>
+        <para>Using an external file in a TDF</para>
     </content>
 </file>

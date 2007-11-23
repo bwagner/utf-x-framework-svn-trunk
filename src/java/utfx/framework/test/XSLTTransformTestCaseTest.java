@@ -55,10 +55,10 @@ public class XSLTTransformTestCaseTest extends UTFXTestCase {
      */
     private XSLTTestFileSuite fileSuite;
 
-    private XSLTTransformTestCase tc1, tc2, tc3;
+    private XSLTTransformTestCase tc1, tc2, tcSourceWithHref, tcExpectedWithHref;
     
-    // Commented out because an test with an absolute path can't be executed on another environment
-    // private XSLTTransformTestCase tc4;
+    // Commented out because an test with an absolute external path can't be executed on another environment
+    // private XSLTTransformTestCase tcSourceWithHrefAbsolute;
 
     public XSLTTransformTestCaseTest() throws Exception {
         super("XSLTTransformTestCaseTest");
@@ -73,11 +73,14 @@ public class XSLTTransformTestCaseTest extends UTFXTestCase {
         tc2 = (XSLTTransformTestCase) fileSuite.testAt(3);
 
         // third test case has no XML validation test cases
-        tc3 = (XSLTTransformTestCase) fileSuite.testAt(4);
+        tcSourceWithHref = (XSLTTransformTestCase) fileSuite.testAt(4);
 
-        // Commented out because an test with an absolute path can't be executed on another environment
-        // fourth test case has no XML validation test cases
-        // tc4 = (XSLTTransformTestCase) fileSuite.testAt(5);
+        // third test case has no XML validation test cases
+        tcExpectedWithHref = (XSLTTransformTestCase) fileSuite.testAt(5);
+        
+        // Commented out because an test with an absolute external path can't be executed on another environment
+        // fifth test case has no XML validation test cases
+        // tcSourceWithHrefAbsolute = (XSLTTransformTestCase) fileSuite.testAt(6);
 
         sourceSerializer = new SourceSerializer();
     }
@@ -105,28 +108,6 @@ public class XSLTTransformTestCaseTest extends UTFXTestCase {
         assertEquals(false, tc1.useSourceParser());
     }
     
-    public void testProcessNode_getExternalSourceFile1() {
-        try {
-            tc1.getExternalSourceFile();
-            fail("expected AssertionError");
-        } catch (AssertionError e) {
-            // expected AssertionError occured
-        }
-    }
-
-    public void testGetExternalSourcePath1() {
-        try {
-            tc1.getExternalSourcePath();
-            fail("expected AssertionError");
-        } catch (AssertionError e) {
-            // expected AssertionError occured
-        }
-    }
-    
-    public void testProcessNode_useExternalSourceFile1() {
-        assertFalse(tc1.useExternalSourceFile());
-    }
-    
     public void testProcessNode_transformSource1() throws Exception {
         String expectedXml = 
             "<?xml version=\"1.0\" encoding=\"UTF-8\"?>" + 
@@ -137,12 +118,14 @@ public class XSLTTransformTestCaseTest extends UTFXTestCase {
         assertEquivXML(expectedXml, actualXml);
     }
     
-    public void testIsAbsolutePathFalse1() {
-        assertFalse(tc1.isAbsolutePath("utfx"));
-    }
-    
-    public void testIsAbsolutePathTrue1() {
-        assertTrue(tc1.isAbsolutePath("/tmp/utfx"));
+    public void testGetExpectedString1() throws Exception {
+        String expectedXml =
+            "<?xml version=\"1.0\" encoding=\"UTF-8\"?>" + 
+            "<utfx-wrapper>" + 
+            "  <expected-child>some content</expected-child>" +
+            "</utfx-wrapper>"; 
+        String actualXml = tc1.getExpectedString();
+        assertEquivXML(expectedXml, actualXml);
     }
     
         
@@ -162,28 +145,6 @@ public class XSLTTransformTestCaseTest extends UTFXTestCase {
 
     public void testProcessNode_useSourceParser2() throws Exception {
         assertEquals(true, tc2.useSourceParser());
-    }
-
-    public void testProcessNode_getExternalSourceFile2() {
-        try {
-            tc2.getExternalSourceFile();
-            fail("expected AssertionError");
-        } catch (AssertionError e) {
-            // expected AssertionError occured
-        }
-    }
-
-    public void testGetExternalSourcePath2() {
-        try {
-            tc2.getExternalSourcePath();
-            fail("expected AssertionError");
-        } catch (AssertionError e) {
-            // expected AssertionError occured
-        }
-    }
-
-    public void testProcessNode_useExternalSourceFile2() {
-        assertFalse(tc2.useExternalSourceFile());
     }
 
     public void testSerialiseNode() throws Exception {
@@ -210,35 +171,35 @@ public class XSLTTransformTestCaseTest extends UTFXTestCase {
         assertEquivXML(expectedXml, actualXml);
     }
 
+    public void testGetExpectedString2() throws Exception {
+        String expectedXml =
+            "<?xml version=\"1.0\" encoding=\"UTF-8\"?>" + 
+            "<utfx-wrapper>" + 
+            "  <expected-root>" +
+            "    <expected-child>child</expected-child>" +
+            "  </expected-root>" +
+            "</utfx-wrapper>"; 
+        String actualXml = tc2.getExpectedString();
+        assertEquivXML(expectedXml, actualXml);
+    }
+
     
     // using UTFX test case 3
 
     public void testProcessNode_getFailureMessage3() throws Exception {
-        assertEquals("UTF-X test failed", tc3.getFailureMessage());
+        assertEquals("UTF-X test failed", tcSourceWithHref.getFailureMessage());
     }
 
     public void testProcessNode_validateSource3() throws Exception {
-        assertEquals(false, tc3.validateSource());
+        assertEquals(false, tcSourceWithHref.validateSource());
     }
 
     public void testProcessNode_validateExpected3() throws Exception {
-        assertEquals(false, tc3.validateExpected());
+        assertEquals(false, tcSourceWithHref.validateExpected());
     }
 
     public void testProcessNode_useSourceParser3() throws Exception {
-        assertEquals(false, tc3.useSourceParser());
-    }
-
-    public void testProcessNode_getExternalSourceFile3() {
-        assertEquals("xslt_transform_test_case_test_1_input.xml", tc3.getExternalSourceFile());
-    }
-
-    public void testGetExternalSourcePath3() {
-        assertEquals(testDir + "xslt_transform_test_case_test_1_input.xml", tc3.getExternalSourcePath());
-    }
-
-    public void testProcessNode_useExternalSourceFile3() {
-        assertTrue(tc3.useExternalSourceFile());
+        assertEquals(false, tcSourceWithHref.useSourceParser());
     }
 
     public void testProcessNode_transformSource3() throws Exception {
@@ -247,57 +208,106 @@ public class XSLTTransformTestCaseTest extends UTFXTestCase {
             "<utfx-wrapper>" + 
             "  <file name=\"xslt_transform_test_case_test_1_input.xml\">" +
             "    <content>" +
-            "      <para>Using an external file for utfx:source in a TDF</para>" +
+            "      <para>Using an external file in a TDF</para>" +
             "    </content>" +
             "  </file>" +
             "</utfx-wrapper>";
-        String actualXml = sourceSerializer.serialize(tc3.getTransformSource()); 
+        String actualXml = sourceSerializer.serialize(tcSourceWithHref.getTransformSource()); 
+        assertEquivXML(expectedXml, actualXml);
+    }
+
+    public void testGetExpectedString3() throws Exception {
+        String expectedXml = 
+            "<?xml version=\"1.0\" encoding=\"UTF-8\"?>" + 
+            "<utfx-wrapper>" + 
+            "  <file name=\"xslt_transform_test_case_test_1_input.xml\">" +
+            "    <content>" +
+            "      <para>Using an external file in a TDF</para>" +
+            "    </content>" +
+            "  </file>" +
+            "</utfx-wrapper>";
+        String actualXml = tcSourceWithHref.getExpectedString();
         assertEquivXML(expectedXml, actualXml);
     }
 
     
-    // Commented out because an test with an absolute path can't be executed on another environment
     // using UTFX test case 4
-    //    
-    //    public void testProcessNode_getFailureMessage4() throws Exception {
-    //        assertEquals("UTF-X test failed", tc4.getFailureMessage());
+
+    public void testProcessNode_getFailureMessage4() throws Exception {
+        assertEquals("UTF-X test failed", tcExpectedWithHref.getFailureMessage());
+    }
+
+    public void testProcessNode_validateSource4() throws Exception {
+        assertEquals(false, tcExpectedWithHref.validateSource());
+    }
+
+    public void testProcessNode_validateExpected4() throws Exception {
+        assertEquals(false, tcExpectedWithHref.validateExpected());
+    }
+
+    public void testProcessNode_useSourceParser4() throws Exception {
+        assertEquals(false, tcExpectedWithHref.useSourceParser());
+    }
+
+    public void testProcessNode_transformSource4() throws Exception {
+        String expectedXml = 
+            "<?xml version=\"1.0\" encoding=\"UTF-8\"?>" + 
+            "<utfx-wrapper>" + 
+            "  <file name=\"xslt_transform_test_case_test_1_input.xml\">" +
+            "    <content>" +
+            "      <para>Using an external file in a TDF</para>" +
+            "    </content>" +
+            "  </file>" +
+            "</utfx-wrapper>";
+        String actualXml = sourceSerializer.serialize(tcExpectedWithHref.getTransformSource()); 
+        assertEquivXML(expectedXml, actualXml);
+    }
+
+    public void testGetExpectedString4() throws Exception {
+        String expectedXml = 
+            "<?xml version=\"1.0\" encoding=\"UTF-8\"?>" + 
+            "<utfx-wrapper>" + 
+            "  <file name=\"xslt_transform_test_case_test_1_input.xml\">" +
+            "    <content>" +
+            "      <para>Using an external file in a TDF</para>" +
+            "    </content>" +
+            "  </file>" +
+            "</utfx-wrapper>";
+        String actualXml = tcExpectedWithHref.getExpectedString();
+        assertEquivXML(expectedXml, actualXml);
+    }
+
+   
+    // Commented out because an test with an absolute external path can't be executed on another environment
+    // using UTFX test case 5
+    //
+    //    public void testProcessNode_getFailureMessage5() throws Exception {
+    //        assertEquals("UTF-X test failed", tcSourceWithHrefAbsolute.getFailureMessage());
     //    }
     //
-    //    public void testProcessNode_validateSource4() throws Exception {
-    //        assertEquals(false, tc4.validateSource());
+    //    public void testProcessNode_validateSource5() throws Exception {
+    //        assertEquals(false, tcSourceWithHrefAbsolute.validateSource());
     //    }
     //
-    //    public void testProcessNode_validateExpected4() throws Exception {
-    //        assertEquals(false, tc4.validateExpected());
+    //    public void testProcessNode_validateExpected5() throws Exception {
+    //        assertEquals(false, tcSourceWithHrefAbsolute.validateExpected());
     //    }
     //
-    //    public void testProcessNode_useSourceParser4() throws Exception {
-    //        assertEquals(false, tc4.useSourceParser());
+    //    public void testProcessNode_useSourceParser5() throws Exception {
+    //        assertEquals(false, tcSourceWithHrefAbsolute.useSourceParser());
     //    }
     //
-    //    public void testProcessNode_getExternalSourceFile4() {
-    //        assertEquals("/Users/alex/src/workspace/utf-x-framework/src/java/utfx/framework/test/xslt_transform_test_case_test_1_input.xml", tc4.getExternalSourceFile());
-    //    }
-    //
-    //    public void testGetExternalSourcePath4() {
-    //        assertEquals("/Users/alex/src/workspace/utf-x-framework/src/java/utfx/framework/test/xslt_transform_test_case_test_1_input.xml", tc4.getExternalSourcePath());
-    //    }
-    //
-    //    public void testProcessNode_useExternalSourceFile4() {
-    //        assertTrue(tc4.useExternalSourceFile());
-    //    }
-    //
-    //    public void testProcessNode_transformSource4() throws Exception {
+    //    public void testProcessNode_transformSource5() throws Exception {
     //        String expectedXml = 
     //            "<?xml version=\"1.0\" encoding=\"UTF-8\"?>" + 
     //            "<utfx-wrapper>" + 
     //            "  <file name=\"xslt_transform_test_case_test_1_input.xml\">" +
     //            "    <content>" +
-    //            "      <para>Using an external file for utfx:source in a TDF</para>" +
+    //            "      <para>Using an external file in a TDF</para>" +
     //            "    </content>" +
     //            "  </file>" +
     //            "</utfx-wrapper>";
-    //        String actualXml = sourceSerializer.serialize(tc4.getTransformSource()); 
+    //        String actualXml = sourceSerializer.serialize(tcSourceWithHrefAbsolute.getTransformSource()); 
     //        assertEquivXML(expectedXml, actualXml);
     //    }
 

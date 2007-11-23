@@ -2,15 +2,10 @@ package utfx.framework;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
-import java.io.File;
-import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.io.InputStream;
 import java.lang.reflect.InvocationTargetException;
 
-import javax.xml.parsers.DocumentBuilder;
-import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.transform.Source;
 import javax.xml.transform.Transformer;
@@ -21,7 +16,6 @@ import javax.xml.xpath.XPathExpressionException;
 import javax.xml.xpath.XPathFactory;
 
 import org.apache.log4j.Logger;
-import org.apache.xml.resolver.tools.CatalogResolver;
 import org.w3c.dom.DOMConfiguration;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
@@ -34,8 +28,6 @@ import org.w3c.dom.ls.LSSerializer;
 import org.xml.sax.SAXException;
 
 import utfx.util.DOMWriter;
-
-import com.sun.org.apache.xpath.internal.NodeSet;
 
 /**
  * JUnit extension for testing XSLT stylesheets.
@@ -116,11 +108,11 @@ public class XSLTTransformTestCase extends UTFXTestCase {
 
     private boolean useSourceParser = false;
     
-    /** value of href attribute in &lt;utfx:source&gt; 
-     *  null if href attribute is not present
-     *  @see getExternalSourceFile() and useExternalSourceFile()
-     */
-    private String externalSourceFile;
+    /** value of href attribute in &lt;utfx:source&gt; */ 
+    private ExternalFile externalSourceFile;
+
+    /** value of href attribute in &lt;utfx:expected&gt; */ 
+    private ExternalFile externalExpectedFile;
 
     private String expectedDocType;
 
@@ -150,66 +142,7 @@ public class XSLTTransformTestCase extends UTFXTestCase {
     public boolean useSourceParser() {
         return useSourceParser;
     }
-
-    /**
-     * Get the <code>externalSourceFile</code> value.
-     * 
-     * @return value of href attribute on &lt;utfx:source&gt;
-     */
-    public String getExternalSourceFile() {
-        if (useExternalSourceFile()) {
-            return externalSourceFile;            
-        } else {
-            String msg = "No external source file in use";
-            log.fatal(msg);
-            throw new AssertionError(msg);
-        }
-    }
-
-    /**
-     * Get the external source path
-     * 
-     * Nothing to be done if <code>externalSourceFile</code> is already absolute
-     * Otherwise prefix with path of TDF
-     * 
-     * @return external source path
-     */
-    public String getExternalSourcePath() {
-        StringBuffer result = new StringBuffer();
         
-        String filename = getExternalSourceFile();
-        if (isAbsolutePath(filename)) {
-            result.append(filename);
-        } else {
-            File tdf = parentSuite.getFile();
-            result.append(tdf.getParent());
-            result.append(File.separatorChar);
-            result.append(filename);
-        }
-        
-        return result.toString();
-    }
-
-    /**
-     * Is the filename an absolute path?
-     * 
-     * @param filename
-     * @return boolean
-     */
-    public boolean isAbsolutePath(String filename) {
-        File file = new File(filename);
-        return file.isAbsolute();
-    }
-    
-    /**
-     * Get the <code>externalSourceFile</code> value.
-     * 
-     * @return true if href attribute on &lt;utfx:source&gt; is present
-     */
-    public boolean useExternalSourceFile() {
-        return externalSourceFile != null;
-    }
-    
     /**
      * Get the <code>validateExpected</code> value. Method used for testing.
      * 
@@ -313,7 +246,10 @@ public class XSLTTransformTestCase extends UTFXTestCase {
             useSourceParser = true;
         }
         
-        externalSourceFile = getExternalSourceFile(testElement);
+        externalSourceFile = new ExternalFile(getStringFromXpath(testElement,
+                "utfx:assert-equal/utfx:source/@href"), parentSuite.getFile());
+        externalExpectedFile = new ExternalFile(getStringFromXpath(testElement,
+                "utfx:assert-equal/utfx:expected/@href"), parentSuite.getFile());
 
         if (!isValid(testElement)) {
             return;
@@ -335,17 +271,16 @@ public class XSLTTransformTestCase extends UTFXTestCase {
     }
 
     /**
-     * Should an external source be used for utfx:source
+     * Set String to null or to value depending on result of XPath
      * 
      * @param testElement
-     * @return external file name for utfx:source if @href exist, null otherwise 
+     * @param xpathExpr
+     * @return String 
      * @throws XPathExpressionException
      */
-    protected String getExternalSourceFile(Element testElement) throws XPathExpressionException {
+    protected String getStringFromXpath(Element testElement, String xpathExpr) throws XPathExpressionException {
         String result;
-        
-        String xpathExpr = "utfx:assert-equal/utfx:source/@href";
-        
+               
         Object node = xpath.evaluate(xpathExpr, testElement, XPathConstants.NODE);
         if (node == null) {
             result = null;
@@ -454,10 +389,7 @@ public class XSLTTransformTestCase extends UTFXTestCase {
         NodeList sourceNodes = generateSourceNodes(testElement);
         
         // append sourceNodes to utfx-wrapper element
-        for (int i = 0; i < sourceNodes.getLength(); i++) {
-            Node node = sourceNodes.item(i);
-            sourceWrapper.appendChild(node);
-        }
+        appendNodes(sourceWrapper, sourceNodes);
 
         // if utfx:source is empty and call-template is used we have to add a
         // second utfx-wrapper element
@@ -466,6 +398,19 @@ public class XSLTTransformTestCase extends UTFXTestCase {
         }
 
         return getSourceDocType("utfx-wrapper") + serializeNode(sourceWrapper);
+    }
+
+    /**
+     * Appends a list of nodes to an element
+     * 
+     * @param sourceWrapper
+     * @param sourceNodes
+     */
+    private void appendNodes(Element sourceWrapper, NodeList sourceNodes) {
+        for (int i = 0; i < sourceNodes.getLength(); i++) {
+            Node node = sourceNodes.item(i);
+            sourceWrapper.appendChild(node);
+        }
     }
 
     /**
@@ -483,46 +428,13 @@ public class XSLTTransformTestCase extends UTFXTestCase {
      * @throws IOException
      */
     protected NodeList generateSourceNodes(Element testElement) throws XPathExpressionException, FileNotFoundException, ParserConfigurationException, SAXException, IOException {
-        if (useExternalSourceFile()) {   
-            return generateSourceNodesFromExternalFile(testElement.getOwnerDocument());
+        if (externalSourceFile.isAvailable()) {
+            return externalSourceFile.getNodes(testElement.getOwnerDocument());
         } else {
             return generateSourceNodesFromTDF(testElement);            
         }
     }
 
-    /**
-     * Generates a node list from an external file and copies the nodes to the dstDocument
-     * 
-     * @param dstDocument
-     * @return node list
-     * @throws FileNotFoundException
-     * @throws ParserConfigurationException
-     * @throws SAXException
-     * @throws IOException
-     */
-    protected NodeList generateSourceNodesFromExternalFile(Document dstDocument) throws FileNotFoundException, ParserConfigurationException, SAXException, IOException {
-        Document doc = parse(getExternalSourcePath());
-        Element el = doc.getDocumentElement();
-        Node importedNode = dstDocument.importNode(el, true);
-        NodeList nodeList = nodeToNodeList(importedNode);
-
-        return nodeList;        
-    }
-
-    /**
-     * Converts a single node into a node list
-     * 
-     * @param node
-     * @return node list
-     */
-    protected NodeList nodeToNodeList(Node node) {
-        // create NodeList out of node
-        NodeSet nodeSet = new NodeSet();
-        nodeSet.addNode(node);
-        NodeList nodeList = (NodeList) nodeSet;
-        return nodeList;
-    }
-    
     /**
      * Generates the node list from the TDF
      * 
@@ -546,24 +458,8 @@ public class XSLTTransformTestCase extends UTFXTestCase {
      * @throws Exception
      */
     private void setExpectedString(Element testElement) throws Exception {
-
-        Document doc = testElement.getOwnerDocument();
-        Element expectedWrapper;
-        NodeList expectedNodes;
-        Node node;
-
-        expectedWrapper = doc.createElement("utfx-wrapper");
-        expectedNodes = (NodeList) xpath.evaluate(
-                "utfx:assert-equal/utfx:expected/node()", testElement,
-                XPathConstants.NODESET);
-
-        for (int i = 0; i < expectedNodes.getLength(); i++) {
-            node = expectedNodes.item(i);
-            expectedWrapper.appendChild(node);
-        }
-
         expectedDocType = getExpectedDocType("utfx-wrapper");
-        expectedString = expectedDocType + serializeNode(expectedWrapper);
+        expectedString = expectedDocType + generateExpectedString(testElement);
 
         // create a validation test case if required
         if (validateExpected) {
@@ -572,6 +468,64 @@ public class XSLTTransformTestCase extends UTFXTestCase {
         }
     }
 
+    /**
+     * Generates the expected string for the test
+     * 
+     * @param testElement
+     * @return expected string
+     * @throws Exception
+     */
+    private String generateExpectedString(Element testElement) throws Exception {
+        Document doc = testElement.getOwnerDocument();
+
+        Element expectedWrapper = doc.createElement("utfx-wrapper");
+        NodeList expectedNodes = generateExpectedNodes(testElement);
+        appendNodes(expectedWrapper, expectedNodes);
+
+        return serializeNode(expectedWrapper);
+    }
+
+    /**
+     * Generates a node list from utfx:expected depending on whether an external file is in use
+     * 
+     * @param testElement
+     * @return node list
+     * @throws XPathExpressionException
+     * @throws FileNotFoundException
+     * @throws ParserConfigurationException
+     * @throws SAXException
+     * @throws IOException
+     */
+    private NodeList generateExpectedNodes(Element testElement) throws XPathExpressionException, FileNotFoundException, ParserConfigurationException, SAXException, IOException {
+        if (externalExpectedFile.isAvailable()) { 
+            return externalExpectedFile.getNodes(testElement.getOwnerDocument());
+        } else {
+            return generateExpectedNodesFromTDF(testElement);            
+        }
+    }
+
+    /**
+     * Generates a node list from utfx:expected from the TDF
+     * 
+     * @param testElement
+     * @return node list
+     * @throws XPathExpressionException
+     */
+    private NodeList generateExpectedNodesFromTDF(Element testElement) throws XPathExpressionException {
+        return (NodeList) xpath.evaluate(
+                "utfx:assert-equal/utfx:expected/node()", testElement,
+                XPathConstants.NODESET);
+    }
+    
+    /**
+     * Returns the expectedString of the test (currently only used by JUnit tests)
+     * 
+     * @return expectedString of test
+     */
+    public String getExpectedString() {
+        return expectedString;
+    }
+    
     /**
      * Sanity Checks on utfx:test
      * 
@@ -688,72 +642,8 @@ public class XSLTTransformTestCase extends UTFXTestCase {
                 parentSuite.getExpectedSystemId());
     }
 
-    /**
-     * Creates DOM Tree from file
-     * 
-     * @param filename
-     * @return DOM Document
-     * @throws ParserConfigurationException
-     * @throws FileNotFoundException
-     * @throws SAXException
-     * @throws IOException
-     */
-    public Document parse(String filename) throws ParserConfigurationException, FileNotFoundException, SAXException, IOException {
-        return parse(new FileInputStream(filename));
-    }
-
-    /**
-     * Creates DOM Tree from InputStream
-     * 
-     * @param inputStream
-     * @return DOM Document
-     * @throws ParserConfigurationException
-     * @throws SAXException
-     * @throws IOException
-     */
-    public Document parse(InputStream inputStream) throws ParserConfigurationException, SAXException, IOException {
-        DocumentBuilder db = createDocumentBuilder(createDocumentBuilderFactory());
-        return db.parse(inputStream);
-    }
-
-    /**
-     * Create DocumentBuilder with internal DocumentBuilderFactory
-     * 
-     * @return created DocumentBuilder
-     * @throws ParserConfigurationException
-     */
-    public DocumentBuilder createDocumentBuilder() throws ParserConfigurationException { 
-        return createDocumentBuilder(createDocumentBuilderFactory());
-    }
-    
-    /**
-     * Create DocumentBuilder from given DocumentBuilderFactory
-     * 
-     * @param DocumentBuilderFactory
-     * @return created DocumentBuilder
-     * @throws ParserConfigurationException
-     */
-    public DocumentBuilder createDocumentBuilder(DocumentBuilderFactory dbf) throws ParserConfigurationException {
-        DocumentBuilder db;
-        db = dbf.newDocumentBuilder();
-        db.setEntityResolver(new CatalogResolver());
-        return db;
-    }
-    
-    /**
-     * Create DOM Document builder factory
-     * 
-     * @return created DocumentBuilderFactory
-     */
-    public DocumentBuilderFactory createDocumentBuilderFactory() {
-        DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
-        dbf.setNamespaceAware(true);
-        dbf.setExpandEntityReferences(false);
-        dbf.setValidating(false);
-        return dbf;
-    }
-
     public String toString() {
         return testName;
     }
+    
 }
