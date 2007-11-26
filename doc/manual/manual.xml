@@ -13,7 +13,7 @@
     <author>Jacek Radajewski</author>
     <author>Alexander Daniel</author>
     <version>Release &utfx-version;</version>
-    <date>30 October 2006</date>
+    <date>26 November 2007</date>
     <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
     <sect1 id="intro">
         <title>Introduction</title>
@@ -280,20 +280,18 @@
         <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
         <title>Test Definition File Structure</title>
         <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
-        <para>This section looks at the structure of a UTF-X test definition
-            file.</para>
+        <para>This section looks at the structure of a UTF-X test definition file.</para>
         <sect2>
             <title>DOCTYPE</title>
-            <para>DOCTYPE declarations are not required by the UTF-X framework,
-                but are useful when a DTD aware editor is used to author the
-                TDFs. DOCTYPE declaration can be either a simple reference to
-                the UTF-X test DTD like this:</para>
+            <para>DOCTYPE declarations are not required by the UTF-X framework, but are useful when
+                a DTD aware editor is used to author the TDFs. DOCTYPE declaration can be either a
+                simple reference to the UTF-X test DTD like this:</para>
             <pre><![CDATA[
 <!DOCTYPE utfx:tests PUBLIC "-//UTF-X//DTD utfx-tests 1.0//EN" "utfx_tests.dtd">
 
                 ]]></pre>
-            <para>or a more complex one that also includes internal declarations
-                with references to DTDs for the XML source and generated target:</para>
+            <para>or a more complex one that also includes internal declarations with references to
+                DTDs for the XML source and generated target:</para>
             <pre><![CDATA[
 <!DOCTYPE utfx:tests PUBLIC "-//UTF-X//DTD utfx-tests 1.0//EN" "utfx_tests.dtd" [
 
@@ -305,26 +303,21 @@
     <!-- %xhtml1_dtd; -->
 ]>
                 ]]></pre>
-            <para> In the second case your XML editor will become aware of not
-                only the structure of TDFs, but also the structure of your
-                    <code><![CDATA[<utfx:source>]]></code> and
-                    <code><![CDATA[<utfx:expected>]]></code> fragments.
-                Authoring tests in this mode is much easier as the editor will
-                ensure that both source and expected fragments are valid. Not
-                all XML editors support internal declarations.</para>
+            <para> In the second case your XML editor will become aware of not only the structure of
+                TDFs, but also the structure of your <code><![CDATA[<utfx:source>]]></code> and
+                    <code><![CDATA[<utfx:expected>]]></code> fragments. Authoring tests in this mode
+                is much easier as the editor will ensure that both source and expected fragments are
+                valid. Not all XML editors support internal declarations.</para>
         </sect2>
         <sect2>
             <title>Stylesheet</title>
             <para>Immediately following the root element is a
-                    <code><![CDATA[<utfx:stylesheet>]]></code> element which
-                provides a pointer to the XSLT stylesheet that is being tested.
-                UTF-X currently assumes that the stylesheet is in a directory
-                above the one where the test resides. For example, if your TDF
-                is located in directory <code>c:\myxsl\test\</code> and you
-                specify that the stylesheet under test is
-                    <code>my_stylesheet.xsl</code> then UTF-X will assume you
-                are refering to <code>c:\myxsl\my_stylesheet.xsl</code>
-                stylesheet.</para>
+                <code><![CDATA[<utfx:stylesheet>]]></code> element which provides a pointer to the
+                XSLT stylesheet that is being tested. UTF-X currently assumes that the stylesheet is
+                in a directory above the one where the test resides. For example, if your TDF is
+                located in directory <code>c:\myxsl\test\</code> and you specify that the stylesheet
+                under test is <code>my_stylesheet.xsl</code> then UTF-X will assume you are refering
+                to <code>c:\myxsl\my_stylesheet.xsl</code> stylesheet.</para>
             <figure>
                 <xml>
                     <utfx:stylesheet src="my_stylesheet.xsl"/>
@@ -334,10 +327,9 @@
         </sect2>
         <sect2>
             <title>Source and expected validation</title>
-            <para>If you want to enable source and expected fragment validation
-                you must specify system and public identifiers. These
-                identifiers are used to form the DOCTYPE declaration during the
-                validation of each source and expected fragment.</para>
+            <para>If you want to enable source and expected fragment validation you must specify
+                system and public identifiers. These identifiers are used to form the DOCTYPE
+                declaration during the validation of each source and expected fragment.</para>
             <xml xml:space="preserve">
 <utfx:source-validation>
   <utfx:dtd system="utfxdoc.dtd" public="-//UTF-X//DTD utfxdoc 1.0//EN"/>
@@ -350,11 +342,9 @@
         </sect2>
         <sect2>
             <title>UTF-X test case</title>
-            <para> Let us now look at the structure of an actual test case. Each
-                test case must have a name followed by
-                    <code><![CDATA[<utfx:assert-equals>]]></code>. Assert-equals
-                has two required elements which are the
-                    <code><![CDATA[<utfx:source>]]></code> and
+            <para> Let us now look at the structure of an actual test case. Each test case must have
+                a name followed by <code><![CDATA[<utfx:assert-equals>]]></code>. Assert-equals has
+                two required elements which are the <code><![CDATA[<utfx:source>]]></code> and
                     <code><![CDATA[<utfx:expected>]]></code> fragments. </para>
             <figure>
                 <xml xml:space="preserve">
@@ -376,16 +366,14 @@
                 <caption>UTF-X Test</caption>
             </figure>
             <para>UTF-X executes a test by passing the contents of
-                    <code><![CDATA[<utfx:source>]]></code> through the XSLT
-                stylesheet and comparing the result with the contents of
-                    <code><![CDATA[<utfx:expected>]]></code>. If both are
-                equivalent XML fragments then the test passes. Otherwise the
-                test fails.</para>
+                <code><![CDATA[<utfx:source>]]></code> through the XSLT stylesheet and comparing the
+                result with the contents of <code><![CDATA[<utfx:expected>]]></code>. If both are
+                equivalent XML fragments then the test passes. Otherwise the test fails.</para>
         </sect2>
         <sect2>
             <title>Passing parameters to named templates</title>
-            <para> Parameters can be passed to named templates like in XSLT with
-                the <code>utfx:with-param</code> element. </para>
+            <para> Parameters can be passed to named templates like in XSLT with the
+                    <code>utfx:with-param</code> element. </para>
             <figure>
                 <xml xml:space="preserve">
 <utfx:test>
@@ -408,13 +396,11 @@
         </sect2>
         <sect2>
             <title>Stylesheet parameters</title>
-            <para> With the <code>utfx:stylesheet-params</code> element,
-                parameters can be passed to the stylesheet under test. It can
-                also be used to define parameters in a stylesheet. This feature
-                can be very useful for stylesheets which are normally imported
-                by other stylesheets and which expect certain parameters or
-                variables. These stylesheets won't compile unless we define the
-                parameters in the TDF. </para>
+            <para> With the <code>utfx:stylesheet-params</code> element, parameters can be passed to
+                the stylesheet under test. It can also be used to define parameters in a stylesheet.
+                This feature can be very useful for stylesheets which are normally imported by other
+                stylesheets and which expect certain parameters or variables. These stylesheets
+                won't compile unless we define the parameters in the TDF. </para>
             <figure>
                 <xml xml:space="preserve">
 <utfx:test>
@@ -434,6 +420,24 @@
                 </xml>
                 <caption>UTF-X Test with stylesheet parameters</caption>
             </figure>
+        </sect2>
+        <sect2>
+            <title>Using external files in a test case</title>
+            <para>With the <code>href</code> attribute an external file can be specified for
+                    <code>utfx:source</code> and <code>utfx:expected</code>. Note: The filename is resolved relative
+                to the TDF.</para>
+            <figure>
+                <xml xml:space="preserve">
+<utfx:test>
+    <utfx:name>utfx:source and utfx:expected with external file</utfx:name>
+    <utfx:assert-equal>
+        <utfx:source href="external_files_tests_file.xml"/>
+        <utfx:expected href="external_files_tests_file.xml"/>
+    </utfx:assert-equal>
+</utfx:test>
+                </xml>
+                <caption>UTF-X Test using external files</caption>
+            </figure>            
         </sect2>
     </sect1>
 

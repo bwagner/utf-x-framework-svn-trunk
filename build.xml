@@ -138,9 +138,6 @@
 		<mkdir dir="${javadoc}" />
 		<mkdir dir="${build.dir}" />
 		<mkdir dir="${dist.dir}" />
-		<mkdir dir="${build.dir}/manual" />
-		<mkdir dir="${dist.dir}/devguide" />
-		<mkdir dir="${dist.dir}/lib" />
 		<mkdir dir="${rendered.samples.dir}" />
 	</target>
 
@@ -154,7 +151,6 @@
 			<fileset dir="${javadoc}" includes="**/*" />
 		</delete>
 		<delete dir="${build.dir}" />
-		<delete dir="${build.dir}/doc" />
 		<delete dir="${dist.dir}" />
 		<delete dir="${rendered.samples.dir}" />
 		<delete dir="${testgen.test.dir}" />
@@ -290,6 +286,7 @@
 		<mkdir dir="${build.dir}/doc" />
 		<mkdir dir="${build.dir}/doc/manual" />
 		<mkdir dir="${build.dir}/doc/devguide" />
+		
 		<!-- first we run the UTF-X doc preprocessor -->
 		<java classname="utfxdoc.UTFXDocPreProcessor" fork="yes">
 			<assertions>
@@ -311,7 +308,6 @@
 		<xslt style="${utfxdoc}/utfxdoc_xhtml.xsl" in="${build.dir}/doc/manual/manual_pp.xml" out="${build.dir}/doc/manual/manual.html">
 			<classpath location="lib/saxon8.jar" />
 		</xslt>
-
 		<xslt style="${utfxdoc}/utfxdoc_xhtml.xsl" in="${build.dir}/doc/devguide/devguide_pp.xml" out="${build.dir}/doc/devguide/devguide.html">
 			<classpath location="lib/saxon8.jar" />
 		</xslt>
@@ -324,23 +320,20 @@
 			<xmlcatalog refid="catalog" />
 		</xslt>
 
-
 		<copy todir="${build.dir}/doc/devguide">
 			<fileset dir="doc/devguide" includes="images/**/*" />
 			<fileset file="${utfxdoc}/utfxdoc.css" />
 		</copy>
-
 		<copy todir="${build.dir}/doc/manual">
 			<fileset dir="doc/manual" includes="images/**/*" />
 			<fileset file="${utfxdoc}/utfxdoc.css" />
 		</copy>
 
-		<fop outdir="${build.dir}/doc/manual" basedir="${build.dir}/manual">
-			<fileset includes="*.fo" dir="${dist.dir}/manual" />
+		<fop outdir="${build.dir}/doc/manual" basedir="${build.dir}/doc/manual">
+			<fileset includes="*.fo" dir="${build.dir}/doc/manual" />
 		</fop>
-
-		<fop outdir="${build.dir}/doc/devguide" basedir="${build.dir}/devguide">
-			<fileset includes="*.fo" dir="${dist.dir}/devguide" />
+		<fop outdir="${build.dir}/doc/devguide" basedir="${build.dir}/doc/devguide">
+			<fileset includes="*.fo" dir="${build.dir}/doc/devguide" />
 		</fop>
 
 	</target>
