@@ -441,8 +441,12 @@
 		</copy>
 		<!-- Copy build file -->
 		<copy todir="${release.dir.src}" file="build.xml" />
+		<copy todir="${release.dir.src}" file="build.properties" />
 		<copy todir="${release.dir.src}" file="log4j.properties" />
 		<copy todir="${release.dir.src}" file="utfx.properties" />
+		<copy todir="${release.dir.src}" file="catalog.xml" />
+		<copy todir="${release.dir.src}" file="README.txt" />
+		<copy todir="${release.dir.src}" file="LICENSE.txt" />
 		<!-- Set correct access rights on files -->
 		<chmod perm="755" type="both">
 			<fileset dir="${release.dir.src}" />
