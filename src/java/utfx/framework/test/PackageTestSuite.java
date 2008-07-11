@@ -53,7 +53,7 @@ public class PackageTestSuite extends TestCase {
         suite.addTest(StringComparisonFailureTest.suite());
         suite.addTest(XSLTTransformTestCaseTest.suite());
         suite.addTest(WrapperStylesheetGeneratorTest.suite());
-        suite.addTest(ExternalFileTest.suite());
+        suite.addTest(ExternalResourceTest.suite());
 
         return suite;
     }

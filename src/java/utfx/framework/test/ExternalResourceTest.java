@@ -1,29 +1,27 @@
 package utfx.framework.test;
 
 import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.IOException;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 
-import org.w3c.dom.Document;
-import org.w3c.dom.Node;
-import org.w3c.dom.NodeList;
-import org.xml.sax.SAXException;
-
-import utfx.framework.ExternalFile;
 import junit.framework.Test;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
 
+import org.w3c.dom.Document;
+import org.w3c.dom.Node;
+import org.w3c.dom.NodeList;
+
+import utfx.framework.ExternalResource;
+
 /**
- * JUnit test for ExternalFile.
- * @see utfx.framework.ExternalFile
+ * JUnit test for ExternalResource.
+ * @see utfx.framework.ExternalResource
  * 
  * <p>
- * Copyright &copy; 2007 UTF-X Development Team.
+ * Copyright &copy; 2008 UTF-X Development Team.
  * </p>
  * 
  * <p>
@@ -46,7 +44,7 @@ import junit.framework.TestSuite;
  * @author Alex Daniel
  * @version $Revision: $ $Date: $ $Name: $
  */
-public class ExternalFileTest extends TestCase {
+public class ExternalResourceTest extends TestCase {
 
     /**
      * @see junit.framework.TestCase#setUp()
@@ -63,19 +61,19 @@ public class ExternalFileTest extends TestCase {
     }
 
     public void testIsAvailableFalse() {
-        ExternalFile externalFile = new ExternalFile(null, null);
+        ExternalResource externalFile = new ExternalResource(null, null);
         assertFalse(externalFile.isAvailable());
     }
 
     public void testIsAvailableTrue() {
-        ExternalFile externalFile = new ExternalFile("filename", null);
+        ExternalResource externalFile = new ExternalResource("filename", null);
         assertTrue(externalFile.isAvailable());
     }
 
     public void testGetNameAssertion() {
-        ExternalFile externalFile = new ExternalFile(null, null);
+        ExternalResource externalFile = new ExternalResource(null, null);
         try {
-            externalFile.getName();
+            externalFile.getUri();
             fail("Expected AssertionError");
         } catch (AssertionError e) {
             // nothing to be done. That's what we expected
@@ -83,12 +81,12 @@ public class ExternalFileTest extends TestCase {
     }
     
     public void testGetName() {
-        ExternalFile externalFile = new ExternalFile("filename", null);
-        assertEquals("filename", externalFile.getName());
+        ExternalResource externalFile = new ExternalResource("filename", null);
+        assertEquals("filename", externalFile.getUri());
     }
-
-    public void testGetNodes() throws ParserConfigurationException, FileNotFoundException, SAXException, IOException {
-        ExternalFile externalFile = new ExternalFile("ExternalFileTest1.xml", new File("src/java/utfx/framework/test/ExternalFileTest.java"));
+    
+    public void testGetNodesRelative() throws Exception {
+        ExternalResource externalFile = new ExternalResource("ExternalFileTest1.xml", new File("src/java/utfx/framework/test/ExternalFileTest.java"));
         Document dstDocument = createDocument();
         
         NodeList nodeList = externalFile.getNodes(dstDocument);
@@ -102,7 +100,7 @@ public class ExternalFileTest extends TestCase {
         assertEquals("name", node.getAttributes().item(0).getNodeName());
         assertEquals(0, node.getChildNodes().getLength());
     }
-
+    
     protected Document createDocument() throws ParserConfigurationException {
         DocumentBuilderFactory fact = DocumentBuilderFactory.newInstance();
         DocumentBuilder parser = fact.newDocumentBuilder();
@@ -115,7 +113,7 @@ public class ExternalFileTest extends TestCase {
      * @return this test suite.
      */
     public static Test suite() {
-        TestSuite suite = new TestSuite(ExternalFileTest.class);
+        TestSuite suite = new TestSuite(ExternalResourceTest.class);
         return suite;
     }
     

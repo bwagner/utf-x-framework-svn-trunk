@@ -5,6 +5,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
+import java.net.URISyntaxException;
 
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.transform.Source;
@@ -109,10 +110,10 @@ public class XSLTTransformTestCase extends UTFXTestCase {
     private boolean useSourceParser = false;
     
     /** value of href attribute in &lt;utfx:source&gt; */ 
-    private ExternalFile externalSourceFile;
+    private ExternalResource externalSourceFile;
 
     /** value of href attribute in &lt;utfx:expected&gt; */ 
-    private ExternalFile externalExpectedFile;
+    private ExternalResource externalExpectedFile;
 
     private String expectedDocType;
 
@@ -246,9 +247,9 @@ public class XSLTTransformTestCase extends UTFXTestCase {
             useSourceParser = true;
         }
         
-        externalSourceFile = new ExternalFile(getStringFromXpath(testElement,
+        externalSourceFile = new ExternalResource(getStringFromXpath(testElement,
                 "utfx:assert-equal/utfx:source/@href"), parentSuite.getFile());
-        externalExpectedFile = new ExternalFile(getStringFromXpath(testElement,
+        externalExpectedFile = new ExternalResource(getStringFromXpath(testElement,
                 "utfx:assert-equal/utfx:expected/@href"), parentSuite.getFile());
 
         if (!isValid(testElement)) {
@@ -426,8 +427,9 @@ public class XSLTTransformTestCase extends UTFXTestCase {
      * @throws ParserConfigurationException
      * @throws SAXException
      * @throws IOException
+     * @throws URISyntaxException 
      */
-    protected NodeList generateSourceNodes(Element testElement) throws XPathExpressionException, FileNotFoundException, ParserConfigurationException, SAXException, IOException {
+    protected NodeList generateSourceNodes(Element testElement) throws XPathExpressionException, FileNotFoundException, ParserConfigurationException, SAXException, IOException, URISyntaxException {
         if (externalSourceFile.isAvailable()) {
             return externalSourceFile.getNodes(testElement.getOwnerDocument());
         } else {
@@ -495,8 +497,9 @@ public class XSLTTransformTestCase extends UTFXTestCase {
      * @throws ParserConfigurationException
      * @throws SAXException
      * @throws IOException
+     * @throws URISyntaxException 
      */
-    private NodeList generateExpectedNodes(Element testElement) throws XPathExpressionException, FileNotFoundException, ParserConfigurationException, SAXException, IOException {
+    private NodeList generateExpectedNodes(Element testElement) throws XPathExpressionException, FileNotFoundException, ParserConfigurationException, SAXException, IOException, URISyntaxException {
         if (externalExpectedFile.isAvailable()) { 
             return externalExpectedFile.getNodes(testElement.getOwnerDocument());
         } else {

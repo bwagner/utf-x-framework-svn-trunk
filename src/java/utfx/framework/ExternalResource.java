@@ -1,10 +1,11 @@
 package utfx.framework;
 
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
+import java.net.URI;
+import java.net.URISyntaxException;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -21,11 +22,11 @@ import org.xml.sax.SAXException;
 import com.sun.org.apache.xpath.internal.NodeSet;
 
 /**
- * External file referenced by TDF.
- * Used for supporting external files with &lt;utfx:source&gt; and &lt;utfx:expected&gt;.
+ * External resource referenced by TDF.
+ * Used for supporting external resources with &lt;utfx:source&gt; and &lt;utfx:expected&gt;.
  * 
  * <p>
- * Copyright &copy; 2007 UTF-X Development Team.
+ * Copyright &copy; 2008 UTF-X Development Team.
  * </p>
  * 
  * <p>
@@ -48,47 +49,47 @@ import com.sun.org.apache.xpath.internal.NodeSet;
  * @author Alex Daniel
  * @version $Revision: $ $Date: $ $Name: $
  */
-public class ExternalFile {
+public class ExternalResource {
 
     /** LOG4J logging facility */
     private Logger log;
 
-    /** filename of external file */
-    private String filename;
+    /** URI of external resource as String */
+    private String uriStr;
 
-    /** filename is relative to this file */
+    /** resource is relative to this file */
     private File relativeTo;
 
     /**
      * Constructor
      * 
-     * @param filename of external file (can be absolute or relative)
+     * @param URI of external resource (can be absolute or relative)
      * @param relativeTo is used when filename is relative
      */
-    public ExternalFile(String filename, File relativeTo) {
+    public ExternalResource(String uriStr, File relativeTo) {
         super();
         this.log = Logger.getLogger("utfx.framework");
-        this.filename = filename;
+        this.uriStr = uriStr;
         this.relativeTo = relativeTo;
     }
 
     /**
-     * Is an external file available
+     * Is an external URI available
      * 
      * @return boolean
      */
     public boolean isAvailable() {
-        return this.filename != null;
+        return this.uriStr != null;
     }
 
     /**
-     * Get filename of external file
+     * Get URI of external resource
      * 
      * @return String
      */
-    public String getName() {
+    public String getUri() {
         if (isAvailable()) {
-            return this.filename;            
+            return this.uriStr;            
         } else {
             String msg = "No external file in use";
             log.fatal(msg);
@@ -97,26 +98,21 @@ public class ExternalFile {
     }
 
     /**
-     * Get path of external file
+     * Get Unified Resource Identifier
      * 
-     * @return String
+     * @return URI
+     * @throws URISyntaxException 
      */
-    public String getPath() {
-        StringBuffer result = new StringBuffer();
+    public URI getAbsoluteUri() throws URISyntaxException {
+        URI fileSystemRoot = new URI("file:/");
+        URI tdfAbsoluteUri = fileSystemRoot.resolve(relativeTo.getAbsolutePath());
+        URI hrefAbsoluteUri = tdfAbsoluteUri.resolve(uriStr);
         
-        if (isAbsolutePath(this.filename)) {
-            result.append(this.filename);
-        } else {
-            result.append(relativeTo.getParent());
-            result.append(File.separatorChar);
-            result.append(filename);
-        }
-        
-        return result.toString();        
+        return hrefAbsoluteUri;
     }
 
     /**
-     * Generates a node list from an external file and copies the nodes to the dstDocument
+     * Generates a node list from an external resource and copies the nodes to the dstDocument
      * 
      * @param dstDocument
      * @return node list
@@ -124,9 +120,10 @@ public class ExternalFile {
      * @throws ParserConfigurationException
      * @throws SAXException
      * @throws IOException
+     * @throws URISyntaxException 
      */
-    public NodeList getNodes(Document dstDocument) throws FileNotFoundException, ParserConfigurationException, SAXException, IOException {
-        Document doc = parse(getPath());
+    public NodeList getNodes(Document dstDocument) throws FileNotFoundException, ParserConfigurationException, SAXException, IOException, URISyntaxException {
+        Document doc = parse(getAbsoluteUri());
         Element el = doc.getDocumentElement();
         Node importedNode = dstDocument.importNode(el, true);
         NodeList nodeList = nodeToNodeList(importedNode);
@@ -136,28 +133,17 @@ public class ExternalFile {
     }
     
     /**
-     * Is the filename an absolute path?
+     * Creates DOM Tree from resource
      * 
-     * @param filename
-     * @return boolean
-     */
-    protected boolean isAbsolutePath(String filename) {
-        File file = new File(filename);
-        return file.isAbsolute();
-    }
-    
-    /**
-     * Creates DOM Tree from file
-     * 
-     * @param filename
+     * @param uriStr
      * @return DOM Document
      * @throws ParserConfigurationException
      * @throws FileNotFoundException
      * @throws SAXException
      * @throws IOException
      */
-    protected Document parse(String filepath) throws ParserConfigurationException, FileNotFoundException, SAXException, IOException {
-        return parse(new FileInputStream(filepath));
+    protected Document parse(URI uri) throws ParserConfigurationException, FileNotFoundException, SAXException, IOException {
+        return parse(uri.toURL().openStream());
     }
 
     /**
