@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../../src/xsl/test_definition_xhtml.xsl"?>
+<!--
+	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	$Id: core_tests_test.xml 467 2007-11-16 11:05:08Z nixfrei $
+	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	
+	UTF-X test definition file for utf_8_tests.xsl stylesheet
+	
+	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	
+	Copyright(C) 2004-2008 UTF-X Development team.
+	
+	You may redistribute and/or modify under the terms of the GNU 
+	General Public License v2.
+	
+	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-->
+<utfx:tests xmlns:utfx="http://utfx.org/test-definition">
+	<utfx:stylesheet src="utf_8_tests.xsl"/>
+
+	<!-- see issue https://utf-x.dev.java.net/issues/show_bug.cgi?id=74 --> 
+	<utfx:test>
+		<utfx:name>copyright symbol</utfx:name>
+		<utfx:assert-equal>
+			<utfx:source>©</utfx:source>
+			<utfx:expected>©</utfx:expected>
+		</utfx:assert-equal>
+	</utfx:test>
+	
+</utfx:tests>
