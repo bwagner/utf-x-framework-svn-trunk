@@ -153,7 +153,6 @@
 		<delete dir="${build.dir}" />
 		<delete dir="${dist.dir}" />
 		<delete dir="${rendered.samples.dir}" />
-		<delete dir="${testgen.test.dir}" />
 	</target>
 
 	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
