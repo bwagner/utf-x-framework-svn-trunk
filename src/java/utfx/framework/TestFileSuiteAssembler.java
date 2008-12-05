@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.InputStream;
 import java.net.MalformedURLException;
 import java.util.Vector;
 
@@ -50,174 +51,177 @@ import org.xml.sax.SAXException;
  * @author Oliver Lucido
  * @author Sally MacFarlane
  * @author Alex Daniel
- * @version $Revision$ $Date$ $Name:  $
+ * @version $Revision$ $Date: 2008-12-05 18:33:02 +0100 (Fri, 05 Dec 2008)
+ *          $ $Name: $
  */
 public class TestFileSuiteAssembler {
 
-    /** Filename of this test definition document (test file suite) */
-    private String filename;
+	/** Filename of this test definition document (test file suite) */
+	private String filename;
 
-    /** test file suite we are going to assemble */
-    private XSLTTestFileSuite suite;
+	/** test file suite we are going to assemble */
+	private XSLTTestFileSuite suite;
 
-    /** XPath factory */
-    private XPathFactory xpf;
+	/** XPath factory */
+	private XPathFactory xpf;
 
-    /** Xpath */
-    private XPath xpath;
+	/** Xpath */
+	private XPath xpath;
 
-    /** XSLT transformer factory */
-    private TransformerFactory tf;
+	/** XSLT transformer factory */
+	private TransformerFactory tf;
 
-    /** DOM Document builder factory */
-    private DocumentBuilderFactory dbf;
+	/** DOM Document builder factory */
+	private DocumentBuilderFactory dbf;
 
-    /** DOM Document builder */
-    // private DocumentBuilderImpl db;
-    private DocumentBuilder db;
+	/** DOM Document builder */
+	// private DocumentBuilderImpl db;
+	private DocumentBuilder db;
 
-    //    private DOMImplementationRegistry domRegistry;
-    //
-    //    private DOMImplementationLS domImplLS;
-    //
-    //    private LSParser lsParser;
-    //
-    //    private DOMConfiguration domConfig;
-
-    /**
-     * Construct a new TestFileSuiteAssembler.
-     * 
-     * @param filename the UTF-X test definition file to use for assembling the
-     *        test suite.
-     * @throws ParserConfigurationException if this constructor cannot create a
-     *         document builder or its factory..
-     */
-    public TestFileSuiteAssembler(String filename)
-        throws ParserConfigurationException {
-        this.filename = filename;
-        // DOMParser xercesDomParser;
-        xpf = XPathFactory.newInstance();
-        xpath = xpf.newXPath();
-        xpath.setNamespaceContext(new UTFXNamespaceContext());
-        tf = TransformerFactory.newInstance();
-        dbf = DocumentBuilderFactory.newInstance();
-        dbf.setNamespaceAware(true);
-        dbf.setExpandEntityReferences(false);
-        dbf.setValidating(false);
-        db = dbf.newDocumentBuilder();
-        db.setEntityResolver(new CatalogResolver());
-        //        domRegistry = DOMImplementationRegistry.newInstance();
-        //        domImplLS = (DOMImplementationLS) domRegistry
-        //                .getDOMImplementation("LS");
-        //        lsParser = domImplLS.createLSParser(
-        //                DOMImplementationLS.MODE_SYNCHRONOUS,
-        //                "http://www.w3.org/TR/REC-xml");
-        //        domConfig = lsParser.getDomConfig();
-        //        domConfig.setParameter("datatype-normalization", false);
-    }
-
-    /**
-     * Assemble a test file suite. This method does the actual work of
-     * assembling the test file suite with its test cases.
-     * 
-     * @throws Exception if the XLSTTestFileSuite cannot be assembled.
-     */
-    public void assemble() throws Exception {
-
-        Element sourceBuilderElement;
-        Element testElement;
-        XSLTTransformTestCase testCase;
-        Vector<XSLTTransformTestCase> testCases; // tests in this TestFileSuite
-        NodeList utfxTests; // utfx:test elements
-
-        testCases = new Vector<XSLTTransformTestCase>(0x4F);
-        Document tdfDoc = parseTdf(filename); 
-        utfxTests = tdfDoc.getElementsByTagName("utfx:test");
-
-        // load and set default source builder for this test suite if exits
-        sourceBuilderElement = (Element) xpath.evaluate(
-            "/utfx:tests/utfx:source-builder", tdfDoc, XPathConstants.NODE);
-
-        suite = new XSLTTestFileSuite(filename);
-
-        if (sourceBuilderElement != null) {
-            SourceParserFactory sbl = new SourceParserFactory();
-            suite.setDefaultSourceBuilder(sbl
-                .getSourceParser(sourceBuilderElement));
-        }
-
-        suite.setSourcePublicId(xpath.evaluate(
-            "/utfx:tests/utfx:source-validation/utfx:dtd/@public", tdfDoc));
-        suite.setSourceSystemId(xpath.evaluate(
-            "/utfx:tests/utfx:source-validation/utfx:dtd/@system", tdfDoc));
-        suite.setExpectedPublicId(xpath.evaluate(
-            "/utfx:tests/utfx:expected-validation/utfx:dtd/@public", tdfDoc));
-        suite.setExpectedSystemId(xpath.evaluate(
-            "/utfx:tests/utfx:expected-validation/utfx:dtd/@system", tdfDoc));
-
-        WrapperStylesheetGenerator wrapperGen = new WrapperStylesheetGenerator(getStylesheetUnderTestURI(tdfDoc));
-
-        for (int i = 0; i < utfxTests.getLength(); i++) {
-            testElement = (Element) utfxTests.item(i);
-
-            Document wrapperDoc = wrapperGen.getWrapper(testElement);
-            Source xsltSource = new DOMSource(wrapperDoc);
-            Transformer transformer;
-            try {
-                transformer = tf.newTransformer(xsltSource);
-            } catch (Exception e) {
-                throw new MalformedStylesheetException(e);
-            }
-
-            testCase = new XSLTTransformTestCase(testElement, suite);
-            testCase.setTransformer(transformer);
-            testCases.add(testCase);
-            suite.addTest(testCase);
-        }
-    }
+	// private DOMImplementationRegistry domRegistry;
+	//
+	// private DOMImplementationLS domImplLS;
+	//
+	// private LSParser lsParser;
+	//
+	// private DOMConfiguration domConfig;
 
 	/**
-     * Gets the XSLTTestFileSuite constructed by this assembler.
-     * 
-     * @return XSLTTestFileSuite constructed by this assembler.
-     */
-    public XSLTTestFileSuite getTestSuite() {
-        return suite;
-    }
-    
-    /**
-     * Get the absolute URI of the stylesheet under test.
-     * The stylesheet under test is retrieved from the TDF file
-     * 
-     * @param testDoc the TDF file
-     * @return The absolute URI of the stylesheet under test
-     * @throws MalformedURLException
-     */
-    private String getStylesheetUnderTestURI(Document testDoc) throws MalformedURLException {
-        String xsltFile;
-        File dir = new File(filename).getParentFile().getParentFile();
+	 * Construct a new TestFileSuiteAssembler.
+	 * 
+	 * @param filename
+	 *            the UTF-X test definition file to use for assembling the test
+	 *            suite.
+	 * @throws ParserConfigurationException
+	 *             if this constructor cannot create a document builder or its
+	 *             factory..
+	 */
+	public TestFileSuiteAssembler(String filename) throws ParserConfigurationException {
+		this.filename = filename;
+		// DOMParser xercesDomParser;
+		xpf = XPathFactory.newInstance();
+		xpath = xpf.newXPath();
+		xpath.setNamespaceContext(new UTFXNamespaceContext());
+		tf = TransformerFactory.newInstance();
+		dbf = DocumentBuilderFactory.newInstance();
+		dbf.setNamespaceAware(true);
+		dbf.setExpandEntityReferences(false);
+		dbf.setValidating(false);
+		db = dbf.newDocumentBuilder();
+		db.setEntityResolver(new CatalogResolver());
+		// domRegistry = DOMImplementationRegistry.newInstance();
+		// domImplLS = (DOMImplementationLS) domRegistry
+		// .getDOMImplementation("LS");
+		// lsParser = domImplLS.createLSParser(
+		// DOMImplementationLS.MODE_SYNCHRONOUS,
+		// "http://www.w3.org/TR/REC-xml");
+		// domConfig = lsParser.getDomConfig();
+		// domConfig.setParameter("datatype-normalization", false);
+	}
 
-        try {
-            String xsltFilename = xpath.evaluate("//utfx:stylesheet/@src", testDoc);
-            xsltFile=(new File(dir, xsltFilename).toURL().toExternalForm()).toString();
-        } catch (XPathExpressionException e) {
-            throw new IllegalArgumentException("stylesheet source must be "
-                + "defined in <utfx:stylesheet> element");
-        }
-        
-        return xsltFile;
-    }
-    
-    /**
-     * Constructs a DOM document from the TDF filename
+	/**
+	 * Assemble a test file suite. This method does the actual work of
+	 * assembling the test file suite with its test cases.
+	 * 
+	 * @throws Exception
+	 *             if the XLSTTestFileSuite cannot be assembled.
+	 */
+	public void assemble() throws Exception {
+
+		Element sourceBuilderElement;
+		Element testElement;
+		XSLTTransformTestCase testCase;
+		Vector<XSLTTransformTestCase> testCases; // tests in this TestFileSuite
+		NodeList utfxTests; // utfx:test elements
+
+		testCases = new Vector<XSLTTransformTestCase>(0x4F);
+		Document tdfDoc = parseTdf(filename);
+		utfxTests = tdfDoc.getElementsByTagName("utfx:test");
+
+		// load and set default source builder for this test suite if exits
+		sourceBuilderElement = (Element) xpath.evaluate("/utfx:tests/utfx:source-builder", tdfDoc, XPathConstants.NODE);
+
+		suite = new XSLTTestFileSuite(filename);
+
+		if (sourceBuilderElement != null) {
+			SourceParserFactory sbl = new SourceParserFactory();
+			suite.setDefaultSourceBuilder(sbl.getSourceParser(sourceBuilderElement));
+		}
+
+		suite.setSourcePublicId(xpath.evaluate("/utfx:tests/utfx:source-validation/utfx:dtd/@public", tdfDoc));
+		suite.setSourceSystemId(xpath.evaluate("/utfx:tests/utfx:source-validation/utfx:dtd/@system", tdfDoc));
+		suite.setExpectedPublicId(xpath.evaluate("/utfx:tests/utfx:expected-validation/utfx:dtd/@public", tdfDoc));
+		suite.setExpectedSystemId(xpath.evaluate("/utfx:tests/utfx:expected-validation/utfx:dtd/@system", tdfDoc));
+
+		WrapperStylesheetGenerator wrapperGen = new WrapperStylesheetGenerator(getStylesheetUnderTestURI(tdfDoc));
+
+		for (int i = 0; i < utfxTests.getLength(); i++) {
+			testElement = (Element) utfxTests.item(i);
+
+			Document wrapperDoc = wrapperGen.getWrapper(testElement);
+			Source xsltSource = new DOMSource(wrapperDoc);
+			Transformer transformer;
+			try {
+				transformer = tf.newTransformer(xsltSource);
+			} catch (Exception e) {
+				throw new MalformedStylesheetException(e);
+			}
+
+			testCase = new XSLTTransformTestCase(testElement, suite);
+			testCase.setTransformer(transformer);
+			testCases.add(testCase);
+			suite.addTest(testCase);
+		}
+	}
+
+	/**
+	 * Gets the XSLTTestFileSuite constructed by this assembler.
+	 * 
+	 * @return XSLTTestFileSuite constructed by this assembler.
+	 */
+	public XSLTTestFileSuite getTestSuite() {
+		return suite;
+	}
+
+	/**
+	 * Get the absolute URI of the stylesheet under test. The stylesheet under
+	 * test is retrieved from the TDF file
+	 * 
+	 * @param testDoc
+	 *            the TDF file
+	 * @return The absolute URI of the stylesheet under test
+	 * @throws MalformedURLException
+	 */
+	private String getStylesheetUnderTestURI(Document testDoc) throws MalformedURLException {
+		String xsltFile;
+		File dir = new File(filename).getParentFile().getParentFile();
+
+		try {
+			String xsltFilename = xpath.evaluate("//utfx:stylesheet/@src", testDoc);
+			xsltFile = (new File(dir, xsltFilename).toURL().toExternalForm()).toString();
+		} catch (XPathExpressionException e) {
+			throw new IllegalArgumentException("stylesheet source must be " + "defined in <utfx:stylesheet> element");
+		}
+
+		return xsltFile;
+	}
+
+	/**
+	 * Constructs a DOM document from the TDF filename
+	 * 
 	 * @param tdfFilename
 	 * @return DOM document
-     * @throws IOException 
-     * @throws SAXException 
-     * @throws FileNotFoundException 
+	 * @throws IOException
+	 * @throws SAXException
+	 * @throws FileNotFoundException
 	 */
 	private Document parseTdf(String tdfFilename) throws FileNotFoundException, SAXException, IOException {
-    	return db.parse(new FileInputStream(filename));
+		InputStream is = new FileInputStream(filename);
+		try {
+			return db.parse(is);
+		} finally {
+			is.close();
+		}
 	}
 
 }
