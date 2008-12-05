@@ -2,6 +2,8 @@ package utfx.framework;
 
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.net.MalformedURLException;
 import java.util.Vector;
 
@@ -22,6 +24,7 @@ import org.apache.xml.resolver.tools.CatalogResolver;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
+import org.xml.sax.SAXException;
 
 /**
  * Builds XSLTTestFileSuite from an XML test definition document. The tests
@@ -130,16 +133,15 @@ public class TestFileSuiteAssembler {
         Element testElement;
         XSLTTransformTestCase testCase;
         Vector<XSLTTransformTestCase> testCases; // tests in this TestFileSuite
-        Document testDoc; // test definition document
         NodeList utfxTests; // utfx:test elements
 
         testCases = new Vector<XSLTTransformTestCase>(0x4F);
-        testDoc = db.parse(new FileInputStream(filename));
-        utfxTests = testDoc.getElementsByTagName("utfx:test");
+        Document tdfDoc = parseTdf(filename); 
+        utfxTests = tdfDoc.getElementsByTagName("utfx:test");
 
         // load and set default source builder for this test suite if exits
         sourceBuilderElement = (Element) xpath.evaluate(
-            "/utfx:tests/utfx:source-builder", testDoc, XPathConstants.NODE);
+            "/utfx:tests/utfx:source-builder", tdfDoc, XPathConstants.NODE);
 
         suite = new XSLTTestFileSuite(filename);
 
@@ -150,15 +152,15 @@ public class TestFileSuiteAssembler {
         }
 
         suite.setSourcePublicId(xpath.evaluate(
-            "/utfx:tests/utfx:source-validation/utfx:dtd/@public", testDoc));
+            "/utfx:tests/utfx:source-validation/utfx:dtd/@public", tdfDoc));
         suite.setSourceSystemId(xpath.evaluate(
-            "/utfx:tests/utfx:source-validation/utfx:dtd/@system", testDoc));
+            "/utfx:tests/utfx:source-validation/utfx:dtd/@system", tdfDoc));
         suite.setExpectedPublicId(xpath.evaluate(
-            "/utfx:tests/utfx:expected-validation/utfx:dtd/@public", testDoc));
+            "/utfx:tests/utfx:expected-validation/utfx:dtd/@public", tdfDoc));
         suite.setExpectedSystemId(xpath.evaluate(
-            "/utfx:tests/utfx:expected-validation/utfx:dtd/@system", testDoc));
+            "/utfx:tests/utfx:expected-validation/utfx:dtd/@system", tdfDoc));
 
-        WrapperStylesheetGenerator wrapperGen = new WrapperStylesheetGenerator(getStylesheetUnderTestURI(testDoc));
+        WrapperStylesheetGenerator wrapperGen = new WrapperStylesheetGenerator(getStylesheetUnderTestURI(tdfDoc));
 
         for (int i = 0; i < utfxTests.getLength(); i++) {
             testElement = (Element) utfxTests.item(i);
@@ -179,7 +181,7 @@ public class TestFileSuiteAssembler {
         }
     }
 
-    /**
+	/**
      * Gets the XSLTTestFileSuite constructed by this assembler.
      * 
      * @return XSLTTestFileSuite constructed by this assembler.
@@ -210,4 +212,17 @@ public class TestFileSuiteAssembler {
         
         return xsltFile;
     }
+    
+    /**
+     * Constructs a DOM document from the TDF filename
+	 * @param tdfFilename
+	 * @return DOM document
+     * @throws IOException 
+     * @throws SAXException 
+     * @throws FileNotFoundException 
+	 */
+	private Document parseTdf(String tdfFilename) throws FileNotFoundException, SAXException, IOException {
+    	return db.parse(new FileInputStream(filename));
+	}
+
 }
