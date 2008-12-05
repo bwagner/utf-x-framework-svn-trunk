@@ -19,7 +19,6 @@ import javax.xml.xpath.XPathConstants;
 import javax.xml.xpath.XPathExpressionException;
 import javax.xml.xpath.XPathFactory;
 
-import org.apache.log4j.Logger;
 import org.apache.xml.resolver.tools.CatalogResolver;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
@@ -77,9 +76,6 @@ public class TestFileSuiteAssembler {
     // private DocumentBuilderImpl db;
     private DocumentBuilder db;
 
-    /** log4j logging facility */
-    private Logger log;
-
     //    private DOMImplementationRegistry domRegistry;
     //
     //    private DOMImplementationLS domImplLS;
@@ -100,7 +96,6 @@ public class TestFileSuiteAssembler {
         throws ParserConfigurationException {
         this.filename = filename;
         // DOMParser xercesDomParser;
-        log = Logger.getLogger("utfx.framework");
         xpf = XPathFactory.newInstance();
         xpath = xpf.newXPath();
         xpath.setNamespaceContext(new UTFXNamespaceContext());
