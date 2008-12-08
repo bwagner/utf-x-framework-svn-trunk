@@ -6,7 +6,7 @@ import junit.framework.TestCase;
 import junit.framework.TestSuite;
 
 /**
- * utfx.util.CanonicalForm test class.
+ * utfx.framework.ConfigurationManager test class.
  * 
  * <p>
  * Copyright &copy; 2004 - <a href="http://www.usq.edu.au"> University of
