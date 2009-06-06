@@ -5,6 +5,8 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.StringReader;
+import java.io.StringWriter;
 import java.net.MalformedURLException;
 import java.util.Vector;
 
@@ -21,10 +23,14 @@ import javax.xml.xpath.XPathExpressionException;
 import javax.xml.xpath.XPathFactory;
 
 import org.apache.xml.resolver.tools.CatalogResolver;
+import org.codehaus.plexus.util.xml.XmlStreamReader;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
+import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
+
+import utfx.templateEngine.TemplateEngine;
 
 /**
  * Builds XSLTTestFileSuite from an XML test definition document. The tests
@@ -75,16 +81,7 @@ public class TestFileSuiteAssembler {
 	private DocumentBuilderFactory dbf;
 
 	/** DOM Document builder */
-	// private DocumentBuilderImpl db;
 	private DocumentBuilder db;
-
-	// private DOMImplementationRegistry domRegistry;
-	//
-	// private DOMImplementationLS domImplLS;
-	//
-	// private LSParser lsParser;
-	//
-	// private DOMConfiguration domConfig;
 
 	/**
 	 * Construct a new TestFileSuiteAssembler.
@@ -98,7 +95,6 @@ public class TestFileSuiteAssembler {
 	 */
 	public TestFileSuiteAssembler(String filename) throws ParserConfigurationException {
 		this.filename = filename;
-		// DOMParser xercesDomParser;
 		xpf = XPathFactory.newInstance();
 		xpath = xpf.newXPath();
 		xpath.setNamespaceContext(new UTFXNamespaceContext());
@@ -109,14 +105,6 @@ public class TestFileSuiteAssembler {
 		dbf.setValidating(false);
 		db = dbf.newDocumentBuilder();
 		db.setEntityResolver(new CatalogResolver());
-		// domRegistry = DOMImplementationRegistry.newInstance();
-		// domImplLS = (DOMImplementationLS) domRegistry
-		// .getDOMImplementation("LS");
-		// lsParser = domImplLS.createLSParser(
-		// DOMImplementationLS.MODE_SYNCHRONOUS,
-		// "http://www.w3.org/TR/REC-xml");
-		// domConfig = lsParser.getDomConfig();
-		// domConfig.setParameter("datatype-normalization", false);
 	}
 
 	/**
@@ -198,7 +186,7 @@ public class TestFileSuiteAssembler {
 
 		try {
 			String xsltFilename = xpath.evaluate("//utfx:stylesheet/@src", testDoc);
-			xsltFile = (new File(dir, xsltFilename).toURL().toExternalForm()).toString();
+			xsltFile = new File(dir, xsltFilename).toURI().toURL().toExternalForm();
 		} catch (XPathExpressionException e) {
 			throw new IllegalArgumentException("stylesheet source must be " + "defined in <utfx:stylesheet> element");
 		}
@@ -215,13 +203,36 @@ public class TestFileSuiteAssembler {
 	 * @throws SAXException
 	 * @throws FileNotFoundException
 	 */
-	private Document parseTdf(String tdfFilename) throws FileNotFoundException, SAXException, IOException {
+	private Document parseTdf(String tdfFilename) throws Exception {
 		InputStream is = new FileInputStream(filename);
 		try {
-			return db.parse(is);
+			return db.parse(tdfInputSource(is));
 		} finally {
 			is.close();
 		}
 	}
-
+	
+	/**
+	 * Construct SAX InputSource for TDF. If a templateEngine is configured than evaluate the TDF against the system properties.
+	 * 
+	 * @param is TDF input stream
+	 * @return SAX InputSource
+	 * @throws IOException
+	 * @throws ClassNotFoundException 
+	 * @throws IllegalAccessException 
+	 * @throws InstantiationException 
+	 */
+	private InputSource tdfInputSource(InputStream is) throws Exception {
+		InputSource inputSource;
+		TemplateEngine templateEngine = ConfigurationManager.getInstance().getTemplateEngine();
+		if (templateEngine == null) {
+			inputSource = new InputSource(is);
+		} else {
+			StringWriter output = new StringWriter();
+			templateEngine.evaluate(new XmlStreamReader(is), output, System.getProperties());
+			inputSource = new InputSource(new StringReader(output.toString()));
+		}
+		return inputSource;
+	}
+	
 }

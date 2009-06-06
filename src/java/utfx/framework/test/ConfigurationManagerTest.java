@@ -31,38 +31,79 @@ import junit.framework.TestSuite;
  * </code>
  * 
  * @author Jacek Radajewski
- * @version $Revision$ $Date$ $Name:  $
+ * @version $Revision$ $Date: 2008-12-08 11:16:56 +0100 (Mon, 08 Dec 2008)
+ *          $ $Name: $
  */
 public class ConfigurationManagerTest extends TestCase {
 
-    /**
-     * Constructs a test with a specified name.
-     * 
-     * @param name the test name
-     */
-    public ConfigurationManagerTest(String name) throws Exception {
-        super(name);
-    }
+	private static final String SOURCE_PARSER_KEY = "utfx.source-parser.class";
+	private static final String TEMPLATE_ENGINE_KEY = "utfx.tdf.templateEngine.class";
 
-    /**
-     * Test singleton. Call getInstance() twice and make sure that both
-     * instances are the same; ie are the same singleton.
-     */
-    public void testGetInstance() throws Exception {
-        ConfigurationManager cm1, cm2;
-        cm1 = ConfigurationManager.getInstance();
-        cm2 = ConfigurationManager.getInstance();
+	/**
+	 * Constructs a test with a specified name.
+	 * 
+	 * @param name
+	 *            the test name
+	 */
+	public ConfigurationManagerTest(String name) throws Exception {
+		super(name);
+	}
 
-        assertSame("getInstance() did not return a 'singleton'", cm1, cm2);
-    }
+	/**
+	 * Test singleton. Call getInstance() twice and make sure that both
+	 * instances are the same; i.e. are the same singleton.
+	 */
+	public void testGetInstance() throws Exception {
+		ConfigurationManager cm1, cm2;
+		cm1 = ConfigurationManager.getInstance();
+		cm2 = ConfigurationManager.getInstance();
 
-    /**
-     * Gets a reference to this test suite.
-     * 
-     * @return this test suite.
-     */
-    public static Test suite() {
-        TestSuite suite = new TestSuite(ConfigurationManagerTest.class);
-        return suite;
-    }
+		assertSame("getInstance() did not return a 'singleton'", cm1, cm2);
+	}
+
+	public void testSystemPropertyOverrideUtfxPropertyNotAvailable() throws Exception {
+		assertNull(ConfigurationManager.getInstance().getOverrideProperty("notAvailable"));
+	}
+
+	public void testSystemPropertyOverrideUtfxProperty() throws Exception {
+		assertEquals("utfx.framework.DefaultSourceParser", ConfigurationManager.getInstance().getOverrideProperty(SOURCE_PARSER_KEY));
+	}
+
+	public void testSystemPropertyOverrideSystemProperty() throws Exception {
+		final String value = "isFun";
+		final SystemPropertyRestorer sysProp = new SystemPropertyRestorer(SOURCE_PARSER_KEY, value);
+		assertEquals(value, ConfigurationManager.getInstance().getOverrideProperty(SOURCE_PARSER_KEY));
+		sysProp.restore();
+	}
+
+	public void testGetTemplateEngineNoneConfigured() throws Exception {
+		assertNull(ConfigurationManager.getInstance().getTemplateEngine());
+	}
+
+	public void testGetTemplateEngineWronglyConfigured() throws Exception {
+		final SystemPropertyRestorer sysProp = new SystemPropertyRestorer(TEMPLATE_ENGINE_KEY, "thisIsNoClassAvailableOnTheClassPath");
+		try {
+			ConfigurationManager.getInstance().getTemplateEngine();
+			fail("a exception should have been thrown");
+		} catch (RuntimeException e) {
+			// fine. we expected an exception.
+		}
+		sysProp.restore();
+	}
+
+	public void testGetTemplateEngineCorrectlyConfigured() throws Exception {
+		final SystemPropertyRestorer sysProp = new SystemPropertyRestorer(TEMPLATE_ENGINE_KEY, "utfx.templateEngine.SimpleTemplateEngine");
+		assertNotNull(ConfigurationManager.getInstance().getTemplateEngine());
+		sysProp.restore();
+	}
+
+	/**
+	 * Gets a reference to this test suite.
+	 * 
+	 * @return this test suite.
+	 */
+	public static Test suite() {
+		TestSuite suite = new TestSuite(ConfigurationManagerTest.class);
+		return suite;
+	}
 }

@@ -13,7 +13,7 @@
     <author>Jacek Radajewski</author>
     <author>Alexander Daniel</author>
     <version>Release &utfx-version;</version>
-    <date>26 November 2007</date>
+    <date>05 June 2009</date>
     <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
     <sect1 id="intro">
         <title>Introduction</title>
@@ -191,6 +191,7 @@
                     <code>utfx.result-printer.class</code> and
                     <code>utfx.result-printer.output-file</code> properties in
                 the <code>utfx.properties</code> file for examples.</item>
+            <item>Pluggable template engine for key/value substitution in TDFs.</item>
             <item>Absolute XPath expressions (e.g. <code>select="/tree"</code>)
                 work as expected in the stylesheet under test. Additionally one
                 can set the context node for a test with the

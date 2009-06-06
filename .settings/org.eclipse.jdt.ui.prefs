@@ -1,7 +1,7 @@
-#Sat Jul 29 07:38:35 EST 2006
+#Thu Dec 04 17:42:48 CET 2008
 eclipse.preferences.version=1
-formatter_profile=_UTF-X Project Style
-formatter_settings_version=10
+formatter_profile=_Eclipse with long lines
+formatter_settings_version=11
 org.eclipse.jdt.ui.exception.name=e
 org.eclipse.jdt.ui.gettersetter.use.is=true
 org.eclipse.jdt.ui.javadoc=true
