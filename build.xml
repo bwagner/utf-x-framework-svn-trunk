@@ -10,7 +10,7 @@
 	$HeadURL$
 	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 	
-	Copyright(C) 2004-2006 UTF-X Developers.
+	Copyright(C) 2004-2009 UTF-X Developers.
 	
 	This program is free software; you can redistribute it and/or modify
 	it under the terms of the GNU General Public License v2 as published
@@ -96,14 +96,15 @@
 	<!-- CLASSPATH -->
 	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 	<path id="compile.classpath">
+		<!-- if you change something here manifest Class-Path below must also be adapted -->
 		<pathelement location="${lib}/log4j-1.2.8.jar" />
 		<pathelement location="${lib}/xercesImpl.jar" />
 		<pathelement location="${lib}/xercesSamples.jar" />
 		<pathelement location="${lib}/xalan.jar" />
 		<pathelement location="${lib}/resolver.jar" />
 		<pathelement location="${lib}/junit.jar" />
-		<pathelement location="${lib}/saxon8.jar" />
-		<pathelement location="${lib}/saxon8-dom.jar" />
+		<pathelement location="${lib}/saxon9.jar" />
+		<pathelement location="${lib}/saxon9-dom.jar" />
 		<pathelement location="${lib}/JimiProClasses.zip" />
 		<pathelement location="${lib}/utfxdoc.jar" />
 		<pathelement location="${lib}/plexus-utils-1.5.6.jar" />
@@ -178,7 +179,7 @@
 	<target name="jar" depends="compile">
 		<jar basedir="${classes}" destfile="${utfx.jar}">
 			<manifest>
-				<attribute name="Class-Path" value="../../ ../../lib/avalon.jar ../../lib/fop.jar ../../lib/junit.jar ../../lib/resolver.jar ../../lib/saxon8.jar ../../lib/xercesImpl.jar ../../lib/xml-apis.jar ../../lib/batik.jar ../../lib/JimiProClasses.zip  ../../lib/log4j-1.2.8.jar ../../lib/saxon8-dom.jar ../../lib/xalan.jar ../../lib/xercesSamples.jar" />
+				<attribute name="Class-Path" value="../../ ../../lib/avalon.jar ../../lib/fop.jar ../../lib/junit.jar ../../lib/resolver.jar ../../lib/saxon9.jar ../../lib/xercesImpl.jar ../../lib/xml-apis.jar ../../lib/batik.jar ../../lib/JimiProClasses.zip  ../../lib/log4j-1.2.8.jar ../../lib/saxon9-dom.jar ../../lib/xalan.jar ../../lib/xercesSamples.jar ../../lib/plexus-utils-1.5.6.jar ../../lib/commons-io-1.3.2.jar" />
 			</manifest>
 		</jar>
 		<jar basedir="${src}" destfile="${utfx.jar}" update="true" includes="dtd/**/*" />
@@ -307,17 +308,17 @@
 		</java>
 
 		<xslt style="${utfxdoc}/utfxdoc_xhtml.xsl" in="${build.dir}/doc/manual/manual_pp.xml" out="${build.dir}/doc/manual/manual.html">
-			<classpath location="lib/saxon8.jar" />
+			<classpath location="lib/saxon9.jar" />
 		</xslt>
 		<xslt style="${utfxdoc}/utfxdoc_xhtml.xsl" in="${build.dir}/doc/devguide/devguide_pp.xml" out="${build.dir}/doc/devguide/devguide.html">
-			<classpath location="lib/saxon8.jar" />
+			<classpath location="lib/saxon9.jar" />
 		</xslt>
 
 		<xslt style="${utfxdoc}/utfxdoc_fo.xsl" in="${build.dir}/doc/manual/manual_pp.xml" out="${build.dir}/doc/manual/manual.fo">
-			<classpath location="lib/saxon8.jar" />
+			<classpath location="lib/saxon9.jar" />
 		</xslt>
 		<xslt style="${utfxdoc}/utfxdoc_fo.xsl" in="${build.dir}/doc/devguide/devguide_pp.xml" out="${build.dir}/doc/devguide/devguide.fo">
-			<classpath location="lib/saxon8.jar" />
+			<classpath location="lib/saxon9.jar" />
 			<xmlcatalog refid="catalog" />
 		</xslt>
 

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--
+	<!--
 	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 	$Id$
 	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -20,8 +20,7 @@
 	General Public License for more details.
 	
 	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
--->	
-<!DOCTYPE utfx:tests PUBLIC "-//UTF-X//DTD utfx-tests 1.0//EN" "utfx_tests.dtd">
+-->
 <utfx:tests xmlns:utfx="http://utfx.org/test-definition">
 	<utfx:stylesheet src="xslt_2_0_tests.xsl"/>
 
@@ -48,4 +47,20 @@
 			<utfx:message>this failed-test-message is optional</utfx:message>
 		</utfx:assert-equal>
 	</utfx:test>
+
+	<utfx:test>
+		<utfx:name>xs:dayTimeDuration('-PT7H') does work with Saxon 9 but not with Saxon 8</utfx:name>
+		<!-- in Saxon 8 following exception is thrown:
+			   XPST0017: XPath syntax error at char 27 on line 69 in {xs:dayTimeDuration('-PT7H')}:
+     		   Unknown constructor function: {http://www.w3.org/2001/XMLSchema}dayTimeDuration
+		-->
+		<utfx:call-template name="constructDayTimeDuration"/>
+		<utfx:assert-equal>
+			<utfx:source>
+				<empty/>
+			</utfx:source>
+			<utfx:expected>-PT7H</utfx:expected>
+		</utfx:assert-equal>
+	</utfx:test>
+
 </utfx:tests>

@@ -23,16 +23,11 @@
 -->
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="2.0">
 
-    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <!-- root template -->
-    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
     <xsl:template match="/">
         <xsl:apply-templates/>
         <xsl:call-template name="xpath-on-result-tree-fragment"/>
     </xsl:template>
-    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <!-- root template -->
-    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+
     <xsl:template name="xpath-on-result-tree-fragment">
         <xsl:variable name="tree">
             <tree>
@@ -52,9 +47,7 @@
             <xsl:with-param name="tree-summary" select="$tree"/>
         </xsl:call-template>
     </xsl:template>
-    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <!-- root template -->
-    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+
     <xsl:template name="print-tree">
         <xsl:param name="tree-summary"/>
         <tree-summary>
@@ -71,4 +64,9 @@
             </xsl:for-each>
         </tree-summary>
     </xsl:template>
+    
+    <xsl:template name="constructDayTimeDuration" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    	<xsl:value-of select="xs:dayTimeDuration('-PT7H')"/>
+    </xsl:template>
+    
 </xsl:stylesheet>

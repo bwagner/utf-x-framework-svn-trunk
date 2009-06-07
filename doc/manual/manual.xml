@@ -201,8 +201,8 @@
                 will recurse infinitly.</item>
             <item>Pluggable XSLT engines. This is achieved by setting standard
                 JAXP <code>javax.xml.transform.TransformerFactory</code>
-                property. UTF-X &utfx-version; has been tested with Saxon
-                8.7 and Apache Xalan 2.6.0 Interpretive processor. JDK 5.0
+                property. UTF-X &utfx-version; has been tested with Saxon-B
+                9.1.0.6 and Apache Xalan 2.6.0 Interpretive processor. JDK 5.0
                 internal Xalan XSLTC and Apache Xalan 2.6.0 XSLTC have been
                 tested as well and everything works fine but absolute XPath
                 expressions because of <link

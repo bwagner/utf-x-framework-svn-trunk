@@ -68,7 +68,7 @@ public class TestsRegressionTest extends TestCase {
                 "org.apache.xalan.processor.TransformerFactoryImpl");
         suite.addTest(XSLTRegressionTest.suite());
 
-        // tests that require xslt 2.0 processor are only ran with Saxon8
+        // tests that require xslt 2.0 processor are only ran with Saxon
         System.setProperty("utfx.test.dir", "tests/good/xslt_2_0");
 
         System.setProperty("javax.xml.transform.TransformerFactory",
