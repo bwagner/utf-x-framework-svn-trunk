@@ -1,12 +1,14 @@
 package utfx.framework;
 
 import java.io.InputStream;
+import java.io.Reader;
 
 import javax.xml.transform.Source;
 import javax.xml.transform.sax.SAXSource;
 
 import org.apache.xml.resolver.tools.CatalogResolver;
 import org.xml.sax.InputSource;
+import org.xml.sax.SAXException;
 import org.xml.sax.XMLReader;
 import org.xml.sax.helpers.XMLReaderFactory;
 
@@ -37,33 +39,34 @@ import org.xml.sax.helpers.XMLReaderFactory;
  * </code>
  * 
  * @author Jacek Radajewski
- * @version $Revision$ $Date$ $Name:  $
+ * @version $Revision$ $Date: 2006-11-18 01:40:44 +0100 (Sat, 18 Nov 2006)
+ *          $ $Name: $
  */
 public class DefaultSourceParser implements SourceParser {
 
-    /**
-     * create a new DefaultSourceParser
-     */
-    public DefaultSourceParser() {
-        super();
-    }
+	/**
+	 * create a new DefaultSourceParser
+	 */
+	public DefaultSourceParser() {
+		super();
+	}
 
-    /**
-     * @see utfx.framework.SourceParser#getSource(java.io.InputStream)
-     */
-    public Source getSource(InputStream inStream) throws Exception {
-        InputSource inSource;
-        SAXSource saxSource;
-        XMLReader xmlReader;
-        CatalogResolver cr;
+	/**
+	 * @see utfx.framework.SourceParser#getSource(java.io.InputStream)
+	 */
+	public Source getSource(InputStream inStream) throws Exception {
+		return new SAXSource(xmlReader(), new InputSource(inStream));
+	}
 
-        cr = new CatalogResolver();
-        xmlReader = XMLReaderFactory.createXMLReader();
-        xmlReader.setEntityResolver(cr);
-        inSource = new InputSource(inStream);
-        saxSource = new SAXSource(xmlReader, inSource);
+	public Source getSource(Reader inReader) throws Exception {
+		return new SAXSource(xmlReader(), new InputSource(inReader));
+	}
 
-        return saxSource;
-    }
+	private XMLReader xmlReader() throws SAXException {
+		XMLReader xmlReader;
+		xmlReader = XMLReaderFactory.createXMLReader();
+		xmlReader.setEntityResolver(new CatalogResolver());
+		return xmlReader;
+	}
 
 }

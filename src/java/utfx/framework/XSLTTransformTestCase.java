@@ -4,6 +4,7 @@ import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.StringReader;
 import java.lang.reflect.InvocationTargetException;
 import java.net.URISyntaxException;
 
@@ -366,12 +367,13 @@ public class XSLTTransformTestCase extends UTFXTestCase {
         }
 
         // set transformSource
-        ByteArrayInputStream sourceStream = new ByteArrayInputStream(sourceString.getBytes());
         if (useSourceParser) {
+        	ByteArrayInputStream sourceStream = new ByteArrayInputStream(sourceString.getBytes());
             transformSource = sourceBuilder.getSource(sourceStream);
         } else {
             DefaultSourceParser defaultSourceParser = new DefaultSourceParser();
-            transformSource = defaultSourceParser.getSource(sourceStream);
+            // fixing https://utf-x.dev.java.net/issues/show_bug.cgi?id=74 - Two-byte UTF-8 characters in TDFs
+            transformSource = defaultSourceParser.getSource(new StringReader(sourceString));
         }
     }
 
