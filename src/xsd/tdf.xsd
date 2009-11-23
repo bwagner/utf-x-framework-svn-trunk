@@ -261,6 +261,7 @@
       </xs:simpleType>
     </xs:attribute>
     <xs:attribute default="preserve" ref="xml:space"/>
+    <xs:attribute name="href" type="xs:anyURI" use="optional"/>
   </xs:attributeGroup>
 
   <xs:element name="message" type="xs:string"/>
