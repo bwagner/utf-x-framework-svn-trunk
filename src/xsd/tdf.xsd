@@ -238,6 +238,7 @@
 
     <xs:attribute name="context-node" use="optional"/>
     <xs:attribute name="select" type="xs:string" use="optional"/>
+    <xs:attribute name="href" type="xs:anyURI" use="optional"/>
   </xs:attributeGroup>
 
   <xs:element name="expected">
