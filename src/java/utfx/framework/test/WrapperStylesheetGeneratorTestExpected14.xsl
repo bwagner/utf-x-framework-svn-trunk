@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-  $Id$
+  $Id: WrapperStylesheetGeneratorTestExpected14.xsl 67 2006-11-18 00:40:44Z jacekrad $
   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   Purpose: Expected XML file for WrapperStylesheetGeneratorTest
   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -25,10 +25,10 @@
       <xsl:variable name="utfx-wrapper-removed">
         <xsl:copy-of select="/utfx-wrapper/child::node()"/>
       </xsl:variable>
-      <xsl:for-each select="exsl:node-set($utfx-wrapper-removed)">
+      <xsl:for-each select="$utfx-wrapper-removed">
         <xsl:call-template name="absolute-and-relative-copy-of"/>
       </xsl:for-each>
-      <xsl:apply-templates select="exsl:node-set($utfx-wrapper-removed)/*[position() > 1]"/>
+      <xsl:apply-templates select="$utfx-wrapper-removed/*[position() > 1]"/>
     </utfx-wrapper>
   </xsl:template>
 </xsl:stylesheet>

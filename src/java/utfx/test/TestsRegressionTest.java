@@ -27,7 +27,7 @@ import junit.framework.TestSuite;
  * </code>
  * 
  * @author Jacek Radajewski
- * @version $Revision$ $Date$ $Name:  $
+ * @version $Revision: 490 $ $Date: 2009-06-07 22:51:54 +0200 (Sun, 07 Jun 2009) $ $Name:  $
  */
 public class TestsRegressionTest extends TestCase {
 
@@ -52,20 +52,7 @@ public class TestsRegressionTest extends TestCase {
         System.setProperty("utfx.test.dir", "tests/good/xslt_1_0");
 
         System.setProperty("javax.xml.transform.TransformerFactory",
-                "com.sun.org.apache.xalan.internal."
-                        + "xsltc.trax.TransformerFactoryImpl");
-        suite.addTest(XSLTRegressionTest.suite());
-
-        System.setProperty("javax.xml.transform.TransformerFactory",
-                "org.apache.xalan.xsltc.trax.TransformerFactoryImpl");
-        suite.addTest(XSLTRegressionTest.suite());
-
-        System.setProperty("javax.xml.transform.TransformerFactory",
                 "net.sf.saxon.TransformerFactoryImpl");
-        suite.addTest(XSLTRegressionTest.suite());
-
-        System.setProperty("javax.xml.transform.TransformerFactory",
-                "org.apache.xalan.processor.TransformerFactoryImpl");
         suite.addTest(XSLTRegressionTest.suite());
 
         // tests that require xslt 2.0 processor are only ran with Saxon

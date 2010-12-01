@@ -27,7 +27,7 @@ import junit.framework.TestSuite;
  * </code>
  * 
  * @author Jacek Radajewski
- * @version $Revision$ $Date$ $Name:  $
+ * @version $Revision: 67 $ $Date: 2006-11-18 01:40:44 +0100 (Sat, 18 Nov 2006) $ $Name:  $
  */
 public class SamplesRegressionTest extends TestCase {
 
@@ -52,20 +52,7 @@ public class SamplesRegressionTest extends TestCase {
         System.setProperty("utfx.test.dir", "./samples/");
 
         System.setProperty("javax.xml.transform.TransformerFactory",
-                "com.sun.org.apache.xalan.internal."
-                        + "xsltc.trax.TransformerFactoryImpl");
-        suite.addTest(XSLTRegressionTest.suite());
-
-        System.setProperty("javax.xml.transform.TransformerFactory",
-                "org.apache.xalan.xsltc.trax.TransformerFactoryImpl");
-        suite.addTest(XSLTRegressionTest.suite());
-
-        System.setProperty("javax.xml.transform.TransformerFactory",
                 "net.sf.saxon.TransformerFactoryImpl");
-        suite.addTest(XSLTRegressionTest.suite());
-
-        System.setProperty("javax.xml.transform.TransformerFactory",
-                "org.apache.xalan.processor.TransformerFactoryImpl");
         suite.addTest(XSLTRegressionTest.suite());
 
         return suite;

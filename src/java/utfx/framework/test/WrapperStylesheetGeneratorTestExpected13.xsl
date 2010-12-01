@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-  $Id$
+  $Id: WrapperStylesheetGeneratorTestExpected13.xsl 67 2006-11-18 00:40:44Z jacekrad $
   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   Purpose: Expected XML file for WrapperStylesheetGeneratorTest
   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -25,7 +25,7 @@
       <xsl:variable name="utfx-wrapper-removed">
         <xsl:copy-of select="/utfx-wrapper/child::node()"/>
       </xsl:variable>
-      <xsl:apply-templates select="exsl:node-set($utfx-wrapper-removed)/tree/trunk/branch"/>
+      <xsl:apply-templates select="$utfx-wrapper-removed/tree/trunk/branch"/>
     </utfx-wrapper>
   </xsl:template>
 </xsl:stylesheet>

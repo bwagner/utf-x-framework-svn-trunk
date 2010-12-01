@@ -26,7 +26,7 @@ import junit.framework.TestSuite;
  * </code>
  * 
  * @author Jacek Radajewski
- * @version $Revision$ $Date$ $Name:  $
+ * @version $Revision: 67 $ $Date: 2006-11-18 01:40:44 +0100 (Sat, 18 Nov 2006) $ $Name:  $
  */
 public class FullRegressionTest extends TestCase {
 
@@ -43,7 +43,7 @@ public class FullRegressionTest extends TestCase {
     public static Test suite() {
         TestSuite suite = new TestSuite("UTF-X full regression test.");
 
-        suite.addTest(JavaRegressionTest.suite());
+//        suite.addTest(JavaRegressionTest.suite());
         suite.addTest(SamplesRegressionTest.suite());
         suite.addTest(TestsRegressionTest.suite());
 

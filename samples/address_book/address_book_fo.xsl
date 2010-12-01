@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
- $Id$
+ $Id: address_book_fo.xsl 67 2006-11-18 00:40:44Z jacekrad $
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 	
  Purpose: address book sample xhtml stylesheet
@@ -208,7 +208,7 @@
   <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
   <xsl:template name="telephone-number">
     <xsl:param name="telephone-number"/>
-    <xsl:variable name="telephone-number-nodeset" select="exsl:node-set($telephone-number)"/>
+    <xsl:variable name="telephone-number-nodeset" select="$telephone-number"/>
     <fo:block>
       <xsl:choose>
         <xsl:when test="$telephone-number-nodeset/area-code">

@@ -43,7 +43,7 @@ import org.w3c.dom.NodeList;
  * </code>
  * 
  * @author Alex Daniel
- * @version $Revision$ $Date$ $Name:  $
+ * @version $Revision: 67 $ $Date: 2006-11-18 01:40:44 +0100 (Sat, 18 Nov 2006) $ $Name:  $
  */
 public class WrapperStylesheetGenerator {
     /** XPath factory */
@@ -219,7 +219,7 @@ public class WrapperStylesheetGenerator {
      * Adds XSLT-elements for apply-templates to wrapperDoc
      * 
      * creates the element <xsl:apply-templates
-     * select="exsl:node-set($utfx-wrapper-removed)/child::node()"/> and appends
+     * select="$utfx-wrapper-removed/child::node()"/> and appends
      * it to utfxWrapperElement
      * 
      * @param wrapperDoc
@@ -231,12 +231,12 @@ public class WrapperStylesheetGenerator {
             Element utfxWrapperElement, String sourceContextNode) {
         // compose select expression for xsl:apply-templates
         StringBuffer selectExpression = new StringBuffer(
-                "exsl:node-set($utfx-wrapper-removed)");
+                "$utfx-wrapper-removed");
         if (sourceContextNode.length() == 0) {
             selectExpression.append("/child::node()");
         } else if (sourceContextNode.equals("/")) {
             log.error("when using context-node=\"/\" for template match an infinite recursion will happen");
-            // adding a slash to exsl:node-set($utfx-wrapper-removed) would
+            // adding a slash to $utfx-wrapper-removed would
             // result in an invalid XPath expression. therefore we don't add
             // anything
         } else {
@@ -254,10 +254,10 @@ public class WrapperStylesheetGenerator {
      * Adds XSLT-elements for calling a named template to wrapperDoc
      * 
      * Following elements are added to utfxWrapperElement as childs
-     * <xsl:for-each select="exsl:node-set($utfx-wrapper-removed)/*[1]"> or
+     * <xsl:for-each select="$utfx-wrapper-removed/*[1]"> or
      * context-node attribute <xsl:call-template name="NAME OF TEMPLATE"/>
      * </xsl:for-each> <xsl:apply-templates
-     * select="exsl:node-set($utfx-wrapper-removed)/*[position() > 1]"/>
+     * select="$utfx-wrapper-removed/*[position() > 1]"/>
      * 
      * @param wrapperDoc
      *            DOM Document representing the UTF-X test definition file
@@ -280,11 +280,11 @@ public class WrapperStylesheetGenerator {
 
         // compose select expression for xsl:for-each
         StringBuffer selectExpression = new StringBuffer(
-                "exsl:node-set($utfx-wrapper-removed)");
+                "$utfx-wrapper-removed");
         if (sourceContextNode.length() == 0) {
             selectExpression.append("/*[1]");
         } else if (sourceContextNode.equals("/")) {
-            // adding a slash to exsl:node-set($utfx-wrapper-removed) would
+            // adding a slash to $utfx-wrapper-removed would
             // result in an invalid XPath expression. therefore we don't add
             // anything
         } else {
@@ -299,7 +299,7 @@ public class WrapperStylesheetGenerator {
         Element xslApplyTemplates = wrapperDoc.createElementNS(
                 UTFXNamespaceContext.XSL_NS_URI, "xsl:apply-templates");
         xslApplyTemplates.setAttribute("select",
-                "exsl:node-set($utfx-wrapper-removed)/*[position() > 1]");
+                "$utfx-wrapper-removed/*[position() > 1]");
 
         utfxWrapperElement.appendChild(xslForEach);
         utfxWrapperElement.appendChild(xslApplyTemplates);
