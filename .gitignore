@@ -1,0 +1,8 @@
+/build
+/dist
+/rendered_samples
+/report.html
+rt_output.log
+/utfx_log.xml
+utfx-test-results.xml
+*~
