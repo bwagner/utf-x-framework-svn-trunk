@@ -1,7 +1,5 @@
 #
 # TODO: how to repackage saxon9he with RSA, etc. in the single jar
-# TODO: create a jar target for the Factory! Currently putting "bin"
-#       into the classpath. This is not deployable!
 # TODO: TransformerFactoryImpl not found when using the -jar call. See:
 # http://stackoverflow.com/questions/2018257/how-to-combine-library-with-my-jar
 # Quoting above:
