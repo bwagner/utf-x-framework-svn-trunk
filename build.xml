@@ -61,6 +61,7 @@
 	<property name="classes" location="${build.dir}/classes" />
 	<property name="jars" location="${build.dir}/jar" />
 	<property name="utfx.jar" location="${jars}/utfx.jar" />
+	<property name="utfxFat.jar" location="${jars}/utfxFat.jar" />
 	<property name="javadoc" location="${build.dir}/javadoc" />
 	<property name="rendered.samples.dir" location="${build.dir}/rendered_samples" />
 	<property name="testgen.dir" location="testgen" />
@@ -189,6 +190,34 @@
 		<jar basedir="${java_src}" destfile="${utfx.jar}" update="true" includes="**/*.xml" />
 		<jar basedir="${java_src}" destfile="${utfx.jar}" update="true" includes="**/*.xsl" />
 		<jar basedir="." destfile="${utfx.jar}" update="true" includes="samples/**/*" />
+	</target>
+
+	<!-- target to package as many jars into a single fat jar -->
+	<target name="fatjar" depends="jar">
+		<property name="tmp" location="tmp"/>
+		<delete dir="${tmp}"/>
+		<mkdir dir="${tmp}"/>
+
+		<unjar dest="${tmp}">
+			<fileset dir="${lib}">
+				<include name="*.jar"/>
+				<!-- once we learn how to repackage the signed saxon jar -->
+				<!-- we no longer need to exclude it from the fat jar. -->
+				<exclude name="saxon9he.jar"/>
+			</fileset>
+		</unjar>
+
+		<unjar src="${utfx.jar}" dest="${tmp}"/>
+
+    <delete dir="${tmp}" includes="**/manifest.txt,**/MANIFEST.MF"/>
+		<jar jarfile="${utfxFat.jar}" basedir="${tmp}" >
+			<manifest>
+				<attribute name="Main-Class" value="${testrunner}"/>
+			</manifest>
+		</jar>
+
+		<delete dir="${tmp}"/>
+
 	</target>
 
 	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
