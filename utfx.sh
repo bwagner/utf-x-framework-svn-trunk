@@ -11,9 +11,7 @@ SAXON=lib/saxon9he.jar
 THIRD_PARTY_JARS=
 TRANSFORM_FACTORY= #-Djavax.xml.transform.TransformerFactory=...
 UTFX_FAT=build/jar/utfxFat.jar
-UTFX=.:$UTFX_FAT
-CLASSES=bin
-PRGNAME=$0
+UTFX=.:$UTFX_FAT # adding '.' so utfx.properties and log4j.properties are found.
 
 if [ ! -e $UTFX_FAT ] ; then
 	cat <<END
@@ -32,9 +30,9 @@ if [ $# = 0 ] ; then
 	cat <<END
 
 please pass utfx test, either:
-$PRGNAME -Dutfx.test.file=samples/history/test/history_xhtml_test.xml
+$0 -Dutfx.test.file=samples/history/test/history_xhtml_test.xml
 or:
-$PRGNAME -Dutfx.test.dir=samples/history
+$0 -Dutfx.test.dir=samples/history
 
 END
 	exit 2
@@ -43,5 +41,5 @@ fi
 java \
 	$TRANSFORM_FACTORY \
 	"$@" \
-	-cp $SAXON:$THIRD_PARTY_JARS:$CLASSES:$UTFX \
+	-cp $SAXON:$THIRD_PARTY_JARS:$UTFX \
 	 utfx.runner.TestRunner utfx.framework.XSLTRegressionTest

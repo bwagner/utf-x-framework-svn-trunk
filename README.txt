@@ -1,6 +1,6 @@
-For pragmatic reasons this is a quick & dirty resurrection of the utf-x framework.
-The original developers have responded to our requests but unfortunately for the
-moment are too busy with other things.
+For pragmatic reasons this is a quick & dirty resurrection of the utf-x
+framework. The original developers have responded to our requests but
+unfortunately for the moment are too busy with other things.
 
 I've done a minimalistic port to xslt2.0 (saxon9he), 
 based on the svn trunk. 
@@ -11,6 +11,9 @@ according to Michael Kay's post:
 http://sourceforge.net/tracker/index.php?func=detail&aid=2849653&group_id=29872&atid=397617
 Additional changes were kindly provided by one of the original developers,
 Alexander Daniel, which were necessary to pass the tests in the svn trunk.
+
+After building the project you can use the script utfx.sh to run your own
+tests, possibly adapting some environment variables in the script.
 
 
 Here's the original utf-x README contents:
