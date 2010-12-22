@@ -7,7 +7,6 @@
 #   executable, and both the java "-cp" flag and the CLASSPATH environment
 #   variable are ignored.
 
-set -x
 DIR=`dirname $0`
 
 SAXON=$DIR/lib/saxon9he.jar
