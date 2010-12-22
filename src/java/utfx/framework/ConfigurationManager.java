@@ -1,6 +1,5 @@
 package utfx.framework;
 
-import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.FilenameFilter;
@@ -49,16 +48,16 @@ public class ConfigurationManager {
 	private static final String propertiesFilename = "utfx.properties";
 
 	/** singleton instance of the ConfigurationManager */
-	private static ConfigurationManager instance;
+	private static final ConfigurationManager instance;
 
 	/** UTF-X properties */
-	private Properties utfxProperties;
+	private final Properties utfxProperties;
 
 	/** logger */
-	private Logger log;
+	private final Logger log;
 
 	/** operating system * */
-	private String osName;
+	private final String osName;
 
 	/**
 	 * create the singleton instance of the ConfigurationManager and load
@@ -81,7 +80,7 @@ public class ConfigurationManager {
 
 		InputStream is = null;
 		try {
-			is = new FileInputStream(propertiesFilename);
+			is = getClass().getClassLoader().getResourceAsStream(propertiesFilename);
 			utfxProperties.load(is);
 		} catch (Exception e) {
 			log.error("Problem loading '" + propertiesFilename + "' ", e);

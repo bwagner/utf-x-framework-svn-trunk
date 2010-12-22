@@ -7,10 +7,13 @@
 #   executable, and both the java "-cp" flag and the CLASSPATH environment
 #   variable are ignored.
 
-SAXON=lib/saxon9he.jar
+set -x
+DIR=`dirname $0`
+
+SAXON=$DIR/lib/saxon9he.jar
 THIRD_PARTY_JARS=
 TRANSFORM_FACTORY= #-Djavax.xml.transform.TransformerFactory=...
-UTFX_FAT=build/jar/utfxFat.jar
+UTFX_FAT=$DIR/build/jar/utfxFat.jar
 UTFX=.:$UTFX_FAT # adding '.' so utfx.properties and log4j.properties are found.
 
 if [ ! -e $UTFX_FAT ] ; then
@@ -30,16 +33,17 @@ if [ $# = 0 ] ; then
 	cat <<END
 
 please pass utfx test, either:
-$0 -Dutfx.test.file=samples/history/test/history_xhtml_test.xml
+$0 -Dutfx.test.file=$DIR/samples/history/test/history_xhtml_test.xml
 or:
-$0 -Dutfx.test.dir=samples/history
+$0 -Dutfx.test.dir=$DIR/samples/history
 
 END
 	exit 2
 fi
 
 java \
+	-Dlog4j.configuration=file:$DIR/log4j.properties \
 	$TRANSFORM_FACTORY \
 	"$@" \
-	-cp $SAXON:$THIRD_PARTY_JARS:$UTFX \
+	-cp $DIR:$SAXON:$THIRD_PARTY_JARS:$UTFX \
 	 utfx.runner.TestRunner utfx.framework.XSLTRegressionTest
