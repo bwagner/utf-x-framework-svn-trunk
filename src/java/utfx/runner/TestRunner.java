@@ -216,8 +216,8 @@ public class TestRunner extends BaseTestRunner {
             }            
         } else {
             try {
-                log.debug("Attempting to open firefox browser");
-                p = r.exec("firefox " + reportFilename);
+                log.debug("Attempting to open default browser");
+                p = r.exec("see " + reportFilename);
             } catch (Exception e) {
                 try {
                     log.debug("Attempting to open mozilla browser");
